@@ -1,0 +1,4 @@
+/* Optional webfonts used by the libui tokens (--libui-font-sans / -mono).
+   Skip this file to use the system-font fallbacks, or to self-host fonts. */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/source-code-pro";

@@ -1,0 +1,105 @@
+{
+  "name": "libui",
+  "version": "0.1.0",
+  "description": "libui — a general-purpose React design system (tokens, primitives, patterns, layout) built on Radix UI, Tailwind CSS v4 and shadcn/ui conventions.",
+  "type": "module",
+  "license": "MIT",
+  "author": "B.ROGER",
+  "homepage": "https://github.com/Carter2307/libui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carter2307/libui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Carter2307/libui/issues"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "AGENTS.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./tokens.css": "./dist/styles/tokens.css",
+    "./theme.css": "./dist/styles/theme.css",
+    "./fonts.css": "./dist/styles/fonts.css",
+    "./styles.css": "./dist/styles/styles.css",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o storybook-static",
+    "build": "rm -rf dist && vite build --config vite.lib.config.ts && tsc -p tsconfig.build.json && node scripts/add-dts-extensions.mjs && node scripts/copy-styles.mjs && tailwindcss -i src/styles/standalone.css -o dist/styles/styles.css --minify",
+    "prepack": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:docs": "node scripts/check-docs-snippets.mjs",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run check:docs"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/source-code-pro": "^5.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "lucide-react": "^1.48.0",
+    "radix-ui": "^1.6.7",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.7.0",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/addon-themes": "^10.6.1",
+    "@storybook/react-vite": "^10.6.1",
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^24.19.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "eslint-plugin-storybook": "^10.6.1",
+    "globals": "^17.12.0",
+    "jsdom": "^29.1.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "storybook": "^10.6.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.70.1",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2"
+  }
+}

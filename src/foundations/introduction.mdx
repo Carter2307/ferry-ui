@@ -1,0 +1,243 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Introduction" />
+
+# libui
+
+libui is a React design system for dense product interfaces: dashboards, admin consoles, settings
+pages, data tables and developer tools. It ships design tokens, accessible primitives built on
+[Radix UI](https://www.radix-ui.com), higher-level patterns and application-shell layout pieces, all
+styled with Tailwind CSS v4 and following the [shadcn/ui](https://ui.shadcn.com) conventions
+(`cn()`, `cva` variants, `data-slot` attributes, `asChild`).
+
+It is written for two audiences: the people building product screens, and the AI coding agents
+working next to them. Every component, prop and hook carries a short JSDoc that says what it is,
+when to use it and when not to — the same text you read in the Docs tab of each story.
+
+## Design principles
+
+- **Dense, calm product UI.** Small type (13px for most UI copy, 14px body), compact controls (30px
+  buttons, 34px fields), generous whitespace between sections rather than inside rows. Color is
+  reserved for meaning.
+- **Hairline borders over shadows.** Structure comes from 1px borders in three strengths
+  (`border`, `border-strong`, `border-stronger`). Shadows are almost invisible on resting cards and
+  only get real depth on things that float (menus, popovers, dialogs).
+- **Two radii that encode role.** 6px for controls (buttons, inputs, navigation items), 8px for
+  containers (cards, tables, popovers, dialogs). Rows nested in a padded menu use 5px, tiny chips 4px,
+  pills and avatars full.
+- **Uppercase mono micro-labels.** The signature caption — `mono-label` (or the `MonoLabel`
+  component), 11.5px uppercase monospace — labels cards, table columns, metrics and key/value pairs.
+- **One primary action per view.** The solid `primary` button is for the single main action of a
+  page, dialog or card; everything else uses `default`, `outline` or `ghost`.
+- **Hierarchy through size and ink, not weight.** Only weights 400 and 500 are used; text steps
+  down from `foreground` to `foreground-muted`.
+- **Light and dark via one class.** Every color is a CSS variable; `class="dark"` on `<html>` swaps
+  the whole palette. Components never branch on the theme.
+- **Router and state agnostic.** No global store and no router dependency: components are
+  controlled through props (`value` / `onValueChange`, `open` / `onOpenChange`, or `default*` for
+  uncontrolled use) and links go through a pluggable link component.
+
+## Installation
+
+```sh
+npm install libui
+```
+
+Before the package is published, install a tarball built from a checkout: `npm pack` in the libui
+folder (it runs the build), then `npm install ../libui/libui-0.1.0.tgz` in your app.
+
+Peer dependencies: `react` and `react-dom` 19 (components take `ref` as a regular prop), and
+`tailwindcss` 4.1+ only if you use `libui/theme.css`. Radix UI, lucide-react, cmdk, sonner and the
+class helpers come along as regular dependencies.
+
+Everything is imported from the package root (`import { Button } from "libui"`); deep imports into
+`libui/dist` are not part of the API. The package is ESM-only and tree-shakeable (one module per
+component). With React Server Components, every component and hook module is marked
+`"use client"`, while the plain helpers (`cn`, `getErrorMessage`, `themeInitScript`,
+`rowLinkProps`, `isMac` / `modKey`) stay callable on the server. The variant helpers
+(`buttonVariants`, `badgeVariants`…) live in client modules: call them from client components only.
+
+## CSS setup
+
+### Apps using Tailwind CSS v4 (recommended)
+
+Import the theme in your main stylesheet. It maps the tokens onto Tailwind theme names, enables the
+class-based `dark` variant, adds the custom utilities and registers libui's components as a Tailwind
+source so their classes are generated.
+
+```css
+@import "tailwindcss";
+@import "libui/fonts.css"; /* optional: Inter + Source Code Pro webfonts */
+@import "libui/theme.css";
+```
+
+You can then use the same tokens in your own code: `bg-surface-100`, `text-foreground-light`,
+`border-border-strong`, `bg-primary-solid`, `rounded-lg`, `shadow-card`, `mono-label`…
+
+If your project folder is not a git repository, add a `.gitignore` listing your build output:
+Tailwind relies on it to skip generated files when it looks for class names.
+
+### Apps without Tailwind
+
+Import the precompiled stylesheet once, at the root of the app. It contains the Tailwind preflight,
+the tokens and every utility the components use.
+
+```ts
+import "libui/styles.css";
+import "libui/fonts.css"; // optional
+```
+
+Only need the variables (another framework, emails, a marketing site)? `libui/tokens.css` is plain
+CSS custom properties with no Tailwind dependency.
+
+### Fonts
+
+`libui/fonts.css` loads Inter and Source Code Pro as variable fonts from the bundled `@fontsource`
+packages. Skip it to use the system fallbacks, or load your own typefaces and override
+`--libui-font-sans` / `--libui-font-mono`.
+
+## App setup
+
+Mount the providers once, at the root of the app:
+
+```tsx
+import type { ReactNode } from "react";
+import { Link } from "react-router";
+import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from "libui";
+
+// Module level, so the adapter keeps the same identity between renders.
+const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />;
+
+export function Providers({ children }: { children: ReactNode }) {
+  return (
+    <ThemeProvider defaultTheme="system">
+      <LinkProvider component={RouterLink}>
+        <TooltipProvider>
+          {children}
+          <Toaster />
+        </TooltipProvider>
+      </LinkProvider>
+    </ThemeProvider>
+  );
+}
+```
+
+- **`ThemeProvider`** toggles the `dark` class on `<html>`, persists the preference in
+  localStorage (`storageKey`, default `libui-theme`, `null` to disable) and exposes it through
+  `useTheme()` → `{ theme, resolvedTheme, setTheme }`. Pass `theme` + `onThemeChange` to control it
+  yourself. `ThemeMenu` (Layout) is a ready-made light / dark / system picker wired to it.
+- **`themeInitScript()`** returns an inline script for `<head>` that applies the stored theme before
+  the first paint, so there is no flash of the wrong theme. Pass it the same `storageKey` and
+  `defaultTheme` as the provider. It only builds a string, so it can run in a server component:
+
+  ```tsx
+  import type { ReactNode } from "react";
+  import { themeInitScript } from "libui";
+
+  export function Document({ children }: { children: ReactNode }) {
+    return (
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />
+        </head>
+        <body>{children}</body>
+      </html>
+    );
+  }
+  ```
+
+- **`TooltipProvider`** is required once above every `Tooltip` / `Hint` and above the components
+  that show tooltips (copy buttons, icon rail, top-bar icon buttons…); **`Toaster`** is the outlet
+  for `toast()` calls (also used by `useCopy` to report clipboard failures).
+
+## Links and routers
+
+libui never imports a router. Components that render links (navigation, cards, breadcrumbs, command
+items) take an `href` string and ask `useLinkComponent()` for the link to render — a plain `<a>` by
+default. Plug your router in once with `LinkProvider`, or pass `linkComponent` to a single component
+(the prop wins over the provider). The adapter receives `href` plus the usual anchor props and must
+forward them all; define it once at module level so it keeps the same identity between renders.
+
+```tsx
+import NextLink from "next/link";
+import { Link as TanStackLink } from "@tanstack/react-router";
+import { Link as ReactRouterLink } from "react-router";
+import type { LinkComponent } from "libui";
+
+// Pick the adapter of your router.
+export const ReactRouterAdapter: LinkComponent = ({ href, ...props }) => <ReactRouterLink to={href} {...props} />;
+export const NextAdapter: LinkComponent = ({ href, ...props }) => <NextLink href={href} {...props} />;
+export const TanStackAdapter: LinkComponent = ({ href, ...props }) => <TanStackLink to={href} {...props} />;
+```
+
+The current page is your router's knowledge: mark the matching navigation item with `active: true`.
+
+## Theming a product
+
+Override the CSS variables after the libui import, globally on `:root` / `.dark`. Change the source
+tokens (`--primary`, `--primary-solid`, `--surface-100`, `--libui-radius-md`,
+`--libui-font-sans`…), never the shadcn aliases. The same variables can be set on a container to
+scope a brand to it, with two limits: the shadcn aliases are resolved on `:root` (re-declare the
+aliases of the tokens you change inside the scope), and overlays render in `<body>`, outside the
+scope. The README section "Scoping a theme to a container" has the details.
+
+```css
+:root {
+  --primary: oklch(0.55 0.2 290);
+  --primary-solid: oklch(0.55 0.2 290);
+  --primary-solid-border: oklch(0.48 0.2 290);
+  --primary-bright: oklch(0.66 0.2 290);
+  --primary-soft: oklch(0.66 0.2 290 / 0.1);
+  --ring: oklch(0.55 0.2 290 / 0.75);
+  --brand: oklch(0.55 0.2 290);
+}
+.dark {
+  --primary: oklch(0.75 0.14 290);
+  --primary-bright: oklch(0.75 0.14 290);
+  --primary-soft: oklch(0.75 0.14 290 / 0.12);
+  --ring: oklch(0.75 0.14 290 / 0.7);
+}
+```
+
+See [Foundations / Theming](?path=/docs/foundations-theming--docs) for live demos of the theme
+switch, token overrides and router links, and
+[Foundations / Colors](?path=/docs/foundations-colors--docs) for every token with its class,
+variable and live value.
+
+## How this Storybook is organized
+
+- **Foundations** — the design language: [colors](?path=/docs/foundations-colors--docs),
+  [typography](?path=/docs/foundations-typography--docs),
+  [radius & elevation](?path=/docs/foundations-radius-elevation--docs),
+  [utilities](?path=/docs/foundations-utilities--docs) (`mono-label`, `bg-dot-grid`, `tabular`,
+  `scrollbar-none`, focus rings, clipboard helpers) and
+  [theming](?path=/docs/foundations-theming--docs).
+- **Primitives** — the shadcn-style building blocks on Radix UI: Button, Input, Select, Dialog,
+  Dropdown Menu, Tabs, Table, Tooltip, Toaster…
+- **Patterns** — compositions of primitives for recurring product needs: page headers, metric cards,
+  empty states, callouts, confirm dialogs, copy fields, data tables, list toolbars, save bars…
+- **Layout** — application-shell pieces: app shell, icon rail, inner menu, top bar, mobile
+  navigation, command menu, resource switcher, theme menu.
+- **Examples** — full screens built only from the public exports, to see how the pieces fit
+  together: a [dashboard](?path=/docs/examples-dashboard--docs) inside the application frame, a
+  [list page](?path=/docs/examples-list-page--docs) with search, filters and table states, a
+  [detail page](?path=/docs/examples-detail-page--docs) with tabs and confirmations, and a
+  [settings area](?path=/docs/examples-settings--docs) with form cards and a danger zone. Start
+  from them when you build a new screen.
+
+Each story's **Docs** tab shows the component's documentation, its props table and every variant and
+state. Use the toolbar's theme switch to review any story in light and dark mode.
+
+## Conventions
+
+- Import everything from `libui`; each component accepts `className` (merged with `cn()`) and
+  exposes a `data-slot` attribute for targeted styling.
+- Prefer the tokens and existing sizes over arbitrary values; never hard-code colors.
+- Compose patterns from primitives before creating new components, and keep one primary action per
+  view.
+- Stateful components are controlled (`value` + `onValueChange`, `open` + `onOpenChange`) or
+  uncontrolled (`defaultValue`, `defaultOpen`): libui holds no global state and fetches nothing.
+
+The repository's `README.md` covers installation and contribution in more detail, and `AGENTS.md`
+is the dense reference for AI coding agents: which component for which job, recipes for common
+screens, the catalog of every export and the token cheat sheet.

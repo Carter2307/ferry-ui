@@ -1,0 +1,14 @@
+/* Source of the precompiled `libui/styles.css` (for apps without Tailwind):
+   Tailwind preflight + the libui theme + every utility libui's components use. */
+@import "tailwindcss";
+@import "./theme.css";
+
+@source not "../**/*.stories.tsx";
+@source not "../**/*.test.tsx";
+@source not "../**/*.test.ts";
+@source not "../test";
+@source not "../foundations";
+
+/* libui's own utilities are public API: keep them even when no component uses them,
+   so apps without Tailwind can still write className="mono-label" / "bg-dot-grid". */
+@source inline("mono-label bg-dot-grid tabular scrollbar-none");

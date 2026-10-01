@@ -1,0 +1,37 @@
+# libui
+
+> libui is a React 19 design system for dense product interfaces (dashboards, admin consoles, settings pages, data tables, developer tools): design tokens, accessible primitives on Radix UI, higher-level patterns and application-shell layout pieces, styled with Tailwind CSS v4 in the shadcn/ui conventions.
+
+Import everything from the package root (`import { Button } from 'libui'`). Stylesheets are separate entry points: `libui/theme.css` (Tailwind v4 apps), `libui/styles.css` (precompiled, no Tailwind needed), `libui/fonts.css`, `libui/tokens.css`. Colors, radii, shadows and fonts come from tokens only, never from raw values. Components are router agnostic (links are `href` strings rendered through `LinkProvider`) and hold no global state (`value` / `onValueChange`, `open` / `onOpenChange`).
+
+The Storybook links below need the local server: run `npm run storybook`, which serves http://localhost:6006.
+
+## Docs
+
+- [AGENTS.md](AGENTS.md): Authoritative reference for AI agents: rules, app setup, token cheat sheet, which component for which job, recipes for common screens, catalog of every export with props and type-checked snippets, accessibility rules, contributor conventions
+- [README.md](README.md): Overview for people: principles, installation, CSS setup, fonts, theme provider, router adapters, theming, component overview, scripts, project structure, contributing
+- [Introduction](src/foundations/introduction.mdx): The Storybook landing page: principles, installation, setup, how the Storybook is organized
+
+## Storybook
+
+- [Foundations / Colors](http://localhost:6006/?path=/docs/foundations-colors--docs): Every color token with its Tailwind class, CSS variable and live value
+- [Foundations / Typography](http://localhost:6006/?path=/docs/foundations-typography--docs): Type scale, weights, mono labels
+- [Foundations / Radius & Elevation](http://localhost:6006/?path=/docs/foundations-radius-elevation--docs): Radii, borders, shadows
+- [Foundations / Utilities](http://localhost:6006/?path=/docs/foundations-utilities--docs): `mono-label`, `bg-dot-grid`, `tabular`, `scrollbar-none`, focus rings, clipboard helpers
+- [Foundations / Theming](http://localhost:6006/?path=/docs/foundations-theming--docs): Theme switch, token overrides, router links
+- [Primitives](http://localhost:6006/?path=/docs/primitives-button--docs): 28 building blocks on Radix UI (Button, Input, Select, Dialog, Dropdown Menu, Tabs, Table, Tooltip, Toaster…); sources in `src/components/primitives`
+- [Patterns](http://localhost:6006/?path=/docs/patterns-page--docs): Compositions for recurring product needs (page headers, form cards, table states, empty and error states, callouts, confirm dialogs, copy fields, metric cards…); sources in `src/components/patterns`
+- [Layout](http://localhost:6006/?path=/docs/layout-app-shell--docs): Application-shell pieces (app shell, top bar, icon rail, mobile navigation, inner menu, command menu, resource switcher, theme menu); sources in `src/components/layout`
+
+## Examples
+
+- [Dashboard](http://localhost:6006/?path=/docs/examples-dashboard--docs): The application frame with info tiles, metric cards, a resource grid and a command menu; source `src/examples/dashboard-example.tsx`
+- [List Page](http://localhost:6006/?path=/docs/examples-list-page--docs): Toolbar, search, filters and a table with loading and empty states; source `src/examples/list-page-example.tsx`
+- [Detail Page](http://localhost:6006/?path=/docs/examples-detail-page--docs): Page header with status, description list, tabs, confirmations; source `src/examples/detail-page-example.tsx`
+- [Settings](http://localhost:6006/?path=/docs/examples-settings--docs): Inner menu, form cards, validation, save actions, danger zone; source `src/examples/settings-example.tsx`
+
+## Optional
+
+- [Public API](src/index.ts): The barrel that lists every public module
+- [Design tokens](src/styles/tokens.css): CSS custom properties, light and dark values
+- [Tailwind theme](src/styles/theme.css): Mapping of the tokens onto Tailwind theme names and the custom utilities
