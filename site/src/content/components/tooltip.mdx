@@ -23,7 +23,7 @@ source: src/components/primitives/tooltip.tsx
 Mount `TooltipProvider` one time, at the root of the app. Each tooltip must have this provider above it.
 
 ```tsx title="app.tsx"
-import { TooltipProvider } from 'libui'
+import { TooltipProvider } from 'libui-kit'
 
 export function App() {
   return <TooltipProvider>{/* the app */}</TooltipProvider>
@@ -33,7 +33,7 @@ export function App() {
 Then import `Hint`, or the three parts of a tooltip.
 
 ```tsx title="Anatomy"
-import { Button, Hint, Tooltip, TooltipContent, TooltipTrigger } from 'libui'
+import { Button, Hint, Tooltip, TooltipContent, TooltipTrigger } from 'libui-kit'
 
 <Hint label="Refresh">
   <Button />

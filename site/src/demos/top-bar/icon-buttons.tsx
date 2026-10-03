@@ -1,4 +1,4 @@
-import { TopBarIconButton, toast } from 'libui'
+import { TopBarIconButton, toast } from 'libui-kit'
 import { Bell, CircleHelp, LogOut, RefreshCw } from 'lucide-react'
 
 export default function TopBarIconButtons() {

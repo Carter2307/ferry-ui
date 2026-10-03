@@ -1,4 +1,4 @@
-import { CopyButton } from 'libui'
+import { CopyButton } from 'libui-kit'
 
 const INVITE_LINK = 'https://app.example.com/invite/8f2c41d9'
 

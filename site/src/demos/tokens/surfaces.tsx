@@ -1,4 +1,4 @@
-import { cn } from 'libui'
+import { cn } from 'libui-kit'
 
 const SURFACES = [
   { className: 'bg-background', variable: '--background' },

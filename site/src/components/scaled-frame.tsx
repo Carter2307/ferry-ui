@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { cn, useTheme } from 'libui'
+import { cn, useTheme } from 'libui-kit'
 
 import { withBase } from '@/config'
 

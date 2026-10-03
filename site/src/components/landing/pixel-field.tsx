@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { cn, useTheme } from 'libui'
+import { cn, useTheme } from 'libui-kit'
 
 /** Side of one pixel cell in CSS pixels: a 3px square and a 1px gap. */
 const CELL = 4

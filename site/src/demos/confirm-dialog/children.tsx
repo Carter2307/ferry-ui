@@ -1,4 +1,4 @@
-import { Button, Callout, Checkbox, ConfirmDialog, Label, toast } from 'libui'
+import { Button, Callout, Checkbox, ConfirmDialog, Label, toast } from 'libui-kit'
 
 export default function ConfirmDialogChildren() {
   return (

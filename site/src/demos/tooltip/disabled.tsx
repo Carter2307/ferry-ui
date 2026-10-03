@@ -1,4 +1,4 @@
-import { Button, Hint } from 'libui'
+import { Button, Hint } from 'libui-kit'
 import { Trash2 } from 'lucide-react'
 
 export default function TooltipOnDisabledButton() {

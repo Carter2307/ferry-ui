@@ -1,4 +1,4 @@
-import { Checkbox, Label } from 'libui'
+import { Checkbox, Label } from 'libui-kit'
 
 export default function LabelLong() {
   return (

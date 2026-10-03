@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Input, Label, inputVariants } from 'libui'
+import { Input, Label, inputVariants } from 'libui-kit'
 
 const SEAT_PRICE = 20
 

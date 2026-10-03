@@ -1,4 +1,4 @@
-import { Card, CardContent } from 'libui'
+import { Card, CardContent } from 'libui-kit'
 
 export default function CardContentOnly() {
   return (

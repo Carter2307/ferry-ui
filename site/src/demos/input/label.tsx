@@ -1,4 +1,4 @@
-import { Input, Label } from 'libui'
+import { Input, Label } from 'libui-kit'
 
 export default function InputLabel() {
   return (

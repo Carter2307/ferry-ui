@@ -1,4 +1,4 @@
-import { CodeBlock } from 'libui'
+import { CodeBlock } from 'libui-kit'
 
 const SETUP = `git clone https://example.com/acme/web-app.git
 cd web-app

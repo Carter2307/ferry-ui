@@ -97,7 +97,7 @@ Rules:
 A demo is one `.tsx` file with one default export, a component with no props.
 
 ```tsx
-import { Button } from 'libui'
+import { Button } from 'libui-kit'
 import { Plus } from 'lucide-react'
 
 export default function ButtonWithIcon() {
@@ -105,7 +105,7 @@ export default function ButtonWithIcon() {
 }
 ```
 
-- **It is the code a reader copies.** Import from `'libui'` (and `lucide-react`, `react`) only. No import
+- **It is the code a reader copies.** Import from `'libui-kit'` (and `lucide-react`, `react`) only. No import
   from the site, no relative import, no helper file. A demo that needs data declares it in the file.
 - **One idea per demo.** 10 to 60 lines. If a demo shows two ideas, make two demos.
 - **The first demo of the page (`hero`) shows a real use**, not every variant.
@@ -148,7 +148,7 @@ All these work in every page with no import.
 | --- | --- |
 | ` ```tsx title="app.tsx" ` | Code that is not a live demo: setup code, a fragment, an anatomy. `title` is optional. Languages: `tsx`, `ts`, `css`, `sh`, `json`, `text`. |
 | ` ```sh ` | Commands. Each line gets a `$` prompt that the copy button leaves out. |
-| `<PackageTabs packages="libui" />` | An install command for npm, pnpm, yarn and bun. |
+| `<PackageTabs packages="libui-kit" />` | An install command for npm, pnpm, yarn and bun. |
 | `<PropsTable of="Button" />` | The generated props of a component. |
 | `<Callout tone="warning" title="…">…</Callout>` | One per page at most: a risk, or the one thing to remember. Tones: `info`, `warning`, `destructive`, `success`, `neutral`. |
 | `<Kbd>Esc</Kbd>` | A key. |

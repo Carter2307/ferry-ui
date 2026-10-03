@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   toast,
-} from 'libui'
+} from 'libui-kit'
 import { MoreHorizontal, Pencil, Trash2 } from 'lucide-react'
 
 export default function DropdownMenuConfirm() {

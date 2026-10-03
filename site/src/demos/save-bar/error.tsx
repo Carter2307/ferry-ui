@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, CardContent, Field, Input, SaveBar, getErrorMessage } from 'libui'
+import { Card, CardContent, Field, Input, SaveBar, getErrorMessage } from 'libui-kit'
 
 // Stands for a request that the server refuses.
 const refuse = () =>

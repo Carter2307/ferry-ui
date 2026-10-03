@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, EmptyState, SearchInput } from 'libui'
+import { Button, EmptyState, SearchInput } from 'libui-kit'
 import { SearchX } from 'lucide-react'
 
 const CUSTOMERS = ['Acme', 'Globex', 'Northwind Traders']

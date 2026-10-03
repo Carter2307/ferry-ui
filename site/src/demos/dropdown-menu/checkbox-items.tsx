@@ -8,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from 'libui'
+} from 'libui-kit'
 import { Settings2 } from 'lucide-react'
 
 const DEFAULT_COLUMNS = { email: true, role: true, status: false }

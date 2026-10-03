@@ -1,4 +1,4 @@
-import { CopyField, Field, Input } from 'libui'
+import { CopyField, Field, Input } from 'libui-kit'
 
 export default function FieldLabelVariants() {
   return (

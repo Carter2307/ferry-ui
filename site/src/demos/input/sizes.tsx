@@ -1,4 +1,4 @@
-import { Input } from 'libui'
+import { Input } from 'libui-kit'
 
 export default function InputSizes() {
   return (

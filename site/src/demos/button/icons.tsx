@@ -1,4 +1,4 @@
-import { Button } from 'libui'
+import { Button } from 'libui-kit'
 import { ArrowRight, Plus, Trash2 } from 'lucide-react'
 
 export default function ButtonIcons() {

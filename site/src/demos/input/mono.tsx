@@ -1,4 +1,4 @@
-import { Field, Input } from 'libui'
+import { Field, Input } from 'libui-kit'
 
 export default function InputMono() {
   return (

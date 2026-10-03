@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   type LinkComponent,
   type ThemePreference,
-} from 'libui'
+} from 'libui-kit'
 import { Link } from 'react-router'
 
 import { withBase } from '@/config'

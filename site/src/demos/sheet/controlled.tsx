@@ -11,7 +11,7 @@ import {
   SheetHeader,
   SheetTitle,
   toast,
-} from 'libui'
+} from 'libui-kit'
 import { ListFilter } from 'lucide-react'
 
 const STATUSES = ['Paid', 'Open', 'Overdue']

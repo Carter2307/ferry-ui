@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, KeyValueEditor, rowsFromPairs } from 'libui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, KeyValueEditor, rowsFromPairs } from 'libui-kit'
 
 // `rowsFromPairs` gives each pair a stable row id.
 const LABELS = rowsFromPairs([

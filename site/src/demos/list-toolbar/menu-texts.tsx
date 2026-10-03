@@ -1,4 +1,4 @@
-import { FilterMenu, type FilterOption } from 'libui'
+import { FilterMenu, type FilterOption } from 'libui-kit'
 
 const PLAN_OPTIONS: FilterOption[] = [
   { value: 'free', label: 'Free' },

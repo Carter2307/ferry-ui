@@ -1,4 +1,4 @@
-import { CopyField, FormCard, FormRow, SecretField, StatusBadge } from 'libui'
+import { CopyField, FormCard, FormRow, SecretField, StatusBadge } from 'libui-kit'
 
 export default function FormCardReadOnly() {
   return (

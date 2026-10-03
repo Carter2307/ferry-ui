@@ -1,4 +1,4 @@
-import { Button, CodeBlock, EmptyState, toast } from 'libui'
+import { Button, CodeBlock, EmptyState, toast } from 'libui-kit'
 import { KeyRound, Plus } from 'lucide-react'
 
 export default function EmptyStateChildren() {

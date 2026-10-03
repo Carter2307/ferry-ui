@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Field, Input, Popover, PopoverContent, PopoverTrigger } from 'libui'
+import { Button, Field, Input, Popover, PopoverContent, PopoverTrigger } from 'libui-kit'
 
 export default function PopoverControlled() {
   const [open, setOpen] = React.useState(false)

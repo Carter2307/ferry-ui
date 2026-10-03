@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from 'libui'
+} from 'libui-kit'
 
 const SIZES = ['sm', 'md', 'lg', 'xl', 'xxl'] as const
 

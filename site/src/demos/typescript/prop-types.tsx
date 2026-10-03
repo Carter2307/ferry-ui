@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from 'libui'
+import { Button, type ButtonProps } from 'libui-kit'
 import { Download } from 'lucide-react'
 
 // Each prop of Button, but this component sets the icon and the text.

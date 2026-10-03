@@ -1,4 +1,4 @@
-import { CommandMenu, type CommandMenuGroup } from 'libui'
+import { CommandMenu, type CommandMenuGroup } from 'libui-kit'
 
 import { pagesByGroup } from '@/lib/nav'
 

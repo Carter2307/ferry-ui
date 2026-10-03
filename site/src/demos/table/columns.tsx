@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'libui'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'libui-kit'
 
 const PROJECTS = [
   {

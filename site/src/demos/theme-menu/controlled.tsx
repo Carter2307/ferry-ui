@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ThemeMenu, type ThemePreference } from 'libui'
+import { ThemeMenu, type ThemePreference } from 'libui-kit'
 
 export default function ThemeMenuControlled() {
   // Your code holds the preference. The menu does not change the ThemeProvider.

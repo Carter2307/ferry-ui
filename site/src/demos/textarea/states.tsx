@@ -1,4 +1,4 @@
-import { Field, Textarea } from 'libui'
+import { Field, Textarea } from 'libui-kit'
 
 export default function TextareaStates() {
   return (

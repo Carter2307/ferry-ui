@@ -1,4 +1,4 @@
-import { KeyValueEditor } from 'libui'
+import { KeyValueEditor } from 'libui-kit'
 
 export default function KeyValueEditorTexts() {
   return (

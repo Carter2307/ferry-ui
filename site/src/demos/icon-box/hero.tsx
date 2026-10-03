@@ -1,4 +1,4 @@
-import { IconBox } from 'libui'
+import { IconBox } from 'libui-kit'
 import { FolderKanban, KeyRound, Receipt } from 'lucide-react'
 
 const RESULTS = [

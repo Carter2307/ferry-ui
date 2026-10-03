@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { InnerMenu, PageContainer, PageHeader, type NavGroup } from 'libui'
+import { InnerMenu, PageContainer, PageHeader, type NavGroup } from 'libui-kit'
 import { BellRing, CreditCard, KeyRound, ShieldCheck, User, Users } from 'lucide-react'
 
 const GROUPS: NavGroup[] = [

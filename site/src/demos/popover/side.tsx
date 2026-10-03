@@ -1,4 +1,4 @@
-import { Button, Popover, PopoverContent, PopoverTrigger } from 'libui'
+import { Button, Popover, PopoverContent, PopoverTrigger } from 'libui-kit'
 
 const SIDES = ['top', 'right', 'bottom', 'left'] as const
 

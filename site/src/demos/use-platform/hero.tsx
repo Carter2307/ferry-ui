@@ -1,4 +1,4 @@
-import { Kbd, useModKey } from 'libui'
+import { Kbd, useModKey } from 'libui-kit'
 
 export default function UsePlatformHero() {
   // "⌘" on an Apple device, "Ctrl" on other devices.

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, Skeleton } from 'libui'
+import { Card, CardContent, CardHeader, Skeleton } from 'libui-kit'
 
 export default function CardLoading() {
   return (

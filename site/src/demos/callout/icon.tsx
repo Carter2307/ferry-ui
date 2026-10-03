@@ -1,4 +1,4 @@
-import { Callout } from 'libui'
+import { Callout } from 'libui-kit'
 import { ShieldCheck } from 'lucide-react'
 
 export default function CalloutIcon() {

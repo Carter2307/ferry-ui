@@ -1,4 +1,4 @@
-import { Badge, ResourceCard, ResourceGrid, StatusLine } from 'libui'
+import { Badge, ResourceCard, ResourceGrid, StatusLine } from 'libui-kit'
 import { Archive, FolderKanban } from 'lucide-react'
 
 export default function ResourceCardStatic() {

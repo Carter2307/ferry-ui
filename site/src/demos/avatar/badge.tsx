@@ -1,4 +1,4 @@
-import { Avatar, AvatarBadge, AvatarFallback } from 'libui'
+import { Avatar, AvatarBadge, AvatarFallback } from 'libui-kit'
 import { Check } from 'lucide-react'
 
 export default function AvatarWithBadge() {

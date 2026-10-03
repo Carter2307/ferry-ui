@@ -8,7 +8,7 @@ order: 1
 
 libui is one package. It needs React 19.
 
-<PackageTabs packages="libui" />
+<PackageTabs packages="libui-kit" />
 
 <Callout tone="info" title="libui is not on npm yet">
   Until the first release, build the package from the repository. The [Installation](/docs/overview/installation) page gives the commands.
@@ -22,15 +22,15 @@ Your app uses Tailwind CSS v4? Import the theme of libui after Tailwind.
 
 ```css title="app.css"
 @import "tailwindcss";
-@import "libui/fonts.css"; /* optional: Inter and Source Code Pro */
-@import "libui/theme.css";
+@import "libui-kit/fonts.css"; /* optional: Inter and Source Code Pro */
+@import "libui-kit/theme.css";
 ```
 
 Your app does not use Tailwind? Import the compiled stylesheet at the root of the app.
 
 ```ts title="main.tsx"
-import 'libui/styles.css'
-import 'libui/fonts.css' // optional
+import 'libui-kit/styles.css'
+import 'libui-kit/fonts.css' // optional
 ```
 
 ## Mount the providers
@@ -39,7 +39,7 @@ Mount the providers one time, at the root of the app.
 
 ```tsx title="providers.tsx"
 import type { ReactNode } from 'react'
-import { ThemeProvider, Toaster, TooltipProvider } from 'libui'
+import { ThemeProvider, Toaster, TooltipProvider } from 'libui-kit'
 
 export function Providers({ children }: { children: ReactNode }) {
   return (

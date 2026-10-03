@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { KeyValueEditor, Label, Switch, rowsFromPairs } from 'libui'
+import { KeyValueEditor, Label, Switch, rowsFromPairs } from 'libui-kit'
 
 const HEADERS = rowsFromPairs([
   { key: 'Accept', value: 'application/json' },

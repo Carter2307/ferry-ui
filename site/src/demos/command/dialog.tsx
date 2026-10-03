@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from 'libui'
+import { Button, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from 'libui-kit'
 import { Users } from 'lucide-react'
 
 const MEMBERS = [

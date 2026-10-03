@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Field, Label, RadioGroup, RadioGroupItem } from 'libui'
+import { Button, Field, Label, RadioGroup, RadioGroupItem } from 'libui-kit'
 
 export default function RadioGroupForm() {
   const [sent, setSent] = React.useState<string>()

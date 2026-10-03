@@ -1,4 +1,4 @@
-import { Switch, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'libui'
+import { Switch, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'libui-kit'
 
 const API_KEYS = [
   { id: 'production', name: 'Production', created: 'Mar 4, 2026', enabled: true },

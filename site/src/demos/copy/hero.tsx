@@ -1,4 +1,4 @@
-import { CopyField, Field, SecretField } from 'libui'
+import { CopyField, Field, SecretField } from 'libui-kit'
 
 export default function CopyHero() {
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { DescriptionItem, DescriptionList, Label, Switch } from 'libui'
+import { DescriptionItem, DescriptionList, Label, Switch } from 'libui-kit'
 
 export default function DescriptionListLoading() {
   // In an app, `loading` comes from the request that loads the record.

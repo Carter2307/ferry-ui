@@ -1,4 +1,4 @@
-import { Field, Label, RadioGroup, RadioGroupItem } from 'libui'
+import { Field, Label, RadioGroup, RadioGroupItem } from 'libui-kit'
 
 export default function FieldGroup() {
   return (

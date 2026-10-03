@@ -1,4 +1,4 @@
-import { Button } from 'libui'
+import { Button } from 'libui-kit'
 
 import { GithubIcon } from '@/components/logo'
 import { RouterLink } from '@/components/providers'

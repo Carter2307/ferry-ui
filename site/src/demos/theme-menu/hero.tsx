@@ -1,4 +1,4 @@
-import { ThemeMenu } from 'libui'
+import { ThemeMenu } from 'libui-kit'
 
 export default function ThemeMenuHero() {
   // With no `value`, the menu reads and changes the nearest ThemeProvider.

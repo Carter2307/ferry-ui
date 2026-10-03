@@ -1,4 +1,4 @@
-import { Badge, IconRail, type NavItem } from 'libui'
+import { Badge, IconRail, type NavItem } from 'libui-kit'
 import { CreditCard, FolderKanban, Inbox, LayoutDashboard } from 'lucide-react'
 
 const ITEMS: NavItem[] = [

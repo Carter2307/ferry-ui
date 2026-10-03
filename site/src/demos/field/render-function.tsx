@@ -1,4 +1,4 @@
-import { Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui'
+import { Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui-kit'
 
 export default function FieldRenderFunction() {
   return (

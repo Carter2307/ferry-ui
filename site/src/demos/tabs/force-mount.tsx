@@ -1,4 +1,4 @@
-import { Field, Input, Tabs, TabsContent, TabsList, TabsTrigger, Textarea } from 'libui'
+import { Field, Input, Tabs, TabsContent, TabsList, TabsTrigger, Textarea } from 'libui-kit'
 
 export default function TabsForceMount() {
   return (

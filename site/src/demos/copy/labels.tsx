@@ -1,4 +1,4 @@
-import { CopyButton, SecretField, type CopyLabels } from 'libui'
+import { CopyButton, SecretField, type CopyLabels } from 'libui-kit'
 
 // Module level: all the copy components of the app use this object. An entry that you leave out keeps its default.
 const LABELS: Partial<CopyLabels> = {

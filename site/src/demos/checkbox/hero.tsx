@@ -1,4 +1,4 @@
-import { Checkbox, Label } from 'libui'
+import { Checkbox, Label } from 'libui-kit'
 
 const EVENTS = [
   { value: 'invoice-paid', label: 'A customer pays an invoice', checked: true },

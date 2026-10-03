@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui'
+import { Button, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui-kit'
 
 export default function SelectControlled() {
   const [language, setLanguage] = React.useState('')

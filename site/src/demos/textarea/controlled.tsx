@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Field, Textarea } from 'libui'
+import { Field, Textarea } from 'libui-kit'
 
 const MAX_LENGTH = 280
 

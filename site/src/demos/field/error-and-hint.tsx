@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Field, Input } from 'libui'
+import { Field, Input } from 'libui-kit'
 
 export default function FieldErrorAndHint() {
   const [seats, setSeats] = React.useState('80')

@@ -1,5 +1,5 @@
 {
-  "name": "libui",
+  "name": "libui-kit",
   "version": "0.1.0",
   "description": "libui — a general-purpose React design system (tokens, primitives, patterns, layout) built on Radix UI, Tailwind CSS v4 and shadcn/ui conventions.",
   "type": "module",

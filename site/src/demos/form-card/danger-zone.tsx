@@ -1,4 +1,4 @@
-import { ActionRow, Button, ConfirmDialog, FormCard, toast } from 'libui'
+import { ActionRow, Button, ConfirmDialog, FormCard, toast } from 'libui-kit'
 
 export default function FormCardDangerZone() {
   return (

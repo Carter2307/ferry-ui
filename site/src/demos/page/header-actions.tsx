@@ -1,4 +1,4 @@
-import { Button, PageHeader } from 'libui'
+import { Button, PageHeader } from 'libui-kit'
 import { Download, Plus } from 'lucide-react'
 
 export default function PageHeaderActions() {

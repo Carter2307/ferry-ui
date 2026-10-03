@@ -1,4 +1,4 @@
-import { Input, MonoLabel } from 'libui'
+import { Input, MonoLabel } from 'libui-kit'
 
 export default function MonoLabelForField() {
   return (

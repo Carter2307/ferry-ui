@@ -1,4 +1,4 @@
-import { MetricCard, UsageBar } from 'libui'
+import { MetricCard, UsageBar } from 'libui-kit'
 
 const QUOTAS = [
   { label: 'API calls', value: '320k', unit: 'of 1M', percent: 32 },

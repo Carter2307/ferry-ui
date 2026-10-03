@@ -13,7 +13,7 @@ const meta = {
   component: SettingsExample,
   parameters: exampleParameters(
     [
-      'A settings area with sections, one form and a danger zone, built only from the public `libui` exports.',
+      'A settings area with sections, one form and a danger zone, built only from the public `libui-kit` exports.',
       '',
       '- **Sections** — `InnerMenu` is the first child of a `flex-col md:flex-row` container next to the scrolling content; its items have no `href`, so `value` + `onValueChange` switch sections in place (a tab strip on phones).',
       '- **Label-left rows** — `FormCard` + `FormRow` hold `Input`, `Textarea`, `Select`, `Checkbox` and a `RadioCardGroup` (a `vertical` row for wide controls). The cards are `asDiv` because the page owns the single `<form>`.',

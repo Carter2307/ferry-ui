@@ -1,4 +1,4 @@
-import { ScrollArea } from 'libui'
+import { ScrollArea } from 'libui-kit'
 
 const NOTIFICATIONS = [
   { who: 'Maya Chen', what: 'added a comment on the invoice INV-2041', when: '2 min' },

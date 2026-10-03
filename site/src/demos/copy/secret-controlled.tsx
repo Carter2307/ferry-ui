@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Label, SecretField, Switch } from 'libui'
+import { Label, SecretField, Switch } from 'libui-kit'
 
 export default function CopySecretControlled() {
   const [shown, setShown] = React.useState(false)

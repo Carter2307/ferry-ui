@@ -1,4 +1,4 @@
-import { CodeBlock } from 'libui'
+import { CodeBlock } from 'libui-kit'
 
 const OUTPUT = `Invoice INV-2041 has the status "paid".
 Amount: $4,280.00`

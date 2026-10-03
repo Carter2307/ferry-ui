@@ -1,4 +1,4 @@
-import { Badge, Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'libui'
+import { Badge, Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'libui-kit'
 import { ArrowUpRight } from 'lucide-react'
 
 export default function CardWithFooter() {

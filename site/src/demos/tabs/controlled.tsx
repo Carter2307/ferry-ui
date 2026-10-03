@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui'
+import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
 
 const STEPS = ['details', 'members', 'review']
 

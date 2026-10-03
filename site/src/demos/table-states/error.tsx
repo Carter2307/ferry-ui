@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Table, TableBody, TableErrorRow, TableHead, TableHeader, TableRow } from 'libui'
+import { Table, TableBody, TableErrorRow, TableHead, TableHeader, TableRow } from 'libui-kit'
 
 const ERROR = new Error('Could not reach the orders service.')
 

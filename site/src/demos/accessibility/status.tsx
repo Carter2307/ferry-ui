@@ -1,4 +1,4 @@
-import { MetricTrend, StatusBadge, StatusDot, UsageBar } from 'libui'
+import { MetricTrend, StatusBadge, StatusDot, UsageBar } from 'libui-kit'
 
 export default function StatusWithText() {
   return (

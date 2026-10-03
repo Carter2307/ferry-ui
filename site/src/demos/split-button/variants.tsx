@@ -1,4 +1,4 @@
-import { DropdownMenuItem, SplitButton } from 'libui'
+import { DropdownMenuItem, SplitButton } from 'libui-kit'
 
 const VARIANTS = [
   { variant: 'default', label: 'Default' },

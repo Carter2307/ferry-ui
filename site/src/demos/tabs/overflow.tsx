@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from 'libui'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
 
 // A value has no space: the tab and its panel use it in their `id`.
 const SECTIONS = [

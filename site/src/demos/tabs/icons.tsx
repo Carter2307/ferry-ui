@@ -1,4 +1,4 @@
-import { Badge, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui'
+import { Badge, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
 import { CircleCheck, CircleDot, GitPullRequest } from 'lucide-react'
 
 export default function TabsIcons() {

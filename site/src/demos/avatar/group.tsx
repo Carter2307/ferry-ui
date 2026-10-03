@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from 'libui'
+import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from 'libui-kit'
 
 const MEMBERS = [
   { name: 'Maya Chen', initials: 'MC' },

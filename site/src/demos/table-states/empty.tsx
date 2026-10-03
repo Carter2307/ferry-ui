@@ -1,4 +1,4 @@
-import { Table, TableBody, TableHead, TableHeader, TableMessageRow, TableRow } from 'libui'
+import { Table, TableBody, TableHead, TableHeader, TableMessageRow, TableRow } from 'libui-kit'
 
 export default function TableStatesEmpty() {
   return (

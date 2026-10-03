@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, toast } from 'libui'
+import { Button, Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, toast } from 'libui-kit'
 
 export default function SelectInvalid() {
   const [role, setRole] = React.useState('')

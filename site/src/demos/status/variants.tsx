@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StatusDot, cn, statusBadgeVariants, type StatusTone } from 'libui'
+import { StatusDot, cn, statusBadgeVariants, type StatusTone } from 'libui-kit'
 
 const FILTERS: { tone: StatusTone; label: string }[] = [
   { tone: 'success', label: 'Paid' },

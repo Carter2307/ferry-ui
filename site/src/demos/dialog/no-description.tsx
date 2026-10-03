@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Kbd, useModKey } from 'libui'
+import { Button, Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Kbd, useModKey } from 'libui-kit'
 
 export default function DialogNoDescription() {
   const mod = useModKey()

@@ -1,4 +1,4 @@
-import { Avatar, AvatarBadge, AvatarFallback, Card, CardContent, CardFooter, CardHeader, CardTitle } from 'libui'
+import { Avatar, AvatarBadge, AvatarFallback, Card, CardContent, CardFooter, CardHeader, CardTitle } from 'libui-kit'
 
 export default function ContainerClasses() {
   return (

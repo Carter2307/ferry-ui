@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Field, RadioCardGroup, toast, type RadioCardOption } from 'libui'
+import { Button, Field, RadioCardGroup, toast, type RadioCardOption } from 'libui-kit'
 
 const PLANS: RadioCardOption[] = [
   { value: 'free', label: 'Free', description: 'For one member and three projects.' },

@@ -1,4 +1,4 @@
-import { IconBox } from 'libui'
+import { IconBox } from 'libui-kit'
 import { Receipt } from 'lucide-react'
 
 export default function IconBoxIconSize() {

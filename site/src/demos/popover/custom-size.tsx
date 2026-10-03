@@ -1,4 +1,4 @@
-import { Button, Popover, PopoverContent, PopoverTrigger } from 'libui'
+import { Button, Popover, PopoverContent, PopoverTrigger } from 'libui-kit'
 import { Bell } from 'lucide-react'
 
 const NOTIFICATIONS = [

@@ -1,4 +1,4 @@
-import { Table, TableBody, TableHead, TableHeader, TableRow, TableSkeletonRows } from 'libui'
+import { Table, TableBody, TableHead, TableHeader, TableRow, TableSkeletonRows } from 'libui-kit'
 
 export default function TableStatesLoading() {
   return (

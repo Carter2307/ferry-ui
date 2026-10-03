@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Tabs, TabsList, TabsTrigger } from 'libui'
+import { Button, Tabs, TabsList, TabsTrigger } from 'libui-kit'
 import { ArrowRight } from 'lucide-react'
 
 import { RouterLink } from '@/components/providers'

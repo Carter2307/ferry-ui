@@ -1,4 +1,4 @@
-import { Button, Field, Input, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, toast } from 'libui'
+import { Button, Field, Input, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, toast } from 'libui-kit'
 
 export default function StackedFields() {
   return (

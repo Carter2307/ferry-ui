@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { cn } from 'libui'
+import { cn } from 'libui-kit'
 
 import { Divider } from './backdrop'
 import { Reveal } from './reveal'

@@ -1,4 +1,4 @@
-import { StatusDot } from 'libui'
+import { StatusDot } from 'libui-kit'
 
 export default function StatusDots() {
   return (

@@ -1,4 +1,4 @@
-import { Button, ConfirmDialog, toast } from 'libui'
+import { Button, ConfirmDialog, toast } from 'libui-kit'
 import { Trash2 } from 'lucide-react'
 
 export default function ConfirmDialogHero() {

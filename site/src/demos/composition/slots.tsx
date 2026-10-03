@@ -1,4 +1,4 @@
-import { Badge, ResourceCard, StatusLine } from 'libui'
+import { Badge, ResourceCard, StatusLine } from 'libui-kit'
 import { FolderKanban } from 'lucide-react'
 
 export default function Slots() {

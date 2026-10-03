@@ -1,4 +1,4 @@
-import { Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui'
+import { Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui-kit'
 
 export default function SelectLabelFor() {
   return (

@@ -1,4 +1,4 @@
-import { Button, EmptyState, toast } from 'libui'
+import { Button, EmptyState, toast } from 'libui-kit'
 import { FolderKanban, Plus } from 'lucide-react'
 
 export default function NoProjects() {

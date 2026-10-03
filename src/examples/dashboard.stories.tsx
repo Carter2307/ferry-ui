@@ -13,7 +13,7 @@ const meta = {
   component: DashboardExample,
   parameters: exampleParameters(
     [
-      'The landing page of a signed-in app, built only from the public `libui` exports.',
+      'The landing page of a signed-in app, built only from the public `libui-kit` exports.',
       '',
       '- **Frame** — `AppShell` holds a `TopBar` (logo, workspace `ResourceSwitcher`, page trail, `TopBarSearch`, `ThemeMenu`, `TopBarUserMenu`), an `IconRail` on desktop and a `MobileNav` drawer on phones; both navigations are fed by the same `NavGroup[]`. The search trigger and ⌘K / Ctrl+K open one `CommandMenu`. A `LinkProvider` routes every link through the router adapter.',
       '- **Page** — `PageContainer` > `PageHeader` (secondary action, then the single `primary` one) > `PageSection`s.',

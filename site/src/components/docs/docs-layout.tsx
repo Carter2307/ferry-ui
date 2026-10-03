@@ -12,7 +12,7 @@ import {
   TopBarSegment,
   TopBarSeparator,
   type NavGroup,
-} from 'libui'
+} from 'libui-kit'
 import { Outlet, useLocation } from 'react-router'
 
 import { GithubIcon, LogoMark } from '@/components/logo'

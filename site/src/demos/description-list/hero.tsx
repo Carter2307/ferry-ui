@@ -1,4 +1,4 @@
-import { DescriptionItem, DescriptionList, StatusBadge } from 'libui'
+import { DescriptionItem, DescriptionList, StatusBadge } from 'libui-kit'
 
 export default function DescriptionListHero() {
   return (

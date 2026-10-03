@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, FilterMenu, ListToolbar, SearchInput, type FilterOption } from 'libui'
+import { Button, FilterMenu, ListToolbar, SearchInput, type FilterOption } from 'libui-kit'
 import { Plus } from 'lucide-react'
 
 const PROJECTS = [
