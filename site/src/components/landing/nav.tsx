@@ -37,9 +37,9 @@ const subscribeScroll = (onChange: () => void) => {
 }
 
 /**
- * The header of the landing page: transparent, with a blur of what is behind it. At the top of the
- * page the pixel field shows through it. After the first scroll it takes a hairline and a light
- * tint, so the links stay easy to read over the content that passes under them.
+ * The header of the landing page: transparent, with a blur of what is behind it and a hairline at
+ * its bottom edge. At the top of the page the pixel field shows through it. After the first scroll
+ * it takes a light tint, so the links stay easy to read over the content that passes under them.
  */
 export function Nav({ onSearch }: { onSearch: () => void }) {
   const mod = useModKey()
@@ -52,8 +52,8 @@ export function Nav({ onSearch }: { onSearch: () => void }) {
     <header
       data-scrolled={scrolled ? '' : undefined}
       className={cn(
-        'sticky top-0 z-30 border-b border-transparent bg-transparent backdrop-blur-md transition-[background-color,border-color] duration-300',
-        'data-[scrolled]:border-border data-[scrolled]:bg-background/45',
+        'sticky top-0 z-30 border-b bg-transparent backdrop-blur-md transition-[background-color] duration-300',
+        'data-[scrolled]:bg-background/45',
       )}
     >
       <div className="container-page flex h-16 items-center gap-6">
