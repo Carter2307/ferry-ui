@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["vite/client", "node", "mdx"],
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "checkJs": false,
+    "paths": {
+      "libui": ["../src/index.ts"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src", "plugins", "lib", "vite.config.ts", "vitest.config.ts"]
+}
