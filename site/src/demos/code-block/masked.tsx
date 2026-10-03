@@ -1,4 +1,4 @@
-import { CodeBlock } from 'libui-kit'
+import { CodeBlock } from '@roger.b/libui'
 
 export default function CodeBlockMasked() {
   return (

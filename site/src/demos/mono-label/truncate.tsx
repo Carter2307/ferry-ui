@@ -1,4 +1,4 @@
-import { MonoLabel } from 'libui-kit'
+import { MonoLabel } from '@roger.b/libui'
 
 const TEXT = 'Invitations from other workspaces'
 

@@ -1,4 +1,4 @@
-import { Label, RadioGroup, RadioGroupItem } from 'libui-kit'
+import { Label, RadioGroup, RadioGroupItem } from '@roger.b/libui'
 
 export default function RadioGroupDisabled() {
   return (

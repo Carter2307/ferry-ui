@@ -1,4 +1,4 @@
-import { cn } from 'libui-kit'
+import { cn } from '@roger.b/libui'
 
 const RADII = [
   { className: 'rounded-sm', variable: '--libui-radius-sm', size: '4px' },

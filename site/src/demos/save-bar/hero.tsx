@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, CardContent, CardHeader, CardTitle, Field, Input, SaveBar, Textarea, toast } from 'libui-kit'
+import { Card, CardContent, CardHeader, CardTitle, Field, Input, SaveBar, Textarea, toast } from '@roger.b/libui'
 
 const INITIAL = {
   subject: 'Your invoice from Acme',

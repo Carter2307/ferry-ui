@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox, FilterButton, Label, Popover, PopoverContent, PopoverTrigger } from 'libui-kit'
+import { Checkbox, FilterButton, Label, Popover, PopoverContent, PopoverTrigger } from '@roger.b/libui'
 
 const OWNERS = ['Maya Chen', 'Jonas Weber', 'Priya Patel']
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { CodeBlock, Tabs, TabsContent, TabsList, TabsTrigger, cn } from 'libui-kit'
+import { CodeBlock, Tabs, TabsContent, TabsList, TabsTrigger, cn } from '@roger.b/libui'
 
 import { highlightCode, isCommandList, isShell } from '@/lib/highlight'
 

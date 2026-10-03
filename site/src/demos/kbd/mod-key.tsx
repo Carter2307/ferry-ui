@@ -1,4 +1,4 @@
-import { Button, Kbd, toast, useModKey } from 'libui-kit'
+import { Button, Kbd, toast, useModKey } from '@roger.b/libui'
 import { Search } from 'lucide-react'
 
 export default function KbdModKey() {

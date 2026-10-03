@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react'
-import { cn } from 'libui-kit'
+import { cn } from '@roger.b/libui'
 import { siGithub } from 'simple-icons'
 
 /**

@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
   toast,
   useModKey,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { Copy, Download, MoreHorizontal, Send } from 'lucide-react'
 
 export default function DropdownMenuItems() {

@@ -1,4 +1,4 @@
-import { Callout, Card, CardAction, CardHeader, CardTitle, StatusBadge } from 'libui-kit'
+import { Callout, Card, CardAction, CardHeader, CardTitle, StatusBadge } from '@roger.b/libui'
 
 const EVENTS = [
   { who: 'Maya Chen', what: 'approved invoice INV-2041', when: '2 min ago' },

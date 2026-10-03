@@ -9,7 +9,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
   toast,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { ChevronDown, FolderInput, Pencil } from 'lucide-react'
 
 const TEAMS = ['Marketing', 'Product', 'Finance']

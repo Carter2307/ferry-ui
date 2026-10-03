@@ -1,4 +1,4 @@
-import { toast } from 'libui-kit'
+import { toast } from '@roger.b/libui'
 
 import { DetailPageExample } from '../../../../src/examples/detail-page-example'
 

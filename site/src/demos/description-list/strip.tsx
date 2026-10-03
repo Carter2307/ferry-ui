@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, DescriptionItem, DescriptionList } from 'libui-kit'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, DescriptionItem, DescriptionList } from '@roger.b/libui'
 
 export default function DescriptionListStrip() {
   return (

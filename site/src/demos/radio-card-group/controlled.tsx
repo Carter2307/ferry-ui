@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, RadioCardGroup, type RadioCardOption } from 'libui-kit'
+import { Button, RadioCardGroup, type RadioCardOption } from '@roger.b/libui'
 
 type Period = 'monthly' | 'yearly'
 

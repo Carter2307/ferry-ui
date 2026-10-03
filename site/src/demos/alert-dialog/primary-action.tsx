@@ -10,7 +10,7 @@ import {
   AlertDialogTrigger,
   Button,
   toast,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { Send } from 'lucide-react'
 
 export default function AlertDialogPrimaryAction() {

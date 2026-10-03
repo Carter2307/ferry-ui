@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle, EmptyState } from 'libui-kit'
+import { Card, CardContent, CardHeader, CardTitle, EmptyState } from '@roger.b/libui'
 import { History } from 'lucide-react'
 
 export default function EmptyStateInCard() {

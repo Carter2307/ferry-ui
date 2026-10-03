@@ -1,4 +1,4 @@
-import { MetricCard } from 'libui-kit'
+import { MetricCard } from '@roger.b/libui'
 
 export default function MetricCardInfo() {
   return (

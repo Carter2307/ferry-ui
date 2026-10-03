@@ -6,7 +6,7 @@
     "allowImportingTsExtensions": true,
     "checkJs": false,
     "paths": {
-      "libui-kit": ["../src/index.ts"],
+      "@roger.b/libui": ["../src/index.ts"],
       "@/*": ["./src/*"]
     }
   },

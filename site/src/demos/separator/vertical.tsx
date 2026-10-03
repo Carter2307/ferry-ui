@@ -1,4 +1,4 @@
-import { Separator } from 'libui-kit'
+import { Separator } from '@roger.b/libui'
 
 export default function SeparatorVertical() {
   return (

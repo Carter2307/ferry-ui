@@ -1,4 +1,4 @@
-import { InfoTile } from 'libui-kit'
+import { InfoTile } from '@roger.b/libui'
 import { CalendarDays, CreditCard } from 'lucide-react'
 
 export default function InfoTileHint() {

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useCommandShortcut } from 'libui-kit'
+import { useCommandShortcut } from '@roger.b/libui'
 import { MotionConfig } from 'motion/react'
 
 import { HeroBackdrop, PageEndBackdrop, PageRails } from '@/components/landing/backdrop'

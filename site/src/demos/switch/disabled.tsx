@@ -1,4 +1,4 @@
-import { Label, Switch } from 'libui-kit'
+import { Label, Switch } from '@roger.b/libui'
 
 export default function SwitchDisabled() {
   return (

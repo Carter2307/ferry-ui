@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from 'libui-kit'
+import { Avatar, AvatarFallback } from '@roger.b/libui'
 
 const SIZES = ['sm', 'md', 'lg'] as const
 

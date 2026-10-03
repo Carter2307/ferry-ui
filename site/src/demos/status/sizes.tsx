@@ -1,4 +1,4 @@
-import { StatusBadge } from 'libui-kit'
+import { StatusBadge } from '@roger.b/libui'
 
 export default function StatusSizes() {
   return (

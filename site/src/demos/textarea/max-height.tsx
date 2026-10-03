@@ -1,4 +1,4 @@
-import { Field, Textarea } from 'libui-kit'
+import { Field, Textarea } from '@roger.b/libui'
 
 const RELEASE_NOTES = [
   '- Invoices: the list loads faster.',

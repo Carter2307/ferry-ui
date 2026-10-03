@@ -1,4 +1,4 @@
-import { Button, Callout, toast } from 'libui-kit'
+import { Button, Callout, toast } from '@roger.b/libui'
 
 export default function CalloutHero() {
   return (

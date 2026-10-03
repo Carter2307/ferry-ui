@@ -250,7 +250,7 @@ function FontFamiliesDemo() {
 }
 
 /**
- * The two families and their full fallback stacks (read live from the tokens). `libui-kit/fonts.css` loads
+ * The two families and their full fallback stacks (read live from the tokens). `@roger.b/libui/fonts.css` loads
  * Inter and Source Code Pro as variable webfonts; skip it to fall back to the system fonts. The body
  * also enables Inter's `cv11` (single-storey a) and `ss01` (open digits) features.
  */

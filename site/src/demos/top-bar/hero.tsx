@@ -11,7 +11,7 @@ import {
   TopBarUserMenu,
   toast,
   type ResourceSwitcherItem,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { Building2, FolderKanban } from 'lucide-react'
 
 const PROJECTS: ResourceSwitcherItem[] = [

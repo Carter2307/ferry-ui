@@ -1,4 +1,4 @@
-import { Badge, RadioCard, RadioCardGroup } from 'libui-kit'
+import { Badge, RadioCard, RadioCardGroup } from '@roger.b/libui'
 
 const PLANS = [
   { value: 'free', label: 'Free', description: 'For one member and three projects.', price: '$0', popular: false },

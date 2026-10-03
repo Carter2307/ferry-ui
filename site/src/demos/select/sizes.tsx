@@ -1,4 +1,4 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui-kit'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@roger.b/libui'
 
 const SIZES = ['tiny', 'sm', 'md'] as const
 

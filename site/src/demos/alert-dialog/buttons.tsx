@@ -9,7 +9,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export default function AlertDialogButtons() {
   return (

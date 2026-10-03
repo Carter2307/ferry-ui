@@ -1,4 +1,4 @@
-import { Badge, Button, StatusBadge } from 'libui-kit'
+import { Badge, Button, StatusBadge } from '@roger.b/libui'
 
 export default function LookFromProps() {
   return (

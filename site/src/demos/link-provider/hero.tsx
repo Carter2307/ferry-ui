@@ -8,7 +8,7 @@ import {
   LinkProvider,
   toast,
   type LinkComponent,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 // In a real app, the adapter renders the link of the router: <Link to={href} {...props} />.
 // This adapter stays on the page and shows the target of the link.

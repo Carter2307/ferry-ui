@@ -1,4 +1,4 @@
-import { Callout } from 'libui-kit'
+import { Callout } from '@roger.b/libui'
 
 export default function CalloutTones() {
   return (

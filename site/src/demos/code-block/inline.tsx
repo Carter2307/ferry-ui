@@ -1,4 +1,4 @@
-import { CodeBlock } from 'libui-kit'
+import { CodeBlock } from '@roger.b/libui'
 
 const PLACEHOLDERS = [
   { code: '{{customer.first_name}}', help: 'The first name of the customer.' },

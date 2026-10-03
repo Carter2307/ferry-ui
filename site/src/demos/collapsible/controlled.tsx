@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Card, Collapsible, CollapsibleContent, CollapsibleTrigger } from 'libui-kit'
+import { Button, Card, Collapsible, CollapsibleContent, CollapsibleTrigger } from '@roger.b/libui'
 
 const MEMBERS = ['Maya Chen', 'Liam Novak', 'Sara Ortiz', 'Tom Becker', 'Aiko Tanaka', 'Omar Haddad']
 

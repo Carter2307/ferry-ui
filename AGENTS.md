@@ -23,9 +23,9 @@ Follow it over your defaults. Every `tsx` snippet below is type-checked against 
 
 ## 1. Rules
 
-1. **Import from the package root only.** `import { Button, cn } from 'libui-kit'`. Never import from
-   `libui-kit/dist/...` and never copy a libui component into the app. The only other entry points are the
-   stylesheets: `libui-kit/theme.css`, `libui-kit/styles.css`, `libui-kit/fonts.css`, `libui-kit/tokens.css`. Icons come
+1. **Import from the package root only.** `import { Button, cn } from '@roger.b/libui'`. Never import from
+   `@roger.b/libui/dist/...` and never copy a libui component into the app. The only other entry points are the
+   stylesheets: `@roger.b/libui/theme.css`, `@roger.b/libui/styles.css`, `@roger.b/libui/fonts.css`, `@roger.b/libui/tokens.css`. Icons come
    from `lucide-react`.
 2. **Look in the catalog before writing markup.** Compose existing primitives and patterns. Build a new
    component only when nothing in sections 5 and 7 fits, and build it from libui primitives and tokens.
@@ -70,7 +70,7 @@ Follow it over your defaults. Every `tsx` snippet below is type-checked against 
 
 - `react` and `react-dom` 19 (components take `ref` as a regular prop; React 18 is not supported).
 - ESM only. One module per component, tree-shakeable.
-- `tailwindcss` 4.1 or later, only when the app compiles `libui-kit/theme.css` itself.
+- `tailwindcss` 4.1 or later, only when the app compiles `@roger.b/libui/theme.css` itself.
 
 ### CSS
 
@@ -78,8 +78,8 @@ App that uses Tailwind CSS v4 (preferred: the app can use the same tokens in its
 
 ```css
 @import "tailwindcss";
-@import "libui-kit/fonts.css"; /* optional: Inter + Source Code Pro */
-@import "libui-kit/theme.css";
+@import "@roger.b/libui/fonts.css"; /* optional: Inter + Source Code Pro */
+@import "@roger.b/libui/theme.css";
 ```
 
 `theme.css` maps the tokens onto Tailwind theme names, declares the class-based `dark` variant, adds the
@@ -90,18 +90,18 @@ App without Tailwind: import the precompiled stylesheet once (it includes Tailwi
 The app then styles its own markup with plain CSS and the variables of section 4.
 
 ```ts
-import 'libui-kit/styles.css'
-import 'libui-kit/fonts.css' // optional
+import '@roger.b/libui/styles.css'
+import '@roger.b/libui/fonts.css' // optional
 ```
 
-`libui-kit/tokens.css` contains only the CSS custom properties (no Tailwind), for other stacks.
+`@roger.b/libui/tokens.css` contains only the CSS custom properties (no Tailwind), for other stacks.
 
 ### Providers
 
 ```tsx
 import type { ReactNode } from 'react'
 import { Link } from 'react-router'
-import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from 'libui-kit'
+import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from '@roger.b/libui'
 
 // Module level, so the component identity is stable between renders.
 const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
@@ -423,7 +423,7 @@ import {
   TopBarSeparator,
   TopBarUserMenu,
   type NavGroup,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { CreditCard, FolderKanban, LayoutDashboard, Settings, Users } from 'lucide-react'
 
 interface AppFrameProps {
@@ -532,7 +532,7 @@ import {
   rowLinkProps,
   type FilterOption,
   type StatusTone,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { MoreHorizontal, Plus } from 'lucide-react'
 
 type InvoiceStatus = 'paid' | 'open' | 'overdue'
@@ -686,7 +686,7 @@ import {
   SelectValue,
   getErrorMessage,
   toast,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 interface ProjectSettings {
   name: string
@@ -822,7 +822,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { Download } from 'lucide-react'
 
 interface Customer {
@@ -919,7 +919,7 @@ import {
   ResourceGrid,
   StatusLine,
   UsageBar,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { FolderKanban } from 'lucide-react'
 
 interface Project {
@@ -1010,7 +1010,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
   toast,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { MoreHorizontal, Trash2 } from 'lucide-react'
 
 export function ApiKeyActions({ name, onRevoke }: { name: string; onRevoke: () => Promise<void> }) {
@@ -1054,7 +1054,7 @@ export function ApiKeyActions({ name, onRevoke }: { name: string; onRevoke: () =
 One component per state; never show a blank area or a bare spinner.
 
 ```tsx
-import { Button, EmptyState, ErrorState, Skeleton, StaleDataCallout } from 'libui-kit'
+import { Button, EmptyState, ErrorState, Skeleton, StaleDataCallout } from '@roger.b/libui'
 import { FolderKanban, Plus } from 'lucide-react'
 
 interface ProjectListProps {
@@ -1140,7 +1140,7 @@ import {
   SelectTrigger,
   SelectValue,
   getErrorMessage,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export function InviteMemberDialog({ onInvite }: { onInvite: (email: string, role: string) => Promise<void> }) {
   const [open, setOpen] = React.useState(false)
@@ -1254,7 +1254,7 @@ Exports: `ThemeProvider`, `useTheme`, types `ThemeProviderProps`, `ThemeContextV
   reads the `dark` class of `<html>` and `setTheme` is a no-op. Plain styling never needs it.
 
 ```tsx
-import { ToggleGroup, ToggleGroupItem, useTheme, type ThemePreference } from 'libui-kit'
+import { ToggleGroup, ToggleGroupItem, useTheme, type ThemePreference } from '@roger.b/libui'
 
 const isPreference = (value: string): value is ThemePreference =>
   value === 'light' || value === 'dark' || value === 'system'
@@ -1289,7 +1289,7 @@ stored theme before first paint. Pass the same arguments as the `ThemeProvider`.
 
 ```tsx
 import type { ReactNode } from 'react'
-import { themeInitScript } from 'libui-kit'
+import { themeInitScript } from '@roger.b/libui'
 
 export function Document({ children }: { children: ReactNode }) {
   return (
@@ -1333,7 +1333,7 @@ Exports: `LinkProvider`, `useLinkComponent`, types `LinkComponent`, `LinkCompone
 
 ```tsx
 import type { ReactNode } from 'react'
-import { cn, useLinkComponent, type LinkComponent } from 'libui-kit'
+import { cn, useLinkComponent, type LinkComponent } from '@roger.b/libui'
 
 interface DocsLinkProps {
   href: string
@@ -1372,7 +1372,7 @@ Exports: `useCopy`, `copyText`, type `UseCopyOptions`.
 - Prefer the ready-made `CopyButton`, `CopyField`, `SecretField`, `CodeBlock`.
 
 ```tsx
-import { Button, useCopy } from 'libui-kit'
+import { Button, useCopy } from '@roger.b/libui'
 import { Check, Link2 } from 'lucide-react'
 
 export function CopyInviteLink({ url }: { url: string }) {
@@ -1401,7 +1401,7 @@ default and ignores presses with Alt or Shift. Bind each letter in one place onl
 
 ```tsx
 import * as React from 'react'
-import { Button, CommandMenu, Kbd, useCommandShortcut, useModKey, type CommandMenuGroup } from 'libui-kit'
+import { Button, CommandMenu, Kbd, useCommandShortcut, useModKey, type CommandMenuGroup } from '@roger.b/libui'
 
 export function SearchEverywhere({ groups }: { groups: CommandMenuGroup[] }) {
   const [open, setOpen] = React.useState(false)
@@ -1443,7 +1443,7 @@ Exports: `Button`, `buttonVariants`, type `ButtonProps`.
   `asChild`.
 
 ```tsx
-import { Button, Hint } from 'libui-kit'
+import { Button, Hint } from '@roger.b/libui'
 import { ArrowRight, Download, Plus } from 'lucide-react'
 
 export function ButtonExamples({ saving, onCreate }: { saving: boolean; onCreate: () => void }) {
@@ -1483,7 +1483,7 @@ state of a record use `StatusBadge`.
 - `badgeVariants({ variant, font, shape, case })` returns the classes.
 
 ```tsx
-import { Badge } from 'libui-kit'
+import { Badge } from '@roger.b/libui'
 
 export function PlanBadges() {
   return (
@@ -1513,7 +1513,7 @@ Exports: `Input`, `inputVariants`, type `InputProps`.
 - `inputVariants({ size, mono })` gives a non-input element the field look.
 
 ```tsx
-import { Input, Label } from 'libui-kit'
+import { Input, Label } from '@roger.b/libui'
 
 export function SlugField({ value, onChange }: { value: string; onChange: (slug: string) => void }) {
   return (
@@ -1540,7 +1540,7 @@ Multi-line field with the `Input` look. Grows with its content from an 80px mini
 content (JSON, keys). Same `aria-invalid` / `disabled` states as `Input`.
 
 ```tsx
-import { Field, Textarea } from 'libui-kit'
+import { Field, Textarea } from '@roger.b/libui'
 
 export function NotesField({ value, onChange }: { value: string; onChange: (notes: string) => void }) {
   return (
@@ -1568,7 +1568,7 @@ Export: `Checkbox`. 16px checkbox for choices applied on submit and for row sele
 - Needs a `Label` (wrapping it or via `htmlFor`) or an `aria-label` (table cells).
 
 ```tsx
-import { Checkbox, Label } from 'libui-kit'
+import { Checkbox, Label } from '@roger.b/libui'
 
 export function TermsCheckbox({ accepted, onChange }: { accepted: boolean; onChange: (accepted: boolean) => void }) {
   return (
@@ -1590,7 +1590,7 @@ Exports: `Switch`, type `SwitchProps`. On/off toggle for settings that apply imm
 - Needs an accessible name: `<Label htmlFor>` or `aria-label`.
 
 ```tsx
-import { Label, Switch } from 'libui-kit'
+import { Label, Switch } from '@roger.b/libui'
 
 export function NotificationsSwitch({ enabled, onChange }: { enabled: boolean; onChange: (enabled: boolean) => void }) {
   return (
@@ -1612,7 +1612,7 @@ Exports: `RadioGroup`, `RadioGroupItem`. Single choice among 2 to 5 visible opti
 - `RadioGroupItem`: `value` (required), `disabled`, `aria-invalid`. Wrap it with its text in a `Label`.
 
 ```tsx
-import { Label, RadioGroup, RadioGroupItem } from 'libui-kit'
+import { Label, RadioGroup, RadioGroupItem } from '@roger.b/libui'
 
 export function BillingPeriod({ value, onChange }: { value: string; onChange: (period: string) => void }) {
   return (
@@ -1658,7 +1658,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export function RoleSelect({ value, onChange }: { value: string; onChange: (role: string) => void }) {
   return (
@@ -1707,7 +1707,7 @@ Exports: `ToggleGroup`, `ToggleGroupItem`, types `ToggleGroupProps`, `ToggleGrou
 - `ToggleGroupItem`: `value` (required), `disabled`; icon-only items need `aria-label`.
 
 ```tsx
-import { Toggle, ToggleGroup, ToggleGroupItem } from 'libui-kit'
+import { Toggle, ToggleGroup, ToggleGroupItem } from '@roger.b/libui'
 import { Archive, LayoutGrid, List } from 'lucide-react'
 
 interface ViewOptionsProps {
@@ -1757,7 +1757,7 @@ for filtering the same content (use `ToggleGroup`).
 - `tabsListVariants({ variant })` returns the list classes.
 
 ```tsx
-import { Badge, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
+import { Badge, Tabs, TabsContent, TabsList, TabsTrigger } from '@roger.b/libui'
 
 export function ProjectTabs({ openInvoices }: { openInvoices: number }) {
   return (
@@ -1807,7 +1807,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export function ShortcutsDialog() {
   return (
@@ -1863,7 +1863,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export function DiscardChanges({ onDiscard }: { onDiscard: () => void }) {
   return (
@@ -1916,7 +1916,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export function OrderDetailsSheet({ orderNumber, children }: { orderNumber: string; children: ReactNode }) {
   return (
@@ -1955,7 +1955,7 @@ Floating panel for small forms and pickers. Non-modal: clicking outside closes i
 
 ```tsx
 import type { ReactNode } from 'react'
-import { Button, Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from 'libui-kit'
+import { Button, Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from '@roger.b/libui'
 
 export function ShareLinkPopover({ children }: { children: ReactNode }) {
   return (
@@ -2016,7 +2016,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
   useModKey,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { Copy, MoreHorizontal, Trash2 } from 'lucide-react'
 
 interface OrderMenuProps {
@@ -2088,7 +2088,7 @@ Exports: `TooltipProvider`, `Tooltip`, `TooltipTrigger`, `TooltipContent`, `Hint
   essential or interactive content in a tooltip (touch users cannot hover).
 
 ```tsx
-import { Button, Hint, Tooltip, TooltipContent, TooltipTrigger } from 'libui-kit'
+import { Button, Hint, Tooltip, TooltipContent, TooltipTrigger } from '@roger.b/libui'
 import { RefreshCw } from 'lucide-react'
 
 export function RefreshButton({ onRefresh, updatedAt }: { onRefresh: () => void; updatedAt: string }) {
@@ -2143,7 +2143,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { Check, ChevronsUpDown } from 'lucide-react'
 
 interface OwnerComboboxProps {
@@ -2201,7 +2201,7 @@ Wrap `CardTitle` + `CardDescription` in a `<div>` to stack them. Do not nest car
 use `FormCard`, for KPIs `MetricCard`, for entity lists `ResourceCard`.
 
 ```tsx
-import { Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'libui-kit'
+import { Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@roger.b/libui'
 
 export function PaymentMethodCard({ last4, onReplace }: { last4: string; onReplace: () => void }) {
   return (
@@ -2244,7 +2244,7 @@ Native table in a bordered, horizontally scrolling container. Full example: reci
   `TableErrorRow` (7.5).
 
 ```tsx
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from 'libui-kit'
+import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@roger.b/libui'
 
 interface OrderLine {
   id: string
@@ -2297,7 +2297,7 @@ type `AvatarProps`.
 - `AvatarGroup` stacks avatars; `AvatarGroupCount` is the trailing "+N".
 
 ```tsx
-import { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage } from 'libui-kit'
+import { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage } from '@roger.b/libui'
 
 export function TeamAvatars({ members, extra }: { members: { name: string; initials: string; photo?: string }[]; extra: number }) {
   return (
@@ -2341,7 +2341,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export function InvoiceBreadcrumb({ customer, invoice }: { customer: { id: string; name: string }; invoice: string }) {
   return (
@@ -2372,7 +2372,7 @@ options"). `open` + `onOpenChange`, or `defaultOpen`. `CollapsibleTrigger asChil
 
 ```tsx
 import type { ReactNode } from 'react'
-import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from 'libui-kit'
+import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from '@roger.b/libui'
 import { ChevronRight } from 'lucide-react'
 
 export function AdvancedOptions({ children }: { children: ReactNode }) {
@@ -2399,7 +2399,7 @@ focusable (plain text, a read-only list), pass `tabIndex: 0`, `role: 'region'` a
 the area can be scrolled from the keyboard; leave it unset when the content has links or fields.
 
 ```tsx
-import { ScrollArea, ScrollBar } from 'libui-kit'
+import { ScrollArea, ScrollBar } from '@roger.b/libui'
 
 export function ActivityLog({ entries }: { entries: string[] }) {
   return (
@@ -2434,7 +2434,7 @@ Export: `Skeleton`. Pulsing placeholder; size it like the content it replaces
 `ResourceCardSkeleton` where they exist.
 
 ```tsx
-import { Separator, Skeleton } from 'libui-kit'
+import { Separator, Skeleton } from '@roger.b/libui'
 
 export function ProfileSkeleton() {
   return (
@@ -2461,11 +2461,11 @@ Exports: `Toaster`, `toast`, type `ToasterProps`. Brief, non-blocking feedback (
   option (`position`, `duration`, `visibleToasts`…). It follows the theme by itself.
 - `toast(title, { description, action, cancel, id, duration })`, `toast.success`, `toast.error`,
   `toast.warning`, `toast.info`, `toast.loading`, `toast.promise(promise, { loading, success, error })`,
-  `toast.dismiss(id?)`. Always import `toast` from `libui-kit`, not from `sonner`.
+  `toast.dismiss(id?)`. Always import `toast` from `@roger.b/libui`, not from `sonner`.
 - Not for errors that need a decision (`ConfirmDialog`) or persistent status (`Callout`).
 
 ```tsx
-import { Button, getErrorMessage, toast } from 'libui-kit'
+import { Button, getErrorMessage, toast } from '@roger.b/libui'
 
 export function ExportButton({ onExport }: { onExport: () => Promise<void> }) {
   return (
@@ -2504,7 +2504,7 @@ Exports: `PageContainer`, `PageHeader`, `PageBackLink`, `PageSection`, types `Pa
 
 ```tsx
 import type { ReactNode } from 'react'
-import { Button, PageBackLink, PageContainer, PageHeader, PageSection } from 'libui-kit'
+import { Button, PageBackLink, PageContainer, PageHeader, PageSection } from '@roger.b/libui'
 import { Plus } from 'lucide-react'
 
 export function MembersPage({ onInvite, children }: { onInvite: () => void; children: ReactNode }) {
@@ -2551,7 +2551,7 @@ Exports: `ListToolbar`, `SearchInput`, `FilterMenu`, `FilterButton`, types `List
 
 ```tsx
 import * as React from 'react'
-import { Button, FilterMenu, ListToolbar, SearchInput, StatusDot, type FilterOption } from 'libui-kit'
+import { Button, FilterMenu, ListToolbar, SearchInput, StatusDot, type FilterOption } from '@roger.b/libui'
 import { Download } from 'lucide-react'
 
 const STATUS_OPTIONS: FilterOption[] = [
@@ -2601,7 +2601,7 @@ a text selection. Keep a real link in the first cell. Server-safe function, but 
 only works in a client component.
 
 ```tsx
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableSkeletonRows, rowLinkProps } from 'libui-kit'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableSkeletonRows, rowLinkProps } from '@roger.b/libui'
 
 interface Member {
   id: string
@@ -2650,7 +2650,7 @@ Exports: `EmptyState`, `ErrorState`, types `EmptyStateProps`, `ErrorStateProps`.
   `retryLabel`. Omit `onRetry` when retrying cannot help.
 
 ```tsx
-import { Button, EmptyState } from 'libui-kit'
+import { Button, EmptyState } from '@roger.b/libui'
 import { SearchX } from 'lucide-react'
 
 export function NoResults({ query, onClear }: { query: string; onClear: () => void }) {
@@ -2683,7 +2683,7 @@ Persistent inline message tied to a page, card or form. Not for transient feedba
   that could not be refreshed.
 
 ```tsx
-import { Button, Callout } from 'libui-kit'
+import { Button, Callout } from '@roger.b/libui'
 
 export function TrialCallout({ daysLeft, onAddCard }: { daysLeft: number; onAddCard: () => void }) {
   return (
@@ -2735,7 +2735,7 @@ Exports: `CopyButton`, `CopyField`, `SecretField`, types `CopyButtonProps`, `Cop
   names). Unset entries keep their default.
 
 ```tsx
-import { CopyButton, CopyField, FormCard, FormRow, SecretField } from 'libui-kit'
+import { CopyButton, CopyField, FormCard, FormRow, SecretField } from '@roger.b/libui'
 
 export function ApiAccessCard({ projectId, apiKey }: { projectId: string; apiKey: string }) {
   return (
@@ -2775,7 +2775,7 @@ Monospace snippet with a copy button. No syntax highlighting.
 - `CodeBlockPrompt`: the muted prompt for rich `children` (children default `$`).
 
 ```tsx
-import { CodeBlock, CodeBlockPrompt } from 'libui-kit'
+import { CodeBlock, CodeBlockPrompt } from '@roger.b/libui'
 
 export function QuickStart({ apiKey }: { apiKey: string }) {
   return (
@@ -2808,7 +2808,7 @@ Read-only label / value facts about **one** record, as a semantic `<dl>`. Exampl
 - In `grid`, fill every row or use `span` so no empty cell shows.
 
 ```tsx
-import { DescriptionItem, DescriptionList } from 'libui-kit'
+import { DescriptionItem, DescriptionList } from '@roger.b/libui'
 import { KeyRound, Users } from 'lucide-react'
 
 export function WorkspaceSummary({ members, pending, keys }: { members: number; pending: number; keys: number }) {
@@ -2847,7 +2847,7 @@ settings rows use `FormRow`; for a checkbox or switch with an inline label use `
   (`<SelectTrigger {...control}>`).
 
 ```tsx
-import { Field, Input, RadioGroup, RadioGroupItem, Label } from 'libui-kit'
+import { Field, Input, RadioGroup, RadioGroupItem, Label } from '@roger.b/libui'
 
 interface WebhookFieldsProps {
   url: string
@@ -2906,7 +2906,7 @@ Exports: `FormCard`, `FormRow`, `FormActions`, `ActionRow`, types `FormCardProps
   `description`, `tone` (inherits the card's).
 
 ```tsx
-import { ActionRow, Button, FormCard } from 'libui-kit'
+import { ActionRow, Button, FormCard } from '@roger.b/libui'
 
 export function DataActions({ onExport, exporting }: { onExport: () => void; exporting: boolean }) {
   return (
@@ -2979,7 +2979,7 @@ import {
   validateIdentifierKey,
   type KeyValuePair,
   type ValidateRowsOptions,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 // Module level: keeps the validation options stable between renders.
 const OPTIONS: ValidateRowsOptions = { validateKey: validateIdentifierKey }
@@ -3042,7 +3042,7 @@ Single choice among 2 to 6 options shown as selectable cards (icon, title, descr
 - Wrap it in `Field labelAs="span"` for a visible label, hint and error.
 
 ```tsx
-import { Field, RadioCardGroup, type RadioCardOption } from 'libui-kit'
+import { Field, RadioCardGroup, type RadioCardOption } from '@roger.b/libui'
 import { Globe, Lock } from 'lucide-react'
 
 type Visibility = 'private' | 'public'
@@ -3092,7 +3092,7 @@ import {
   ResourceCard,
   ResourceGrid,
   StatusLine,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { FolderKanban, MoreVertical } from 'lucide-react'
 
 interface Project {
@@ -3155,7 +3155,7 @@ types `MetricCardProps`, `MetricTrendProps`, `MetricTrendDirection`, `MetricTren
   `warning`, `destructive`, `info`, `neutral`; `dotClassName`. `LEGEND_DOT_TONES` lists the tones.
 
 ```tsx
-import { LegendDot, MetricCard, MetricTrend, UsageBar } from 'libui-kit'
+import { LegendDot, MetricCard, MetricTrend, UsageBar } from '@roger.b/libui'
 
 export function SeatUsage({ used, total, change }: { used: number; total: number; change: string }) {
   return (
@@ -3179,7 +3179,7 @@ Props: `label` (required), `value`, `icon`, `hint`, `loading`. Lay tiles out in
 `grid gap-x-8 gap-y-6 sm:grid-cols-2`. For numbers people compare, use `MetricCard`.
 
 ```tsx
-import { InfoTile, StatusBadge } from 'libui-kit'
+import { InfoTile, StatusBadge } from '@roger.b/libui'
 import { CreditCard, ShieldCheck, User } from 'lucide-react'
 
 export function AccountOverview({ owner, plan, renewsOn }: { owner: string | undefined; plan: string; renewsOn: string }) {
@@ -3223,7 +3223,7 @@ tone once (recipe 6.2). `STATUS_TONES` lists the tones in display order.
 - `statusBadgeVariants({ tone, size })` returns the badge classes.
 
 ```tsx
-import { IconBox, StatusBadge, StatusDot, StatusLine } from 'libui-kit'
+import { IconBox, StatusBadge, StatusDot, StatusLine } from '@roger.b/libui'
 import { Webhook } from 'lucide-react'
 
 export function WebhookStatus({ syncing }: { syncing: boolean }) {
@@ -3262,7 +3262,7 @@ alternatives.
   `actionProps` (extra props of the main button).
 
 ```tsx
-import { DropdownMenuItem, SplitButton } from 'libui-kit'
+import { DropdownMenuItem, SplitButton } from '@roger.b/libui'
 
 interface PublishButtonProps {
   publishing: boolean
@@ -3304,7 +3304,7 @@ Exports: `Kbd`, type `KbdProps`. A keycap for shortcut hints: `<Kbd>Esc</Kbd>`, 
 with `const mod = useModKey()`. Display only: bind the shortcut yourself.
 
 ```tsx
-import { Kbd, MonoLabel, useModKey } from 'libui-kit'
+import { Kbd, MonoLabel, useModKey } from '@roger.b/libui'
 
 export function ShortcutList() {
   const mod = useModKey()
@@ -3420,7 +3420,7 @@ import {
   TopBarSeparator,
   TopBarUserMenu,
   type ResourceSwitcherItem,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { LifeBuoy, LogOut, Plus } from 'lucide-react'
 
 interface AppTopBarProps {
@@ -3498,7 +3498,7 @@ destinations that each have an icon. Desktop only: `AppShell` hides it on phones
   that adapts to the width.
 
 ```tsx
-import { IconRail, IconRailItem, useIconRail, type NavGroup } from 'libui-kit'
+import { IconRail, IconRailItem, useIconRail, type NavGroup } from '@roger.b/libui'
 import { LifeBuoy } from 'lucide-react'
 
 function Wordmark() {
@@ -3547,7 +3547,7 @@ Phone navigation drawer. Inside an `AppShell` (`mobileNav` slot) it needs no `op
 - `MobileNavSection`: `label` + free content below the navigation groups.
 
 ```tsx
-import { Button, MobileNav, MobileNavSection, MobileNavTrigger, type NavItem } from 'libui-kit'
+import { Button, MobileNav, MobileNavSection, MobileNavTrigger, type NavItem } from '@roger.b/libui'
 
 export function PhoneNavigation({ items, workspace, onSignOut }: { items: NavItem[]; workspace: string; onSignOut: () => void }) {
   return (
@@ -3585,7 +3585,7 @@ strip (`mobileTabs`, default `true`).
 
 ```tsx
 import * as React from 'react'
-import { InnerMenu, PageContainer, PageHeader, type NavGroup } from 'libui-kit'
+import { InnerMenu, PageContainer, PageHeader, type NavGroup } from '@roger.b/libui'
 
 const GROUPS: NavGroup[] = [
   {
@@ -3639,7 +3639,7 @@ command palette. Mount it once near the root.
   `CommandItem` rows), `className`. The panel carries `data-slot="command-menu"`.
 
 ```tsx
-import { CommandMenu, type CommandMenuGroup } from 'libui-kit'
+import { CommandMenu, type CommandMenuGroup } from '@roger.b/libui'
 import { FolderKanban, Plus, Receipt } from 'lucide-react'
 
 export function AppCommandMenu({ onNewInvoice }: { onNewInvoice: () => void }) {
@@ -3705,7 +3705,7 @@ libui components ship the roles, focus management and keyboard behavior. The par
 
 **Do**
 
-- Import from `'libui-kit'`; take icons from `lucide-react`.
+- Import from `'@roger.b/libui'`; take icons from `lucide-react`.
 - Start a screen from a recipe (section 6), then swap parts using the decision tables (section 5).
 - Use tokens for every color, and the two weights 400 / 500.
 - Keep one `primary` button per view; confirm destructive actions with `ConfirmDialog`.
@@ -3731,7 +3731,7 @@ libui components ship the roles, focus management and keyboard behavior. The par
   `DropdownMenu`), `Switch` inside a form saved with a button (use `Checkbox`).
 - Don't nest `Card`s, `PageContainer`s, `AppShell`s or `ThemeProvider`s.
 - Don't bind the same shortcut in several places, and don't mount several `Toaster`s.
-- Don't import `toast` from `sonner`, Radix parts from `radix-ui`, or anything from `libui-kit/dist`.
+- Don't import `toast` from `sonner`, Radix parts from `radix-ui`, or anything from `@roger.b/libui/dist`.
 - Don't call variant helpers (`buttonVariants`…) or hooks from a server component.
 - Don't use the deprecated aliases (`danger` / `danger-solid` button variants, size `default` on
   `Select`, `Switch`, `Avatar`, `Toggle`): use `destructive`, `destructive-solid` and `md` / `sm`.
@@ -3748,7 +3748,7 @@ libui components ship the roles, focus management and keyboard behavior. The par
 
 ```tsx
 // Do: tokens through components, one action that is confirmed, named controls.
-import { ActionRow, Button, ConfirmDialog, FormCard } from 'libui-kit'
+import { ActionRow, Button, ConfirmDialog, FormCard } from '@roger.b/libui'
 
 export function DangerZone({ name, onDelete }: { name: string; onDelete: () => Promise<void> }) {
   return (
@@ -3800,7 +3800,7 @@ Primitives never import patterns or layout.
 
 1. **Files** are kebab-case: `timeline.tsx` next to `timeline.stories.tsx` (and `timeline.test.ts` for
    pure logic). One module may export a small family (`Timeline`, `TimelineItem`).
-2. **Relative imports only** (`'../../lib/utils'`); no `@/` alias, no import from `'libui-kit'` inside `src`.
+2. **Relative imports only** (`'../../lib/utils'`); no `@/` alias, no import from `'@roger.b/libui'` inside `src`.
 3. **Function components, no `forwardRef`.** `ref` is a regular prop (React 19). Spread the remaining
    props onto the root element so `id`, `aria-*` and `data-*` pass through. A composite with no single
    root (a trigger plus a portaled panel, a fragment of buttons) takes a closed list of props instead:

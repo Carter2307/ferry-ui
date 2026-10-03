@@ -1,4 +1,4 @@
-import { ToggleGroup, ToggleGroupItem } from 'libui-kit'
+import { ToggleGroup, ToggleGroupItem } from '@roger.b/libui'
 
 export default function ToggleGroupVariants() {
   return (

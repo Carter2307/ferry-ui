@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CodeBlock } from 'libui-kit'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CodeBlock } from '@roger.b/libui'
 
 const SAMPLE = `import { Acme } from '@acme/sdk'
 

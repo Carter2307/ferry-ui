@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, rowLinkProps } from 'libui-kit'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, rowLinkProps } from '@roger.b/libui'
 
 const PROJECTS = [
   { id: 'atlas', name: 'Atlas', owner: 'Maya Chen', updated: '5 minutes ago' },

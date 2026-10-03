@@ -7,7 +7,7 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { Share2 } from 'lucide-react'
 
 export default function PopoverHero() {

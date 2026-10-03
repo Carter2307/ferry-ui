@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, CommandMenu, type CommandMenuGroup } from 'libui-kit'
+import { Button, CommandMenu, type CommandMenuGroup } from '@roger.b/libui'
 import { FileText } from 'lucide-react'
 
 const INVOICES = [

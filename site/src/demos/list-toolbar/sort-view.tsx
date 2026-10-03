@@ -11,7 +11,7 @@ import {
   SearchInput,
   ToggleGroup,
   ToggleGroupItem,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { ArrowUpDown, LayoutGrid, List } from 'lucide-react'
 
 export default function ListToolbarSortView() {

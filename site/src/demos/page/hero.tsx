@@ -1,4 +1,4 @@
-import { Badge, Button, Card, CardContent, PageContainer, PageHeader, PageSection } from 'libui-kit'
+import { Badge, Button, Card, CardContent, PageContainer, PageHeader, PageSection } from '@roger.b/libui'
 import { UserPlus } from 'lucide-react'
 
 const MEMBERS = [

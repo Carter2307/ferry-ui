@@ -1,4 +1,4 @@
-import { FormCard, FormRow, Input, Textarea } from 'libui-kit'
+import { FormCard, FormRow, Input, Textarea } from '@roger.b/libui'
 
 export default function FormCardLayout() {
   return (

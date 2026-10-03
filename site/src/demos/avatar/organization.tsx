@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from 'libui-kit'
+import { Avatar, AvatarFallback } from '@roger.b/libui'
 import { Building2 } from 'lucide-react'
 
 export default function AvatarOrganization() {

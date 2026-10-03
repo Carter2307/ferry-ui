@@ -1,4 +1,4 @@
-import { LegendDot, MetricCard } from 'libui-kit'
+import { LegendDot, MetricCard } from '@roger.b/libui'
 
 // Requests for each hour, in thousands.
 const REQUESTS = [42, 38, 31, 26, 22, 24, 35, 58, 74, 88, 92, 86, 95, 99, 93, 80, 64, 49]

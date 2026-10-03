@@ -1,4 +1,4 @@
-import { ThemeMenu } from 'libui-kit'
+import { ThemeMenu } from '@roger.b/libui'
 
 export default function ThemeMenuAlign() {
   return (

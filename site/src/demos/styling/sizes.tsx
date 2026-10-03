@@ -1,4 +1,4 @@
-import { Button, Input } from 'libui-kit'
+import { Button, Input } from '@roger.b/libui'
 
 const SIZES = [
   { size: 'tiny', height: '26px' },

@@ -10,7 +10,7 @@ order: 2
 | --- | --- |
 | `react` and `react-dom` 19 | Components take `ref` as a regular prop. libui does not support React 18. |
 | An ESM toolchain | Vite, Next.js or another modern bundler. The package is ESM only. |
-| `tailwindcss` 4.1 or later | Necessary only if your app compiles `libui-kit/theme.css`. |
+| `tailwindcss` 4.1 or later | Necessary only if your app compiles `@roger.b/libui/theme.css`. |
 
 The package has one module for each component. Your bundle contains only the components that your app imports.
 
@@ -18,9 +18,9 @@ Radix UI, lucide-react, cmdk, sonner and the class helpers are dependencies of t
 
 ## Install the package
 
-The name of the package on npm is `libui-kit`. The name `libui` on npm is a different project.
+The name of the package on npm is `@roger.b/libui`. The name `libui` on npm is a different project.
 
-<PackageTabs packages="libui-kit" />
+<PackageTabs packages="@roger.b/libui" />
 
 ## Build from the repository
 
@@ -35,10 +35,10 @@ npm install
 npm pack
 ```
 
-The command writes the file `libui-kit-0.1.0.tgz`. Install this file in your app.
+The command writes the file `roger.b-libui-0.1.0.tgz`. Install this file in your app.
 
 ```sh title="In your app"
-npm install ../libui/libui-kit-0.1.0.tgz
+npm install ../libui/roger.b-libui-0.1.0.tgz
 ```
 
 ### From a git clone
@@ -48,7 +48,7 @@ Do not install libui as a git dependency. The repository does not contain the `d
 ```sh
 git clone https://github.com/Carter2307/libui.git libui
 cd libui && npm ci && npm pack
-cd ../my-app && npm install ../libui/libui-kit-0.1.0.tgz
+cd ../my-app && npm install ../libui/roger.b-libui-0.1.0.tgz
 ```
 
 ### Change libui and your app together
@@ -73,13 +73,13 @@ export default defineConfig({
 
 ## Import from the package root
 
-Import each component, hook and helper from `'libui-kit'`.
+Import each component, hook and helper from `'@roger.b/libui'`.
 
 ```tsx
-import { Button } from 'libui-kit'
+import { Button } from '@roger.b/libui'
 ```
 
-Do not import from `libui-kit/dist`. These paths are not part of the API.
+Do not import from `@roger.b/libui/dist`. These paths are not part of the API.
 
 ## Add a stylesheet
 
@@ -87,10 +87,10 @@ libui has four stylesheet entry points.
 
 | Entry point | Content | Use |
 | --- | --- | --- |
-| `libui-kit/theme.css` | The tokens, the Tailwind v4 theme, the `dark` variant, the base styles and the utilities. | Your app uses Tailwind CSS v4. |
-| `libui-kit/styles.css` | Compiled CSS: the Tailwind preflight, the tokens and each class of the components. | Your app does not use Tailwind. |
-| `libui-kit/fonts.css` | The Inter and Source Code Pro fonts. | You want the default fonts. |
-| `libui-kit/tokens.css` | The CSS variables only. | Another stack needs the tokens, for example emails or a marketing site. |
+| `@roger.b/libui/theme.css` | The tokens, the Tailwind v4 theme, the `dark` variant, the base styles and the utilities. | Your app uses Tailwind CSS v4. |
+| `@roger.b/libui/styles.css` | Compiled CSS: the Tailwind preflight, the tokens and each class of the components. | Your app does not use Tailwind. |
+| `@roger.b/libui/fonts.css` | The Inter and Source Code Pro fonts. | You want the default fonts. |
+| `@roger.b/libui/tokens.css` | The CSS variables only. | Another stack needs the tokens, for example emails or a marketing site. |
 
 ### App with Tailwind CSS v4
 
@@ -98,8 +98,8 @@ Import the theme in your main stylesheet, after Tailwind.
 
 ```css title="app.css"
 @import "tailwindcss";
-@import "libui-kit/fonts.css"; /* optional */
-@import "libui-kit/theme.css";
+@import "@roger.b/libui/fonts.css"; /* optional */
+@import "@roger.b/libui/theme.css";
 ```
 
 The theme gives the files of libui to Tailwind as a source. You do not write an `@source` rule or a `content` list. Your code can use the same token classes, for example `bg-surface-100` and `text-foreground-light`.
@@ -111,8 +111,8 @@ If your project folder is not a git repository, add a `.gitignore` file that lis
 Import the compiled stylesheet one time, at the root of the app. It includes the preflight reset of Tailwind.
 
 ```ts title="main.tsx"
-import 'libui-kit/styles.css'
-import 'libui-kit/fonts.css' // optional
+import '@roger.b/libui/styles.css'
+import '@roger.b/libui/fonts.css' // optional
 ```
 
 Style your own markup with plain CSS and the variables, for example `var(--surface-100)`.
@@ -126,7 +126,7 @@ The tokens name two font families.
 | `--libui-font-sans` | Inter, then the system fonts. |
 | `--libui-font-mono` | Source Code Pro, then the system monospace font. |
 
-`libui-kit/fonts.css` loads the two families as variable fonts. The fonts come from packages that libui installs. The browser sends no request to a font CDN.
+`@roger.b/libui/fonts.css` loads the two families as variable fonts. The fonts come from packages that libui installs. The browser sends no request to a font CDN.
 
 To use the system fonts, do not import `fonts.css`. To use other fonts, load them in your app and override the two variables.
 

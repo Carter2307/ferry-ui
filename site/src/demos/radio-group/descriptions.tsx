@@ -1,4 +1,4 @@
-import { Label, RadioGroup, RadioGroupItem } from 'libui-kit'
+import { Label, RadioGroup, RadioGroupItem } from '@roger.b/libui'
 
 const ROLES = [
   { value: 'viewer', label: 'Viewer', description: 'Sees the projects and the reports.' },

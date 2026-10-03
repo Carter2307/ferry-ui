@@ -1,4 +1,4 @@
-import { ResourceCard, ResourceGrid, StatusLine } from 'libui-kit'
+import { ResourceCard, ResourceGrid, StatusLine } from '@roger.b/libui'
 import { Calendar, CreditCard, HardDrive, Mail, MessageSquare, Webhook } from 'lucide-react'
 
 const INTEGRATIONS = [

@@ -12,7 +12,7 @@ Call the hook one time, near the root of the app. Put it next to the state of yo
 
 ```tsx
 import * as React from 'react'
-import { CommandMenu, useCommandShortcut, type CommandMenuGroup } from 'libui-kit'
+import { CommandMenu, useCommandShortcut, type CommandMenuGroup } from '@roger.b/libui'
 
 export function SearchEverywhere({ groups }: { groups: CommandMenuGroup[] }) {
   const [open, setOpen] = React.useState(false)

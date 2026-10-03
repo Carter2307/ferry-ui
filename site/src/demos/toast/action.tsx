@@ -1,4 +1,4 @@
-import { Button, toast } from 'libui-kit'
+import { Button, toast } from '@roger.b/libui'
 
 export default function ToastAction() {
   return (

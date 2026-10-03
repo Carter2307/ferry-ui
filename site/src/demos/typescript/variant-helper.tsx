@@ -1,4 +1,4 @@
-import { buttonVariants, type ButtonProps } from 'libui-kit'
+import { buttonVariants, type ButtonProps } from '@roger.b/libui'
 
 // The options of the helper have the same types as the props of Button.
 type RepositoryLinkProps = Pick<ButtonProps, 'variant' | 'size'>

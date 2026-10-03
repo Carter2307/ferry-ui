@@ -1,4 +1,4 @@
-import { Button, Input } from 'libui-kit'
+import { Button, Input } from '@roger.b/libui'
 
 export default function InputWithButton() {
   return (

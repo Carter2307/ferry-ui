@@ -1,4 +1,4 @@
-import { Button, Hint } from 'libui-kit'
+import { Button, Hint } from '@roger.b/libui'
 
 const SIDES = ['top', 'right', 'bottom', 'left'] as const
 

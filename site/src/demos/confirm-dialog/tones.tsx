@@ -1,4 +1,4 @@
-import { Button, ConfirmDialog, toast } from 'libui-kit'
+import { Button, ConfirmDialog, toast } from '@roger.b/libui'
 
 export default function ConfirmDialogTones() {
   return (

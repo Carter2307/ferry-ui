@@ -1,4 +1,4 @@
-import { Checkbox, Label, MonoLabel } from 'libui-kit'
+import { Checkbox, Label, MonoLabel } from '@roger.b/libui'
 
 export default function MonoLabelLegend() {
   return (

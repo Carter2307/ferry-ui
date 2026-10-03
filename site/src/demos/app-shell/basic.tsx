@@ -16,7 +16,7 @@ import {
   TopBarSeparator,
   TopBarUserMenu,
   type NavGroup,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { CreditCard, FolderKanban, LayoutDashboard, Settings, Users } from 'lucide-react'
 
 const PAGES = [

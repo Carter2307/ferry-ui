@@ -1,4 +1,4 @@
-import { Button } from 'libui-kit'
+import { Button } from '@roger.b/libui'
 import { ArrowRight } from 'lucide-react'
 
 import { GithubIcon } from '@/components/logo'

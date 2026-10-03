@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Badge, Button, InnerMenu, toast, type NavGroup } from 'libui-kit'
+import { Badge, Button, InnerMenu, toast, type NavGroup } from '@roger.b/libui'
 import { Plug, Settings2, Users } from 'lucide-react'
 
 const GROUPS: NavGroup[] = [

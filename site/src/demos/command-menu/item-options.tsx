@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Badge, Button, CommandMenu, useModKey, type CommandMenuGroup } from 'libui-kit'
+import { Badge, Button, CommandMenu, useModKey, type CommandMenuGroup } from '@roger.b/libui'
 import { CreditCard, FolderKanban, KeyRound, Plus, Rows3 } from 'lucide-react'
 
 export default function CommandMenuItemOptions() {

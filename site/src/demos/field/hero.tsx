@@ -1,4 +1,4 @@
-import { Button, Field, Input, Textarea } from 'libui-kit'
+import { Button, Field, Input, Textarea } from '@roger.b/libui'
 
 export default function FieldHero() {
   return (

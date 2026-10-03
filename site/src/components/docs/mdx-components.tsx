@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
   cn,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 import { RouterLink } from '@/components/providers'
 

@@ -9,7 +9,7 @@ import {
   CommandShortcut,
   toast,
   useModKey,
-} from 'libui-kit'
+} from '@roger.b/libui'
 import { FolderKanban, Plus, Settings, UserPlus } from 'lucide-react'
 
 export default function CommandHero() {

@@ -1,4 +1,4 @@
-import { Field, Input } from 'libui-kit'
+import { Field, Input } from '@roger.b/libui'
 
 export default function InputHero() {
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ResourceSwitcher, toast, type ResourceSwitcherAction, type ResourceSwitcherItem } from 'libui-kit'
+import { ResourceSwitcher, toast, type ResourceSwitcherAction, type ResourceSwitcherItem } from '@roger.b/libui'
 import { FolderKanban, LayoutGrid, Plus } from 'lucide-react'
 
 const PROJECTS: ResourceSwitcherItem[] = [

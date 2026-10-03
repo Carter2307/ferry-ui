@@ -1,4 +1,4 @@
-import { cn } from 'libui-kit'
+import { cn } from '@roger.b/libui'
 
 const CHARTS = [
   { className: 'bg-chart-1', variable: '--chart-1' },

@@ -1,4 +1,4 @@
-import { Skeleton } from 'libui-kit'
+import { Skeleton } from '@roger.b/libui'
 
 export default function SkeletonShapes() {
   return (

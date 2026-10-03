@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 const CHANGES = [
   'Invoices show the tax for each line.',

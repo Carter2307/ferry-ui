@@ -1,4 +1,4 @@
-import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from 'libui-kit'
+import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from '@roger.b/libui'
 import { ChevronRight } from 'lucide-react'
 
 export default function CollapsibleDisabled() {

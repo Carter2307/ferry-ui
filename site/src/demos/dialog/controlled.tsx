@@ -11,7 +11,7 @@ import {
   Field,
   Input,
   toast,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export default function DialogControlled() {
   const [open, setOpen] = React.useState(false)

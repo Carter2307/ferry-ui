@@ -1,4 +1,4 @@
-import { Field, ToggleGroup, ToggleGroupItem } from 'libui-kit'
+import { Field, ToggleGroup, ToggleGroupItem } from '@roger.b/libui'
 import { Monitor, Moon, Sun } from 'lucide-react'
 
 export default function ToggleGroupField() {

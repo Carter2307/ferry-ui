@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export default function DialogWithTitle() {
   return (

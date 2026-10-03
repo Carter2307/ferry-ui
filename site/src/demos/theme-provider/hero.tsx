@@ -1,4 +1,4 @@
-import { Button, useTheme } from 'libui-kit'
+import { Button, useTheme } from '@roger.b/libui'
 import { Monitor, Moon, Sun } from 'lucide-react'
 
 export default function ThemeProviderHero() {

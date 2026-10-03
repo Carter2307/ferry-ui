@@ -1,4 +1,4 @@
-import { EmptyState } from 'libui-kit'
+import { EmptyState } from '@roger.b/libui'
 import { Users } from 'lucide-react'
 
 export default function EmptyStateSizes() {

@@ -1,4 +1,4 @@
-import { cn } from 'libui-kit'
+import { cn } from '@roger.b/libui'
 
 const TEXT = [
   { className: 'text-foreground', variable: '--foreground', sample: 'Invoice INV-2041' },

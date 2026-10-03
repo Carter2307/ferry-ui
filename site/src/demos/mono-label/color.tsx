@@ -1,4 +1,4 @@
-import { MonoLabel } from 'libui-kit'
+import { MonoLabel } from '@roger.b/libui'
 
 export default function MonoLabelColor() {
   return (

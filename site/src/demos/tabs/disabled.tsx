@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@roger.b/libui'
 
 export default function TabsDisabled() {
   return (

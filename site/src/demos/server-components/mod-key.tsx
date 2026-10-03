@@ -1,4 +1,4 @@
-import { Button, Kbd, useModKey } from 'libui-kit'
+import { Button, Kbd, useModKey } from '@roger.b/libui'
 import { Search } from 'lucide-react'
 
 export default function ModKeyHint() {

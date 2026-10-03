@@ -7,7 +7,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export default function SelectGroups() {
   return (

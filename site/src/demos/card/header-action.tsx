@@ -1,4 +1,4 @@
-import { Button, Card, CardAction, CardContent, CardHeader, CardTitle } from 'libui-kit'
+import { Button, Card, CardAction, CardContent, CardHeader, CardTitle } from '@roger.b/libui'
 import { MoreHorizontal, Plus } from 'lucide-react'
 
 export default function CardHeaderAction() {

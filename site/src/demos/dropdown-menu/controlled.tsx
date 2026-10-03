@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, toast } from 'libui-kit'
+import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, toast } from '@roger.b/libui'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function DropdownMenuControlled() {

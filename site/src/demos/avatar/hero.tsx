@@ -1,4 +1,4 @@
-import { Avatar, AvatarBadge, AvatarFallback } from 'libui-kit'
+import { Avatar, AvatarBadge, AvatarFallback } from '@roger.b/libui'
 
 export default function AvatarHero() {
   return (

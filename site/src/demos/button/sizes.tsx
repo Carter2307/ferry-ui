@@ -1,4 +1,4 @@
-import { Button } from 'libui-kit'
+import { Button } from '@roger.b/libui'
 
 export default function ButtonSizes() {
   return (

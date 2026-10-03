@@ -1,4 +1,4 @@
-/* Source of the precompiled `libui-kit/styles.css` (for apps without Tailwind):
+/* Source of the precompiled `@roger.b/libui/styles.css` (for apps without Tailwind):
    Tailwind preflight + the libui theme + every utility libui's components use. */
 @import "tailwindcss";
 @import "./theme.css";

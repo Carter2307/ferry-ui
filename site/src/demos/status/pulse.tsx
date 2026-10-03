@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, StatusBadge } from 'libui-kit'
+import { Button, StatusBadge } from '@roger.b/libui'
 
 export default function StatusPulse() {
   const [running, setRunning] = React.useState(true)

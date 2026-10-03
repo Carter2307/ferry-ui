@@ -1,4 +1,4 @@
-import { ResourceSwitcher, StatusDot, type ResourceSwitcherItem } from 'libui-kit'
+import { ResourceSwitcher, StatusDot, type ResourceSwitcherItem } from '@roger.b/libui'
 import { UsersRound } from 'lucide-react'
 
 const TEAMS: ResourceSwitcherItem[] = [

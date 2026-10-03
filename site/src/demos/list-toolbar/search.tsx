@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SearchInput } from 'libui-kit'
+import { SearchInput } from '@roger.b/libui'
 
 export default function SearchInputDemo() {
   const [query, setQuery] = React.useState('')

@@ -1,4 +1,4 @@
-import { Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui-kit'
+import { Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@roger.b/libui'
 
 export default function SelectHero() {
   return (

@@ -1,4 +1,4 @@
-import { FormCard, FormRow, Switch } from 'libui-kit'
+import { FormCard, FormRow, Switch } from '@roger.b/libui'
 
 export default function SwitchHero() {
   return (

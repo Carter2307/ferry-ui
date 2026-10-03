@@ -1,4 +1,4 @@
-import { Checkbox, Label } from 'libui-kit'
+import { Checkbox, Label } from '@roger.b/libui'
 
 export default function LabelWrap() {
   return (

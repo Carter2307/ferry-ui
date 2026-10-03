@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Input, Popover, PopoverAnchor, PopoverContent, PopoverTitle, PopoverTrigger } from 'libui-kit'
+import { Button, Input, Popover, PopoverAnchor, PopoverContent, PopoverTitle, PopoverTrigger } from '@roger.b/libui'
 import { CalendarDays } from 'lucide-react'
 
 const DATES = [

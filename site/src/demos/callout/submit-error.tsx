@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Callout, Field, Input } from 'libui-kit'
+import { Button, Callout, Field, Input } from '@roger.b/libui'
 
 const TAKEN_SLUGS = ['billing-portal', 'docs']
 

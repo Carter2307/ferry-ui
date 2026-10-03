@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Callout, CopyButton, ToggleGroup, ToggleGroupItem, cn, getErrorMessage } from 'libui-kit'
+import { Button, Callout, CopyButton, ToggleGroup, ToggleGroupItem, cn, getErrorMessage } from '@roger.b/libui'
 import { ChevronsUpDown, Monitor, Smartphone, Tablet } from 'lucide-react'
 
 import { ScaledFrame } from '@/components/scaled-frame'

@@ -1,4 +1,4 @@
-import { Button, ResourceCard, ResourceGrid, StatusLine, toast, type LinkComponent } from 'libui-kit'
+import { Button, ResourceCard, ResourceGrid, StatusLine, toast, type LinkComponent } from '@roger.b/libui'
 import { LayoutDashboard, Smartphone, Users } from 'lucide-react'
 
 // In an app, the link component of your router opens the page. This one stays on the page.

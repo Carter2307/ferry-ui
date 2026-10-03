@@ -1,4 +1,4 @@
-import { CodeBlock, CodeBlockPrompt } from 'libui-kit'
+import { CodeBlock, CodeBlockPrompt } from '@roger.b/libui'
 
 export default function CodeBlockRich() {
   return (

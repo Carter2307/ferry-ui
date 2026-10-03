@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Field, Input } from 'libui-kit'
+import { Field, Input } from '@roger.b/libui'
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 

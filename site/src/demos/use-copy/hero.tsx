@@ -1,4 +1,4 @@
-import { Button, useCopy } from 'libui-kit'
+import { Button, useCopy } from '@roger.b/libui'
 import { Check, Link2 } from 'lucide-react'
 
 export default function UseCopyHero() {

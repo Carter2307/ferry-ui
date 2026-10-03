@@ -1,4 +1,4 @@
-import { Badge } from 'libui-kit'
+import { Badge } from '@roger.b/libui'
 
 const PLAN = 'Enterprise annual plan with priority support'
 

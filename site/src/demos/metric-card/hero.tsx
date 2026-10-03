@@ -1,4 +1,4 @@
-import { MetricCard, MetricTrend, UsageBar } from 'libui-kit'
+import { MetricCard, MetricTrend, UsageBar } from '@roger.b/libui'
 
 export default function MetricCardHero() {
   return (

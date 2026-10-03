@@ -1,4 +1,4 @@
-import { Badge } from 'libui-kit'
+import { Badge } from '@roger.b/libui'
 import { Lock, Sparkles, Users } from 'lucide-react'
 
 export default function BadgeIcons() {

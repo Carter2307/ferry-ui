@@ -1,4 +1,4 @@
-import { MobileNav, MobileNavSection, MobileNavTrigger, type NavItem } from 'libui-kit'
+import { MobileNav, MobileNavSection, MobileNavTrigger, type NavItem } from '@roger.b/libui'
 import { FolderKanban, LayoutDashboard, Users } from 'lucide-react'
 
 const ITEMS: NavItem[] = [

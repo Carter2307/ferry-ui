@@ -11,7 +11,7 @@ import {
   AlertDialogTrigger,
   Button,
   toast,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export default function AlertDialogAsync() {
   const [open, setOpen] = React.useState(false)

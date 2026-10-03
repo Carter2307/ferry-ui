@@ -1,4 +1,4 @@
-import { Badge, Button, Card, CardContent, PageSection } from 'libui-kit'
+import { Badge, Button, Card, CardContent, PageSection } from '@roger.b/libui'
 import { Plus } from 'lucide-react'
 
 export default function PageSections() {

@@ -11,7 +11,7 @@ import {
   DialogTrigger,
   Field,
   Input,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export default function DialogHero() {
   return (

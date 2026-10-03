@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { cn } from 'libui-kit'
+import { cn } from '@roger.b/libui'
 
 import { PixelField } from './pixel-field'
 

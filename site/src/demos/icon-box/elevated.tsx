@@ -1,4 +1,4 @@
-import { IconBox } from 'libui-kit'
+import { IconBox } from '@roger.b/libui'
 import { FolderKanban } from 'lucide-react'
 
 export default function IconBoxElevated() {

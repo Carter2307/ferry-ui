@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from 'libui-kit'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from '@roger.b/libui'
 import { FileText } from 'lucide-react'
 
 const INVOICES = [

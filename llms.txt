@@ -2,7 +2,7 @@
 
 > libui is a React 19 design system for dense product interfaces (dashboards, admin consoles, settings pages, data tables, developer tools): design tokens, accessible primitives on Radix UI, higher-level patterns and application-shell layout pieces, styled with Tailwind CSS v4 in the shadcn/ui conventions.
 
-Import everything from the package root (`import { Button } from 'libui-kit'`). Stylesheets are separate entry points: `libui-kit/theme.css` (Tailwind v4 apps), `libui-kit/styles.css` (precompiled, no Tailwind needed), `libui-kit/fonts.css`, `libui-kit/tokens.css`. Colors, radii, shadows and fonts come from tokens only, never from raw values. Components are router agnostic (links are `href` strings rendered through `LinkProvider`) and hold no global state (`value` / `onValueChange`, `open` / `onOpenChange`).
+Import everything from the package root (`import { Button } from '@roger.b/libui'`). Stylesheets are separate entry points: `@roger.b/libui/theme.css` (Tailwind v4 apps), `@roger.b/libui/styles.css` (precompiled, no Tailwind needed), `@roger.b/libui/fonts.css`, `@roger.b/libui/tokens.css`. Colors, radii, shadows and fonts come from tokens only, never from raw values. Components are router agnostic (links are `href` strings rendered through `LinkProvider`) and hold no global state (`value` / `onValueChange`, `open` / `onOpenChange`).
 
 The Storybook links below need the local server: run `npm run storybook`, which serves http://localhost:6006.
 

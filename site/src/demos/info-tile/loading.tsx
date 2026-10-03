@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { InfoTile, Label, Switch } from 'libui-kit'
+import { InfoTile, Label, Switch } from '@roger.b/libui'
 import { CalendarDays, User } from 'lucide-react'
 
 export default function InfoTileLoading() {

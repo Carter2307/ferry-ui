@@ -10,7 +10,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 const MEMBERS = [
   { name: 'Maya Chen', email: 'maya@example.com', role: 'Admin' },

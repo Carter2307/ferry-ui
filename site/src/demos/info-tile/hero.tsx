@@ -1,4 +1,4 @@
-import { InfoTile, StatusBadge } from 'libui-kit'
+import { InfoTile, StatusBadge } from '@roger.b/libui'
 import { CreditCard, Globe, ShieldCheck, User } from 'lucide-react'
 
 export default function InfoTileHero() {

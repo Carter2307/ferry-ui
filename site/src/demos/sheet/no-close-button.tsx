@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export default function SheetNoCloseButton() {
   return (

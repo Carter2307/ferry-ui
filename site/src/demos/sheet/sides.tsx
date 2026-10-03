@@ -1,4 +1,4 @@
-import { Button, Sheet, SheetBody, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from 'libui-kit'
+import { Button, Sheet, SheetBody, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@roger.b/libui'
 
 const SIDES = ['top', 'right', 'bottom', 'left'] as const
 

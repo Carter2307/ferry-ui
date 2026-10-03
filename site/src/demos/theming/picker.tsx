@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ToggleGroup, ToggleGroupItem, useTheme, type ThemePreference } from 'libui-kit'
+import { ToggleGroup, ToggleGroupItem, useTheme, type ThemePreference } from '@roger.b/libui'
 
 const isPreference = (value: string): value is ThemePreference =>
   value === 'light' || value === 'dark' || value === 'system'

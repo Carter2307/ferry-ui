@@ -1,4 +1,4 @@
-import { ScrollArea } from 'libui-kit'
+import { ScrollArea } from '@roger.b/libui'
 
 const ENTRIES = [
   'Maya Chen invited Jonas Weber',

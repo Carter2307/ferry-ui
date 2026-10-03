@@ -1,4 +1,4 @@
-import { Button, Tooltip, TooltipContent, TooltipTrigger } from 'libui-kit'
+import { Button, Tooltip, TooltipContent, TooltipTrigger } from '@roger.b/libui'
 
 export default function TooltipParts() {
   return (

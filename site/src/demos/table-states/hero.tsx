@@ -11,7 +11,7 @@ import {
   TableSkeletonRows,
   ToggleGroup,
   ToggleGroupItem,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 const INVOICES = [
   { number: 'INV-2041', amount: '$1,250.00' },

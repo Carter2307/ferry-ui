@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { TopBarSearch } from 'libui-kit'
+import { TopBarSearch } from '@roger.b/libui'
 
 export default function TopBarSearchDemo() {
   const [clicks, setClicks] = React.useState(0)

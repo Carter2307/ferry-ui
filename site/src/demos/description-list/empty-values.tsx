@@ -1,4 +1,4 @@
-import { DescriptionItem, DescriptionList } from 'libui-kit'
+import { DescriptionItem, DescriptionList } from '@roger.b/libui'
 
 export default function DescriptionListEmptyValues() {
   return (

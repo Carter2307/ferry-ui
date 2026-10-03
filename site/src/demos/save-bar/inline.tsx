@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, Checkbox, Label, SaveBar, toast } from 'libui-kit'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, Checkbox, Label, SaveBar, toast } from '@roger.b/libui'
 
 export default function SaveBarInline() {
   const [saved, setSaved] = React.useState(true)

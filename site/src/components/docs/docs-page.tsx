@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, EmptyState, Skeleton, cn } from 'libui-kit'
+import { Button, EmptyState, Skeleton, cn } from '@roger.b/libui'
 import { ArrowLeft, ArrowRight, FileQuestion, FileText } from 'lucide-react'
 import { useLocation } from 'react-router'
 

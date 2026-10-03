@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      'libui-kit': fileURLToPath(new URL('../src/index.ts', import.meta.url)),
+      '@roger.b/libui': fileURLToPath(new URL('../src/index.ts', import.meta.url)),
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },

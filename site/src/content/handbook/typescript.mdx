@@ -7,7 +7,7 @@ order: 8
 The package contains its type declarations. Import each type from the package root, with the components.
 
 ```ts
-import { Button, type ButtonProps, type NavGroup, type StatusTone } from 'libui-kit'
+import { Button, type ButtonProps, type NavGroup, type StatusTone } from '@roger.b/libui'
 ```
 
 ## Prop types
@@ -68,7 +68,7 @@ libui makes these helpers with `cva` from `class-variance-authority`. The `Varia
 
 ```ts
 import type { VariantProps } from 'class-variance-authority'
-import { badgeVariants } from 'libui-kit'
+import { badgeVariants } from '@roger.b/libui'
 
 type BadgeOptions = VariantProps<typeof badgeVariants>
 ```
@@ -80,7 +80,7 @@ Call a variant helper only from a client component. The [Server Components](/doc
 `NavItem` and `NavGroup` describe the navigation of your app. [Icon Rail](/docs/components/icon-rail), [Mobile Nav](/docs/components/mobile-nav), [Inner Menu](/docs/components/inner-menu) and [Command Menu](/docs/components/command-menu) accept the same value.
 
 ```tsx title="navigation.tsx"
-import type { NavGroup } from 'libui-kit'
+import type { NavGroup } from '@roger.b/libui'
 import { FolderKanban, Settings } from 'lucide-react'
 
 export const groups: NavGroup[] = [
@@ -100,7 +100,7 @@ export const groups: NavGroup[] = [
 
 ```tsx title="router-link.tsx"
 import { Link } from 'react-router'
-import type { LinkComponent } from 'libui-kit'
+import type { LinkComponent } from '@roger.b/libui'
 
 export const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
 ```

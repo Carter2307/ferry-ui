@@ -9,7 +9,7 @@ import {
   DescriptionItem,
   DescriptionList,
   StatusBadge,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 export default function Principles() {
   return (

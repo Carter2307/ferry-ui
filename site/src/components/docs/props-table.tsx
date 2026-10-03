@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Badge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'libui-kit'
+import { Badge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@roger.b/libui'
 
 export interface ApiProp {
   name: string

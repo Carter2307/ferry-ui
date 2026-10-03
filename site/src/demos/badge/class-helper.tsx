@@ -1,4 +1,4 @@
-import { badgeVariants } from 'libui-kit'
+import { badgeVariants } from '@roger.b/libui'
 
 const TAGS = ['Design', 'Frontend', 'Roadmap', 'Customer request']
 

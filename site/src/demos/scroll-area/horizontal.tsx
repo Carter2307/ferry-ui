@@ -1,4 +1,4 @@
-import { ScrollArea, ScrollBar } from 'libui-kit'
+import { ScrollArea, ScrollBar } from '@roger.b/libui'
 
 const PROJECTS = [
   { name: 'Marketing site', tasks: 14 },

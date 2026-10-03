@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, Field, Input, SaveBar, Textarea, toast } from 'libui-kit'
+import { Card, Field, Input, SaveBar, Textarea, toast } from '@roger.b/libui'
 
 const INITIAL = { company: 'Acme', email: 'billing@example.com', address: '12 Market Street\nSpringfield' }
 

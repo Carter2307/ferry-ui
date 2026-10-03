@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Label, MetricCard, MetricTrend, Switch, UsageBar } from 'libui-kit'
+import { Label, MetricCard, MetricTrend, Switch, UsageBar } from '@roger.b/libui'
 
 export default function MetricCardLoading() {
   // In an app, `loading` comes from the request that loads the numbers.

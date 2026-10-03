@@ -1,4 +1,4 @@
-import { SearchInput } from 'libui-kit'
+import { SearchInput } from '@roger.b/libui'
 
 export default function SearchInputSizes() {
   return (

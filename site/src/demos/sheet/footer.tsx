@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from 'libui-kit'
+} from '@roger.b/libui'
 
 const FOOTERS = [
   // No class: the footer stacks its buttons.

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Checkbox, Label } from 'libui-kit'
+import { Button, Checkbox, Label } from '@roger.b/libui'
 
 const PERMISSIONS = [
   { value: 'read', label: 'Read projects' },

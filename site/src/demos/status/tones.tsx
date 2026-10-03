@@ -1,4 +1,4 @@
-import { STATUS_TONES, StatusBadge, type StatusTone } from 'libui-kit'
+import { STATUS_TONES, StatusBadge, type StatusTone } from '@roger.b/libui'
 
 const LABELS: Record<StatusTone, string> = {
   success: 'Active',

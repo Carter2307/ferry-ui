@@ -1,4 +1,4 @@
-import { IconBox, type IconBoxTone } from 'libui-kit'
+import { IconBox, type IconBoxTone } from '@roger.b/libui'
 import { Webhook } from 'lucide-react'
 
 const TONES: IconBoxTone[] = ['neutral', 'primary', 'success', 'warning', 'destructive', 'info']

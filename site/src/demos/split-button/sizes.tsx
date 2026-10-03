@@ -1,4 +1,4 @@
-import { DropdownMenuItem, SplitButton } from 'libui-kit'
+import { DropdownMenuItem, SplitButton } from '@roger.b/libui'
 
 const SIZES = [
   { size: 'tiny', label: 'Tiny' },

@@ -1,4 +1,4 @@
-import { Kbd } from 'libui-kit'
+import { Kbd } from '@roger.b/libui'
 
 const KEYS = ['⌘', '⇧', '⌥', 'Ctrl', 'Esc', 'Tab', '↵', '↑', '↓', '/', 'Backspace']
 

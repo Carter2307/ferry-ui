@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { InnerMenu, LinkProvider, type LinkComponent, type NavGroup } from 'libui-kit'
+import { InnerMenu, LinkProvider, type LinkComponent, type NavGroup } from '@roger.b/libui'
 
 // This context does the work of a router in the demo: a click changes the location.
 const NavigateContext = React.createContext<(href: string) => void>(() => {})

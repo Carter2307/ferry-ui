@@ -5,11 +5,11 @@ import { Reveal } from './reveal'
 import { Heading, Section } from './ui'
 
 const STYLES = `@import "tailwindcss";
-@import "libui-kit/fonts.css"; /* optional: Inter and Source Code Pro */
-@import "libui-kit/theme.css";`
+@import "@roger.b/libui/fonts.css"; /* optional: Inter and Source Code Pro */
+@import "@roger.b/libui/theme.css";`
 
 const PROVIDERS = `import type { ReactNode } from 'react'
-import { ThemeProvider, Toaster, TooltipProvider } from 'libui-kit'
+import { ThemeProvider, Toaster, TooltipProvider } from '@roger.b/libui'
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
@@ -22,7 +22,7 @@ export function Providers({ children }: { children: ReactNode }) {
   )
 }`
 
-const FIRST_SCREEN = `import { Button, EmptyState } from 'libui-kit'
+const FIRST_SCREEN = `import { Button, EmptyState } from '@roger.b/libui'
 import { FolderKanban, Plus } from 'lucide-react'
 
 export function NoProjects({ onCreate }: { onCreate: () => void }) {
@@ -83,7 +83,7 @@ export function Install() {
                 <p className="mt-1 mb-3 text-sm text-foreground-lighter">
                   One package, with the components, the tokens and the stylesheets.
                 </p>
-                <PackageTabs packages="libui-kit" />
+                <PackageTabs packages="@roger.b/libui" />
               </Reveal>
             </li>
             {STEPS.map((step) => (
@@ -100,11 +100,11 @@ export function Install() {
 
         <div className="space-y-3 lg:pt-[7.75rem]">
           <Reveal delay={0.0} className="rounded-xl border bg-surface-100 p-6">
-            <h3 className="text-base font-medium text-foreground">Its name on npm is libui-kit</h3>
+            <h3 className="text-base font-medium text-foreground">Its name on npm is @roger.b/libui</h3>
             <p className="mt-2 text-sm text-foreground-lighter">
               The name libui on npm is another project. Install{' '}
-              <code className="font-mono text-[0.9em] text-foreground">libui-kit</code> and import from{' '}
-              <code className="font-mono text-[0.9em] text-foreground">libui-kit</code>.
+              <code className="font-mono text-[0.9em] text-foreground">@roger.b/libui</code> and import from{' '}
+              <code className="font-mono text-[0.9em] text-foreground">@roger.b/libui</code>.
             </p>
             <RouterLink className="text-link mt-4 inline-block text-sm" href="/docs/overview/installation">
               Read the installation page
@@ -113,7 +113,7 @@ export function Install() {
           <Reveal delay={0.08} className="rounded-xl border bg-surface-100 p-6">
             <h3 className="text-base font-medium text-foreground">No Tailwind in your app?</h3>
             <p className="mt-2 text-sm text-foreground-lighter">
-              Import <code className="font-mono text-[0.9em] text-foreground">libui-kit/styles.css</code> at the root of
+              Import <code className="font-mono text-[0.9em] text-foreground">@roger.b/libui/styles.css</code> at the root of
               the app. Style your own markup with plain CSS and the variables of the tokens.
             </p>
             <RouterLink className="text-link mt-4 inline-block text-sm" href="/docs/handbook/styling">

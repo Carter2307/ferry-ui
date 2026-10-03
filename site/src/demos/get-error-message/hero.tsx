@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Callout, getErrorMessage } from 'libui-kit'
+import { Button, Callout, getErrorMessage } from '@roger.b/libui'
 
 // A request that fails, for the example.
 function saveInvoice(): Promise<void> {

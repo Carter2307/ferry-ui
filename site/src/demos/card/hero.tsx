@@ -1,4 +1,4 @@
-import { Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'libui-kit'
+import { Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@roger.b/libui'
 
 export default function CardHero() {
   return (

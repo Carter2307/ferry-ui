@@ -1,4 +1,4 @@
-import { cn } from 'libui-kit'
+import { cn } from '@roger.b/libui'
 
 const PRIMARY = [
   { className: 'bg-primary', variable: '--primary' },

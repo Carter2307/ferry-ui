@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, CardContent, CardHeader, CardTitle, Field, SaveBar, Textarea } from 'libui-kit'
+import { Card, CardContent, CardHeader, CardTitle, Field, SaveBar, Textarea } from '@roger.b/libui'
 
 const MESSAGE = 'Thank you for your order. The invoice is in the attachment.'
 
