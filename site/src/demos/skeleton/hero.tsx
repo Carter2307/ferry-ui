@@ -1,4 +1,4 @@
-import { Skeleton } from 'libui'
+import { Skeleton } from 'libui-kit'
 
 export default function SkeletonHero() {
   return (

@@ -1,4 +1,4 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui-kit'
 
 export default function SelectPopper() {
   return (

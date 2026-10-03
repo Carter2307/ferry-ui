@@ -1,4 +1,4 @@
-import { toast } from 'libui'
+import { toast } from 'libui-kit'
 
 import { DashboardExample } from '../../../../src/examples/dashboard-example'
 

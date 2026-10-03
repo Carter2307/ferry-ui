@@ -1,4 +1,4 @@
-import { StatusBadge, type StatusTone } from 'libui'
+import { StatusBadge, type StatusTone } from 'libui-kit'
 
 type InvoiceStatus = 'paid' | 'open' | 'overdue'
 

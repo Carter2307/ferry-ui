@@ -1,4 +1,4 @@
-import { iconBoxVariants } from 'libui'
+import { iconBoxVariants } from 'libui-kit'
 import { BellRing } from 'lucide-react'
 
 export default function IconBoxVariants() {

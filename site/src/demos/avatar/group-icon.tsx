@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from 'libui'
+import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from 'libui-kit'
 import { Plus } from 'lucide-react'
 
 const MEMBERS = [

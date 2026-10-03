@@ -1,4 +1,4 @@
-import { StatusBadge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, type StatusTone } from 'libui'
+import { StatusBadge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, type StatusTone } from 'libui-kit'
 
 type InvoiceStatus = 'paid' | 'open' | 'overdue'
 

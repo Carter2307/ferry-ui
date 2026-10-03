@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from 'libui'
+} from 'libui-kit'
 
 export default function SheetWidth() {
   return (

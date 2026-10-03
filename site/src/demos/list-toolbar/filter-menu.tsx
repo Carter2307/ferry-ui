@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FilterMenu, StatusDot, type FilterOption } from 'libui'
+import { FilterMenu, StatusDot, type FilterOption } from 'libui-kit'
 
 const STATUS_OPTIONS: FilterOption[] = [
   { value: 'paid', label: 'Paid', count: 18, icon: <StatusDot tone="success" /> },

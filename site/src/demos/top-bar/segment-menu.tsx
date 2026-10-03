@@ -10,7 +10,7 @@ import {
   TopBarLogo,
   TopBarSegment,
   TopBarSeparator,
-} from 'libui'
+} from 'libui-kit'
 import { Building2 } from 'lucide-react'
 
 const WORKSPACES = [

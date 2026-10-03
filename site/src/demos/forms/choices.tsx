@@ -1,4 +1,4 @@
-import { Checkbox, Field, Label, RadioGroup, RadioGroupItem, Switch } from 'libui'
+import { Checkbox, Field, Label, RadioGroup, RadioGroupItem, Switch } from 'libui-kit'
 
 export default function Choices() {
   return (

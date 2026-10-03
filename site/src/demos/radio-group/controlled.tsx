@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Label, RadioGroup, RadioGroupItem } from 'libui'
+import { Label, RadioGroup, RadioGroupItem } from 'libui-kit'
 
 const PLANS = [
   { value: 'starter', label: 'Starter', price: '$0' },

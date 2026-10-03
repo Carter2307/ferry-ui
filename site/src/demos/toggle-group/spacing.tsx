@@ -1,4 +1,4 @@
-import { ToggleGroup, ToggleGroupItem } from 'libui'
+import { ToggleGroup, ToggleGroupItem } from 'libui-kit'
 
 export default function ToggleGroupSpacing() {
   return (

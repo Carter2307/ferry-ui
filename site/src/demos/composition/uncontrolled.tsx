@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from 'libui'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
 
 export default function Uncontrolled() {
   return (

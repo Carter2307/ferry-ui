@@ -1,4 +1,4 @@
-import { ToggleGroup, ToggleGroupItem } from 'libui'
+import { ToggleGroup, ToggleGroupItem } from 'libui-kit'
 
 const SIZES = ['tiny', 'sm', 'md'] as const
 

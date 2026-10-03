@@ -1,4 +1,4 @@
-import { KeyValueEditor, rowsFromPairs } from 'libui'
+import { KeyValueEditor, rowsFromPairs } from 'libui-kit'
 
 const HEADERS = rowsFromPairs([
   { key: 'Accept', value: 'application/json' },

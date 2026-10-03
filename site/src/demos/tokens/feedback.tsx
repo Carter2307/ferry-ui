@@ -1,4 +1,4 @@
-import { cn } from 'libui'
+import { cn } from 'libui-kit'
 
 const FEEDBACK = [
   { className: 'bg-success', variable: '--success' },

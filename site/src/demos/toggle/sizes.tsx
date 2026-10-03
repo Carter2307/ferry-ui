@@ -1,4 +1,4 @@
-import { Toggle } from 'libui'
+import { Toggle } from 'libui-kit'
 
 export default function ToggleSizes() {
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Field, Input } from 'libui'
+import { Field, Input } from 'libui-kit'
 
 export default function InputControlled() {
   const [name, setName] = React.useState('Billing portal')

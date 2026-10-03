@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Avatar, AvatarFallback, Button, Skeleton } from 'libui'
+import { Avatar, AvatarFallback, Button, Skeleton } from 'libui-kit'
 
 export default function SkeletonContent() {
   const [loading, setLoading] = React.useState(false)

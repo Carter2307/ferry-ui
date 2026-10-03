@@ -1,4 +1,4 @@
-import { Field, SecretField } from 'libui'
+import { Field, SecretField } from 'libui-kit'
 
 export default function CopySecret() {
   return (

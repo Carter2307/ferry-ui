@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Badge, InnerMenu, type NavGroup } from 'libui'
+import { Badge, InnerMenu, type NavGroup } from 'libui-kit'
 
 const GROUPS: NavGroup[] = [
   {

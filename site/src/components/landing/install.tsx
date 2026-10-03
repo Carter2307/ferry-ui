@@ -5,11 +5,11 @@ import { Reveal } from './reveal'
 import { Heading, Section } from './ui'
 
 const STYLES = `@import "tailwindcss";
-@import "libui/fonts.css"; /* optional: Inter and Source Code Pro */
-@import "libui/theme.css";`
+@import "libui-kit/fonts.css"; /* optional: Inter and Source Code Pro */
+@import "libui-kit/theme.css";`
 
 const PROVIDERS = `import type { ReactNode } from 'react'
-import { ThemeProvider, Toaster, TooltipProvider } from 'libui'
+import { ThemeProvider, Toaster, TooltipProvider } from 'libui-kit'
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
@@ -22,7 +22,7 @@ export function Providers({ children }: { children: ReactNode }) {
   )
 }`
 
-const FIRST_SCREEN = `import { Button, EmptyState } from 'libui'
+const FIRST_SCREEN = `import { Button, EmptyState } from 'libui-kit'
 import { FolderKanban, Plus } from 'lucide-react'
 
 export function NoProjects({ onCreate }: { onCreate: () => void }) {
@@ -103,7 +103,7 @@ export function Install() {
           <Reveal delay={0.08} className="rounded-xl border bg-surface-100 p-6">
             <h3 className="text-base font-medium text-foreground">No Tailwind in your app?</h3>
             <p className="mt-2 text-sm text-foreground-lighter">
-              Import <code className="font-mono text-[0.9em] text-foreground">libui/styles.css</code> at the root of
+              Import <code className="font-mono text-[0.9em] text-foreground">libui-kit/styles.css</code> at the root of
               the app. Style your own markup with plain CSS and the variables of the tokens.
             </p>
             <RouterLink className="text-link mt-4 inline-block text-sm" href="/docs/handbook/styling">

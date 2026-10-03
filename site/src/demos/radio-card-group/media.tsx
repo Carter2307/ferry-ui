@@ -1,4 +1,4 @@
-import { RadioCard, RadioCardGroup } from 'libui'
+import { RadioCard, RadioCardGroup } from 'libui-kit'
 
 // A small drawing of a page layout, made with token classes.
 function Preview({ sidebar = false }: { sidebar?: boolean }) {

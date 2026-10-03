@@ -10,7 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
   Kbd,
-} from 'libui'
+} from 'libui-kit'
 
 export default function AsChildTrigger() {
   return (

@@ -1,4 +1,4 @@
-import { toast } from 'libui'
+import { toast } from 'libui-kit'
 
 import { ListPageExample } from '../../../../src/examples/list-page-example'
 

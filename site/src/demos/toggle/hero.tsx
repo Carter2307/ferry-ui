@@ -1,4 +1,4 @@
-import { Toggle } from 'libui'
+import { Toggle } from 'libui-kit'
 import { Archive, Pin } from 'lucide-react'
 
 export default function ToggleHero() {

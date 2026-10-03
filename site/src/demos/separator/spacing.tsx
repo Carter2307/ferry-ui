@@ -1,4 +1,4 @@
-import { Separator } from 'libui'
+import { Separator } from 'libui-kit'
 
 export default function SeparatorSpacing() {
   return (

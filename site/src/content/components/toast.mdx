@@ -12,14 +12,14 @@ source: src/components/primitives/sonner.tsx
 - **Feedback that does not stop the user.** A toast tells that something happened. Keep its title to one short sentence.
 - **Not for a decision.** For an error that needs a decision, use [Confirm Dialog](/docs/components/confirm-dialog).
 - **Not for a status that stays.** For a message that stays on the page, use [Callout](/docs/components/callout).
-- **Import `toast` from `libui`.** Do not import it from `sonner`. The function and the `Toaster` then use the same copy of sonner.
+- **Import `toast` from `libui-kit`.** Do not import it from `sonner`. The function and the `Toaster` then use the same copy of sonner.
 
 ## Anatomy
 
 Mount `Toaster` one time, near the root of the app. Do not mount a second `Toaster`. Then call `toast()` in your event handlers.
 
 ```tsx title="app.tsx"
-import { Button, Toaster, toast } from 'libui'
+import { Button, Toaster, toast } from 'libui-kit'
 
 export function App() {
   return (

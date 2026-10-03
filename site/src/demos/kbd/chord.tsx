@@ -1,4 +1,4 @@
-import { Kbd } from 'libui'
+import { Kbd } from 'libui-kit'
 
 export default function KbdChord() {
   return (

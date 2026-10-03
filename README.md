@@ -12,7 +12,7 @@ when not to. Storybook shows that text next to live examples, and [AGENTS.md](./
 it into one reference for agents.
 
 ```tsx
-import { Button, EmptyState } from 'libui'
+import { Button, EmptyState } from 'libui-kit'
 import { FolderKanban, Plus } from 'lucide-react'
 
 export function NoProjects({ onCreate }: { onCreate: () => void }) {
@@ -87,17 +87,17 @@ Requirements:
 - `react` and `react-dom` 19. Components take `ref` as a regular prop, so React 18 is not supported.
 - An ESM toolchain (Vite, Next.js, any modern bundler). The package is ESM only, with one module per
   component, so unused components are tree-shaken.
-- `tailwindcss` 4.1 or later, only if your app compiles `libui/theme.css` itself
+- `tailwindcss` 4.1 or later, only if your app compiles `libui-kit/theme.css` itself
   (see [CSS setup](#css-setup)).
 
 Radix UI, lucide-react, cmdk, sonner and the class helpers are regular dependencies and are installed
-with the package. Everything is imported from the package root (`import { Button } from 'libui'`); deep
-imports into `libui/dist` are not part of the API.
+with the package. Everything is imported from the package root (`import { Button } from 'libui-kit'`); deep
+imports into `libui-kit/dist` are not part of the API.
 
 ### From npm (once published)
 
 ```sh
-npm install libui
+npm install libui-kit
 ```
 
 ### From a local checkout
@@ -107,10 +107,10 @@ Build a tarball and install it. `npm pack` runs the build first (`prepack`).
 ```sh
 # in the libui checkout
 npm install
-npm pack                                # writes libui-<version>.tgz
+npm pack                                # writes libui-kit-<version>.tgz
 
 # in your app
-npm install ../libui/libui-0.1.0.tgz
+npm install ../libui/libui-kit-0.1.0.tgz
 ```
 
 To work on libui and an app side by side, install the folder itself (`npm install ../libui`). npm then
@@ -126,8 +126,8 @@ Until a `prepare` script is added, install from a checkout instead:
 
 ```sh
 git clone https://github.com/Carter2307/libui.git libui
-cd libui && npm ci && npm pack          # writes libui-<version>.tgz
-cd ../my-app && npm install ../libui/libui-0.1.0.tgz
+cd libui && npm ci && npm pack          # writes libui-kit-<version>.tgz
+cd ../my-app && npm install ../libui/libui-kit-0.1.0.tgz
 ```
 
 ## CSS setup
@@ -136,10 +136,10 @@ libui has four stylesheet entry points:
 
 | Entry | Content | Use it when |
 | --- | --- | --- |
-| `libui/theme.css` | Tokens, their Tailwind v4 theme mapping, the `dark` variant, base styles and utilities | Your app uses Tailwind CSS v4 |
-| `libui/styles.css` | Precompiled CSS: Tailwind preflight, tokens and every class the components use | Your app does not use Tailwind |
-| `libui/fonts.css` | Inter and Source Code Pro webfonts | You want the default typefaces |
-| `libui/tokens.css` | The CSS custom properties only | Another stack needs the tokens (emails, a marketing site) |
+| `libui-kit/theme.css` | Tokens, their Tailwind v4 theme mapping, the `dark` variant, base styles and utilities | Your app uses Tailwind CSS v4 |
+| `libui-kit/styles.css` | Precompiled CSS: Tailwind preflight, tokens and every class the components use | Your app does not use Tailwind |
+| `libui-kit/fonts.css` | Inter and Source Code Pro webfonts | You want the default typefaces |
+| `libui-kit/tokens.css` | The CSS custom properties only | Another stack needs the tokens (emails, a marketing site) |
 
 ### App with Tailwind CSS v4 (recommended)
 
@@ -147,8 +147,8 @@ Import the theme in your main stylesheet, after Tailwind:
 
 ```css
 @import "tailwindcss";
-@import "libui/fonts.css"; /* optional */
-@import "libui/theme.css";
+@import "libui-kit/fonts.css"; /* optional */
+@import "libui-kit/theme.css";
 ```
 
 `theme.css` registers libui's own files as a Tailwind source, so the classes used by the components are
@@ -165,8 +165,8 @@ build end up in the next one.
 Import the precompiled stylesheet once, at the root of the app. It includes Tailwind's preflight reset.
 
 ```ts
-import 'libui/styles.css'
-import 'libui/fonts.css' // optional
+import 'libui-kit/styles.css'
+import 'libui-kit/fonts.css' // optional
 ```
 
 Style your own markup with plain CSS and the variables (`var(--surface-100)`, `var(--border-strong)`).
@@ -177,7 +177,7 @@ The utilities `mono-label`, `bg-dot-grid`, `tabular` and `scrollbar-none` are av
 The tokens name two families: `--libui-font-sans` (Inter, then system fonts) and `--libui-font-mono`
 (Source Code Pro, then system monospace).
 
-- `libui/fonts.css` loads both as variable fonts from the bundled `@fontsource-variable` packages. No
+- `libui-kit/fonts.css` loads both as variable fonts from the bundled `@fontsource-variable` packages. No
   request goes to a font CDN.
 - Skip `fonts.css` to use the system fallbacks.
 - To use other typefaces, load them yourself and override the two variables:
@@ -196,7 +196,7 @@ Mount the providers once, at the root:
 ```tsx
 import type { ReactNode } from 'react'
 import { Link } from 'react-router'
-import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from 'libui'
+import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from 'libui-kit'
 
 // Defined at module level so it keeps the same identity between renders.
 const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
@@ -260,7 +260,7 @@ providers live in a client component.
 
 import type { ReactNode } from 'react'
 import NextLink from 'next/link'
-import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from 'libui'
+import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from 'libui-kit'
 
 const RouterLink: LinkComponent = ({ href, ...props }) => <NextLink href={href} {...props} />
 
@@ -282,7 +282,7 @@ export function Providers({ children }: { children: ReactNode }) {
 
 ```tsx file=app/layout.tsx
 import type { ReactNode } from 'react'
-import { themeInitScript } from 'libui'
+import { themeInitScript } from 'libui-kit'
 
 import { Providers } from './providers'
 import './globals.css'
@@ -307,7 +307,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 ```tsx file=vite.config.ts
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import { themeInitScript } from 'libui'
+import { themeInitScript } from 'libui-kit'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -334,7 +334,7 @@ React Router:
 
 ```tsx
 import { Link } from 'react-router'
-import type { LinkComponent } from 'libui'
+import type { LinkComponent } from 'libui-kit'
 
 export const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
 ```
@@ -343,7 +343,7 @@ Next.js:
 
 ```tsx
 import NextLink from 'next/link'
-import type { LinkComponent } from 'libui'
+import type { LinkComponent } from 'libui-kit'
 
 export const RouterLink: LinkComponent = ({ href, ...props }) => <NextLink href={href} {...props} />
 ```
@@ -352,7 +352,7 @@ TanStack Router:
 
 ```tsx
 import { Link } from '@tanstack/react-router'
-import type { LinkComponent } from 'libui'
+import type { LinkComponent } from 'libui-kit'
 
 export const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
 ```
@@ -373,7 +373,7 @@ aliases (`--card`, `--popover`, `--muted`…), which point at them.
 
 ```css
 @import "tailwindcss";
-@import "libui/theme.css";
+@import "libui-kit/theme.css";
 
 :root {
   --primary: oklch(0.55 0.2 290);

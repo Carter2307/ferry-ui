@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, MobileNav, type NavItem } from 'libui'
+import { Button, MobileNav, type NavItem } from 'libui-kit'
 import { FolderKanban, LayoutDashboard, Users } from 'lucide-react'
 
 const ITEMS: NavItem[] = [

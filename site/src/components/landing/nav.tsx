@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Kbd, cn, useModKey, useTheme } from 'libui'
+import { Button, Kbd, cn, useModKey, useTheme } from 'libui-kit'
 import { Moon, Search, Sun } from 'lucide-react'
 
 import { GithubIcon, Wordmark } from '@/components/logo'

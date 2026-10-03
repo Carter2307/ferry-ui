@@ -1,4 +1,4 @@
-import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger, Field, Input } from 'libui'
+import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger, Field, Input } from 'libui-kit'
 import { ChevronRight } from 'lucide-react'
 
 export default function CollapsibleHero() {

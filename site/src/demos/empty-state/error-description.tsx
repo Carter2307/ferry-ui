@@ -1,4 +1,4 @@
-import { ErrorState } from 'libui'
+import { ErrorState } from 'libui-kit'
 
 export default function ErrorStateDescription() {
   return (

@@ -1,4 +1,4 @@
-import { Hint, Toggle } from 'libui'
+import { Hint, Toggle } from 'libui-kit'
 import { Bold, Italic, Underline } from 'lucide-react'
 
 export default function ToggleIconOnly() {

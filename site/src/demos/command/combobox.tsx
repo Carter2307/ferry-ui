@@ -10,7 +10,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from 'libui'
+} from 'libui-kit'
 import { Check, ChevronsUpDown } from 'lucide-react'
 
 const MEMBERS = [

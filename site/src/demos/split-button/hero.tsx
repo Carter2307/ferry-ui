@@ -1,4 +1,4 @@
-import { DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, SplitButton, toast } from 'libui'
+import { DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, SplitButton, toast } from 'libui-kit'
 import { CalendarClock, Download, FileSpreadsheet, FileText } from 'lucide-react'
 
 export default function SplitButtonHero() {

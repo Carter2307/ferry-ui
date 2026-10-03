@@ -1,4 +1,4 @@
-import { Badge, PageHeader } from 'libui'
+import { Badge, PageHeader } from 'libui-kit'
 
 export default function PageHeaderBadges() {
   return (

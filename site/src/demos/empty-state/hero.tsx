@@ -1,4 +1,4 @@
-import { Button, EmptyState, toast } from 'libui'
+import { Button, EmptyState, toast } from 'libui-kit'
 import { Plus, Receipt } from 'lucide-react'
 
 export default function EmptyStateHero() {

@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react'
 import { render } from '@testing-library/react'
-import { ThemeProvider, Toaster, TooltipProvider } from 'libui'
+import { ThemeProvider, Toaster, TooltipProvider } from 'libui-kit'
 import { renderToString } from 'react-dom/server'
 import { describe, expect, it, vi } from 'vitest'
 

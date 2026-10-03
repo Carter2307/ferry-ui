@@ -1,4 +1,4 @@
-import { Button, DropdownMenuItem, Field, Input, SplitButton, toast } from 'libui'
+import { Button, DropdownMenuItem, Field, Input, SplitButton, toast } from 'libui-kit'
 import { CalendarClock, Save } from 'lucide-react'
 
 export default function SplitButtonSubmit() {

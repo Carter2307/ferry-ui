@@ -70,7 +70,7 @@ export function llmsText(base) {
     '',
     '> libui is a React 19 design system for product interfaces (dashboards, admin consoles, settings pages, data tables, developer tools): design tokens, accessible primitives on Radix UI, patterns and application-shell layout pieces, styled with Tailwind CSS v4.',
     '',
-    "Import everything from the package root (`import { Button } from 'libui'`). Each link below is the Markdown version of a documentation page.",
+    "Import everything from the package root (`import { Button } from 'libui-kit'`). Each link below is the Markdown version of a documentation page.",
   ]
   for (const group of GROUPS) {
     const inGroup = pages.filter((page) => page.group === group)

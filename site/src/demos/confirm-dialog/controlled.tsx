@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
   toast,
-} from 'libui'
+} from 'libui-kit'
 import { MoreHorizontal, Trash2 } from 'lucide-react'
 
 export default function ConfirmDialogControlled() {

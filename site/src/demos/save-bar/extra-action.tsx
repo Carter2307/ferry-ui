@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, CardContent, Field, Input, SaveBar, toast } from 'libui'
+import { Card, CardContent, Field, Input, SaveBar, toast } from 'libui-kit'
 import { Send } from 'lucide-react'
 
 export default function SaveBarExtraAction() {

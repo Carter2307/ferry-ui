@@ -1,4 +1,4 @@
-import { Kbd, MonoLabel, useModKey } from 'libui'
+import { Kbd, MonoLabel, useModKey } from 'libui-kit'
 
 export default function KbdHero() {
   const mod = useModKey()

@@ -1,4 +1,4 @@
-import { Button, ConfirmDialog } from 'libui'
+import { Button, ConfirmDialog } from 'libui-kit'
 
 // Stands for a request that the server refuses.
 const wait = (ms: number) => new Promise<void>((resolve) => window.setTimeout(resolve, ms))

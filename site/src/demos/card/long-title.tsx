@@ -1,4 +1,4 @@
-import { Button, Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from 'libui'
+import { Button, Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from 'libui-kit'
 
 export default function CardLongTitle() {
   return (

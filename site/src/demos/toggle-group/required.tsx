@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ToggleGroup, ToggleGroupItem } from 'libui'
+import { ToggleGroup, ToggleGroupItem } from 'libui-kit'
 import { LayoutGrid, List } from 'lucide-react'
 
 const PROJECTS = ['Customer portal', 'Marketing site', 'Mobile app', 'Billing portal']

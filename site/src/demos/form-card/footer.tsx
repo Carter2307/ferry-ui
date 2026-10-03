@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormActions, FormCard, FormRow, Input, toast } from 'libui'
+import { FormActions, FormCard, FormRow, Input, toast } from 'libui-kit'
 
 export default function FormCardFooter() {
   const [saved, setSaved] = React.useState('500')

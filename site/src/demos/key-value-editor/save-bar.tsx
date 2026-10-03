@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, CardContent, KeyValueEditor, SaveBar, toast, useKeyValueRows, validateIdentifierKey, type KeyValuePair } from 'libui'
+import { Card, CardContent, KeyValueEditor, SaveBar, toast, useKeyValueRows, validateIdentifierKey, type KeyValuePair } from 'libui-kit'
 
 const INITIAL: KeyValuePair[] = [
   { key: 'team', value: 'growth' },

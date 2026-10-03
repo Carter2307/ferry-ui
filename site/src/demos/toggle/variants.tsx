@@ -1,4 +1,4 @@
-import { Toggle } from 'libui'
+import { Toggle } from 'libui-kit'
 import { Star } from 'lucide-react'
 
 export default function ToggleVariants() {

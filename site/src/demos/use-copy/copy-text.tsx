@@ -1,4 +1,4 @@
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, copyText, toast } from 'libui'
+import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, copyText, toast } from 'libui-kit'
 import { MoreHorizontal } from 'lucide-react'
 
 export default function UseCopyCopyText() {

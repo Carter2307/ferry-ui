@@ -1,4 +1,4 @@
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from 'libui'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from 'libui-kit'
 import { CreditCard, KeyRound, LayoutDashboard, Users } from 'lucide-react'
 
 export default function CommandItems() {

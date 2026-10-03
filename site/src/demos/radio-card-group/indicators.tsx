@@ -1,4 +1,4 @@
-import { RadioCardGroup, type RadioCardOption } from 'libui'
+import { RadioCardGroup, type RadioCardOption } from 'libui-kit'
 
 const OPTIONS: RadioCardOption[] = [
   { value: 'monthly', label: 'Monthly', description: 'One invoice each month.' },

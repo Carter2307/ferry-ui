@@ -1,4 +1,4 @@
-import { Checkbox, Input, Label } from 'libui'
+import { Checkbox, Input, Label } from 'libui-kit'
 
 export default function LabelDisabled() {
   return (

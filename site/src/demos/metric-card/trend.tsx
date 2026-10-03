@@ -1,4 +1,4 @@
-import { MetricCard, MetricTrend } from 'libui'
+import { MetricCard, MetricTrend } from 'libui-kit'
 
 export default function MetricCardTrend() {
   return (

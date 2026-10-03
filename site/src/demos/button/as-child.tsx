@@ -1,4 +1,4 @@
-import { Button } from 'libui'
+import { Button } from 'libui-kit'
 import { ExternalLink } from 'lucide-react'
 
 export default function ButtonAsChild() {

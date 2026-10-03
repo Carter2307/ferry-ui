@@ -7,7 +7,7 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from 'libui'
+} from 'libui-kit'
 import { ArrowUpDown } from 'lucide-react'
 
 const LABELS: Record<string, string> = {

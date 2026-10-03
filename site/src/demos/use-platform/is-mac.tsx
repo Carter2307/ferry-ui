@@ -1,4 +1,4 @@
-import { Kbd, useIsMac } from 'libui'
+import { Kbd, useIsMac } from 'libui-kit'
 
 export default function UsePlatformIsMac() {
   const isMac = useIsMac()

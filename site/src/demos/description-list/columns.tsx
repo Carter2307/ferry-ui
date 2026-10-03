@@ -1,4 +1,4 @@
-import { DescriptionItem, DescriptionList } from 'libui'
+import { DescriptionItem, DescriptionList } from 'libui-kit'
 
 export default function DescriptionListColumns() {
   return (

@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
   toast,
-} from 'libui'
+} from 'libui-kit'
 
 const SETTINGS = { name: 'Billing portal', currency: 'eur', digest: true }
 

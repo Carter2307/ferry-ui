@@ -1,4 +1,4 @@
-import { Hint } from 'libui'
+import { Hint } from 'libui-kit'
 
 const INVOICES = [
   { id: 'INV-2041', customer: 'Acme International Trading Company', amount: '$4,200.00' },

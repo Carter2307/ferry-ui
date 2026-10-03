@@ -288,7 +288,7 @@ function ClipboardDemo({ value, onCopy }: ClipboardDemoProps) {
           </Button>
         </div>
       </div>
-      <Snippet>{`import { useCopy, copyText } from 'libui'
+      <Snippet>{`import { useCopy, copyText } from 'libui-kit'
 
 const [copied, copy] = useCopy()   // copied is true for 1.5s after a successful copy
 <Button onClick={() => copy(apiKey)}>{copied ? 'Copied' : 'Copy'}</Button>

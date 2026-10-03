@@ -1,4 +1,4 @@
-import { KeyValueEditor, rowsFromPairs, validateIdentifierKey } from 'libui'
+import { KeyValueEditor, rowsFromPairs, validateIdentifierKey } from 'libui-kit'
 
 const VARIABLES = rowsFromPairs([
   { key: 'MAX_RETRIES', value: '5' },

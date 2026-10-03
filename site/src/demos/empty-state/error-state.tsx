@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ErrorState } from 'libui'
+import { ErrorState } from 'libui-kit'
 
 export default function ErrorStateRetry() {
   const [retrying, setRetrying] = React.useState(false)

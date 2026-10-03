@@ -1,4 +1,4 @@
-import { StatusBadge } from 'libui'
+import { StatusBadge } from 'libui-kit'
 import { CreditCard, Lock, ShieldAlert } from 'lucide-react'
 
 export default function StatusIcon() {

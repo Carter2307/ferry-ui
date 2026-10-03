@@ -1,4 +1,4 @@
-import { Badge, TopBar, TopBarLogo, TopBarSegment, TopBarSeparator } from 'libui'
+import { Badge, TopBar, TopBarLogo, TopBarSegment, TopBarSeparator } from 'libui-kit'
 import { Building2, FolderKanban } from 'lucide-react'
 
 export default function TopBarSegmentStates() {

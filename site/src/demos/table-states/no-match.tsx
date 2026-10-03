@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableMessageRow,
   TableRow,
-} from 'libui'
+} from 'libui-kit'
 import { X } from 'lucide-react'
 
 const CUSTOMERS = [

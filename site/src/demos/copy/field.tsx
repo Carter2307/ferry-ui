@@ -1,4 +1,4 @@
-import { CopyField } from 'libui'
+import { CopyField } from 'libui-kit'
 
 export default function CopyFieldSizes() {
   return (

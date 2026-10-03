@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui'
+import { Card, CardContent, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
 
 export default function TabsPills() {
   return (

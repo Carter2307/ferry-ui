@@ -9,7 +9,7 @@ import {
   CommandSeparator,
   toast,
   type CommandMenuGroup,
-} from 'libui'
+} from 'libui-kit'
 import { FolderKanban } from 'lucide-react'
 
 // In a real app, this item has an `href` or an `onSelect`.

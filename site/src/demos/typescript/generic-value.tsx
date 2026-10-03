@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { RadioCardGroup, type RadioCardOption } from 'libui'
+import { RadioCardGroup, type RadioCardOption } from 'libui-kit'
 import { Globe, Lock } from 'lucide-react'
 
 type Visibility = 'private' | 'public'

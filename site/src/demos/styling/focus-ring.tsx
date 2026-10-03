@@ -1,4 +1,4 @@
-import { toast } from 'libui'
+import { toast } from 'libui-kit'
 import { ImagePlus } from 'lucide-react'
 
 export default function FocusRing() {

@@ -1,4 +1,4 @@
-import { Button, Input } from 'libui'
+import { Button, Input } from 'libui-kit'
 
 export default function LayoutClasses() {
   return (

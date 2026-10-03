@@ -1,4 +1,4 @@
-import { Card, CardContent, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui'
+import { Card, CardContent, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
 
 export default function TabsHero() {
   return (

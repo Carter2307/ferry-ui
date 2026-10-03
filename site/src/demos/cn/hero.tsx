@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox, Label, cn } from 'libui'
+import { Checkbox, Label, cn } from 'libui-kit'
 
 export default function CnHero() {
   const [selected, setSelected] = React.useState(true)

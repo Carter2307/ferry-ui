@@ -1,4 +1,4 @@
-import { Badge } from 'libui'
+import { Badge } from 'libui-kit'
 
 export default function BadgeShape() {
   return (

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, MonoLabel } from 'libui'
+import { Card, CardContent, CardHeader, MonoLabel } from 'libui-kit'
 
 export default function MonoLabelHero() {
   return (

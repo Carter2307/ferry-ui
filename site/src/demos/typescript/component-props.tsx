@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react'
-import { Checkbox, Label } from 'libui'
+import { Checkbox, Label } from 'libui-kit'
 
 // Checkbox exports no prop type: read the props from the component.
 type OptionProps = ComponentProps<typeof Checkbox> & {

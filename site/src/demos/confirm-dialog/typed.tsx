@@ -1,4 +1,4 @@
-import { Button, ConfirmDialog, toast } from 'libui'
+import { Button, ConfirmDialog, toast } from 'libui-kit'
 
 export default function ConfirmDialogTyped() {
   return (

@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { Button, Checkbox, Label, MonoLabel, Switch, UsageBar } from 'libui'
+import { Button, Checkbox, Label, MonoLabel, Switch, UsageBar } from 'libui-kit'
 
 // The source variables of the primary color and of the brand color, for one container.
 const PARTNER_BRAND = {

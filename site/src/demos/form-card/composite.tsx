@@ -8,7 +8,7 @@ import {
   SelectValue,
   ToggleGroup,
   ToggleGroupItem,
-} from 'libui'
+} from 'libui-kit'
 
 export default function FormCardComposite() {
   return (

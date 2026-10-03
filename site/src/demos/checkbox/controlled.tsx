@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox, Label, Textarea } from 'libui'
+import { Checkbox, Label, Textarea } from 'libui-kit'
 
 export default function CheckboxControlled() {
   const [withNote, setWithNote] = React.useState(false)

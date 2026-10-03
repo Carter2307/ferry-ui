@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Label, ResourceCard, ResourceCardSkeleton, ResourceGrid, StatusLine, Switch } from 'libui'
+import { Label, ResourceCard, ResourceCardSkeleton, ResourceGrid, StatusLine, Switch } from 'libui-kit'
 import { LayoutDashboard, Smartphone } from 'lucide-react'
 
 export default function ResourceCardLoading() {

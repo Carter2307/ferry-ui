@@ -14,7 +14,7 @@ The preference is `light`, `dark` or `system`. With `system`, the provider follo
 
 ```tsx title="providers.tsx"
 import type { ReactNode } from 'react'
-import { ThemeProvider } from 'libui'
+import { ThemeProvider } from 'libui-kit'
 
 export function Providers({ children }: { children: ReactNode }) {
   return <ThemeProvider defaultTheme="system">{children}</ThemeProvider>
@@ -35,7 +35,7 @@ Put the script in the `<head>`. Give it the same `storageKey` and the same `defa
 
 ```tsx title="document.tsx"
 import type { ReactNode } from 'react'
-import { themeInitScript } from 'libui'
+import { themeInitScript } from 'libui-kit'
 
 export function Document({ children }: { children: ReactNode }) {
   return (
@@ -55,7 +55,7 @@ In a Vite app, add the script to `index.html` from the Vite configuration.
 ```ts title="vite.config.ts"
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import { themeInitScript } from 'libui'
+import { themeInitScript } from 'libui-kit'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -75,7 +75,7 @@ export default defineConfig({
 `useTheme()` gives the preference and a function that changes it. Bind a picker to `theme`. For a picker in a top bar, use [Theme Menu](/docs/components/theme-menu).
 
 ```tsx title="appearance-setting.tsx"
-import { ToggleGroup, ToggleGroupItem, useTheme, type ThemePreference } from 'libui'
+import { ToggleGroup, ToggleGroupItem, useTheme, type ThemePreference } from 'libui-kit'
 
 const isPreference = (value: string): value is ThemePreference =>
   value === 'light' || value === 'dark' || value === 'system'

@@ -1,4 +1,4 @@
-import { Button, Field, Input } from 'libui'
+import { Button, Field, Input } from 'libui-kit'
 import { Plus } from 'lucide-react'
 
 export default function FieldInputWithButton() {

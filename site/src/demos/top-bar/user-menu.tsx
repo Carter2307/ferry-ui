@@ -1,4 +1,4 @@
-import { Badge, DropdownMenuItem, DropdownMenuSeparator, TopBarUserMenu } from 'libui'
+import { Badge, DropdownMenuItem, DropdownMenuSeparator, TopBarUserMenu } from 'libui-kit'
 import { Building2, CreditCard, LogOut, Settings, UserRound, Users } from 'lucide-react'
 
 export default function TopBarUserMenuDemo() {

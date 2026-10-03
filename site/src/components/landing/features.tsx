@@ -28,7 +28,7 @@ import {
   useModKey,
   useTheme,
   type ThemePreference,
-} from 'libui'
+} from 'libui-kit'
 import { ChevronDown, FolderKanban, Search } from 'lucide-react'
 
 import { Code } from '@/components/docs/code'
@@ -277,7 +277,7 @@ const LLMS_EXCERPT = `# libui
 - [Dialog](/docs/components/dialog.md): A window on top of the page.`
 
 const ADAPTER = `import { Link } from 'react-router'
-import { LinkProvider, type LinkComponent } from 'libui'
+import { LinkProvider, type LinkComponent } from 'libui-kit'
 
 const RouterLink: LinkComponent = ({ href, ...props }) => (
   <Link to={href} {...props} />

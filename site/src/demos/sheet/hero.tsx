@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
   Textarea,
-} from 'libui'
+} from 'libui-kit'
 
 export default function SheetHero() {
   return (

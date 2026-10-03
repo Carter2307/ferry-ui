@@ -1,4 +1,4 @@
-import { CodeBlock } from 'libui'
+import { CodeBlock } from 'libui-kit'
 
 const REQUEST =
   'curl -X POST https://api.example.com/v2/invoices -H "Authorization: Bearer $ACME_API_KEY" -d customer=cus_4QbX2'

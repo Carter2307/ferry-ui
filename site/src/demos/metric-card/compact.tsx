@@ -1,4 +1,4 @@
-import { MetricCard } from 'libui'
+import { MetricCard } from 'libui-kit'
 
 export default function MetricCardCompact() {
   return (

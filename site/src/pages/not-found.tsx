@@ -1,4 +1,4 @@
-import { Button, EmptyState } from 'libui'
+import { Button, EmptyState } from 'libui-kit'
 import { Compass } from 'lucide-react'
 
 import { RouterLink } from '@/components/providers'

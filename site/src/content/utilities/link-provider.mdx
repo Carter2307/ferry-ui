@@ -15,7 +15,7 @@ Write an adapter at module level. Mount the provider one time, near the root of 
 ```tsx title="providers.tsx"
 import type { ReactNode } from 'react'
 import { Link } from 'react-router'
-import { LinkProvider, type LinkComponent } from 'libui'
+import { LinkProvider, type LinkComponent } from 'libui-kit'
 
 // Module level: the component keeps the same identity between renders.
 const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
@@ -81,7 +81,7 @@ Does your component render a link? Call `useLinkComponent()` to get the link com
 
 ```tsx title="docs-link.tsx"
 import type { ReactNode } from 'react'
-import { cn, useLinkComponent, type LinkComponent } from 'libui'
+import { cn, useLinkComponent, type LinkComponent } from 'libui-kit'
 
 interface DocsLinkProps {
   href: string

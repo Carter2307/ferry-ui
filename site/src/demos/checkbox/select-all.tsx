@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox, Label } from 'libui'
+import { Checkbox, Label } from 'libui-kit'
 
 const MEMBERS = [
   { id: 'maya', name: 'Maya Chen' },

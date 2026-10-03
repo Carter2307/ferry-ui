@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Checkbox, Label, toast } from 'libui'
+import { Button, Checkbox, Label, toast } from 'libui-kit'
 
 export default function CheckboxInvalid() {
   const [accepted, setAccepted] = React.useState(false)

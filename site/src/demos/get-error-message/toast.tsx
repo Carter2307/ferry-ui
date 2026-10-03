@@ -1,4 +1,4 @@
-import { Button, getErrorMessage, toast } from 'libui'
+import { Button, getErrorMessage, toast } from 'libui-kit'
 
 // A request that fails with a value that has no message.
 function exportOrders(): Promise<void> {

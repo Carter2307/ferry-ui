@@ -1,4 +1,4 @@
-import { StatusLine } from 'libui'
+import { StatusLine } from 'libui-kit'
 import { Pause } from 'lucide-react'
 
 export default function StatusLines() {

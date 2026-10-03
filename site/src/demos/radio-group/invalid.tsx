@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Field, Label, RadioGroup, RadioGroupItem, toast } from 'libui'
+import { Button, Field, Label, RadioGroup, RadioGroupItem, toast } from 'libui-kit'
 
 const FORMATS = ['CSV', 'PDF', 'JSON']
 

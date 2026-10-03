@@ -1,4 +1,4 @@
-import { Button, Popover, PopoverContent, PopoverTrigger } from 'libui'
+import { Button, Popover, PopoverContent, PopoverTrigger } from 'libui-kit'
 
 const ALIGNMENTS = ['start', 'center', 'end'] as const
 

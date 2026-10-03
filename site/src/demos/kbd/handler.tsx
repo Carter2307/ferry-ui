@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Kbd, Textarea, toast, useModKey } from 'libui'
+import { Kbd, Textarea, toast, useModKey } from 'libui-kit'
 
 export default function KbdHandler() {
   const mod = useModKey()

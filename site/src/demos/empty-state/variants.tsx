@@ -1,4 +1,4 @@
-import { EmptyState } from 'libui'
+import { EmptyState } from 'libui-kit'
 import { FileQuestion, FolderKanban, MessageSquare } from 'lucide-react'
 
 export default function EmptyStateVariants() {

@@ -1,4 +1,4 @@
-import { Field, RadioCardGroup, type RadioCardOption } from 'libui'
+import { Field, RadioCardGroup, type RadioCardOption } from 'libui-kit'
 import { Globe, Lock, Users } from 'lucide-react'
 
 const OPTIONS: RadioCardOption[] = [
