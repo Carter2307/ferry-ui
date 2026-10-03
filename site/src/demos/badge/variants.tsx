@@ -1,4 +1,4 @@
-import { Badge } from 'libui-kit'
+import { Badge } from 'ferry-ui'
 
 export default function BadgeVariants() {
   return (

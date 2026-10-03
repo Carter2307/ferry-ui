@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'libui-kit'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'ferry-ui'
 
 const ACTORS = ['Maya Chen', 'Jonas Weber', 'Priya Patel', 'System']
 const ACTIONS = ['member.invited', 'invoice.paid', 'api_key.created', 'project.renamed', 'role.updated']

@@ -7,7 +7,7 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { Building2 } from 'lucide-react'
 
 export default function DescriptionListInline() {

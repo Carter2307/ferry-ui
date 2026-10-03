@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from 'libui-kit'
+import { Avatar, AvatarFallback, AvatarImage } from 'ferry-ui'
 import { User } from 'lucide-react'
 
 export default function AvatarFallbackDemo() {

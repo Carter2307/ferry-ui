@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, RadioCardGroup, type RadioCardOption } from 'libui-kit'
+import { Button, RadioCardGroup, type RadioCardOption } from 'ferry-ui'
 
 type Period = 'monthly' | 'yearly'
 

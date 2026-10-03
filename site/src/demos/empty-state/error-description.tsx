@@ -1,4 +1,4 @@
-import { ErrorState } from 'libui-kit'
+import { ErrorState } from 'ferry-ui'
 
 export default function ErrorStateDescription() {
   return (

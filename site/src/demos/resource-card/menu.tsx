@@ -8,7 +8,7 @@ import {
   ResourceGrid,
   toast,
   type LinkComponent,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { LayoutDashboard, MoreVertical, Smartphone } from 'lucide-react'
 
 // In an app, the link component of your router opens the page. This one stays on the page.

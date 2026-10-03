@@ -392,7 +392,7 @@ export const BrandOverride: StoryObj<BrandOverrideArgs> = {
       <div className="flex min-w-0 flex-col gap-3">
         <span className="mono-label">app.css</span>
         <Snippet>{`@import "tailwindcss";
-@import "libui-kit/theme.css";
+@import "ferry-ui/theme.css";
 
 :root {
   --primary: oklch(0.55 0.2 290);

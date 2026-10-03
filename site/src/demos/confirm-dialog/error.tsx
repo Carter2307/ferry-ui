@@ -1,4 +1,4 @@
-import { Button, ConfirmDialog } from 'libui-kit'
+import { Button, ConfirmDialog } from 'ferry-ui'
 
 // Stands for a request that the server refuses.
 const wait = (ms: number) => new Promise<void>((resolve) => window.setTimeout(resolve, ms))

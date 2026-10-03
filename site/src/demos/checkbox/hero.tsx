@@ -1,4 +1,4 @@
-import { Checkbox, Label } from 'libui-kit'
+import { Checkbox, Label } from 'ferry-ui'
 
 const EVENTS = [
   { value: 'invoice-paid', label: 'A customer pays an invoice', checked: true },

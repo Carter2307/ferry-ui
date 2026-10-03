@@ -1,4 +1,4 @@
-import { toast } from 'libui-kit'
+import { toast } from 'ferry-ui'
 
 import { ListPageExample } from '../../../../src/examples/list-page-example'
 

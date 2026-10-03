@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Field, Input } from 'libui-kit'
+import { Field, Input } from 'ferry-ui'
 
 export default function FieldError() {
   const [email, setEmail] = React.useState('maya@example')

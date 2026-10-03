@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle, EmptyState } from 'libui-kit'
+import { Card, CardContent, CardHeader, CardTitle, EmptyState } from 'ferry-ui'
 import { History } from 'lucide-react'
 
 export default function EmptyStateInCard() {

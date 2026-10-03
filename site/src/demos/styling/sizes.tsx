@@ -1,4 +1,4 @@
-import { Button, Input } from 'libui-kit'
+import { Button, Input } from 'ferry-ui'
 
 const SIZES = [
   { size: 'tiny', height: '26px' },

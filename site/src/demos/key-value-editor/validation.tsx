@@ -1,4 +1,4 @@
-import { KeyValueEditor, rowsFromPairs, validateIdentifierKey } from 'libui-kit'
+import { KeyValueEditor, rowsFromPairs, validateIdentifierKey } from 'ferry-ui'
 
 const VARIABLES = rowsFromPairs([
   { key: 'MAX_RETRIES', value: '5' },

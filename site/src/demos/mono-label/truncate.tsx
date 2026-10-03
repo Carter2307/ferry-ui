@@ -1,4 +1,4 @@
-import { MonoLabel } from 'libui-kit'
+import { MonoLabel } from 'ferry-ui'
 
 const TEXT = 'Invitations from other workspaces'
 

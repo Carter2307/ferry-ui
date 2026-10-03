@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Callout, Field, Input } from 'libui-kit'
+import { Button, Callout, Field, Input } from 'ferry-ui'
 
 export default function ValidationErrors() {
   const [name, setName] = React.useState('')

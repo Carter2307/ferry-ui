@@ -1,4 +1,4 @@
-import { Avatar, AvatarBadge, AvatarFallback } from 'libui-kit'
+import { Avatar, AvatarBadge, AvatarFallback } from 'ferry-ui'
 
 export default function AvatarHero() {
   return (

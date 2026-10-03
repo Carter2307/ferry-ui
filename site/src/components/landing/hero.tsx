@@ -1,4 +1,4 @@
-import { Button } from 'libui-kit'
+import { Button } from 'ferry-ui'
 import { ArrowRight } from 'lucide-react'
 
 import { GithubIcon } from '@/components/logo'

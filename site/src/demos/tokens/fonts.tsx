@@ -1,4 +1,4 @@
-import { cn } from 'libui-kit'
+import { cn } from 'ferry-ui'
 
 const FONTS = [
   { className: 'font-sans', variable: '--libui-font-sans', sample: 'Invoices of October 2026' },

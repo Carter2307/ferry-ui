@@ -13,7 +13,7 @@ const meta = {
   component: ListPageExample,
   parameters: exampleParameters(
     [
-      'A filterable collection page (here: the projects of a workspace), built only from the public `libui-kit` exports.',
+      'A filterable collection page (here: the projects of a workspace), built only from the public `ferry-ui` exports.',
       '',
       '- **Header** — `PageHeader` carries the title and the single `primary` action of the page ("New project").',
       '- **Toolbar** — `ListToolbar` sits right above the table: a controlled `SearchInput` first, then a `FilterMenu` (multi-select, with `StatusDot` icons and counts); the result count goes in `actions`.',

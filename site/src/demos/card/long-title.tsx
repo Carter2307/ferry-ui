@@ -1,4 +1,4 @@
-import { Button, Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from 'libui-kit'
+import { Button, Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from 'ferry-ui'
 
 export default function CardLongTitle() {
   return (

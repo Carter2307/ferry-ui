@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'libui-kit'
+import { Checkbox, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'ferry-ui'
 
 const API_KEYS = [
   { id: 'k1', name: 'Production backend', scope: 'Read and write', lastUsed: '2 minutes ago' },

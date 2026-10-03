@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Input, Label, inputVariants } from 'libui-kit'
+import { Input, Label, inputVariants } from 'ferry-ui'
 
 const SEAT_PRICE = 20
 

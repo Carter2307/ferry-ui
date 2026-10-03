@@ -1,4 +1,4 @@
-import { Button, Popover, PopoverContent, PopoverTrigger } from 'libui-kit'
+import { Button, Popover, PopoverContent, PopoverTrigger } from 'ferry-ui'
 
 const SIDES = ['top', 'right', 'bottom', 'left'] as const
 

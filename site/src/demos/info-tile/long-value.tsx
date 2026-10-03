@@ -1,4 +1,4 @@
-import { InfoTile } from 'libui-kit'
+import { InfoTile } from 'ferry-ui'
 import { Globe } from 'lucide-react'
 
 const WEBSITE = 'www.acme-customer-portal.example.com'

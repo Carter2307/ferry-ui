@@ -1,4 +1,4 @@
-import { KeyValueEditor, rowsFromPairs } from 'libui-kit'
+import { KeyValueEditor, rowsFromPairs } from 'ferry-ui'
 
 const HEADERS = rowsFromPairs([
   { key: 'Accept', value: 'application/json' },

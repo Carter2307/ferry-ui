@@ -1,4 +1,4 @@
-import { Separator } from 'libui-kit'
+import { Separator } from 'ferry-ui'
 
 export default function SeparatorHero() {
   return (

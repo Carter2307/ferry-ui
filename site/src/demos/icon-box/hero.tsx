@@ -1,4 +1,4 @@
-import { IconBox } from 'libui-kit'
+import { IconBox } from 'ferry-ui'
 import { FolderKanban, KeyRound, Receipt } from 'lucide-react'
 
 const RESULTS = [

@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from 'libui-kit'
+import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from 'ferry-ui'
 import { Plus } from 'lucide-react'
 
 const MEMBERS = [

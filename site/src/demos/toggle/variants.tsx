@@ -1,4 +1,4 @@
-import { Toggle } from 'libui-kit'
+import { Toggle } from 'ferry-ui'
 import { Star } from 'lucide-react'
 
 export default function ToggleVariants() {

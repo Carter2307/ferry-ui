@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Label, RadioGroup, RadioGroupItem } from 'libui-kit'
+import { Label, RadioGroup, RadioGroupItem } from 'ferry-ui'
 
 const PLANS = [
   { value: 'starter', label: 'Starter', price: '$0' },

@@ -1,4 +1,4 @@
-import { EmptyState } from 'libui-kit'
+import { EmptyState } from 'ferry-ui'
 import { Users } from 'lucide-react'
 
 export default function EmptyStateSizes() {

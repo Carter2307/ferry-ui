@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, MonoLabel } from 'libui-kit'
+import { Card, CardContent, CardHeader, MonoLabel } from 'ferry-ui'
 
 export default function MonoLabelHero() {
   return (

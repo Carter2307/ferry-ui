@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, Skeleton } from 'libui-kit'
+import { Card, CardContent, CardHeader, Skeleton } from 'ferry-ui'
 
 export default function CardLoading() {
   return (

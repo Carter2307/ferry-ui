@@ -1,4 +1,4 @@
-import { CodeBlock } from 'libui-kit'
+import { CodeBlock } from 'ferry-ui'
 
 export default function CodeBlockMasked() {
   return (

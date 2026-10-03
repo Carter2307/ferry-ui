@@ -1,4 +1,4 @@
-import { CopyField } from 'libui-kit'
+import { CopyField } from 'ferry-ui'
 
 export default function CopyFieldSizes() {
   return (

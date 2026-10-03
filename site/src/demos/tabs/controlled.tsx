@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
+import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from 'ferry-ui'
 
 const STEPS = ['details', 'members', 'review']
 

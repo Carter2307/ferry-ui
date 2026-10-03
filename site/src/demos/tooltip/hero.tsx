@@ -1,4 +1,4 @@
-import { Button, Hint } from 'libui-kit'
+import { Button, Hint } from 'ferry-ui'
 import { Download, RefreshCw, Settings } from 'lucide-react'
 
 export default function TooltipHero() {

@@ -1,4 +1,4 @@
-import { CommandMenu, type CommandMenuGroup } from 'libui-kit'
+import { CommandMenu, type CommandMenuGroup } from 'ferry-ui'
 
 import { pagesByGroup } from '@/lib/nav'
 

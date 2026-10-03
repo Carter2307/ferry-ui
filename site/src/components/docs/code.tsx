@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { CodeBlock, Tabs, TabsContent, TabsList, TabsTrigger, cn } from 'libui-kit'
+import { CodeBlock, Tabs, TabsContent, TabsList, TabsTrigger, cn } from 'ferry-ui'
 
 import { highlightCode, isCommandList, isShell } from '@/lib/highlight'
 

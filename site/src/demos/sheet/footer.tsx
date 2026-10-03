@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 const FOOTERS = [
   // No class: the footer stacks its buttons.

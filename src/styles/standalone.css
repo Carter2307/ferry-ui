@@ -1,8 +1,13 @@
-/* Source of the precompiled `libui-kit/styles.css` (for apps without Tailwind):
-   Tailwind preflight + the libui theme + every utility libui's components use. */
-@import "tailwindcss";
+/* Source of the precompiled `ferry-ui/styles.css` (for apps without Tailwind):
+   Tailwind preflight + the libui theme + every utility libui's components use.
+
+   `source(none)` turns off Tailwind's automatic detection, which reads the whole repository (the
+   documentation site, the README, AGENTS.md): theme.css registers `src/` as the only source, so
+   the file holds the classes of the components and nothing else. */
+@import "tailwindcss" source(none);
 @import "./theme.css";
 
+@source not "../examples";
 @source not "../**/*.stories.tsx";
 @source not "../**/*.test.tsx";
 @source not "../**/*.test.ts";

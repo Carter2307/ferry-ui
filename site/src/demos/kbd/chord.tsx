@@ -1,4 +1,4 @@
-import { Kbd } from 'libui-kit'
+import { Kbd } from 'ferry-ui'
 
 export default function KbdChord() {
   return (

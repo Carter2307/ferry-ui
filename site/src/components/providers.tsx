@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   type LinkComponent,
   type ThemePreference,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { Link } from 'react-router'
 
 import { withBase } from '@/config'

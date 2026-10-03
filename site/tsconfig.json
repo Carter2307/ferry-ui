@@ -6,7 +6,7 @@
     "allowImportingTsExtensions": true,
     "checkJs": false,
     "paths": {
-      "libui-kit": ["../src/index.ts"],
+      "ferry-ui": ["../src/index.ts"],
       "@/*": ["./src/*"]
     }
   },

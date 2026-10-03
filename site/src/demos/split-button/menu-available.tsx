@@ -1,4 +1,4 @@
-import { DropdownMenuItem, SplitButton, toast } from 'libui-kit'
+import { DropdownMenuItem, SplitButton, toast } from 'ferry-ui'
 import { Download, Link2, Mail } from 'lucide-react'
 
 export default function SplitButtonMenuAvailable() {

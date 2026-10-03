@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'ferry-ui'
 
 // A value has no space: the tab and its panel use it in their `id`.
 const SECTIONS = [

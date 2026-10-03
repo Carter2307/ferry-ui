@@ -1,4 +1,4 @@
-import { Checkbox, Label, MonoLabel } from 'libui-kit'
+import { Checkbox, Label, MonoLabel } from 'ferry-ui'
 
 export default function MonoLabelLegend() {
   return (

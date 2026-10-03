@@ -1,4 +1,4 @@
-import { badgeVariants } from 'libui-kit'
+import { badgeVariants } from 'ferry-ui'
 
 const TAGS = ['Design', 'Frontend', 'Roadmap', 'Customer request']
 

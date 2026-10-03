@@ -1,4 +1,4 @@
-import { ActionRow, Button, ConfirmDialog, FormCard, toast } from 'libui-kit'
+import { ActionRow, Button, ConfirmDialog, FormCard, toast } from 'ferry-ui'
 
 export default function FormCardDangerZone() {
   return (

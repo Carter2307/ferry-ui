@@ -1,4 +1,4 @@
-import { CopyButton } from 'libui-kit'
+import { CopyButton } from 'ferry-ui'
 
 const INVOICES = ['INV-2026-0142', 'INV-2026-0143']
 

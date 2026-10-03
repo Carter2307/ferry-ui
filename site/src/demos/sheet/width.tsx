@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export default function SheetWidth() {
   return (

@@ -1,4 +1,4 @@
-import { StatusBadge, type StatusTone } from 'libui-kit'
+import { StatusBadge, type StatusTone } from 'ferry-ui'
 
 type InvoiceStatus = 'paid' | 'open' | 'overdue'
 

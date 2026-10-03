@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, rowLinkProps } from 'libui-kit'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, rowLinkProps } from 'ferry-ui'
 
 const MEMBERS = [
   { id: 'maya', name: 'Maya Chen', role: 'Owner' },

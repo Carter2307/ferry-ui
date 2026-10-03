@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormActions, FormCard, FormRow, Input, toast } from 'libui-kit'
+import { FormActions, FormCard, FormRow, Input, toast } from 'ferry-ui'
 
 const INITIAL = { name: 'Billing portal', email: 'billing@example.com' }
 

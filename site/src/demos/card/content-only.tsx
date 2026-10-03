@@ -1,4 +1,4 @@
-import { Card, CardContent } from 'libui-kit'
+import { Card, CardContent } from 'ferry-ui'
 
 export default function CardContentOnly() {
   return (

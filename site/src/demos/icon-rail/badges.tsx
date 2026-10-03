@@ -1,4 +1,4 @@
-import { Badge, IconRail, type NavItem } from 'libui-kit'
+import { Badge, IconRail, type NavItem } from 'ferry-ui'
 import { CreditCard, FolderKanban, Inbox, LayoutDashboard } from 'lucide-react'
 
 const ITEMS: NavItem[] = [

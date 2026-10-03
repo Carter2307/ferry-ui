@@ -8,7 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 const MEMBERS = ['Maya Chen', 'Sam Lee', 'Ada Park']
 const EVENTS = ['changed the billing address', 'invited a new member', 'renamed a project', 'exported the invoices']

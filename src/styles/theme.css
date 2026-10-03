@@ -3,8 +3,8 @@
 
    Usage (in your app's main stylesheet):
      @import "tailwindcss";
-     @import "libui-kit/fonts.css";   (optional: Inter + Source Code Pro)
-     @import "libui-kit/theme.css";
+     @import "ferry-ui/fonts.css";   (optional: Inter + Source Code Pro)
+     @import "ferry-ui/theme.css";
 
    It maps the design tokens (tokens.css) onto Tailwind theme names so stock
    shadcn classes (bg-background, border-input, ring-ring…) and the libui

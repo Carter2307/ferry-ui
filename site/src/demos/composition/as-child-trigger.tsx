@@ -10,7 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
   Kbd,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export default function AsChildTrigger() {
   return (
