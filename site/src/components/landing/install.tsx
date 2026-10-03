@@ -1,4 +1,4 @@
-import { Code } from '@/components/docs/code'
+import { Code, PackageTabs } from '@/components/docs/code'
 import { RouterLink } from '@/components/providers'
 
 import { Reveal } from './reveal'
@@ -69,7 +69,7 @@ export function Install() {
     <Section id="install" labelledBy="install-title">
       <div className="grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
         <div className="min-w-0">
-          <Heading id="install-title" strong="Add it to your app" quiet="in three files" />
+          <Heading id="install-title" strong="Add it to your app" quiet="in four steps" />
           <Reveal delay={0.12}>
             <p className="mt-5 max-w-[34rem] text-foreground-lighter">
               You need React 19. Tailwind CSS v4 is optional: without it, you import one compiled stylesheet.
@@ -77,6 +77,15 @@ export function Install() {
           </Reveal>
 
           <ol className="mt-10 space-y-9">
+            <li>
+              <Reveal>
+                <h3 className="text-base font-medium text-foreground">Install the package</h3>
+                <p className="mt-1 mb-3 text-sm text-foreground-lighter">
+                  One package, with the components, the tokens and the stylesheets.
+                </p>
+                <PackageTabs packages="libui-kit" />
+              </Reveal>
+            </li>
             {STEPS.map((step) => (
               <li key={step.title}>
                 <Reveal>
@@ -91,10 +100,11 @@ export function Install() {
 
         <div className="space-y-3 lg:pt-[7.75rem]">
           <Reveal delay={0.0} className="rounded-xl border bg-surface-100 p-6">
-            <h3 className="text-base font-medium text-foreground">libui is not on npm yet</h3>
+            <h3 className="text-base font-medium text-foreground">Its name on npm is libui-kit</h3>
             <p className="mt-2 text-sm text-foreground-lighter">
-              Until the first release, you build the package from the repository and install the file it gives. The
-              installation page has the commands.
+              The name libui on npm is another project. Install{' '}
+              <code className="font-mono text-[0.9em] text-foreground">libui-kit</code> and import from{' '}
+              <code className="font-mono text-[0.9em] text-foreground">libui-kit</code>.
             </p>
             <RouterLink className="text-link mt-4 inline-block text-sm" href="/docs/overview/installation">
               Read the installation page

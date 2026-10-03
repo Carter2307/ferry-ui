@@ -230,7 +230,7 @@ not fit.
   truth, then its story file (`*.stories.tsx`) for real examples, then the catalog entry in `AGENTS.md`
   (section 7). Do not write a prop, a value, a default, a size in pixels or a behavior that you did not
   read there.
-- **Do not invent packages, commands or URLs.** libui is not on npm yet: the README says how to install it.
+- **Do not invent packages, commands or URLs.** The name of the package on npm is `libui-kit`: the README says how to install it.
 - If you are not sure of a fact, leave it out.
 
 ## 7. Before you are done
