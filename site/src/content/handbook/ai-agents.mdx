@@ -1,0 +1,78 @@
+---
+title: AI agents
+description: The files and the links that give the rules of libui to an AI agent.
+order: 9
+---
+
+libui is for people and for AI agents. An agent gets the documentation as plain text from three sources.
+
+| Source | Content | Location |
+| --- | --- | --- |
+| `AGENTS.md` | The full reference in one file. | The repository and the package. |
+| `llms.txt` | The list of the pages of this site. | [/llms.txt](/llms.txt) |
+| Markdown pages | One page of this site as Markdown. | The URL of the page, then `.md`. |
+
+## AGENTS.md
+
+`AGENTS.md` is the reference for an agent that builds UI with libui. The package contains this file. An agent that works in your app reads it there.
+
+```text
+node_modules/libui/AGENTS.md
+```
+
+| Section | Content |
+| --- | --- |
+| 1. Rules | The rules to read before you write UI. |
+| 2. App setup | The CSS, the providers and the router. |
+| 3. Design language | The sizes, the space and the type scale. |
+| 4. Tokens | Each token with its class and its CSS variable. |
+| 5. Which component for which job | Tables that give the correct component for a need. |
+| 6. Recipes | Full modules for the usual screens. |
+| 7. Catalog | Each export with its props and its values. |
+| 8. Accessibility | The parts that depend on your code. |
+| 9. Do and don't | A list to review the result. |
+| 10. Extending libui | The conventions for a change in the repository. |
+
+In the repository, the `CLAUDE.md` file points Claude Code to `AGENTS.md`.
+
+## llms.txt
+
+This site serves [llms.txt](/llms.txt). The file follows the [llms.txt](https://llmstxt.org) format.
+
+The file lists each page with its description, in the groups of the sidebar. Each link opens the Markdown version of a page.
+
+The repository has a second `llms.txt` file. It lists `AGENTS.md`, `README.md` and the Storybook pages.
+
+## View as Markdown
+
+Each page of this site has a **View as Markdown** link below its title. The address is the URL of the page with `.md` at the end.
+
+```text
+/docs/components/button
+/docs/components/button.md
+```
+
+In the Markdown version, each demo is its source code and each props table is a Markdown table. Give this address to your agent when you work with one component.
+
+## Snippets that stay true
+
+An agent copies the snippets of `AGENTS.md`. A snippet with a type error gives the agent a wrong instruction. The repository has a script that finds these errors.
+
+```sh
+npm run check:docs
+```
+
+| Check | Rule |
+| --- | --- |
+| Snippets | The script type-checks each `tsx` block of `AGENTS.md`, `README.md` and the Storybook introduction with the current sources. |
+| Catalog | `AGENTS.md` must name each export of `src/index.ts`. |
+
+Each snippet is one full module. It imports what it uses and declares its own data.
+
+The script is `scripts/check-docs-snippets.mjs`. Run it after each change to a component or to `AGENTS.md`.
+
+## Next steps
+
+- Read [Styling](/docs/handbook/styling) for the rules about tokens and `className`.
+- Read [Accessibility](/docs/overview/accessibility) for the rules that each screen must follow.
+- Read [TypeScript](/docs/handbook/typescript) for the types that the examples use.

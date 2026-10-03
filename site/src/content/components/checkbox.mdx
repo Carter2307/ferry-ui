@@ -1,0 +1,85 @@
+---
+title: Checkbox
+description: A control for an on/off choice that applies on submit.
+group: Primitives
+source: src/components/primitives/checkbox.tsx
+---
+
+<Demo name="checkbox/hero" title="Three checkboxes with their labels" />
+
+## Usage guidelines
+
+- **A choice that applies on submit.** Use it to accept terms, to select more than one value, or to select table rows.
+- **Each checkbox is independent.** The state of one checkbox does not change the others.
+- **Give each checkbox a name.** Wrap it in a [Label](/docs/components/label). If it has no visible text, pass `aria-label`.
+
+| Choice | Control |
+| --- | --- |
+| A choice that applies on submit, or more than one value | `Checkbox` |
+| A setting that applies immediately | [Switch](/docs/components/switch) |
+| One value among 2 to 5 options | [Radio Group](/docs/components/radio-group) |
+| A button that stays pressed in a toolbar | [Toggle](/docs/components/toggle) |
+
+## Anatomy
+
+Import the component. A checkbox has one part.
+
+```tsx title="Anatomy"
+import { Checkbox } from 'libui-kit'
+
+<Checkbox />
+```
+
+## Examples
+
+### Label and description
+
+A `Label` around the checkbox makes the text a part of the click area.
+
+To add a description, link the label with `htmlFor`. Link the description with `aria-describedby`.
+
+<Demo name="checkbox/description" title="A checkbox with a label and a description" />
+
+### States
+
+`defaultChecked` sets the first state. The value `'indeterminate'` shows a dash. `disabled` stops all clicks.
+
+<Demo name="checkbox/states" title="The states of a checkbox" />
+
+### Controlled state
+
+A checkbox holds its state by default. To control the state, pass `checked` and `onCheckedChange`.
+
+`onCheckedChange` gets `true`, `false` or `'indeterminate'`.
+
+<Demo name="checkbox/controlled" title="A checkbox that shows a field" />
+
+### Select all
+
+Use `'indeterminate'` when the user selects only some items of a list. A click on an indeterminate checkbox sends `true`.
+
+<Demo name="checkbox/select-all" title="A checkbox that selects all the members" />
+
+### Form submission
+
+In a `<form>`, `name` and `value` add the checkbox to the data of the form. `required` makes the checkbox mandatory.
+
+<Demo name="checkbox/form" title="Checkboxes in a form" />
+
+### Error
+
+`aria-invalid` shows the error border. Show the error message as text near the checkbox.
+
+<Demo name="checkbox/invalid" title="A checkbox with an error message" />
+
+## Accessibility
+
+- <Kbd>Space</Kbd> changes the state of the checkbox that has the focus.
+- A checkbox with no visible text must have an `aria-label`, for example in a table cell.
+- Put a group of checkboxes in a `<fieldset>` with a `<legend>`.
+
+## API reference
+
+`Checkbox` also accepts the props of the Radix UI Checkbox primitive and each attribute of the `<button>` element.
+
+<PropsTable of="Checkbox" />

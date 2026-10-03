@@ -1,0 +1,116 @@
+---
+title: Status
+description: Three components that show the state of a record with a tone and a label.
+group: Patterns
+source: src/components/patterns/status.tsx
+---
+
+<Demo name="status/hero" align="stretch" title="A table of invoices with a status badge in each row" />
+
+## Usage guidelines
+
+- **A state is not a tag.** Use `StatusBadge` for the state of a record. For a static tag, a plan, a version or a count, use [Badge](/docs/components/badge).
+- **Map your statuses one time.** Write one map from each status of your domain to a tone and a label. Keep it next to your types.
+- **Color is not the only sign.** `StatusBadge` has a label. A `StatusDot` with no text next to it needs `label`.
+- **Motion shows work in progress.** Set `pulse` or `spin` only while the work runs.
+- **A message with an action is a callout.** Use [Callout](/docs/components/callout).
+
+## Anatomy
+
+Import the components. Each component has one part.
+
+```tsx title="Anatomy"
+import { StatusBadge, StatusDot, StatusLine } from 'libui-kit'
+
+<StatusBadge tone="success" label="Active" />
+<StatusDot tone="success" />
+<StatusLine tone="success">Project is active</StatusLine>
+```
+
+| Component | Look | Place |
+| --- | --- | --- |
+| `StatusBadge` | An uppercase pill with a dot. | Tables, headers, tiles and cards. |
+| `StatusDot` | A 6px dot. | Before a name in a list or a menu. |
+| `StatusLine` | An icon in a circle, then a sentence. | Card footers and summary panels. |
+
+## Examples
+
+### Tones
+
+The three components use the same `tone` prop. `STATUS_TONES` lists the tones in display order.
+
+<Demo name="status/tones" title="One status badge for each tone" />
+
+| Tone | Meaning |
+| --- | --- |
+| `success` | Healthy, done, active, paid. |
+| `warning` | Degraded, needs attention, expiring. |
+| `destructive` | Failed, overdue, blocked. |
+| `info` | In progress, pending review. |
+| `neutral` (default) | Inactive, paused, draft, unknown. |
+
+### Sizes
+
+A `StatusBadge` is 20px high. Next to a page title or a card title, use `size="sm"`. It is 18px high.
+
+<Demo name="status/sizes" title="The sizes of a status badge" />
+
+### Pulse
+
+Set `pulse` to add a pulse to the dot. Remove it when the work stops.
+
+<Demo name="status/pulse" title="A status badge with a dot that has a pulse" />
+
+### Icon
+
+An `icon` replaces the dot. To show the icon and the dot, set `dot`. To hide the dot, set `dot` to `false`.
+
+<Demo name="status/icon" title="Status badges with an icon and with no dot" />
+
+### Status dot
+
+Put a `StatusDot` before text that names the state. If no text names the state, give the dot a `label`.
+
+<Demo name="status/dot" title="Status dots before a text" />
+
+### Status line
+
+A `StatusLine` shows an icon for its tone, then one line of text. With `spin`, the icon is a spinner. Use `icon` to give another icon.
+
+<Demo name="status/line" title="Status lines for each tone" />
+
+### Badge look on another element
+
+`statusBadgeVariants` returns the classes of the badge. Use it to give the badge look to a button or a link.
+
+<Demo name="status/variants" title="Filter buttons with the badge look" />
+
+## Accessibility
+
+- A `StatusDot` with no `label` is decorative. With a `label`, it is an image with this name.
+- The icon of a `StatusLine` is decorative. Write the state in the text.
+- The pulse and the spin stop if the user prefers reduced motion.
+
+## API reference
+
+The three components also accept each attribute of the `<span>` element.
+
+### StatusBadge
+
+<PropsTable of="StatusBadge" />
+
+### StatusDot
+
+<PropsTable of="StatusDot" />
+
+### StatusLine
+
+<PropsTable of="StatusLine" />
+
+### Helpers
+
+| Name | Type | Role |
+| --- | --- | --- |
+| `statusBadgeVariants` | `({ tone, size }) => string` | Returns the classes of a `StatusBadge`. |
+| `STATUS_TONES` | `readonly StatusTone[]` | Lists the five tones in display order. |
+| `StatusTone` | type | `'success'`, `'warning'`, `'destructive'`, `'info'` or `'neutral'`. |

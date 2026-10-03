@@ -1,0 +1,123 @@
+---
+title: Server Components
+description: How to use libui in an app that has React Server Components.
+order: 7
+---
+
+## Client modules
+
+In the package, each module of a component, a hook or a provider starts with `'use client'`. A server component can render these components. It can pass serializable props to them.
+
+```tsx title="app/projects/page.tsx"
+import { PageContainer, PageHeader } from 'libui-kit'
+
+// A server component: the file has no 'use client' line.
+export default function ProjectsPage() {
+  return (
+    <PageContainer>
+      <PageHeader title="Projects" description="The projects of your workspace." />
+    </PageContainer>
+  )
+}
+```
+
+A server component cannot call the functions of a client module. Hooks and variant helpers are in client modules.
+
+## Exports for the server
+
+These exports are in plain modules. A server component can use them.
+
+| Export | Role |
+| --- | --- |
+| [cn](/docs/utilities/cn) | It merges class names. |
+| [getErrorMessage](/docs/utilities/get-error-message) | It gives a message that a person can read for an error. |
+| `themeInitScript` | It returns the script that applies the stored theme before the first paint. |
+| `DEFAULT_THEME_STORAGE_KEY` | The default `localStorage` key of the theme: `'libui-theme'`. |
+| `rowLinkProps` | It returns the props of a [table row](/docs/components/table-states) that opens on a click. The click handler works only in a client component. |
+| `isMac`, `modKey` | The constants of the platform. On a server, they describe the OS of the server. |
+
+## Exports for client components only
+
+These exports are in client modules. Call them from a client component only.
+
+| Kind | Exports |
+| --- | --- |
+| Variant helpers | `buttonVariants`, `badgeVariants`, `inputVariants`, `tabsListVariants`, `toggleVariants`, `statusBadgeVariants`, `iconBoxVariants` |
+| Hooks | Each hook, for example `useTheme`, `useCopy` and `useModKey`. |
+
+## Mount the providers
+
+The providers go in a client component. This example is for the App Router of Next.js.
+
+```tsx title="app/providers.tsx"
+'use client'
+
+import type { ReactNode } from 'react'
+import NextLink from 'next/link'
+import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from 'libui-kit'
+
+const RouterLink: LinkComponent = ({ href, ...props }) => <NextLink href={href} {...props} />
+
+export function Providers({ children }: { children: ReactNode }) {
+  return (
+    <ThemeProvider>
+      <LinkProvider component={RouterLink}>
+        <TooltipProvider>
+          {children}
+          <Toaster />
+        </TooltipProvider>
+      </LinkProvider>
+    </ThemeProvider>
+  )
+}
+```
+
+## Add the theme script to the server layout
+
+React applies the theme after it loads. That is too late for the first paint. `themeInitScript()` returns a small script that applies the stored theme first.
+
+The function only builds a string. Thus the server layout can call it. Put the script in the `head` element.
+
+```tsx title="app/layout.tsx"
+import type { ReactNode } from 'react'
+import { themeInitScript } from 'libui-kit'
+
+import { Providers } from './providers'
+import './globals.css'
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    // The script sets the class before hydration: tell React the difference is expected.
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />
+      </head>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+<Callout tone="warning" title="Use the same arguments">
+  If [ThemeProvider](/docs/utilities/theme-provider) has a `storageKey` or a `defaultTheme`, pass the same values to `themeInitScript()`.
+</Callout>
+
+## Show the key of the platform
+
+The `isMac` and `modKey` constants read the platform one time, when the module loads. On a server, they describe the OS of the server. In markup that the server renders, use the [useIsMac and useModKey](/docs/utilities/use-platform) hooks.
+
+<Demo name="server-components/mod-key" title="A key hint that is safe for hydration" />
+
+| Hook | On the server and during hydration | After hydration |
+| --- | --- | --- |
+| `useIsMac()` | `false` | `true` on an Apple platform. |
+| `useModKey()` | `'Ctrl'` | `'⌘'` on an Apple platform. |
+
+The server and the first client render give the same markup. As a result, React finds no hydration mismatch.
+
+## Next steps
+
+- Read [Theming](/docs/handbook/theming) for the light theme and the dark theme.
+- Read [Routing](/docs/handbook/routing) for the link component of each router.

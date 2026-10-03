@@ -1,0 +1,83 @@
+---
+title: Switch
+description: An on/off control for a setting that applies immediately.
+group: Primitives
+source: src/components/primitives/switch.tsx
+---
+
+<Demo name="switch/hero" align="stretch" title="Two settings with a switch" />
+
+## Usage guidelines
+
+- **A setting that applies immediately.** The change applies on the click. There is no Save button.
+- **Two states only.** For more than two states, use [Radio Group](/docs/components/radio-group) or [Toggle Group](/docs/components/toggle-group).
+- **Give each switch a name.** Use a [Label](/docs/components/label) with `htmlFor`, or pass `aria-label`.
+
+| Choice | Control |
+| --- | --- |
+| A setting that applies immediately | `Switch` |
+| A choice that applies on submit, or more than one value | [Checkbox](/docs/components/checkbox) |
+| One value among 2 to 5 options | [Radio Group](/docs/components/radio-group) |
+| A button that stays pressed in a toolbar | [Toggle](/docs/components/toggle) |
+
+## Anatomy
+
+Import the component. A switch has one part.
+
+```tsx title="Anatomy"
+import { Switch } from 'libui-kit'
+
+<Switch />
+```
+
+## Examples
+
+### Label
+
+Give an `id` to the switch. Pass the same value to the `htmlFor` of the `Label`. A click on the text then changes the switch.
+
+In a `FormRow` of [Form Card](/docs/components/form-card), pass `htmlFor` to the row. The row then gives the `id` to the switch.
+
+<Demo name="switch/label" title="A switch with a label" />
+
+### Sizes
+
+The `size` prop sets the size of the track. The default is `md`.
+
+<Demo name="switch/sizes" title="The sizes of Switch" />
+
+| Size | Track | Use |
+| --- | --- | --- |
+| `md` | 34 × 20px | Forms and rows of settings. |
+| `sm` | 28 × 16px | Dense lists, table cells and menus. |
+
+### Disabled state
+
+`disabled` stops all clicks. A `Label` after a disabled switch shows at half opacity.
+
+<Demo name="switch/disabled" title="Two disabled switches" />
+
+### Controlled state
+
+A switch holds its state by default. Use `defaultChecked` for the first state.
+
+To control the state, pass `checked` and `onCheckedChange`. Save the setting in `onCheckedChange`.
+
+<Demo name="switch/controlled" title="A switch that saves the setting on each change" />
+
+### In a table
+
+A switch in a cell of a [Table](/docs/components/table) has no visible label. Pass `aria-label`, and use the `sm` size.
+
+<Demo name="switch/table" align="stretch" title="A table with one switch in each row" />
+
+## Accessibility
+
+- <Kbd>Space</Kbd> changes the state of the switch that has the focus.
+- Each switch must have an accessible name: a `Label` or an `aria-label`.
+
+## API reference
+
+`Switch` also accepts the props of the Radix UI Switch primitive and each attribute of the `<button>` element.
+
+<PropsTable of="Switch" />

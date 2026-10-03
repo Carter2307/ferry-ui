@@ -1,0 +1,51 @@
+---
+title: cn
+description: A function that joins class names and removes the Tailwind classes that conflict.
+source: src/lib/utils.ts
+---
+
+<Demo name="cn/hero" title="A box with a conditional class" />
+
+## Usage
+
+Import `cn` from the package root. Give it the class names in order. When two Tailwind classes set the same property, the last class stays.
+
+```tsx
+import { cn } from 'libui-kit'
+
+cn('px-3 py-2', 'p-4') // 'p-4'
+cn('text-sm', selected && 'text-foreground') // 'text-sm' when selected is false
+```
+
+- Use `cn` for each `className` that has a condition.
+- Use `cn` for each `className` that comes from two sources.
+- `cn` is a plain function. A server component can call it.
+
+## Examples
+
+### Conditional classes
+
+Write `condition && 'class'`. A value that is `false`, `null` or `undefined` adds no class.
+
+`cn` also accepts arrays and objects. An object adds each key that has a true value.
+
+```tsx
+cn('text-sm', ['font-medium', null], { 'text-destructive': true, 'opacity-50': false })
+// 'text-sm font-medium text-destructive'
+```
+
+### The className of your component
+
+Put the base classes first and `className` last. Then the caller can replace a base class.
+
+<Demo name="cn/merge" title="A component that merges its className prop" />
+
+The libui components use the same rule. Your `className` comes last, and it wins.
+
+## API reference
+
+`cn(...inputs)` returns one string of class names. It joins the values with `clsx`. Then it removes the conflicts with `tailwind-merge`.
+
+| Parameter | Type | Role |
+| --- | --- | --- |
+| `...inputs` | `ClassValue[]` | The class names, in order. A value can be a string, an array, an object or an empty value. |

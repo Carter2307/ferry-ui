@@ -1,0 +1,67 @@
+---
+title: About libui
+description: What libui is, who it is for, and the ideas behind its design.
+order: 5
+---
+
+libui is a React design system for dense product interfaces: dashboards, admin consoles, settings pages, data tables and developer tools.
+
+<Demo name="about/principles" title="A card that shows the design principles" align="stretch" />
+
+## For people and for AI agents
+
+libui is for two groups: the people who build product screens, and the AI agents that work with them.
+
+Each component, prop and hook has a JSDoc text. The text says what the thing is, when to use it and when not to use it. The `AGENTS.md` file puts this text in one reference for agents. The [AI agents](/docs/handbook/ai-agents) page describes this file.
+
+## The three layers
+
+Each component is in one of three layers. The [tokens](/docs/handbook/tokens) give the colors, the radii, the shadows and the fonts to all of them.
+
+| Layer | Role | Examples |
+| --- | --- | --- |
+| Primitive | It wraps one Radix part or one HTML element. | [Button](/docs/components/button), [Dialog](/docs/components/dialog), [Table](/docs/components/table) |
+| Pattern | It composes primitives for a usual need of a product. | [Empty State](/docs/components/empty-state), [Form Card](/docs/components/form-card), [Confirm Dialog](/docs/components/confirm-dialog) |
+| Layout component | It is a piece of the application shell. | [App Shell](/docs/components/app-shell), [Top Bar](/docs/components/top-bar), [Icon Rail](/docs/components/icon-rail) |
+
+## Design principles
+
+The card at the top of this page follows these principles.
+
+| Principle | Meaning |
+| --- | --- |
+| A dense and calm interface | Most text is 13px and body text is 14px. Buttons are 30px high and fields are 34px high. Color is for meaning only. |
+| Borders before shadows | The structure comes from 1px borders in three strengths. Only menus, popovers and dialogs have a deep shadow. |
+| Two radii | Controls have a 6px radius. Containers have an 8px radius. |
+| Mono labels | [Mono Label](/docs/components/mono-label) is a small uppercase caption in a monospace font. It names cards, table columns and metrics. |
+| One primary action | The solid `primary` button is the one main action of a page, a dialog or a card. |
+| Two font weights | The hierarchy comes from the size and the text color. libui uses only the weights 400 and 500. |
+| One class for the theme | Each color is a CSS variable. The `dark` class on the `html` element changes the palette. |
+| No router and no store | libui has no global store, no router dependency and no data fetch. Props control each component. Links go through a link component that you supply. |
+
+## What libui uses
+
+| Library | Role |
+| --- | --- |
+| [Radix UI](https://www.radix-ui.com) | The accessible parts below the primitives. |
+| Tailwind CSS v4 | The styles and the theme. |
+| [shadcn/ui](https://ui.shadcn.com) conventions | `cn()`, `cva` variants, `data-slot` attributes and `asChild`. |
+| lucide-react | The icons. |
+
+## License and author
+
+libui has the MIT license. The `LICENSE` file is in the [repository](https://github.com/Carter2307/libui).
+
+| Subject | Value |
+| --- | --- |
+| License | MIT |
+| Author | B.ROGER |
+| Version | 0.1.0 |
+
+The package contains its documentation and its license.
+
+```text
+node_modules/libui/README.md
+node_modules/libui/AGENTS.md
+node_modules/libui/LICENSE
+```

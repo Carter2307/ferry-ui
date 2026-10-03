@@ -1,0 +1,101 @@
+---
+title: Code Block
+description: A code sample or a command in the monospace font, with a copy button.
+group: Patterns
+source: src/components/patterns/code-block.tsx
+---
+
+<Demo name="code-block/hero" title="A card with a command and a code sample" />
+
+## Usage guidelines
+
+- **Text that the user copies.** Use it for a command, a config sample or an API example.
+- **One value in a form is a field.** Use `CopyField`. For a secret that the user can show, use `SecretField`. See [Copy](/docs/components/copy).
+- **Not an editor.** For code that the user edits, use a [Textarea](/docs/components/textarea) with `mono`.
+- **No syntax colors.** The block shows the text as you give it.
+
+## Anatomy
+
+Import the parts. Give plain text to `code`. For content with elements, use the children and `copyValue`.
+
+```tsx title="Anatomy"
+import { CodeBlock, CodeBlockPrompt } from 'libui-kit'
+
+<CodeBlock code="" />
+
+<CodeBlock copyValue="">
+  <CodeBlockPrompt />
+</CodeBlock>
+```
+
+The `variant` prop sets the look.
+
+| Variant | Look | Use |
+| --- | --- | --- |
+| `block` (default) | A box with a border. | Commands and code samples. |
+| `inline` | A compact chip of one line. | A short token in a list or in help text. |
+| `terminal` | A decorative window. | An illustration in an empty state. |
+
+## Examples
+
+### Prompt
+
+`prompt` shows a `$` before each line of `code` that is not empty. The copy button does not copy the prompt. Pass a string to show a different prompt.
+
+<Demo name="code-block/prompt" title="Three blocks with a prompt" />
+
+### Masked value
+
+`copyValue` sets the text that the button copies. Use it to show a masked key and to copy the real key.
+
+<Demo name="code-block/masked" title="A command that shows a masked key" />
+
+### Long lines
+
+A long line scrolls in the block. `copyPlacement="side"` puts the copy button in its own column. `wrap` breaks the long lines.
+
+<Demo name="code-block/long-lines" title="One long command with a scroll, a side button and wrapped lines" />
+
+### Inline
+
+The `inline` variant is a chip of one line. Use it for a short token in a list or in help text.
+
+<Demo name="code-block/inline" title="A list of placeholders with a copy button" />
+
+### Terminal
+
+The `terminal` variant is decorative. It has no copy button unless you set `copyable`. If it repeats the text near it, add `aria-hidden`.
+
+<Demo name="code-block/terminal" title="A terminal window with the output of a test command" />
+
+### Rich content
+
+The children replace `code`. Use them to give a color to a part of the text. `CodeBlockPrompt` adds the prompt. The copy button shows only if you pass `copyValue`.
+
+<Demo name="code-block/rich" title="A command with a colored option" />
+
+### No copy button
+
+`copyable={false}` hides the copy button. Use it for a read-only sample that the user must not paste as it is.
+
+<Demo name="code-block/not-copyable" title="An output with no copy button" />
+
+## Accessibility
+
+- `what` names the content in the name of the copy button, such as "Copy API key".
+- The default of `what` is "command" for a block with `prompt`. If not, it is "code".
+- The copy button needs the `TooltipProvider` and the `Toaster` of the app. See [Quick start](/docs/overview/quick-start).
+
+## API reference
+
+`CodeBlock` also accepts each attribute of the `<div>` element. `CodeBlockPrompt` accepts each attribute of the `<span>` element.
+
+### CodeBlock
+
+The [Copy](/docs/components/copy) page gives the keys of `labels`.
+
+<PropsTable of="CodeBlock" />
+
+### CodeBlockPrompt
+
+<PropsTable of="CodeBlockPrompt" />

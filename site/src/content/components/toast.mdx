@@ -1,0 +1,123 @@
+---
+title: Toast
+description: A short message that shows above the page after an action.
+group: Primitives
+source: src/components/primitives/sonner.tsx
+---
+
+<Demo name="toast/hero" title="A button that shows a success toast" />
+
+## Usage guidelines
+
+- **Feedback that does not stop the user.** A toast tells that something happened. Keep its title to one short sentence.
+- **Not for a decision.** For an error that needs a decision, use [Confirm Dialog](/docs/components/confirm-dialog).
+- **Not for a status that stays.** For a message that stays on the page, use [Callout](/docs/components/callout).
+- **Import `toast` from `libui-kit`.** Do not import it from `sonner`. The function and the `Toaster` then use the same copy of sonner.
+
+## Anatomy
+
+Mount `Toaster` one time, near the root of the app. Do not mount a second `Toaster`. Then call `toast()` in your event handlers.
+
+```tsx title="app.tsx"
+import { Button, Toaster, toast } from 'libui-kit'
+
+export function App() {
+  return (
+    <>
+      <Button onClick={() => toast('Project archived')}>Archive</Button>
+      <Toaster />
+    </>
+  )
+}
+```
+
+<Callout tone="info" title="The copy components need the Toaster">
+  [Copy](/docs/components/copy), [Code Block](/docs/components/code-block) and [useCopy](/docs/utilities/use-copy) show a toast when the copy fails.
+</Callout>
+
+## Examples
+
+### Types
+
+`toast()` shows a neutral message. The four other functions add a status icon.
+
+<Demo name="toast/types" title="The types of toast" />
+
+| Function | Use |
+| --- | --- |
+| `toast()` | A neutral message. |
+| `toast.success()` | An action that is complete. |
+| `toast.error()` | An action that failed. |
+| `toast.warning()` | A problem that needs attention. |
+| `toast.info()` | Information for the user. |
+
+### Description
+
+The second argument holds the options. Use `description` to add a second line.
+
+<Demo name="toast/description" title="A toast with a description" />
+
+### Action buttons
+
+Use `action` to add a button to the toast. A click on this button runs `onClick` and closes the toast. Use `cancel` to add a second button.
+
+<Demo name="toast/action" title="A toast with an action button and a cancel button" />
+
+### Loading state
+
+`toast.loading()` shows a spinner and returns the id of the toast. Pass this `id` to a second call to replace the toast.
+
+<Demo name="toast/loading" title="A loading toast that becomes a success toast" />
+
+### Promise
+
+`toast.promise()` follows a promise. It shows the `loading` message first, then the `success` message or the `error` message.
+
+<Demo name="toast/promise" title="A toast that follows a promise" />
+
+### Dismiss
+
+`toast.dismiss(id)` closes one toast. With no argument, it closes all the toasts.
+
+<Demo name="toast/dismiss" title="Buttons that show and close a toast" />
+
+### Toaster options
+
+`Toaster` shows the toasts at the bottom right, with a close button. It follows the theme of the app. Pass an option of sonner to change a default.
+
+```tsx
+<Toaster position="top-center" duration={8000} visibleToasts={5} />
+```
+
+## API reference
+
+### Toaster
+
+`Toaster` accepts each option of the sonner `Toaster`.
+
+<PropsTable of="Toaster" />
+
+### toast
+
+Each function that shows a toast returns the id of the toast.
+
+| Function | Role |
+| --- | --- |
+| `toast(title, options)` | Shows a neutral toast. |
+| `toast.success(title, options)` | Shows a toast with a success icon. |
+| `toast.error(title, options)` | Shows a toast with an error icon. |
+| `toast.warning(title, options)` | Shows a toast with a warning icon. |
+| `toast.info(title, options)` | Shows a toast with an info icon. |
+| `toast.loading(title, options)` | Shows a toast with a spinner. |
+| `toast.promise(promise, messages)` | Shows the `loading`, `success` and `error` messages of a promise. |
+| `toast.dismiss(id)` | Closes one toast, or all the toasts when there is no `id`. |
+
+The options of a toast:
+
+| Option | Type | Role |
+| --- | --- | --- |
+| `description` | `ReactNode` | A second line below the title. |
+| `action` | `{ label, onClick }` | A button that runs `onClick` and closes the toast. |
+| `cancel` | `{ label, onClick }` | A second button. |
+| `id` | `string` or `number` | The id of the toast. A call with the same id replaces the toast. |
+| `duration` | `number` | The time on screen, in milliseconds. |

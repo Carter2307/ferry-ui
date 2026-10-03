@@ -1,0 +1,120 @@
+---
+title: Card
+description: A panel with a border that groups the content and the actions of one topic.
+group: Primitives
+source: src/components/primitives/card.tsx
+---
+
+<Demo name="card/hero" title="A card with a header, a body and a footer" />
+
+## Usage guidelines
+
+- **One topic for each card.** A card groups the content of one topic: a summary, a list, a short form.
+- **Do not nest cards.** Put a card next to a card, not in a card.
+- **Use a pattern when one fits.** For a settings form, use [Form Card](/docs/components/form-card). For a KPI, use [Metric Card](/docs/components/metric-card). For a list of entities, use [Resource Card](/docs/components/resource-card).
+
+## Anatomy
+
+Import the parts and put them together. Each part in the card is optional.
+
+```tsx title="Anatomy"
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'libui-kit'
+
+<Card>
+  <CardHeader>
+    <div>
+      <CardTitle />
+      <CardDescription />
+    </div>
+    <CardAction />
+  </CardHeader>
+  <CardContent />
+  <CardFooter />
+</Card>
+```
+
+| Part | Role |
+| --- | --- |
+| `Card` | The panel with a border. |
+| `CardHeader` | The top bar. It puts the title on the left and the action on the right. |
+| `CardTitle` | The title of the card. |
+| `CardDescription` | One short sentence about the card. |
+| `CardAction` | Small controls on the right of the header. |
+| `CardContent` | The body, with padding. |
+| `CardFooter` | The bottom bar. It aligns its content to the right. |
+
+Wrap `CardTitle` and `CardDescription` in a `<div>`. The description then shows below the title.
+
+## Examples
+
+### Content only
+
+A card needs no header and no footer. `CardContent` alone gives a panel with padding.
+
+<Demo name="card/content-only" title="A card with only a body" />
+
+### Header action
+
+`CardAction` holds small controls on the right of the header: a button, a menu or a [Badge](/docs/components/badge). The buttons of this demo have the `tiny` and `icon-tiny` sizes.
+
+<Demo name="card/header-action" title="A card with two actions in the header" />
+
+### Footer
+
+`CardFooter` aligns its content to the right. Add `justify-between` to put helper text on the left.
+
+<Demo name="card/footer" title="A card with helper text and a button in the footer" />
+
+### Table in a card
+
+Leave out `CardContent` for content that must touch the edges, such as a [Table](/docs/components/table). Remove the frame of the table with `containerClassName`.
+
+<Demo name="card/table" align="stretch" title="A card with a table that touches its edges" />
+
+### Long title
+
+A long title wraps by default. To keep it on one line, give `min-w-0` to its wrapper and `truncate` to `CardTitle`.
+
+<Demo name="card/long-title" title="A card that cuts a long title" />
+
+### Loading state
+
+While the content loads, show a [Skeleton](/docs/components/skeleton) for each line. Set `aria-busy` on the card.
+
+<Demo name="card/loading" title="A card with skeletons in place of its content" />
+
+## Accessibility
+
+- `CardTitle` is a `<div>`. If the outline of the page needs a heading, put an `<h2>` or an `<h3>` in it.
+
+## API reference
+
+Each part accepts the attributes of the `<div>` element.
+
+### Card
+
+<PropsTable of="Card" />
+
+### CardHeader
+
+<PropsTable of="CardHeader" />
+
+### CardTitle
+
+<PropsTable of="CardTitle" />
+
+### CardDescription
+
+<PropsTable of="CardDescription" />
+
+### CardAction
+
+<PropsTable of="CardAction" />
+
+### CardContent
+
+<PropsTable of="CardContent" />
+
+### CardFooter
+
+<PropsTable of="CardFooter" />

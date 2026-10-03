@@ -1,0 +1,59 @@
+---
+title: usePlatform
+description: Two hooks and two constants that tell if the user has an Apple platform, for keyboard hints.
+source: src/hooks/use-platform.ts
+---
+
+<Demo name="use-platform/hero" title="A keyboard hint with the modifier key of the platform" />
+
+## Usage
+
+The `use-platform` module has two hooks: `useIsMac()` and `useModKey()`. libui has no export with the name `usePlatform`.
+
+`useModKey()` returns the label of the main modifier key. The label is `⌘` on an Apple platform (Mac, iPhone, iPad) and `Ctrl` on the other platforms. Show it in a [Kbd](/docs/components/kbd).
+
+```tsx
+import { Kbd, useModKey } from 'libui-kit'
+
+function SearchHint() {
+  const mod = useModKey()
+  return <Kbd>{mod} K</Kbd>
+}
+```
+
+- **The hooks are safe on a server.** A server does not know the platform of the user. On the server and during hydration, `useIsMac()` returns `false` and `useModKey()` returns `Ctrl`. Then React renders again with the real platform.
+- **The hooks bind no key.** They only give a value to show. To bind a shortcut, use [useCommandShortcut](/docs/utilities/use-command-shortcut).
+
+## Examples
+
+### One key for each platform
+
+`useIsMac()` returns `true` on an Apple platform. Use it when the two platforms need different keys or different text.
+
+<Demo name="use-platform/is-mac" title="A hint with a different key on each platform" />
+
+### Constants
+
+`isMac` and `modKey` are constants with the same values as the hooks. The module reads the platform one time, when it loads.
+
+Use the constants in code that runs only in the browser, for example an event handler. In markup that a server can render, use the hooks. On a server, the constants describe the platform of the server.
+
+```ts
+import { isMac } from 'libui-kit'
+
+function onKeyDown(event: KeyboardEvent) {
+  const mod = isMac ? event.metaKey : event.ctrlKey
+  if (mod && event.key === 's') saveDraft()
+}
+```
+
+## API reference
+
+The hooks take no argument.
+
+| Name | Type | Value |
+| --- | --- | --- |
+| `useIsMac()` | `boolean` | `true` on an Apple platform. `false` on the server and during hydration. |
+| `useModKey()` | `string` | `'⌘'` on an Apple platform, `'Ctrl'` on the other platforms. `'Ctrl'` on the server and during hydration. |
+| `isMac` | `boolean` | `true` on an Apple platform. The module reads it one time. |
+| `modKey` | `string` | `'⌘'` if `isMac` is `true`, `'Ctrl'` if not. |

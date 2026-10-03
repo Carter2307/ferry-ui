@@ -1,0 +1,120 @@
+---
+title: Table States
+description: The rows that show the loading, empty and error states of a table.
+group: Patterns
+source: src/components/patterns/table-states.tsx
+---
+
+<Demo name="table-states/hero" align="stretch" title="A table that changes between its four states" />
+
+## Usage guidelines
+
+- **Keep the header in each state.** Put these rows in the `TableBody` of the real [Table](/docs/components/table). The user then sees the columns of the table.
+- **Skeleton rows are for the first load.** For a refresh, keep the rows that are on the screen.
+- **Keep the old rows after a refresh error.** Put a `StaleDataCallout` above the table. See [Callout](/docs/components/callout).
+- **Not outside a table.** For an empty area, use [Empty State](/docs/components/empty-state). For a placeholder, use [Skeleton](/docs/components/skeleton).
+
+## Anatomy
+
+Import the rows. Show one of them in the body of the table for each state.
+
+```tsx title="Anatomy"
+import {
+  Table,
+  TableBody,
+  TableErrorRow,
+  TableHeader,
+  TableMessageRow,
+  TableRow,
+  TableSkeletonRows,
+} from 'libui-kit'
+
+<Table>
+  <TableHeader />
+  <TableBody aria-busy={loading}>
+    {loading ? (
+      <TableSkeletonRows columns={4} />
+    ) : error ? (
+      <TableErrorRow colSpan={4} error={error} onRetry={retry} />
+    ) : rows.length === 0 ? (
+      <TableMessageRow colSpan={4}>No invoices yet.</TableMessageRow>
+    ) : (
+      rows.map((row) => <TableRow key={row.id} />)
+    )}
+  </TableBody>
+</Table>
+```
+
+| Part | State | Role |
+| --- | --- | --- |
+| `TableSkeletonRows` | The first load | Placeholder rows, with one bar in each cell. |
+| `TableMessageRow` | No rows | One row with a centered message. |
+| `TableErrorRow` | The load failed | One row with the error message. It can show a Retry button. |
+
+Give the number of columns of the table to `columns` and to `colSpan`.
+
+## Examples
+
+### Loading
+
+`TableSkeletonRows` shows placeholder rows. `rows` sets how many. The default is 4.
+
+<Demo name="table-states/loading" align="stretch" title="A table with skeleton rows" />
+
+### Empty table
+
+`TableMessageRow` shows one message across the table. Use it when the table has no rows.
+
+<Demo name="table-states/empty" align="stretch" title="A table with a message row" />
+
+### No match
+
+When no row matches the search or the filters, tell the user. Put a small button in the message row to clear them.
+
+<Demo name="table-states/no-match" align="stretch" title="A search with no match and a clear button" />
+
+### Load error
+
+`TableErrorRow` shows the message of `error`. With `onRetry`, it also shows a Retry button. Set `retrying` while the new load is in progress.
+
+<Demo name="table-states/error" align="stretch" title="A table with an error row and a Retry button" />
+
+### Clickable rows
+
+`rowLinkProps(onOpen)` makes a full row clickable. Spread its result on a `TableRow`. A click on a link, a button or a field in the row does not call `onOpen`.
+
+<Demo name="table-states/row-link" align="stretch" title="A table with rows that open on a click" />
+
+## Accessibility
+
+- Screen readers do not see the skeleton rows. Set `aria-busy` on the `TableBody` while they show.
+- The message of `TableErrorRow` has the `alert` role. Screen readers read it when it shows.
+- A row click is for the pointer only. Keep a real link in the first cell for the keyboard and for screen readers.
+
+## API reference
+
+Each component also accepts the attributes of the `<tr>` element.
+
+### TableSkeletonRows
+
+Each placeholder row gets the other attributes. Thus the component does not accept `ref` and `id`.
+
+<PropsTable of="TableSkeletonRows" />
+
+### TableMessageRow
+
+<PropsTable of="TableMessageRow" />
+
+### TableErrorRow
+
+<PropsTable of="TableErrorRow" />
+
+### rowLinkProps
+
+`rowLinkProps(onOpen)` returns `className` and `onClick` for a `TableRow`. A `className` after the spread replaces the `className` of the result. Merge the two with [cn](/docs/utilities/cn).
+
+| Name | Type | Role |
+| --- | --- | --- |
+| `onOpen` | `(event: React.MouseEvent) => void` | The argument. It runs when the user clicks the row. |
+| `className` | `string` | In the result. It sets the pointer cursor. |
+| `onClick` | `(event: React.MouseEvent) => void` | In the result. It calls `onOpen` for a click on the row. |

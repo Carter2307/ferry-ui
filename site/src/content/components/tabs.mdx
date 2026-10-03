@@ -1,0 +1,122 @@
+---
+title: Tabs
+description: A set of panels in one view, with one panel in view at a time.
+group: Primitives
+source: src/components/primitives/tabs.tsx
+---
+
+<Demo name="tabs/hero" title="Tabs for the sections of a project" />
+
+## Usage guidelines
+
+- **Panels of one view.** Tabs show one panel of a set at a time.
+- **Not for routes.** For the pages of one area, use [Inner Menu](/docs/components/inner-menu) or links.
+- **Not for filters.** To filter the same content or to change its format, use [Toggle Group](/docs/components/toggle-group).
+- **Name the list.** If no visible heading names the tabs, give `TabsList` an `aria-label`.
+
+## Anatomy
+
+Import the parts and put them together. Give the same `value` to a `TabsTrigger` and to its `TabsContent`.
+
+```tsx title="Anatomy"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
+
+<Tabs>
+  <TabsList>
+    <TabsTrigger />
+  </TabsList>
+  <TabsContent />
+</Tabs>
+```
+
+| Part | Role |
+| --- | --- |
+| `Tabs` | Holds the value of the active tab. |
+| `TabsList` | The row of triggers. It sets the look. |
+| `TabsTrigger` | The button of one tab. |
+| `TabsContent` | The panel of one tab. |
+
+## Examples
+
+### Variants
+
+The `variant` prop of `TabsList` sets the look. The triggers follow the look of their list.
+
+<Demo name="tabs/pills" title="Tabs with the pills look in a card" />
+
+| Variant | Look | Use |
+| --- | --- | --- |
+| `underline` (default) | Text on a line that takes the full width. | The sections of a page. |
+| `pills` | A compact control with a raised chip. | A card, a panel or a toolbar. |
+
+### Icons and counts
+
+A trigger can hold an icon and a count. Put the count in a [Badge](/docs/components/badge).
+
+<Demo name="tabs/icons" title="Tabs with icons and counts" />
+
+### Disabled tab
+
+Set `disabled` on the trigger of a tab that is not available.
+
+<Demo name="tabs/disabled" title="Tabs with one disabled tab" />
+
+### Controlled value
+
+`Tabs` holds its value by default. Use `defaultValue` to set the first active tab.
+
+To control the value, pass `value` and `onValueChange`. Use this to change the tab from another control.
+
+<Demo name="tabs/controlled" title="Tabs with a controlled value" />
+
+### State of a panel
+
+A panel unmounts when its tab is not active. Its fields lose their content.
+
+To keep a panel mounted, pass `forceMount` to `TabsContent`. Then add the class `data-[state=inactive]:hidden` to hide the panel that is not active.
+
+<Demo name="tabs/force-mount" title="Tabs with panels that keep their fields" />
+
+### Many tabs
+
+If the triggers are wider than the `underline` list, the list scrolls horizontally. It shows no scrollbar.
+
+<Demo name="tabs/overflow" title="Tabs in a list that scrolls" />
+
+## Accessibility
+
+- The arrow keys move the focus to the next tab and activate it.
+- With `activationMode="manual"`, the arrow keys only move the focus. <Kbd>Enter</Kbd> or <Kbd>Space</Kbd> activates the tab.
+- <Kbd>Tab</Kbd> moves the focus from the active trigger to its panel.
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### Tabs
+
+<PropsTable of="Tabs" />
+
+### TabsList
+
+<PropsTable of="TabsList" />
+
+### TabsTrigger
+
+`value` is required.
+
+<PropsTable of="TabsTrigger" />
+
+### TabsContent
+
+`value` is required.
+
+<PropsTable of="TabsContent" />
+
+### tabsListVariants
+
+`tabsListVariants({ variant })` returns the classes of `TabsList`. Use it to give the look of the list to another element.
+
+| Option | Type | Role |
+| --- | --- | --- |
+| `variant` | `'underline'` or `'pills'` | The look of the list. The default is `underline`. |

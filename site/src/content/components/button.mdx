@@ -1,0 +1,77 @@
+---
+title: Button
+description: A control that starts an action.
+group: Primitives
+source: src/components/primitives/button.tsx
+---
+
+<Demo name="button/hero" title="A primary button and a default button" />
+
+## Usage guidelines
+
+- **One primary action for each view.** Use `variant="primary"` for the main action. The other actions keep the `default` variant.
+- **Confirm a destructive action.** A `destructive` button opens a [Confirm Dialog](/docs/components/confirm-dialog). It does not delete on a click.
+- **A link is not a button.** For text that opens a page, use a link.
+- **A state is not a button.** For an on/off state, use [Toggle](/docs/components/toggle) or [Switch](/docs/components/switch).
+
+## Anatomy
+
+Import the component. A button has one part.
+
+```tsx title="Anatomy"
+import { Button } from 'libui-kit'
+
+<Button />
+```
+
+## Examples
+
+### Variants
+
+The `variant` prop sets the look. Each look has one role.
+
+<Demo name="button/variants" title="The variants of Button" />
+
+| Variant | Role |
+| --- | --- |
+| `default` | A secondary action. |
+| `primary` | The main action of the view. |
+| `outline` | A secondary action on a tinted surface. |
+| `ghost` | An action in a dense row or a toolbar. |
+| `destructive` | The button that starts a destructive action. |
+| `destructive-solid` | The confirm button of a destructive dialog. |
+| `warning` | An action that needs attention. |
+| `link` | An action that looks like a text link. |
+| `dashed` | A filter button in a toolbar. |
+
+### Sizes
+
+The `size` prop sets the height. Use the same height as the fields near the button.
+
+<Demo name="button/sizes" title="The sizes of Button" />
+
+### Icons
+
+Give a lucide icon to `icon` or to `iconRight`. The button sets the size of the icon.
+
+A button with only an icon uses an `icon` size. It must have an `aria-label`.
+
+<Demo name="button/icons" title="Buttons with icons" />
+
+### Loading state
+
+Set `loading` while the action is in progress. The button shows a spinner and refuses clicks.
+
+<Demo name="button/loading" title="A button with a loading state" />
+
+### Link with the button look
+
+With `asChild`, the button gives its look to its child element. Use it for a link that must look like a button.
+
+<Demo name="button/as-child" title="A link with the button look" />
+
+## API reference
+
+`Button` also accepts each attribute of the `<button>` element.
+
+<PropsTable of="Button" />

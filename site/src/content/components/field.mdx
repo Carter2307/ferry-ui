@@ -1,0 +1,113 @@
+---
+title: Field
+description: A form field with a label above the control and a hint or an error below it.
+group: Patterns
+source: src/components/patterns/field.tsx
+---
+
+<Demo name="field/hero" align="stretch" title="A form with three fields" />
+
+## Usage guidelines
+
+- **For a label above the control.** Use `Field` in a dialog, a popover, a sign-in form or a form that stands alone.
+- **A settings row is not a field.** For a label on the left of the control, use `FormRow` of [Form Card](/docs/components/form-card).
+- **A checkbox has its label on the same line.** For a [Checkbox](/docs/components/checkbox) or a [Switch](/docs/components/switch), use [Label](/docs/components/label).
+- **Keep the label short.** A label has 1 to 4 words. Put the help text in `hint`.
+
+## Anatomy
+
+Import the component. A field has one part. Its child is the control.
+
+```tsx title="Anatomy"
+import { Field, Input } from 'libui-kit'
+
+<Field label="" hint="" error="">
+  <Input />
+</Field>
+```
+
+`Field` sets `id`, `aria-invalid` and `aria-describedby` on the control for you.
+
+## Examples
+
+### Error
+
+Pass the message to `error`. The message shows below the control and the control gets its error border. The error takes the place of the hint.
+
+<Demo name="field/error" align="stretch" title="A field that shows an error while the email is not valid" />
+
+### Error and hint
+
+If the hint helps the user to correct the value, set `errorReplacesHint` to `false`. The field then shows the hint and the error.
+
+<Demo name="field/error-and-hint" align="stretch" title="A field that shows its hint and its error" />
+
+### Optional mark
+
+The `optional` prop adds "(optional)" to the label. Pass a text to replace these words. Use the mark when most fields of the form are required.
+
+<Demo name="field/optional" align="stretch" title="Two fields with an optional mark" />
+
+### Sizes
+
+The `size` prop sets the text size of the label and of the hint.
+
+<Demo name="field/sizes" align="stretch" title="The sizes of Field" />
+
+| Size | Use |
+| --- | --- |
+| `md` (default) | A form in a page, a sign-in form. |
+| `sm` | A form in a dialog or a popover. |
+
+### Label variants
+
+The `labelVariant` prop sets the look of the label.
+
+<Demo name="field/label-variants" align="stretch" title="The label variants of Field" />
+
+| Variant | Use |
+| --- | --- |
+| `default` | The standard label, with a medium weight. |
+| `subtle` | A sign-in form, a secondary field. |
+| `mono` | A read-only value in a popover or a panel. Use it with `size="sm"`. |
+
+### Composite control
+
+A [Select](/docs/components/select) has many parts. Pass a function as the child. Spread its `control` argument on the part that takes the focus.
+
+<Demo name="field/render-function" align="stretch" title="A field with a select" className="min-h-64" />
+
+### Control with a button
+
+Use the same function to put a button next to an [Input](/docs/components/input). Only the input gets the `control` props.
+
+<Demo name="field/input-with-button" align="stretch" title="A field with an input and a button" />
+
+### Group of controls
+
+A [Radio Group](/docs/components/radio-group) has no single control for the label. Set `labelAs` to `span`. The group then gets `aria-labelledby`.
+
+<Demo name="field/group" align="stretch" title="A field with a radio group" />
+
+## Accessibility
+
+- A click on the label moves the focus to the control.
+- The error has `role="alert"`. Screen readers read the message when it shows.
+- `aria-describedby` of the control points to the hint and to the error.
+
+## API reference
+
+`Field` also accepts each attribute of the `<div>` element. They go to the root element.
+
+<PropsTable of="Field" />
+
+### Render function
+
+The function gets two arguments: `control`, then an object with `labelId`.
+
+| Key of `control` | Type | Role |
+| --- | --- | --- |
+| `id` | `string` | The id of the control. |
+| `aria-invalid` | `true` | Set while the field shows an error. |
+| `aria-describedby` | `string` | The ids of the hint and of the error. |
+| `aria-labelledby` | `string` | The id of the label. Set only with `labelAs="span"`. |

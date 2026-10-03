@@ -7,7 +7,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-  globalIgnores(['dist', 'node_modules', 'storybook-static', '!.storybook']),
+  globalIgnores(['dist', 'node_modules', 'storybook-static', '!.storybook', 'site/dist', 'site/.ssr', 'site/src/generated']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
@@ -31,7 +31,7 @@ export default defineConfig([
   },
   ...storybook.configs['flat/recommended'],
   {
-    files: ['*.config.ts', 'scripts/**', '.storybook/main.ts'],
+    files: ['*.config.ts', 'scripts/**', '.storybook/main.ts', 'site/*.config.ts', 'site/plugins/**', 'site/scripts/**', 'site/lib/**'],
     languageOptions: { globals: globals.node },
   },
 ])

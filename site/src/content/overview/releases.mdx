@@ -1,0 +1,49 @@
+---
+title: Releases
+description: The versions of libui and the content of each version.
+order: 4
+---
+
+## Version 0.1.0
+
+Version 0.1.0 is the first version of libui. It is the only version.
+
+```json title="package.json"
+{
+  "name": "libui-kit",
+  "version": "0.1.0",
+  "license": "MIT"
+}
+```
+
+The name of the package on npm is `libui-kit`. The [Installation](/docs/overview/installation) page gives the commands.
+
+### Content
+
+| Layer | Content |
+| --- | --- |
+| [Tokens](/docs/handbook/tokens) | Colors, radii, shadows and fonts as CSS variables. Each color has a light value and a dark value. |
+| Primitives | 28 primitives on Radix UI, for example [Button](/docs/components/button), [Input](/docs/components/input), [Select](/docs/components/select), [Dialog](/docs/components/dialog), [Tabs](/docs/components/tabs) and [Table](/docs/components/table). |
+| Patterns | Compositions for the usual needs of a product, for example [Page](/docs/components/page), [Form Card](/docs/components/form-card), [Empty State](/docs/components/empty-state), [Callout](/docs/components/callout) and [Confirm Dialog](/docs/components/confirm-dialog). |
+| Layout | The application shell: [App Shell](/docs/components/app-shell), [Top Bar](/docs/components/top-bar), [Icon Rail](/docs/components/icon-rail), [Mobile Nav](/docs/components/mobile-nav), [Inner Menu](/docs/components/inner-menu), [Command Menu](/docs/components/command-menu), [Resource Switcher](/docs/components/resource-switcher) and [Theme Menu](/docs/components/theme-menu). |
+| Hooks and helpers | [cn](/docs/utilities/cn), [getErrorMessage](/docs/utilities/get-error-message), [useCopy](/docs/utilities/use-copy), [useCommandShortcut](/docs/utilities/use-command-shortcut), `useTheme`, `useModKey` and the [link contract](/docs/utilities/link-provider). |
+| Documentation | A Storybook with each variant and each state, four example pages such as [Dashboard](/docs/examples/dashboard), and a guide for [AI agents](/docs/handbook/ai-agents). |
+
+### Requirements
+
+This version needs React 19. An app that compiles `libui-kit/theme.css` also needs Tailwind CSS 4.1 or later.
+
+## The code
+
+The code is in the GitHub repository.
+
+| Subject | Address |
+| --- | --- |
+| Repository | [github.com/Carter2307/libui](https://github.com/Carter2307/libui) |
+| Problems and requests | [github.com/Carter2307/libui/issues](https://github.com/Carter2307/libui/issues) |
+
+The repository does not contain the build output. Clone the repository to read the code or to build the package.
+
+```sh
+git clone https://github.com/Carter2307/libui.git libui
+```

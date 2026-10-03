@@ -1,0 +1,108 @@
+---
+title: TypeScript
+description: The types that libui exports, and how to use them in your own components.
+order: 8
+---
+
+The package contains its type declarations. Import each type from the package root, with the components.
+
+```ts
+import { Button, type ButtonProps, type NavGroup, type StatusTone } from 'libui-kit'
+```
+
+## Prop types
+
+A component that adds props of its own exports a prop type: `ButtonProps`, `CalloutProps`, `FieldProps`. Use this type to make a component that extends a libui component.
+
+<Demo name="typescript/prop-types" title="A component that extends ButtonProps" />
+
+## Components with no prop type
+
+Some components only pass the props of their Radix part or of their HTML element. They export no prop type. [Checkbox](/docs/components/checkbox), [Label](/docs/components/label) and the parts of [Card](/docs/components/card) are examples.
+
+Read the props of these components with `ComponentProps` from React.
+
+<Demo name="typescript/component-props" title="A component that reads the props of Checkbox" />
+
+## Value types
+
+Some props accept a closed list of values. libui exports a type for many of these lists.
+
+| Type | Values |
+| --- | --- |
+| `StatusTone` | `success`, `warning`, `destructive`, `info`, `neutral` |
+| `CalloutTone` | `info`, `warning`, `destructive`, `success`, `neutral` |
+| `ConfirmDialogTone` | `destructive`, `warning`, `primary` |
+| `ThemePreference` | `light`, `dark`, `system` |
+| `ResolvedTheme` | `light`, `dark` |
+
+Use these types to connect the values of your domain to libui in one place. This example gives one tone to each status of an invoice.
+
+<Demo name="typescript/status-map" title="A typed map from invoice statuses to tones" />
+
+## Generic values
+
+`RadioCardOption` and [Radio Card Group](/docs/components/radio-card-group) take the type of the value as a type parameter. The `onValueChange` callback then gets this type, not a `string`.
+
+<Demo name="typescript/generic-value" title="A radio card group with a typed value" />
+
+## Variant helpers
+
+A variant helper returns the classes of a component, for an element that is not this component. Each option has the type of the prop with the same name.
+
+| Helper | Options |
+| --- | --- |
+| `buttonVariants` | `variant`, `size`, `shape` |
+| `badgeVariants` | `variant`, `font`, `shape`, `case` |
+| `inputVariants` | `size`, `mono` |
+| `tabsListVariants` | `variant` |
+| `toggleVariants` | `variant`, `size` |
+| `statusBadgeVariants` | `tone`, `size` |
+| `iconBoxVariants` | `size`, `tone`, `elevated` |
+
+<Demo name="typescript/variant-helper" title="A link that gets its classes from buttonVariants" />
+
+To get the type of one option, read it from the prop type: `ButtonProps['variant']`. For `iconBoxVariants`, libui exports the `IconBoxVariantProps` type.
+
+libui makes these helpers with `cva` from `class-variance-authority`. The `VariantProps` type of that package gives all the options of one helper. Add the package to the dependencies of your app before you import it.
+
+```ts
+import type { VariantProps } from 'class-variance-authority'
+import { badgeVariants } from 'libui-kit'
+
+type BadgeOptions = VariantProps<typeof badgeVariants>
+```
+
+Call a variant helper only from a client component. The [Server Components](/docs/handbook/server-components) page gives the reason.
+
+## Navigation types
+
+`NavItem` and `NavGroup` describe the navigation of your app. [Icon Rail](/docs/components/icon-rail), [Mobile Nav](/docs/components/mobile-nav), [Inner Menu](/docs/components/inner-menu) and [Command Menu](/docs/components/command-menu) accept the same value.
+
+```tsx title="navigation.tsx"
+import type { NavGroup } from 'libui-kit'
+import { FolderKanban, Settings } from 'lucide-react'
+
+export const groups: NavGroup[] = [
+  {
+    id: 'main',
+    items: [
+      { id: 'projects', label: 'Projects', icon: <FolderKanban />, href: '/projects', active: true },
+      { id: 'settings', label: 'Settings', icon: <Settings />, href: '/settings' },
+    ],
+  },
+]
+```
+
+## The link component
+
+`LinkComponent` is the type of a router adapter. The adapter gets `href` as a string, and each prop of an anchor.
+
+```tsx title="router-link.tsx"
+import { Link } from 'react-router'
+import type { LinkComponent } from 'libui-kit'
+
+export const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
+```
+
+A router with typed routes can refuse a plain string. If it does, cast `href` in the adapter. The [Routing](/docs/handbook/routing) page shows the adapters for other routers.

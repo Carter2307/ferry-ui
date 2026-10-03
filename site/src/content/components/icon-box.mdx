@@ -1,0 +1,94 @@
+---
+title: Icon Box
+description: A square with a border that holds one icon and shows the kind of an item.
+group: Patterns
+source: src/components/patterns/icon-box.tsx
+---
+
+<Demo name="icon-box/hero" title="A list of items with an icon box before each name" />
+
+## Usage guidelines
+
+- **The kind of an item.** Put an `IconBox` before a name in a list row, a card, a page title or a tile.
+- **A person is not an icon.** For a person or an organization, use [Avatar](/docs/components/avatar).
+- **A state alone is a status.** To show only a state, use [Status](/docs/components/status).
+- **Not a button.** For an action, use a [Button](/docs/components/button) with an `icon` size.
+- **Keep the neutral tone.** Use another tone only if the color of the box has a meaning.
+
+## Anatomy
+
+Import the component. It has one part. The child is the icon.
+
+```tsx title="Anatomy"
+import { IconBox } from 'libui-kit'
+
+<IconBox>
+  <Icon />
+</IconBox>
+```
+
+## Examples
+
+### Sizes
+
+The `size` prop sets the size of the box and of the icon. Select the size from the place of the box.
+
+<Demo name="icon-box/sizes" title="The sizes of Icon Box" />
+
+| Size | Box | Icon | Place |
+| --- | --- | --- | --- |
+| `xs` | 28px | 14px | Dense rows and compact choice cards. |
+| `sm` | 32px | 16px | List rows and strips. |
+| `md` (default) | 36px | 18px | Choice cards and card headers. |
+| `lg` | 44px | 20px | Next to a page title or a dialog title. |
+| `xl` | 56px, then 72px from the `md` breakpoint | 20px | The tiles of [Info Tile](/docs/components/info-tile). |
+
+### Tones
+
+The `tone` prop sets the color. The `primary` tone marks the current item or the selected item.
+
+<Demo name="icon-box/tones" title="The tones of Icon Box" />
+
+### State tones
+
+The `success`, `warning`, `destructive` and `info` tones show a state. In this list, the color of each box shows the kind of event.
+
+<Demo name="icon-box/status" title="A list of events with a tone for each event" />
+
+### Shadow
+
+The `elevated` prop adds the shadow of a card. It is on by default for the `lg` and `xl` sizes. With the `neutral` tone, it also makes the color of the icon one step stronger.
+
+<Demo name="icon-box/elevated" title="An elevated icon box next to a title" />
+
+### Accessible name
+
+With no `label`, the box is decorative. This is correct when the name is next to the box. If the icon is the only sign, set `label`.
+
+<Demo name="icon-box/label" title="An icon box with an accessible name" />
+
+### Icon size
+
+The box sets the size of the icon. To use another icon size, add a class such as `[&_svg]:size-4` to the box. A size class on the icon has no effect.
+
+<Demo name="icon-box/icon-size" title="An icon box with a larger icon" />
+
+### Box look on another element
+
+`iconBoxVariants` returns the classes of the box. Use it for an element that cannot be an `IconBox`. If the element is decorative, add `aria-hidden`.
+
+<Demo name="icon-box/variants" title="A div with the look of an icon box" />
+
+## API reference
+
+`IconBox` also accepts each attribute of the `<span>` element.
+
+### IconBox
+
+<PropsTable of="IconBox" />
+
+### iconBoxVariants
+
+| Name | Type | Role |
+| --- | --- | --- |
+| `iconBoxVariants` | `({ size, tone, elevated }) => string` | Returns the classes of an `IconBox`. Each option has the same default as the prop. |

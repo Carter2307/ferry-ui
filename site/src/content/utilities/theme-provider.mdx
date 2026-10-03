@@ -1,0 +1,157 @@
+---
+title: ThemeProvider
+description: A provider that applies the light theme or the dark theme and keeps the preference of the user.
+source: src/theme/theme-provider.tsx
+---
+
+<Demo name="theme-provider/hero" title="Three buttons that change the theme of this site" />
+
+## Usage
+
+Mount `ThemeProvider` one time, at the root of the app. The provider adds the `dark` class to the `<html>` element, or removes it. It keeps the preference in `localStorage`.
+
+The preference is `light`, `dark` or `system`. With `system`, the provider follows the color scheme of the device.
+
+```tsx title="providers.tsx"
+import type { ReactNode } from 'react'
+import { ThemeProvider } from 'libui-kit'
+
+export function Providers({ children }: { children: ReactNode }) {
+  return <ThemeProvider defaultTheme="system">{children}</ThemeProvider>
+}
+```
+
+- **One provider for the document.** Do not nest providers.
+- **Not for one section.** To give other colors to a part of the page, override the CSS variables on a container. Read [Theming](/docs/handbook/theming).
+- **Not always necessary.** If another library sets the `dark` class, do not mount the provider. `useTheme()` then reads the class.
+
+## Examples
+
+### First paint
+
+React applies the theme after it loads. This is too late for the first paint. `themeInitScript()` returns a script that applies the stored theme before the page shows.
+
+Put the script in the `<head>`. Give it the same `storageKey` and the same `defaultTheme` as the provider.
+
+```tsx title="document.tsx"
+import type { ReactNode } from 'react'
+import { themeInitScript } from 'libui-kit'
+
+export function Document({ children }: { children: ReactNode }) {
+  return (
+    // The script sets the class before hydration: tell React that the difference is correct.
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />
+      </head>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+In a Vite app, add the script to `index.html` from the Vite configuration.
+
+```ts title="vite.config.ts"
+import tailwindcss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react'
+import { themeInitScript } from 'libui-kit'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+    {
+      name: 'libui-theme-init',
+      transformIndexHtml: () => [{ tag: 'script', children: themeInitScript(), injectTo: 'head-prepend' }],
+    },
+  ],
+})
+```
+
+### Theme picker
+
+`useTheme()` gives the preference and a function that changes it. Bind a picker to `theme`. For a picker in a top bar, use [Theme Menu](/docs/components/theme-menu).
+
+```tsx title="appearance-setting.tsx"
+import { ToggleGroup, ToggleGroupItem, useTheme, type ThemePreference } from 'libui-kit'
+
+const isPreference = (value: string): value is ThemePreference =>
+  value === 'light' || value === 'dark' || value === 'system'
+
+export function AppearanceSetting() {
+  const { theme, setTheme } = useTheme()
+  return (
+    <ToggleGroup
+      type="single"
+      variant="outline"
+      aria-label="Theme"
+      value={theme}
+      onValueChange={(next) => {
+        // Single mode sends "" when the user presses the active item again: keep one option.
+        if (isPreference(next)) setTheme(next)
+      }}
+    >
+      <ToggleGroupItem value="light">Light</ToggleGroupItem>
+      <ToggleGroupItem value="dark">Dark</ToggleGroupItem>
+      <ToggleGroupItem value="system">System</ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+
+### Controlled preference
+
+To keep the preference in the account of the user, control the provider. Pass `theme` and `onThemeChange`.
+
+```tsx
+<ThemeProvider theme={account.theme} onThemeChange={saveTheme}>
+  {children}
+</ThemeProvider>
+```
+
+### No storage
+
+To keep nothing in `localStorage`, pass `storageKey={null}`.
+
+```tsx
+<ThemeProvider defaultTheme="dark" storageKey={null}>
+  {children}
+</ThemeProvider>
+```
+
+## API reference
+
+### ThemeProvider
+
+<PropsTable of="ThemeProvider" />
+
+### useTheme
+
+`useTheme()` returns an object with three values. With no provider above, it reads the `dark` class of `<html>`, and `setTheme` does nothing.
+
+| Value | Type | Role |
+| --- | --- | --- |
+| `theme` | `ThemePreference` | The preference of the user. It can be `system`. |
+| `resolvedTheme` | `ResolvedTheme` | The theme that the page shows. Use it for a chart or for code colors, which cannot use tokens. |
+| `setTheme` | `(theme: ThemePreference) => void` | Changes the preference. With a `storageKey`, it also stores the preference. |
+
+### themeInitScript
+
+`themeInitScript(storageKey, defaultTheme)` returns the source of the script as a string. The two parameters are optional. A server can call this function.
+
+| Parameter | Type | Default | Role |
+| --- | --- | --- | --- |
+| `storageKey` | `string` | `'libui-theme'` | The `localStorage` key that the script reads. |
+| `defaultTheme` | `ThemePreference` | `'system'` | The preference when the storage is empty. |
+
+### Constant and types
+
+| Name | Value |
+| --- | --- |
+| `DEFAULT_THEME_STORAGE_KEY` | `'libui-theme'` |
+| `ThemePreference` | `'light' \| 'dark' \| 'system'` |
+| `ResolvedTheme` | `'light' \| 'dark'` |
+| `ThemeContextValue` | The type of the object that `useTheme()` returns. |
+| `ThemeProviderProps` | The type of the props of `ThemeProvider`. |

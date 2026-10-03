@@ -1,0 +1,101 @@
+---
+title: Badge
+description: A small label for short static data, such as a plan, a version, a count or a tag.
+group: Primitives
+source: src/components/primitives/badge.tsx
+---
+
+<Demo name="badge/hero" title="A project name with three badges" />
+
+## Usage guidelines
+
+- **Short static data.** Use a badge for a plan, a version, a count or a tag.
+- **A state is not a badge.** For the state of a record, use the `StatusBadge` of [Status](/docs/components/status).
+- **A badge is not a button.** For an action, use a [Button](/docs/components/button) with `size="tiny"`.
+- **Keep the text short.** A badge has one line. Its text does not wrap.
+
+## Anatomy
+
+Import the component. A badge has one part.
+
+```tsx title="Anatomy"
+import { Badge } from 'libui-kit'
+
+<Badge />
+```
+
+## Examples
+
+### Variants
+
+The `variant` prop sets the color. `default` and `outline` are the neutral variants.
+
+<Demo name="badge/variants" title="The variants of Badge" />
+
+| Variant | Role |
+| --- | --- |
+| `default` | A neutral badge with a fill. |
+| `outline` | A neutral badge with no fill. |
+| `success`, `warning`, `destructive`, `info` | A badge with a color, for example a `warning` "Beta". |
+| `primary` | A solid badge for emphasis, for example "New". Use few of them. |
+
+### Font
+
+Set `font="mono"` for values that come from a machine: a plan, a version, a region, an ID.
+
+<Demo name="badge/font" title="Badges with the sans font and the mono font" />
+
+### Shape
+
+The `shape` prop sets the corners. The default is `pill`. A `square` badge has a radius of 4px.
+
+<Demo name="badge/shape" title="A pill badge and square badges" />
+
+### Letter case
+
+A badge shows its text in capital letters. Set `case="normal"` to show the text as you write it, for example a name.
+
+<Demo name="badge/case" title="Badges in upper case and in normal case" />
+
+### Icons
+
+Put a lucide icon in the badge, before the text. The badge sets the size of the icon.
+
+<Demo name="badge/icons" title="Badges with an icon" />
+
+### Link with the badge look
+
+With `asChild`, the badge gives its look to its child element. Use it for a link.
+
+<Demo name="badge/as-child" title="A link with the badge look" />
+
+### Long text
+
+For text that comes from a user, give the badge a maximum width. Put the text in a `truncate` element. Keep the full text in `title`.
+
+<Demo name="badge/long-text" title="A badge that cuts a long text" />
+
+### Badge look on another element
+
+`badgeVariants()` returns the classes of a badge. Use it for an element that cannot be a `Badge`, such as a list item.
+
+<Demo name="badge/class-helper" title="List items with the badge look" />
+
+## API reference
+
+### Badge
+
+`Badge` also accepts each attribute of the `<span>` element.
+
+<PropsTable of="Badge" />
+
+### badgeVariants
+
+`badgeVariants(options)` returns the classes as a string. Each option is optional.
+
+| Option | Type | Role |
+| --- | --- | --- |
+| `variant` | `'default' \| 'outline' \| 'success' \| 'warning' \| 'destructive' \| 'info' \| 'primary'` | The color. |
+| `font` | `'sans' \| 'mono'` | The font. |
+| `shape` | `'pill' \| 'square'` | The corners. |
+| `case` | `'upper' \| 'normal'` | The letter case. |

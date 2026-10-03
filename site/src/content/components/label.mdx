@@ -1,0 +1,67 @@
+---
+title: Label
+description: The visible name of one form control.
+group: Primitives
+source: src/components/primitives/label.tsx
+---
+
+<Demo name="label/hero" title="A label above an email field" />
+
+## Usage guidelines
+
+- **One label for one control.** A click on the label moves the focus to the control or changes its state.
+- **Above a field, beside a choice.** Put the label above an [Input](/docs/components/input). Put it to the right of a [Checkbox](/docs/components/checkbox) or a [Switch](/docs/components/switch).
+- **Field and FormRow add the label for you.** Do not add a `Label` in a [Field](/docs/components/field) or in a `FormRow` of [Form Card](/docs/components/form-card).
+- **Not a caption.** For text that names no control, use [Mono Label](/docs/components/mono-label) or plain text.
+
+## Anatomy
+
+Import the component. A label has one part.
+
+```tsx title="Anatomy"
+import { Label } from 'libui-kit'
+
+<Label />
+```
+
+## Examples
+
+### Link with htmlFor
+
+Give an `id` to the control. Pass the same value to `htmlFor`.
+
+<Demo name="label/html-for" title="A label beside a switch" />
+
+### Wrap the control
+
+Put the control in the label. Then `htmlFor` is not necessary.
+
+The label is a row with a gap of 8px. The control and its text line up.
+
+<Demo name="label/wrap" title="A label that contains a checkbox" />
+
+### Disabled control
+
+The label shows at half opacity when it comes after a disabled control with the `peer` class. `Checkbox`, `Switch` and the `RadioGroupItem` of [Radio Group](/docs/components/radio-group) have this class.
+
+For other controls, use a parent with the `group` class and `data-disabled="true"`.
+
+<Demo name="label/disabled" title="Labels of disabled controls" />
+
+### Long text
+
+A long label continues on the next line. To align the control with the first line, add `items-start` to the row.
+
+<Demo name="label/long" title="A checkbox with a long label" />
+
+## Accessibility
+
+- The text of the label is the accessible name of the control.
+- For a control with no visible text, pass `aria-label` to the control. Do not add a `Label`.
+- A `Label` names one control. For a group of controls, pass `aria-label` or `aria-labelledby` to the group.
+
+## API reference
+
+`Label` also accepts the props of the Radix UI Label primitive and each attribute of the `<label>` element.
+
+<PropsTable of="Label" />

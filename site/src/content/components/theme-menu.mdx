@@ -1,0 +1,74 @@
+---
+title: Theme Menu
+description: A round button that opens a menu with the light, dark and system themes.
+group: Layout
+source: src/components/layout/theme-menu.tsx
+---
+
+<Demo name="theme-menu/hero" title="A theme menu" />
+
+This menu changes the theme of this site.
+
+## Usage guidelines
+
+- **For the top bar.** Put the menu in the `actions` of a [Top Bar](/docs/components/top-bar), or on a sign-in page.
+- **No state in your code.** With no `value`, the menu reads and changes the nearest [ThemeProvider](/docs/utilities/theme-provider).
+- **Not for a settings form.** In a form, bind a [Toggle Group](/docs/components/toggle-group) or a [Radio Group](/docs/components/radio-group) to `useTheme()`.
+
+## Anatomy
+
+The menu has one part. The icon of the button shows the current preference: a sun, a moon or a monitor.
+
+```tsx title="Anatomy"
+import { ThemeMenu } from 'libui-kit'
+
+<ThemeMenu />
+```
+
+## Examples
+
+### Controlled value
+
+To control the menu, pass `value` and `onValueChange`. The menu then does not change the provider. Your code holds the preference.
+
+<Demo name="theme-menu/controlled" title="A theme menu with a controlled value" />
+
+### Translated texts
+
+`label` sets the heading of the menu and the text of the tooltip. `labels` sets the names of the three options.
+
+<Demo name="theme-menu/labels" title="A theme menu with French texts" />
+
+### Position and tooltip
+
+`align` sets the side of the button that the menu aligns to. The default is `end`. `tooltip={false}` hides the tooltip.
+
+<Demo name="theme-menu/align" title="Theme menus with three alignments and no tooltip" />
+
+### In a top bar
+
+`className` goes to the button. Use it to hide the menu on a phone.
+
+```tsx
+<TopBar
+  actions={
+    <>
+      <TopBarSearch />
+      <ThemeMenu className="max-sm:hidden" />
+      <TopBarUserMenu name="Maya Chen" />
+    </>
+  }
+/>
+```
+
+## Accessibility
+
+- The accessible name of the button gives the label and the current option, for example "Theme: Dark".
+- The tooltip needs a `TooltipProvider` above the menu. See [Tooltip](/docs/components/tooltip).
+- <Kbd>Enter</Kbd> opens the menu. <Kbd>↑</Kbd> and <Kbd>↓</Kbd> move in the options. <Kbd>Enter</Kbd> selects an option.
+
+## API reference
+
+`ThemeMenu` accepts only the props of this table. The button has `data-slot="theme-menu-trigger"`, and the panel has `data-slot="theme-menu"`.
+
+<PropsTable of="ThemeMenu" />

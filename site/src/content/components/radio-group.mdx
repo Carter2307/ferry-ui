@@ -1,0 +1,91 @@
+---
+title: Radio Group
+description: A group of options where the user selects one value.
+group: Primitives
+source: src/components/primitives/radio-group.tsx
+---
+
+<Demo name="radio-group/hero" title="A radio group with two options" />
+
+## Usage guidelines
+
+- **One value among 2 to 5 options.** All the options stay in view.
+- **Give the group a name.** Pass `aria-label` or `aria-labelledby`. A [Field](/docs/components/field) with `labelAs="span"` adds a visible label.
+- **Give each option a label.** Wrap each `RadioGroupItem` and its text in a [Label](/docs/components/label).
+
+| Choice | Control |
+| --- | --- |
+| One value among 2 to 5 options | `RadioGroup` |
+| One value among 4 to 15 options | [Select](/docs/components/select) |
+| One value among 2 to 6 options with a description or an icon | [Radio Card Group](/docs/components/radio-card-group) |
+| An on/off choice | [Switch](/docs/components/switch) or [Checkbox](/docs/components/checkbox) |
+| A compact control to change the view or the format | [Toggle Group](/docs/components/toggle-group) |
+
+## Anatomy
+
+Import the two parts. `RadioGroup` holds the value. Each `RadioGroupItem` is one option.
+
+```tsx title="Anatomy"
+import { RadioGroup, RadioGroupItem } from 'libui-kit'
+
+<RadioGroup>
+  <RadioGroupItem />
+</RadioGroup>
+```
+
+## Examples
+
+### Row
+
+The group puts the options in a column by default. For a row, pass `className="flex gap-4"`.
+
+<Demo name="radio-group/row" title="A radio group in a row" />
+
+### Descriptions
+
+To add a description to an option, link the `Label` with `htmlFor`. Link the description with `aria-describedby`.
+
+<Demo name="radio-group/descriptions" title="Options with a description" />
+
+### Disabled option
+
+`disabled` on a `RadioGroupItem` disables one option. `disabled` on `RadioGroup` disables all the options.
+
+<Demo name="radio-group/disabled" title="A radio group with one disabled option" />
+
+### Controlled value
+
+A radio group holds its value by default. Use `defaultValue` for the first value.
+
+To control the value, pass `value` and `onValueChange`.
+
+<Demo name="radio-group/controlled" title="A radio group with a controlled value" />
+
+### Error
+
+`aria-invalid` on each `RadioGroupItem` shows the error border. The `error` prop of `Field` shows the message as text.
+
+<Demo name="radio-group/invalid" title="A radio group with an error message" />
+
+### Form submission
+
+In a `<form>`, `name` adds the value of the group to the data of the form. `required` makes a value mandatory.
+
+<Demo name="radio-group/form" title="A radio group in a form" />
+
+## Accessibility
+
+- The arrow keys move the focus to the next option or to the previous option. The option that gets the focus becomes the value.
+- The group must have an accessible name.
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### RadioGroup
+
+<PropsTable of="RadioGroup" />
+
+### RadioGroupItem
+
+<PropsTable of="RadioGroupItem" />

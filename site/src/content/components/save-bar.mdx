@@ -1,0 +1,93 @@
+---
+title: Save Bar
+description: A footer for an editor or a long form, with the save status, Cancel and Save.
+group: Patterns
+source: src/components/patterns/save-bar.tsx
+---
+
+<Demo name="save-bar/hero" align="stretch" title="An editor with a save bar" />
+
+## Usage guidelines
+
+- **For an editor or a long form.** The bar shows the status on the left and the buttons on the right.
+- **A settings card has a smaller footer.** If the card shows no save error and has one save action, use `FormActions` of [Form Card](/docs/components/form-card).
+- **A switch saves on a change.** Do not add a save bar for a setting that applies immediately.
+- **A destructive action is not a save.** Use [Confirm Dialog](/docs/components/confirm-dialog) for it.
+
+## Anatomy
+
+Import the component. A save bar has one part. Put it at the bottom of a card, a panel or a section.
+
+```tsx title="Anatomy"
+import { SaveBar } from 'libui-kit'
+
+<SaveBar dirty={false} saving={false} onReset={() => {}} onSave={() => {}} />
+```
+
+The props set the status and the state of Save.
+
+| Props | Status | Save |
+| --- | --- | --- |
+| `dirty={false}` | The `hint` text. | Disabled. |
+| `dirty` | "Unsaved changes". | Enabled. |
+| `dirty` and `invalid` | The status and `invalidMessage`. | Disabled. |
+| `saving` | No change. | A spinner. |
+| `error` | The error message. | No change. |
+
+## Examples
+
+### Live validation
+
+Set `invalid` while a field has an error. Save stays disabled until each value is correct.
+
+<Demo name="save-bar/invalid" align="stretch" title="A save bar with a field that is not valid" />
+
+### Save error
+
+Pass the message of the last error to `error`. The message replaces the status. Use [getErrorMessage](/docs/utilities/get-error-message) to get a message from an error.
+
+<Demo name="save-bar/error" align="stretch" title="A save bar that shows an error after a save" />
+
+### Second save action
+
+`extraAction` adds a second button that saves and does one more step. This button becomes the primary button. Its `hint` shows in a [Tooltip](/docs/components/tooltip).
+
+<Demo name="save-bar/extra-action" align="stretch" title="A save bar with a Save draft button and a Save and publish button" />
+
+### Inline variant
+
+The `bar` variant has a border, a tinted background and its padding. The `inline` variant has only the row. Use `inline` in a container that has its own footer.
+
+<Demo name="save-bar/inline" align="stretch" title="An inline save bar in the footer of a card" />
+
+### Sticky bar in a form
+
+`sticky` keeps the bar at the bottom of the parent that scrolls. Use it with the `bar` variant.
+
+If you leave out `onSave`, Save submits the form around the bar. <Kbd>Enter</Kbd> in a field then saves too.
+
+<Demo name="save-bar/sticky" align="stretch" title="A form that scrolls above a sticky save bar" />
+
+## Accessibility
+
+- The error has `role="alert"`. Screen readers read the message when it shows.
+- While a save is in progress, the other buttons are disabled.
+- A `hint` on `extraAction` needs a `TooltipProvider` above the bar.
+
+## API reference
+
+`SaveBar` also accepts each attribute of the `<div>` element.
+
+<PropsTable of="SaveBar" />
+
+### SaveBarAction
+
+The type of the `extraAction` object.
+
+| Key | Type | Role |
+| --- | --- | --- |
+| `label` | `ReactNode` | The text of the button. Required. |
+| `onClick` | `() => void` | Runs the save and the second step. Required. |
+| `icon` | `ReactNode` | The icon before the text. |
+| `hint` | `ReactNode` | The text of the tooltip. |
+| `loading` | `boolean` | Shows a spinner and disables the other buttons. |

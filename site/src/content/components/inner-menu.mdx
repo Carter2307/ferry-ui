@@ -1,0 +1,91 @@
+---
+title: Inner Menu
+description: A side menu for the sections of one area, such as the settings of an app.
+group: Layout
+source: src/components/layout/inner-menu.tsx
+---
+
+<Demo name="inner-menu/hero" frame height={480} title="A settings area with an inner menu" />
+
+Use the buttons above the preview to see the menu on a phone. Below 768px, the menu becomes a row of tabs that scrolls.
+
+## Usage guidelines
+
+- **For the sections of one area.** Use the menu for a settings area or for the pages of one record.
+- **Not the main navigation.** For the main pages of an app, use [Icon Rail](/docs/components/icon-rail).
+- **Not for panels in one view.** To change a panel in a page, use [Tabs](/docs/components/tabs).
+- **Your code holds the current section.** The menu shows the items. It does not render the sections.
+
+## Anatomy
+
+Put the menu first in a container with the classes `flex flex-col md:flex-row`. Put the content that scrolls after the menu.
+
+```tsx title="Anatomy"
+import { InnerMenu } from 'libui-kit'
+
+<div className="flex min-h-0 flex-1 flex-col md:flex-row">
+  <InnerMenu title="Settings" groups={groups} />
+  <div className="min-w-0 flex-1 overflow-y-auto">{/* the section */}</div>
+</div>
+```
+
+`groups` is a list of [`NavGroup`](/docs/components/icon-rail#navgroup). The `id` of each item must be unique in all the groups.
+
+## Examples
+
+### Current section from state
+
+Pass `value` and `onValueChange`. The item with the same `id` as `value` is the current item. The demo at the top of the page uses this.
+
+```tsx
+const [section, setSection] = React.useState('profile')
+
+<InnerMenu title="Settings" groups={groups} value={section} onValueChange={setSection} />
+```
+
+### Current section from the router
+
+Give an `href` to each item. Set `active` on the item of the current page.
+
+```tsx
+const groups: NavGroup[] = [
+  {
+    id: 'project',
+    items: [
+      { id: 'overview', label: 'Overview', href: '/project', active: pathname === '/project' },
+      { id: 'members', label: 'Members', href: '/project/members', active: pathname === '/project/members' },
+      { id: 'docs', label: 'Documentation', href: 'https://example.com/docs', external: true },
+    ],
+  },
+]
+```
+
+### Badges and disabled items
+
+A `badge` shows at the end of the row. The user cannot select a `disabled` item. A long label stays on one line.
+
+<Demo name="inner-menu/states" frame height={300} title="A menu with badges and a disabled item" />
+
+### Header and footer
+
+`header` shows between the title and the groups. `footer` shows below the groups. The row of tabs does not show these two slots.
+
+<Demo name="inner-menu/header-footer" frame height={420} title="A menu with a header and a footer" />
+
+### Side menu on a phone
+
+Set `mobileTabs` to `false`. The side menu then shows at each width.
+
+<Demo name="inner-menu/no-tabs" frame height={300} title="A menu with no row of tabs" />
+
+## Accessibility
+
+- The items are in a `<nav>` element. `label` sets its name. The default is `title` when it is text, or "Section".
+- The current item has `aria-current="page"`.
+- An `external` item opens a new tab. `externalLabel` sets the text that screen readers get after the label. The default is "(opens in a new tab)".
+
+## API reference
+
+`InnerMenu` accepts only the props of this table.
+
+<PropsTable of="InnerMenu" />

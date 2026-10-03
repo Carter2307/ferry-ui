@@ -1,0 +1,74 @@
+---
+title: Forms
+description: How to build a form with fields, a settings card, validation errors and a save bar.
+order: 5
+---
+
+libui gives the layout and the accessibility of a form. Your code holds the values and does the validation.
+
+## Stack a label on a control
+
+[Field](/docs/components/field) puts a label above a control, and a hint or an error below it. It connects them with the `id` and the ARIA attributes. Use it in a dialog, a popover or a sign-in form.
+
+Put one control in a `Field`. For a control with many parts, such as [Select](/docs/components/select), pass a function as the child. Spread its `control` argument on the part that gets the focus.
+
+<Demo name="forms/field" title="A form with three stacked fields" />
+
+A [Button](/docs/components/button) has `type="button"` by default. Set `type="submit"` on the button that submits the form.
+
+## Build a settings section
+
+[Form Card](/docs/components/form-card) is a card for one subject of a settings page. A `FormRow` has a label on the left and a control on the right. `FormActions` is the footer. Its Save button stays disabled until `dirty` is `true`.
+
+<Demo name="forms/form-card" title="A settings section with three rows" align="stretch" />
+
+Set `htmlFor` on a `FormRow`. The row then gives the `id` to its control. Do not set `id`, `aria-describedby` or `aria-invalid` on the control.
+
+## Show validation errors
+
+libui does not validate. Your code finds the errors and gives each message to a component.
+
+| Problem | Component |
+| --- | --- |
+| One field is not valid | `error` on `Field` or `FormRow` |
+| The submit failed | [Callout](/docs/components/callout) with `tone="destructive"`, near the submit button |
+| A save failed | `error` on `SaveBar` |
+
+In this demo, submit the empty form. Then enter a name. Submit again.
+
+<Demo name="forms/validation" title="An error on a field and an error on the submit" />
+
+## Add a save bar to a long form
+
+[Save Bar](/docs/components/save-bar) is the footer of an editor or of a long form. The status is on the left. The buttons are on the right. With `sticky`, the bar stays at the bottom of the area that scrolls.
+
+<Demo name="forms/save-bar" title="A card with a save bar" />
+
+<Callout tone="info" title="invalid has two meanings">
+  On `SaveBar`, `invalid` disables Save. On `FormActions`, Save stays enabled, and the user can submit again.
+</Callout>
+
+## Choose the control
+
+Each control fits one type of choice. A `Switch` applies a setting immediately. A `Checkbox` waits for the submit.
+
+<Demo name="forms/choices" title="A radio group, a checkbox and a switch with their labels" />
+
+| Need | Use |
+| --- | --- |
+| One line of text | [Input](/docs/components/input) |
+| Many lines of text | [Textarea](/docs/components/textarea) |
+| One value among 2 to 5 options | [Radio Group](/docs/components/radio-group) |
+| One value among 4 to 15 options | `Select` |
+| Options with a description or an icon | [Radio Card Group](/docs/components/radio-card-group) |
+| One value in a long list | [Command](/docs/components/command) in a [Popover](/docs/components/popover) |
+| A setting that applies immediately | [Switch](/docs/components/switch) |
+| A choice that the form saves on submit | [Checkbox](/docs/components/checkbox) |
+| A compact switch between views | [Toggle Group](/docs/components/toggle-group) |
+| A list of keys and values | [Key Value Editor](/docs/components/key-value-editor) |
+| An action with one click, such as Delete | `ActionRow` in a `FormCard` |
+
+## Next steps
+
+- See a full settings page in the [Settings](/docs/examples/settings) example.
+- Read [Composition](/docs/handbook/composition) for controlled and uncontrolled state.

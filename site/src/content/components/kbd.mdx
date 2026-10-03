@@ -1,0 +1,59 @@
+---
+title: Kbd
+description: A small keycap that shows a key of the keyboard.
+group: Patterns
+source: src/components/patterns/kbd.tsx
+---
+
+<Demo name="kbd/hero" title="A list of keyboard shortcuts" />
+
+## Usage guidelines
+
+- **A hint for a shortcut.** Use `Kbd` next to a button, in a search field, in a menu or in help text.
+- **It only shows the key.** `Kbd` does not listen to the keyboard. Bind the shortcut in your code.
+- **Show the key of the platform.** Get the label of the modifier key from [useModKey](/docs/utilities/use-platform).
+- **Not for code.** For inline code or a value, use a `<code>` element.
+
+## Anatomy
+
+Import the component. It has one part.
+
+```tsx title="Anatomy"
+import { Kbd } from 'libui-kit'
+
+<Kbd>Esc</Kbd>
+```
+
+## Examples
+
+### Keys
+
+The children are the text of the key. The keycap is 18px high. It grows with a long name.
+
+<Demo name="kbd/keys" title="Keycaps for common keys" />
+
+### Key combination
+
+For a shortcut with more than one key, use one `Kbd` for each key. In a small space, put all the keys in one keycap.
+
+<Demo name="kbd/chord" title="A shortcut with two keycaps and the same shortcut in one keycap" />
+
+### Platform key
+
+The main modifier key is <Kbd>⌘</Kbd> on an Apple platform and <Kbd>Ctrl</Kbd> on the others. `useModKey()` returns the correct label.
+
+On the server, the hook returns `Ctrl`. Thus the first render in the browser is the same as the HTML of the server.
+
+<Demo name="kbd/mod-key" title="A search button with a shortcut hint" />
+
+### Shortcut handler
+
+Write the handler of the shortcut yourself. For a shortcut in one field, use `onKeyDown`. For the modifier key with a letter in the full window, use [useCommandShortcut](/docs/utilities/use-command-shortcut).
+
+<Demo name="kbd/handler" title="A message field with a shortcut that sends the message" />
+
+## API reference
+
+`Kbd` is a `<kbd>` element.
+
+<PropsTable of="Kbd" />

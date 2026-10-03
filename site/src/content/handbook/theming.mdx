@@ -1,0 +1,157 @@
+---
+title: Theming
+description: The light theme, the dark theme, a theme picker, and the colors and fonts of your product.
+order: 3
+---
+
+## Light, dark and system
+
+The light values of the tokens are on `:root`. The dark values are on `.dark`. `ThemeProvider` adds or removes the `dark` class on the `<html>` element.
+
+A token class gets the correct value in each theme. You do not write a `dark:` variant.
+
+Mount the provider one time, at the root of the app.
+
+```tsx title="providers.tsx"
+import type { ReactNode } from 'react'
+import { ThemeProvider } from 'libui-kit'
+
+export function Providers({ children }: { children: ReactNode }) {
+  return <ThemeProvider defaultTheme="system">{children}</ThemeProvider>
+}
+```
+
+| Preference | Result |
+| --- | --- |
+| `light` | The light theme. |
+| `dark` | The dark theme. |
+| `system` | The theme that the device uses. |
+
+The provider keeps the preference in `localStorage`, with the key `libui-theme`. The [ThemeProvider](/docs/utilities/theme-provider) page gives its props.
+
+## Make a theme picker
+
+`useTheme()` returns the preference and a function that changes it.
+
+<Demo name="theming/picker" title="A theme picker made with a toggle group" />
+
+| Value | Type | Role |
+| --- | --- | --- |
+| `theme` | `ThemePreference` | The preference: `light`, `dark` or `system`. |
+| `resolvedTheme` | `ResolvedTheme` | The theme on the page: `light` or `dark`. |
+| `setTheme` | `(theme: ThemePreference) => void` | Changes the preference and saves it. |
+
+Bind a picker to `theme`. Read `resolvedTheme` for code that cannot use tokens, for example a chart library.
+
+In a top bar, use [Theme Menu](/docs/components/theme-menu). It is a picker with a light, a dark and a system option.
+
+## Prevent a flash of the wrong theme
+
+React applies the theme after it loads. That is too late for the first paint.
+
+`themeInitScript()` returns a small script that applies the stored theme before the first paint. Put this script in the `<head>`. Give it the same `storageKey` and `defaultTheme` as the provider.
+
+```tsx title="A server layout"
+import type { ReactNode } from 'react'
+import { themeInitScript } from 'libui-kit'
+
+export function Document({ children }: { children: ReactNode }) {
+  return (
+    // The script sets the class before React starts: tell React that the difference is correct.
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />
+      </head>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+In a Vite app, add the script to `index.html` from the Vite configuration.
+
+```tsx title="vite.config.ts"
+import tailwindcss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react'
+import { themeInitScript } from 'libui-kit'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+    {
+      name: 'libui-theme-init',
+      transformIndexHtml: () => [{ tag: 'script', children: themeInitScript(), injectTo: 'head-prepend' }],
+    },
+  ],
+})
+```
+
+## Use the colors of your product
+
+Override the source variables after the import of libui. Put the light values on `:root` and the dark values on `.dark`.
+
+```css title="app.css"
+@import "tailwindcss";
+@import "libui-kit/theme.css";
+
+:root {
+  --primary: oklch(0.55 0.2 290);
+  --primary-solid: oklch(0.55 0.2 290);
+  --primary-solid-border: oklch(0.48 0.2 290);
+  --primary-bright: oklch(0.66 0.2 290);
+  --primary-soft: oklch(0.66 0.2 290 / 0.1);
+  --ring: oklch(0.55 0.2 290 / 0.75);
+  --brand: oklch(0.55 0.2 290);
+}
+
+.dark {
+  --primary: oklch(0.75 0.14 290);
+  --primary-bright: oklch(0.75 0.14 290);
+  --primary-soft: oklch(0.75 0.14 290 / 0.12);
+  --ring: oklch(0.75 0.14 290 / 0.7);
+}
+```
+
+<Callout tone="warning" title="Do not override the shadcn aliases">
+  The aliases `--card`, `--popover` and `--muted` point to the source variables. Change the source variable, and the alias follows.
+</Callout>
+
+The [Tokens](/docs/handbook/tokens) page shows each variable.
+
+## Limit a brand to one container
+
+A container can also set the variables. In this demo, the second panel sets four variables.
+
+<Demo name="theming/brand-scope" title="The same controls with the colors of the app and the colors of one container" align="stretch" />
+
+This method has two limits:
+
+- **The aliases do not follow.** The shadcn aliases and `--chart-1` get their value on `:root`. In the container, declare again the alias of each token that you change.
+- **Overlays stay outside.** Dialogs, sheets, menus, popovers, tooltips and toasts render in `<body>`. They keep the colors of the app.
+
+```css title="app.css"
+.partner-area {
+  --brand: oklch(0.6 0.19 250);
+  --chart-1: var(--brand); /* alias of --brand */
+  --surface-100: oklch(0.985 0.005 250);
+  --card: var(--surface-100); /* alias of --surface-100 */
+}
+```
+
+## Change the fonts
+
+Load your fonts. Then override the two font variables.
+
+```css title="app.css"
+:root {
+  --libui-font-sans: "Geist", system-ui, sans-serif;
+  --libui-font-mono: "Geist Mono", ui-monospace, monospace;
+}
+```
+
+## Next steps
+
+- Read [Tokens](/docs/handbook/tokens) to see each token and its variable.
+- Read [Styling](/docs/handbook/styling) for the rules of `className`.

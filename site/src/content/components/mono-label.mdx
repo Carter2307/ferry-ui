@@ -1,0 +1,76 @@
+---
+title: Mono Label
+description: A small uppercase caption in the monospace font.
+group: Patterns
+source: src/components/patterns/mono-label.tsx
+---
+
+<Demo name="mono-label/hero" title="A card with a mono label as its title" />
+
+## Usage guidelines
+
+- **A caption of 1 to 4 words.** Use `MonoLabel` for a card title, a metric label, a column header or a menu group heading.
+- **Not for sentences.** Do not use it for body text, a long sentence or the main heading of a page.
+- **Use the element that fits the meaning.** The `as` prop sets the element.
+- **A table has this look.** `TableHead` of [Table](/docs/components/table) shows its text the same way.
+
+## Anatomy
+
+Import the component. It has one part.
+
+Write the text in normal case. The component shows it in uppercase.
+
+```tsx title="Anatomy"
+import { MonoLabel } from 'libui-kit'
+
+<MonoLabel>Monthly revenue</MonoLabel>
+```
+
+## Examples
+
+### Element
+
+`MonoLabel` is a `span` element by default. Set `as` to change the element. This example uses `legend` to name a group of controls.
+
+<Demo name="mono-label/legend" title="A mono label as the legend of a group of checkboxes" />
+
+| Value of `as` | Use |
+| --- | --- |
+| `span` (default), `div`, `p` | A caption. |
+| `h2`, `h3`, `h4` | The heading of a section or of a menu group. |
+| `dt` | A term in a description list. |
+| `th` | A header cell in a table that you build with the `table` element. |
+| `legend` | The name of a `fieldset` element. |
+| `label` | The label of a form field. |
+
+### Field label
+
+With `as="label"`, pass `htmlFor` with the `id` of the field. A click on the label then moves the focus to the field.
+
+For a field with a hint or an error, use [Field](/docs/components/field).
+
+<Demo name="mono-label/label" title="A mono label as the label of a read-only field" />
+
+### Color
+
+The text uses the `foreground-lighter` token. Add a `text-*` token class to change the color.
+
+<Demo name="mono-label/color" title="Mono labels with three colors" />
+
+### Long text
+
+In a narrow space, do not let the caption wrap. Add `truncate`. Give the full text in `title`.
+
+<Demo name="mono-label/truncate" title="A mono label with a truncated text" />
+
+### The mono-label class
+
+The `mono-label` class gives the same look to an element of your own.
+
+<Demo name="mono-label/class-name" title="A caption with the mono-label class" />
+
+## API reference
+
+`MonoLabel` also accepts each global HTML attribute.
+
+<PropsTable of="MonoLabel" />

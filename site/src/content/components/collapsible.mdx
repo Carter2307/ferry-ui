@@ -1,0 +1,94 @@
+---
+title: Collapsible
+description: A region that one trigger shows and hides.
+group: Primitives
+source: src/components/primitives/collapsible.tsx
+---
+
+<Demo name="collapsible/hero" title="A form with advanced options in a collapsible" />
+
+## Usage guidelines
+
+- **Content that can wait.** Use a collapsible for advanced options or for the rest of a long list.
+- **No look of its own.** A collapsible has no style. Style the trigger and the content with your classes.
+- **Not for panels.** To show one panel of a set, use [Tabs](/docs/components/tabs).
+- **Not for content above the page.** For an overlay, use [Popover](/docs/components/popover) or [Dropdown Menu](/docs/components/dropdown-menu).
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from 'libui-kit'
+
+<Collapsible>
+  <CollapsibleTrigger />
+  <CollapsibleContent />
+</Collapsible>
+```
+
+| Part | Role |
+| --- | --- |
+| `Collapsible` | Holds the open state. |
+| `CollapsibleTrigger` | The button that opens and closes the region. It sets `aria-expanded`. |
+| `CollapsibleContent` | The region. It unmounts when the collapsible is closed. |
+
+## Examples
+
+### Trigger
+
+Use `asChild` to make a [Button](/docs/components/button) the trigger. The trigger and the content have a `data-state` attribute with the value `open` or `closed`. Use it in your classes, for example to turn a chevron.
+
+```tsx
+<CollapsibleTrigger asChild>
+  <Button
+    variant="ghost"
+    className="group"
+    icon={<ChevronRight className="transition-transform group-data-[state=open]:rotate-90" />}
+  >
+    Advanced options
+  </Button>
+</CollapsibleTrigger>
+```
+
+### Open state
+
+A collapsible holds its open state by default. Use `defaultOpen` to open it at the start.
+
+To control the state, pass `open` and `onOpenChange`. Use this when other content follows the state, for example the label of the trigger.
+
+<Demo name="collapsible/controlled" title="A list that shows more members on a click" />
+
+### Animation
+
+The content has no animation by default. Add these classes to `CollapsibleContent` to slide it:
+
+```text
+overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up
+```
+
+Put the padding on an element in the content. The animation changes the height of the content.
+
+<Demo name="collapsible/animated" title="A collapsible with an animation" />
+
+### Disabled state
+
+Set `disabled` on `Collapsible` to keep its state. The trigger refuses clicks.
+
+<Demo name="collapsible/disabled" title="A disabled collapsible" />
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### Collapsible
+
+<PropsTable of="Collapsible" />
+
+### CollapsibleTrigger
+
+<PropsTable of="CollapsibleTrigger" />
+
+### CollapsibleContent
+
+<PropsTable of="CollapsibleContent" />

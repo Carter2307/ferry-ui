@@ -1,0 +1,102 @@
+---
+title: Callout
+description: A tinted message that stays on the page, next to the content that it is about.
+group: Patterns
+source: src/components/patterns/callout.tsx
+---
+
+<Demo name="callout/hero" title="A warning callout with one action" />
+
+## Usage guidelines
+
+- **A message that stays.** Use `Callout` for a message about a page, a card or a form. It stays until the situation changes.
+- **A short-lived message is a toast.** To show the result of an action, use [Toast](/docs/components/toast).
+- **A question is a dialog.** To ask for a confirmation, use [Confirm Dialog](/docs/components/confirm-dialog).
+- **No data is not a message.** For an empty list or a first load with an error, use [Empty State](/docs/components/empty-state).
+- **One field, one error.** Show the error of one field below the field, with [Field](/docs/components/field).
+
+## Anatomy
+
+Import the components. Each component has one part.
+
+```tsx title="Anatomy"
+import { Button, Callout, StaleDataCallout } from 'libui-kit'
+
+<Callout title="" actions={<Button size="tiny" />}>
+  {/* the message */}
+</Callout>
+
+<StaleDataCallout error={error} onRetry={retry} />
+```
+
+## Examples
+
+### Tones
+
+The `tone` prop sets the color and the default icon. The `neutral` tone has no icon.
+
+<Demo name="callout/tones" title="The tones of Callout" />
+
+| Tone | Use |
+| --- | --- |
+| `info` (default) | Guidance, a feature that is off, work in progress. |
+| `warning` | A situation that needs attention. There is no failure yet. |
+| `destructive` | A failure. Screen readers read it immediately. |
+| `success` | A good result that must stay on the page. |
+| `neutral` | A side note. |
+
+### Sizes
+
+The `md` size is for pages and cards. The `sm` size is for forms, dialogs and dense panels.
+
+<Demo name="callout/sizes" title="The sizes of Callout" />
+
+### Submit error
+
+If a submit fails, show a `destructive` callout with `size="sm"` near the submit button. Click Save to see the error.
+
+<Demo name="callout/submit-error" title="A form with an error callout after a submit" />
+
+### Banner
+
+With `variant="banner"`, the callout is a full-width strip. Put it at the top of a card or a panel. The banner ignores `size`.
+
+<Demo name="callout/banner" title="A banner callout at the top of a card" />
+
+### Actions
+
+Give small buttons to `actions`. They show below the text.
+
+For one short action, set `actionsPlacement="end"`. The button then shows on the right of the text. On a phone, it stays below the text.
+
+<Demo name="callout/actions" title="Callouts with actions below the text and on the right" />
+
+### Icon
+
+Pass a lucide icon to `icon` to replace the default icon. Pass `false` to hide the icon.
+
+<Demo name="callout/icon" title="A callout with a custom icon and a callout with no icon" />
+
+### Stale data
+
+A refresh can fail while the page still shows old data. Keep the data. Put `StaleDataCallout` above it. The callout shows the message of `error` and a Retry button.
+
+<Demo name="callout/stale-data" title="A stale data callout above a list" />
+
+## Accessibility
+
+- A `destructive` callout has the `alert` role. The other tones have the `note` role.
+- Use `role` to change the role. For example, `status` gives a polite live update.
+- The icon is decorative. Write the meaning in the text.
+
+## API reference
+
+`Callout` also accepts each attribute of the `<div>` element. `StaleDataCallout` passes its other props to `Callout`.
+
+### Callout
+
+<PropsTable of="Callout" />
+
+### StaleDataCallout
+
+<PropsTable of="StaleDataCallout" />

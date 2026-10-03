@@ -1,0 +1,69 @@
+---
+title: Info Tile
+description: A tile with an icon, a label and a value for one fact about a record.
+group: Patterns
+source: src/components/patterns/info-tile.tsx
+---
+
+<Demo name="info-tile/hero" align="stretch" title="Four tiles with the key facts of a workspace" />
+
+## Usage guidelines
+
+- **Key facts at the top of a page.** Use a grid of tiles for the status, the plan or the owner of a record.
+- **A number to compare is a metric.** For a KPI, use [Metric Card](/docs/components/metric-card).
+- **Many facts are a list.** For a long list of labels and values, use [Description List](/docs/components/description-list).
+
+## Anatomy
+
+Import the component. A tile has one part and no border.
+
+```tsx title="Anatomy"
+import { InfoTile } from 'libui-kit'
+
+<InfoTile icon={<Icon />} label="" value="" hint="" />
+```
+
+Put the tiles in a grid, for example `grid gap-x-8 gap-y-6 sm:grid-cols-2`.
+
+## Examples
+
+### Hint
+
+`hint` adds a second line below the value.
+
+<Demo name="info-tile/hint" align="stretch" title="A tile with a hint and a tile with no hint" />
+
+### No icon
+
+`icon` is optional. A tile with no icon shows only the text.
+
+<Demo name="info-tile/no-icon" title="A tile with no icon" />
+
+### Element as value
+
+`value` accepts an element. Use it for a [Status](/docs/components/status), a link or a value with a [Copy](/docs/components/copy) button.
+
+<Demo name="info-tile/value-element" align="stretch" title="A tile with a status and a tile with a copy button" />
+
+### Long value
+
+The value and the hint stay on one line. The tile cuts a long text. Give the full text in a `title` attribute.
+
+<Demo name="info-tile/long-value" title="A tile with a long value and a long hint" />
+
+### Loading
+
+Set `loading` while the value loads. The tile shows a skeleton, hides the hint and sets `aria-busy`.
+
+<Demo name="info-tile/loading" align="stretch" title="Two tiles with a switch for the loading state" />
+
+## Accessibility
+
+- The icon is decorative. Screen readers do not read it.
+- The label must give the meaning of the value without the icon.
+
+## API reference
+
+`InfoTile` also accepts each attribute of the `<div>` element.
+
+<PropsTable of="InfoTile" />

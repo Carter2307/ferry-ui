@@ -1,0 +1,152 @@
+---
+title: Alert Dialog
+description: A dialog that stops the user until they answer a question.
+group: Primitives
+source: src/components/primitives/alert-dialog.tsx
+---
+
+<Demo name="alert-dialog/hero" title="A confirmation before a destructive action" />
+
+## Usage guidelines
+
+- **Use Confirm Dialog first.** [Confirm Dialog](/docs/components/confirm-dialog) is the pattern for a confirmation. Use `AlertDialog` only for a custom layout.
+- **Two choices only.** The user cancels or confirms. For a form or a task, use [Dialog](/docs/components/dialog).
+- **Not for feedback.** To show the result of an action, use [Toast](/docs/components/toast).
+- **Ask a question.** Write the title as a question. Write the consequence in the description.
+
+## Anatomy
+
+Import the parts. Put them together in this order.
+
+```tsx title="Anatomy"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogBody,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from 'libui-kit'
+
+<AlertDialog>
+  <AlertDialogTrigger />
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle />
+      <AlertDialogDescription />
+    </AlertDialogHeader>
+    <AlertDialogBody />
+    <AlertDialogFooter>
+      <AlertDialogCancel />
+      <AlertDialogAction />
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+```
+
+| Part | Role |
+| --- | --- |
+| `AlertDialog` | Holds the open state. |
+| `AlertDialogTrigger` | Opens the dialog on a click. |
+| `AlertDialogContent` | The panel. It adds the backdrop. It has no close button. |
+| `AlertDialogHeader` | Holds the title and the description. |
+| `AlertDialogTitle` | The question. It is the accessible name of the dialog. |
+| `AlertDialogDescription` | The consequence of the action. |
+| `AlertDialogBody` | Optional content between the header and the footer. |
+| `AlertDialogFooter` | The two buttons. Cancel comes first, the action comes last. |
+| `AlertDialogCancel` | Closes the dialog and does nothing else. |
+| `AlertDialogAction` | Runs `onClick`, then closes the dialog. |
+
+With `asChild`, the trigger gives its behavior to its child element. Use it with a [Button](/docs/components/button).
+
+`AlertDialogContent` renders `AlertDialogPortal` and `AlertDialogOverlay` for you. Use these two parts only to build a custom panel.
+
+## Examples
+
+### Variant of the action
+
+`AlertDialogAction` has the `primary` variant by default. Keep it for an action that deletes nothing. For a destructive action, pass `variant="destructive-solid"`.
+
+<Demo name="alert-dialog/primary-action" title="A confirmation with a primary action" />
+
+### Button props
+
+`AlertDialogCancel` and `AlertDialogAction` each render a `Button`. Each one accepts `variant` and `size`. Give the two buttons the same size.
+
+<Demo name="alert-dialog/buttons" title="A confirmation with a ghost Cancel button and larger buttons" />
+
+### More content
+
+Put a list or a warning in `AlertDialogBody`. If the content is too tall, the body scrolls.
+
+<Demo name="alert-dialog/body" title="A confirmation that lists the members to remove" />
+
+### Open state and async action
+
+A click on `AlertDialogAction` closes the dialog. To keep the dialog open during a request, pass `open` and `onOpenChange`. Then call `event.preventDefault()` in `onClick`.
+
+Set `loading` on the action until the request ends. The button shows a spinner and refuses clicks.
+
+<Demo name="alert-dialog/async" title="A confirmation that stays open during a request" />
+
+## Accessibility
+
+- The focus moves to `AlertDialogCancel` when the dialog opens. Thus <Kbd>Enter</Kbd> does not confirm the action accidentally.
+- <Kbd>Esc</Kbd> cancels. A click outside the panel does not close the dialog.
+- Screen readers announce the title and the description. Always include `AlertDialogTitle` and `AlertDialogDescription`.
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### AlertDialog
+
+<PropsTable of="AlertDialog" />
+
+### AlertDialogTrigger
+
+<PropsTable of="AlertDialogTrigger" />
+
+### AlertDialogContent
+
+<PropsTable of="AlertDialogContent" />
+
+### AlertDialogHeader
+
+<PropsTable of="AlertDialogHeader" />
+
+### AlertDialogTitle
+
+<PropsTable of="AlertDialogTitle" />
+
+### AlertDialogDescription
+
+<PropsTable of="AlertDialogDescription" />
+
+### AlertDialogBody
+
+<PropsTable of="AlertDialogBody" />
+
+### AlertDialogFooter
+
+<PropsTable of="AlertDialogFooter" />
+
+### AlertDialogCancel
+
+<PropsTable of="AlertDialogCancel" />
+
+### AlertDialogAction
+
+<PropsTable of="AlertDialogAction" />
+
+### AlertDialogPortal
+
+<PropsTable of="AlertDialogPortal" />
+
+### AlertDialogOverlay
+
+<PropsTable of="AlertDialogOverlay" />

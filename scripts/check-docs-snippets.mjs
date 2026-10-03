@@ -2,8 +2,8 @@
 //
 // 1. Snippets. Every ```tsx code block of AGENTS.md, README.md and the Storybook introduction is
 //    extracted into a temporary folder and type-checked with the project's own tsconfig, with
-//    `libui` mapped onto ./src/index.ts. A snippet is checked as ONE standalone module: it must
-//    import what it uses (from 'libui', 'react', 'lucide-react'…) and declare its own data.
+//    `libui-kit` mapped onto ./src/index.ts. A snippet is checked as ONE standalone module: it must
+//    import what it uses (from 'libui-kit', 'react', 'lucide-react'…) and declare its own data.
 //      - ```tsx file=app/providers.tsx   writes the snippet at that path (inside a folder of its
 //        own per document), so a later snippet of the same document can import it ('./providers').
 //      - ```tsx file=src/components/patterns/x.tsx   a path under src/ is overlaid on the real
@@ -210,7 +210,7 @@ function typeCheck() {
       noUnusedLocals: false,
       noUnusedParameters: false,
       // The package name resolves to the sources, so the docs are checked against the current API.
-      paths: { libui: [fromTemp(join(root, 'src', 'index.ts'))] },
+      paths: { 'libui-kit': [fromTemp(join(root, 'src', 'index.ts'))] },
       // Relative imports of `file=src/...` snippets resolve as if they were written in ./src.
       ...(overlays.size > 0 && { rootDirs: [join(root, 'src'), ...overlays].map(fromTemp) }),
     },

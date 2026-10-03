@@ -5,3 +5,5 @@ storybook-static
 .DS_Store
 *.log
 .vitest
+site/.ssr
+site/src/generated

@@ -1,0 +1,137 @@
+---
+title: Icon Rail
+description: The side navigation of an application, with icons and labels that the user can hide.
+group: Layout
+source: src/components/layout/icon-rail.tsx
+---
+
+<Demo name="icon-rail/hero" frame height={420} title="A side rail with two groups of items" />
+
+The button at the bottom of the rail shows or hides the labels.
+
+## Usage guidelines
+
+- **For the main pages of an app.** Use the rail for 3 to 10 destinations. Each item needs an icon.
+- **For wide screens.** [App Shell](/docs/components/app-shell) hides the rail below 768px. Use [Mobile Nav](/docs/components/mobile-nav) there.
+- **Not for the sections of one area.** For a settings area, use [Inner Menu](/docs/components/inner-menu).
+- **One navigation for all screens.** Give the same `NavGroup[]` to the rail, the phone drawer and the [Command Menu](/docs/components/command-menu).
+
+## Anatomy
+
+Pass `groups` for lists with a divider between them, or `items` for one list. Each item is a [`NavItem`](#navitem).
+
+```tsx title="Anatomy"
+import { IconRail, IconRailItem } from 'libui-kit'
+
+<IconRail
+  groups={groups}
+  logo={<Logo />}
+  footer={<IconRailItem item={item} />}
+/>
+```
+
+## Examples
+
+### Current page
+
+Set `active` on the item of the current page. An item with `href` is a link. An item with no `href` is a button that calls `onSelect`.
+
+```tsx
+const groups: NavGroup[] = [
+  {
+    id: 'main',
+    items: [
+      { id: 'overview', label: 'Overview', icon: <LayoutDashboard />, href: '/', active: pathname === '/' },
+      { id: 'projects', label: 'Projects', icon: <FolderKanban />, href: '/projects', active: pathname.startsWith('/projects') },
+      { id: 'search', label: 'Search', icon: <Search />, onSelect: openSearch },
+    ],
+  },
+]
+```
+
+### Expanded rail
+
+A collapsed rail is 56px wide. An expanded rail is 200px wide. `defaultExpanded` expands the rail at the start. The `label` of a group then shows as a heading.
+
+<Demo name="icon-rail/expanded" frame height={380} title="A rail that shows labels at the start" />
+
+### Controlled state
+
+To control the state, pass `expanded` and `onExpandedChange`. The rail does not save the state between visits.
+
+<Demo name="icon-rail/controlled" frame height={320} title="A rail with a controlled state" />
+
+### Logo and footer
+
+`logo` is the slot above the items. `footer` is the slot below the items. Use `IconRailItem` in the footer for rows with the look of the items. In a slot, `useIconRail()` gives the state of the rail.
+
+<Demo name="icon-rail/slots" frame height={380} title="A rail with a logo and a footer" />
+
+### Badges and disabled items
+
+A `badge` shows after the label. On a collapsed rail, the badge becomes a dot. The user cannot select a `disabled` item. `collapsible={false}` hides the button at the bottom of the two rails.
+
+<Demo name="icon-rail/badges" frame height={300} title="A collapsed rail and an expanded rail with a badge" />
+
+## Accessibility
+
+- The rail is a `<nav>` element. `aria-label` sets its name. The default is "Main".
+- On a collapsed rail, the label of an item shows in a tooltip. The label stays the accessible name. The tooltip needs a `TooltipProvider` above the rail.
+- An `external` item opens a new tab. Screen readers get the `external` text after the label.
+- `labels` sets the texts of the rail. Use it to translate them.
+
+| Key of `labels` | Default text |
+| --- | --- |
+| `expand` | "Expand menu" |
+| `collapse` | "Collapse menu" |
+| `collapseText` | "Collapse" |
+| `external` | "(opens in a new tab)" |
+
+## API reference
+
+`IconRail` also accepts each attribute of the `<nav>` element.
+
+### IconRail
+
+<PropsTable of="IconRail" />
+
+### IconRailItem
+
+Use `IconRailItem` only in an `IconRail`.
+
+<PropsTable of="IconRailItem" />
+
+### useIconRail
+
+`useIconRail()` reads the state of the nearest rail. Outside a rail, it returns `null`.
+
+| Value | Type | Role |
+| --- | --- | --- |
+| `expanded` | `boolean` | Tells if the rail shows the labels. |
+| `setExpanded` | `(expanded: boolean) => void` | Expands or collapses the rail. |
+
+### NavItem
+
+One destination or one action. Icon Rail, Mobile Nav, Inner Menu and Command Menu use this type.
+
+| Field | Type | Role |
+| --- | --- | --- |
+| `id` | `string` | A stable key. Required. |
+| `label` | `string` | The visible text and the accessible name. Required. |
+| `icon` | `ReactNode` | A line icon. |
+| `href` | `string` | The destination. The link component of the app renders it. |
+| `onSelect` | `() => void` | Runs when the user selects the item. |
+| `active` | `boolean` | Marks the current page. |
+| `external` | `boolean` | Opens `href` in a new tab. The link component does not render it. |
+| `badge` | `ReactNode` | A count or a tag after the label. |
+| `disabled` | `boolean` | Dims the item. The user cannot select it. |
+
+### NavGroup
+
+A group of items with an optional heading.
+
+| Field | Type | Role |
+| --- | --- | --- |
+| `id` | `string` | A stable key. Required. |
+| `label` | `string` | The heading of the group. |
+| `items` | `NavItem[]` | The items of the group, in order. Required. |

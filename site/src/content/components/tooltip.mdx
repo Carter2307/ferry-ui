@@ -1,0 +1,134 @@
+---
+title: Tooltip
+description: A short text that shows when the pointer or the focus is on an element.
+group: Primitives
+source: src/components/primitives/tooltip.tsx
+---
+
+<Demo name="tooltip/hero" title="Icon buttons with a tooltip" />
+
+## Usage guidelines
+
+- **Use `Hint` first.** `Hint` is a tooltip in one component. Use the `Tooltip` parts for a controlled state or for more props.
+- **A few words only.** A tooltip explains an icon-only button or shows the full text of a truncated value.
+- **Nothing essential.** A touch screen has no hover. For necessary information or a control, use [Popover](/docs/components/popover) or text on the page.
+- **Not the `title` attribute.** Use `Hint` in its place.
+
+<Callout tone="warning" title="A tooltip is not an accessible name">
+  A tooltip is a visual aid. An icon-only button must also have an `aria-label`.
+</Callout>
+
+## Anatomy
+
+Mount `TooltipProvider` one time, at the root of the app. Each tooltip must have this provider above it.
+
+```tsx title="app.tsx"
+import { TooltipProvider } from 'libui-kit'
+
+export function App() {
+  return <TooltipProvider>{/* the app */}</TooltipProvider>
+}
+```
+
+Then import `Hint`, or the three parts of a tooltip.
+
+```tsx title="Anatomy"
+import { Button, Hint, Tooltip, TooltipContent, TooltipTrigger } from 'libui-kit'
+
+<Hint label="Refresh">
+  <Button />
+</Hint>
+
+<Tooltip>
+  <TooltipTrigger />
+  <TooltipContent />
+</Tooltip>
+```
+
+| Part | Role |
+| --- | --- |
+| `TooltipProvider` | Gives the same delay to all the tooltips below it. |
+| `Hint` | A tooltip in one component. Its child is the trigger. |
+| `Tooltip` | Holds the open state. |
+| `TooltipTrigger` | The element that shows the tooltip on hover and on focus. |
+| `TooltipContent` | The text bubble. |
+
+## Examples
+
+### Side
+
+The `side` prop of `Hint` sets the side of the trigger where the tooltip opens. The default is `top`. If the side has no room, the tooltip changes side.
+
+<Demo name="tooltip/side" title="A tooltip on each side of the trigger" />
+
+### Tooltip parts
+
+`TooltipContent` accepts `side`, `align` and `sideOffset`. Use `asChild` on `TooltipTrigger` with a [Button](/docs/components/button) or a link.
+
+<Demo name="tooltip/parts" title="A tooltip below the start of its trigger" />
+
+### Open state
+
+A tooltip holds its open state by default. To control the state, pass `open` and `onOpenChange` to `Tooltip`.
+
+<Demo name="tooltip/controlled" title="A tooltip with a controlled open state" />
+
+### Disabled button
+
+A disabled button gets no hover and no focus. To explain why the action is not available, wrap the button in a `<span tabIndex={0}>`.
+
+<Demo name="tooltip/disabled" title="A tooltip on a disabled button" />
+
+### Truncated text
+
+A tooltip can show the full text of a truncated value. Add `tabIndex={0}` to the element, so that keyboard users also get the tooltip.
+
+<Demo name="tooltip/truncated" title="Tooltips that show the full name of a customer" />
+
+### Delay
+
+The first tooltip opens after 250 ms. While the pointer moves between triggers, the next tooltips open immediately.
+
+To change the delay for one area, nest a second `TooltipProvider`. Pass `delayDuration` in milliseconds.
+
+```tsx
+<TooltipProvider delayDuration={0}>
+  <Hint label="Bold">
+    <Button variant="ghost" size="icon" icon={<Bold />} aria-label="Bold" />
+  </Hint>
+</TooltipProvider>
+```
+
+## Accessibility
+
+- The child of `Hint` must be one element that can get the focus, for example a button or a link.
+- A tooltip opens on hover and on keyboard focus. <Kbd>Esc</Kbd> closes it.
+- Do not put a link or a button in a tooltip.
+
+## API reference
+
+`Hint` accepts only the props of its table. The other parts also accept the props of their Radix UI primitive.
+
+### Hint
+
+<PropsTable of="Hint" />
+
+### TooltipProvider
+
+In libui, the default `delayDuration` is 250.
+
+<PropsTable of="TooltipProvider" />
+
+### Tooltip
+
+<PropsTable of="Tooltip" />
+
+### TooltipTrigger
+
+<PropsTable of="TooltipTrigger" />
+
+### TooltipContent
+
+In libui, the default `sideOffset` is 6.
+
+<PropsTable of="TooltipContent" />

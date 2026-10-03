@@ -1,0 +1,55 @@
+---
+title: Separator
+description: A thin line that divides two groups of content.
+group: Primitives
+source: src/components/primitives/separator.tsx
+---
+
+<Demo name="separator/hero" title="A separator between a title and a list of sections" />
+
+## Usage guidelines
+
+- **A line between two groups.** Use a separator to divide content in a row or in a column.
+- **In a container, use a border.** For the rows of a card or a list, use the `border-t` or `divide-y` classes.
+- **Space needs no line.** To put only space between two sections, use a margin or a gap.
+
+## Anatomy
+
+Import the component. A separator has one part.
+
+```tsx title="Anatomy"
+import { Separator } from 'libui-kit'
+
+<Separator />
+```
+
+## Examples
+
+### Vertical
+
+Set `orientation="vertical"` to divide the items of a row. A vertical separator takes the full height of its parent. Give the parent a height.
+
+<Demo name="separator/vertical" title="Vertical separators between three values" />
+
+### Margin
+
+A separator is 1px thick and has no margin. Add the space with a margin class, such as `my-3`.
+
+<Demo name="separator/spacing" title="Separators with a margin between three rows" />
+
+### Separator with a meaning
+
+By default, a separator is only a visual line. If the split has a meaning, set `decorative={false}`. Use it between the groups of actions of a toolbar.
+
+<Demo name="separator/toolbar" title="A toolbar with separators between its groups of buttons" />
+
+## Accessibility
+
+- By default, screen readers do not see a separator.
+- With `decorative={false}`, the separator has the `separator` role. This role helps the users of screen readers to find the groups of controls.
+
+## API reference
+
+`Separator` also accepts the props of its Radix UI primitive.
+
+<PropsTable of="Separator" />

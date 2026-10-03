@@ -1,0 +1,46 @@
+---
+title: Dashboard
+description: The home page of a signed-in app, with facts, numbers, a grid of projects and a table of events.
+order: 1
+---
+
+<Demo name="dashboard/app" frame height={640} code="src/examples/dashboard-example.tsx" title="A dashboard screen" />
+
+Use the buttons above the preview to see the screen on a tablet and on a phone.
+
+The example has no router. A click on a link shows a message with the target of the link.
+
+## Components
+
+The code under the preview is the page. It uses only the public exports of libui.
+
+In the repository, the import path is `../index`. In your app, import from `libui-kit`.
+
+| Region | Components |
+| --- | --- |
+| Frame | [App Shell](/docs/components/app-shell), [Top Bar](/docs/components/top-bar), [Icon Rail](/docs/components/icon-rail), [Mobile Nav](/docs/components/mobile-nav), [Command Menu](/docs/components/command-menu), [Resource Switcher](/docs/components/resource-switcher), [Theme Menu](/docs/components/theme-menu) |
+| Page column | [Page](/docs/components/page): `PageContainer`, `PageHeader`, `PageSection` |
+| Header actions | [Button](/docs/components/button) |
+| Facts | [Info Tile](/docs/components/info-tile) |
+| Numbers | [Metric Card](/docs/components/metric-card): `MetricCard`, `MetricTrend`, `UsageBar` |
+| Projects | [Resource Card](/docs/components/resource-card), [Badge](/docs/components/badge), [Status](/docs/components/status), [Dropdown Menu](/docs/components/dropdown-menu) |
+| Recent activity | [Table](/docs/components/table), [Avatar](/docs/components/avatar), `Badge` |
+| Skeletons | `ResourceCardSkeleton`, [Table States](/docs/components/table-states) |
+
+## The frame
+
+`ExampleApp` is the frame of the four examples. Its source is `src/examples/example-app.tsx`.
+
+- An `AppShell` holds the top bar, the rail and the phone drawer.
+- One `NavGroup[]` gives its items to the rail and to the drawer.
+- A `ResourceSwitcher` in the top bar changes the workspace.
+- The search button opens the command menu. The keys <Kbd>⌘ K</Kbd> or <Kbd>Ctrl K</Kbd> open the same menu.
+- A [LinkProvider](/docs/utilities/link-provider) sends each link through one link component.
+
+## Design rules
+
+- **One primary action.** The header has two buttons. Only "New project" has `variant="primary"`.
+- **A fact is not a number.** The plan, the owner and the next invoice are `InfoTile`s. The numbers that people compare are `MetricCard`s.
+- **A card for a thing with a name.** Each project is a `ResourceCard` with an `href`. The full card is a link.
+- **A table for events.** People read the events row by row.
+- **A skeleton for each block.** The `loading` prop of the example shows a skeleton in each block. The layout does not move when the data comes.

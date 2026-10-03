@@ -1,0 +1,108 @@
+---
+title: Input
+description: A field for one line of text.
+group: Primitives
+source: src/components/primitives/input.tsx
+---
+
+<Demo name="input/hero" title="A text field with a label and a hint" />
+
+## Usage guidelines
+
+- **One line of text.** For text on more than one line, use [Textarea](/docs/components/textarea).
+- **A list of options is not an input.** For a value from a fixed list, use [Select](/docs/components/select).
+- **Give each input a label.** Use [Field](/docs/components/field), a [Label](/docs/components/label) or `aria-label`.
+- **A search field has its own component.** To filter a list, use the `SearchInput` of [List Toolbar](/docs/components/list-toolbar).
+
+## Anatomy
+
+Import the component. An input has one part.
+
+```tsx title="Anatomy"
+import { Input } from 'libui-kit'
+
+<Input />
+```
+
+## Examples
+
+### Label
+
+Give the same value to the `htmlFor` of the `Label` and to the `id` of the input.
+
+`Field` adds the label, the hint and the error message for you.
+
+<Demo name="input/label" title="An input with a label above it" />
+
+### Sizes
+
+The `size` prop sets the height. The default is `md`.
+
+<Demo name="input/sizes" title="The sizes of Input" />
+
+| Size | Height | Use |
+| --- | --- | --- |
+| `tiny` | 26px | Toolbars and table cells. |
+| `sm` | 30px | Filters and dense forms. |
+| `md` | 34px | Form fields. |
+| `lg` | 38px | Sign-in forms. |
+
+### Input and button
+
+The heights are the same as the heights of [Button](/docs/components/button). Give the same `size` to the input and to the button.
+
+The default size of a button is `sm`. The default size of an input is `md`.
+
+<Demo name="input/with-button" title="An input and a button with the same height" />
+
+### Monospace
+
+Set `mono` for a value that a program reads: an identifier, a slug, a URL or a key.
+
+<Demo name="input/mono" title="An input with a monospace font" />
+
+### States
+
+`disabled` makes the input unavailable. `readOnly` shows a value that the user can copy but not change.
+
+`aria-invalid` shows the error border. `Field` sets it when you pass `error`.
+
+<Demo name="input/states" title="A disabled input, a read-only input and an invalid input" />
+
+### Controlled value
+
+An input holds its value by default. Use `defaultValue` for the first value.
+
+To control the value, pass `value` and `onChange`.
+
+<Demo name="input/controlled" title="An input with a controlled value" />
+
+### Input look on another element
+
+`inputVariants` returns the classes of `Input`. Use it for an element that cannot be an `<input>`.
+
+An element that is not an input gets the read-only background.
+
+<Demo name="input/variants-helper" title="An output element with the look of an input" />
+
+## Accessibility
+
+- A placeholder is not a label. Each input must have an accessible name.
+- Show each error as text. Color alone is not sufficient.
+- Link the hint and the error message to the input with `aria-describedby`. `Field` does this for you.
+
+## API reference
+
+`Input` also accepts each attribute of the `<input>` element. The numeric `size` attribute is not available.
+
+<PropsTable of="Input" />
+
+### inputVariants
+
+`inputVariants(options)` returns a string of classes.
+
+| Option | Type | Role |
+| --- | --- | --- |
+| `size` | `tiny`, `sm`, `md` or `lg` | The height. The default is `md`. |
+| `mono` | `boolean` | The monospace font. The default is `false`. |
+| `className` | `string` | More classes for the element. |

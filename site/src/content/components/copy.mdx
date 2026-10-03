@@ -1,0 +1,112 @@
+---
+title: Copy
+description: A button, a field and a secret field that copy a value to the clipboard.
+group: Patterns
+source: src/components/patterns/copy.tsx
+---
+
+<Demo name="copy/hero" align="stretch" title="A project ID to copy and a masked secret key" />
+
+## Usage guidelines
+
+- **For a value that the user pastes in another place.** For example an identifier, a URL or a key.
+- **Each credential is a secret.** Show an API key, a password or a recovery code in `SecretField`.
+- **A command is a code block.** For a command or a code sample, use [Code Block](/docs/components/code-block).
+- **Mount the providers.** A copy that fails shows a [Toast](/docs/components/toast), and the icon buttons have a [Tooltip](/docs/components/tooltip).
+- **Build your own control with the hook.** [useCopy](/docs/utilities/use-copy) gives the same behavior to your component.
+
+## Anatomy
+
+Import the component that you need. Each one has one part.
+
+```tsx title="Anatomy"
+import { CopyButton, CopyField, SecretField } from 'libui-kit'
+
+<CopyButton value="" what="" />
+<CopyField value="" what="" />
+<SecretField value="" what="" />
+```
+
+| Component | Role |
+| --- | --- |
+| `CopyButton` | A small button next to a value. |
+| `CopyField` | A read-only field with a Copy button. |
+| `SecretField` | A read-only field that masks its value. It has a reveal button and a Copy button. |
+
+## Examples
+
+### Icon button
+
+By default, `CopyButton` shows only an icon and a tooltip. Set `what` to name the value. After a copy, the icon is a check mark for 1.5 seconds. Use `variant="ghost"` in a dense row or a table.
+
+<Demo name="copy/button" title="A list of invoice numbers with a copy button in each row" />
+
+### Button with a label
+
+`label` gives the button a visible text. After a copy, the text is "Copied" for 1.5 seconds. If the label does not name the value, add `what` for screen readers.
+
+<Demo name="copy/button-label" title="Copy buttons with a label" />
+
+### Copy field
+
+`CopyField` selects its text when it gets the focus. The `size` prop is `md` (34px) by default, or `sm` (30px). Set `mono` to `false` for plain words. The field cuts a long value, but the button copies the full value.
+
+<Demo name="copy/field" align="stretch" title="Copy fields with two sizes, a plain value and a long value" />
+
+### Secret field
+
+`SecretField` hides the value until the user reveals it. Copy takes the real value and does not reveal it. `mask` replaces the default dots.
+
+<Demo name="copy/secret" align="stretch" title="A secret field and a secret field with a custom mask" />
+
+### Controlled reveal
+
+To control the reveal state, pass `revealed` and `onRevealedChange`. Here one [Switch](/docs/components/switch) shows or hides the two keys.
+
+<Demo name="copy/secret-controlled" align="stretch" title="A switch that reveals two secret fields" />
+
+### Custom texts
+
+`labels` replaces the built-in texts of the three components. Use it to translate them.
+
+<Demo name="copy/labels" align="stretch" title="A copy button and a secret field with custom texts" />
+
+## Accessibility
+
+- Always set `what` on an icon button. It gives the accessible name, for example "Copy API key".
+- After a copy, screen readers read "Copied".
+- Give each field a label. Use [Field](/docs/components/field), `FormRow` of [Form Card](/docs/components/form-card), or `aria-label`.
+
+## API reference
+
+### CopyButton
+
+`CopyButton` also accepts the props of [Button](/docs/components/button), but not `onClick` and `children`.
+
+<PropsTable of="CopyButton" />
+
+### CopyField
+
+`CopyField` accepts only the props of this table.
+
+<PropsTable of="CopyField" />
+
+### SecretField
+
+`SecretField` has the props of `CopyField` and the props of the reveal state.
+
+<PropsTable of="SecretField" />
+
+### CopyLabels
+
+The type of the `labels` object. Each entry is optional.
+
+| Key | Default | Text |
+| --- | --- | --- |
+| `copy` | "Copy" | The Copy button of a field. |
+| `copied` | "Copied" | The confirmation after a copy. |
+| `copyWhat(what)` | "Copy API key" | The name and the tooltip of an icon button. |
+| `reveal` | "Reveal" | The tooltip of the reveal button while the mask shows. |
+| `hide` | "Hide" | The tooltip of the reveal button while the value shows. |
+| `revealWhat(what)` | "Reveal API key" | The name of the reveal button while the mask shows. |
+| `hideWhat(what)` | "Hide API key" | The name of the reveal button while the value shows. |

@@ -1,0 +1,113 @@
+---
+title: Toggle Group
+description: A row of toggles that share one value.
+group: Primitives
+source: src/components/primitives/toggle-group.tsx
+---
+
+<Demo name="toggle-group/hero" title="A toggle group for the period of a report" />
+
+## Usage guidelines
+
+- **A compact choice.** Use a toggle group to change the view or the format of the same content.
+- **Not for panels.** To show one panel of a set, use [Tabs](/docs/components/tabs).
+- **Not for a long list.** For many options, use [Select](/docs/components/select) or [Radio Group](/docs/components/radio-group).
+- **One toggle alone.** For one option with two states, use [Toggle](/docs/components/toggle).
+
+## Anatomy
+
+Import the two parts. The `type` prop of the group and the `value` prop of each item are required.
+
+```tsx title="Anatomy"
+import { ToggleGroup, ToggleGroupItem } from 'libui-kit'
+
+<ToggleGroup type="single">
+  <ToggleGroupItem />
+</ToggleGroup>
+```
+
+| Part | Role |
+| --- | --- |
+| `ToggleGroup` | Holds the value. It gives its `variant` and its `size` to each item. |
+| `ToggleGroupItem` | One option. Its `value` identifies it. |
+
+## Examples
+
+### Single and multiple
+
+The `type` prop sets how many items the user can press.
+
+| Type | Value | Use |
+| --- | --- | --- |
+| `single` | A string | One option of a set: a view, a period, an alignment. |
+| `multiple` | An array of strings | Options that do not depend on each other. |
+
+The group holds its value by default. Use `defaultValue` to set it at the start. To control the value, pass `value` and `onValueChange`.
+
+<Demo name="toggle-group/multiple" title="A toggle group with more than one pressed item" />
+
+### One item always pressed
+
+With `type="single"`, a click on the pressed item sends an empty string. If one item must stay pressed, ignore the empty value in `onValueChange`.
+
+<Demo name="toggle-group/required" title="A view switch that keeps one item pressed" />
+
+### Variants
+
+The `variant` prop of the group sets the look of each item.
+
+<Demo name="toggle-group/variants" title="The variants of a toggle group" />
+
+| Variant | Look |
+| --- | --- |
+| `default` | Items with no border. |
+| `outline` | One control with a border. |
+
+### Sizes
+
+The `size` prop of the group sets the height of each item.
+
+<Demo name="toggle-group/sizes" title="The sizes of a toggle group" />
+
+| Size | Height |
+| --- | --- |
+| `tiny` | 26px |
+| `sm` | 30px (default) |
+| `md` | 34px |
+
+### Spacing
+
+By default, the items make one control. Pass `spacing` to put a gap between them. One unit is 4px.
+
+<Demo name="toggle-group/spacing" title="A toggle group with a gap between the items" />
+
+### Disabled state
+
+Set `disabled` on one item or on the group.
+
+<Demo name="toggle-group/disabled" title="A disabled item and a disabled group" />
+
+### Visible label
+
+Give the group an `aria-label`. For a label that the user sees, put the group in a [Field](/docs/components/field) with `labelAs="span"`.
+
+<Demo name="toggle-group/field" title="A toggle group with a visible label" />
+
+## Accessibility
+
+- The arrow keys move the focus between the items. <Kbd>Space</Kbd> or <Kbd>Enter</Kbd> presses the item that has the focus.
+- An item with only an icon must have its own `aria-label`. For a tooltip, wrap the item in [`Hint`](/docs/components/tooltip).
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### ToggleGroup
+
+<PropsTable of="ToggleGroup" />
+
+### ToggleGroupItem
+
+`value` is a required string.
+
+<PropsTable of="ToggleGroupItem" />

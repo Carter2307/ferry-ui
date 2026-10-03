@@ -1,0 +1,117 @@
+---
+title: Radio Card Group
+description: A group of cards where the user selects one option, each with a title and a description.
+group: Patterns
+source: src/components/patterns/radio-card-group.tsx
+---
+
+<Demo name="radio-card-group/hero" align="stretch" title="Three cards to select the visibility of a project" />
+
+## Usage guidelines
+
+- **For 2 to 6 options that need an explanation.** Each card has a title, and a description or an icon.
+- **A plain option needs no card.** For options with only a label, use [Radio Group](/docs/components/radio-group).
+- **A long list is a select.** Use [Select](/docs/components/select) for it.
+- **Other choices have their own control.** Use [Switch](/docs/components/switch) for on or off, and [Checkbox](/docs/components/checkbox) for many selections.
+- **The card is a button.** Do not put a button or a link in a card.
+
+## Anatomy
+
+Import the parts. Give the cards as data in `options`, or as `RadioCard` children.
+
+```tsx title="Anatomy"
+import { RadioCard, RadioCardGroup } from 'libui-kit'
+
+<RadioCardGroup options={[{ value: '', label: '', description: '' }]} />
+
+<RadioCardGroup>
+  <RadioCard value="" label="" description="" />
+</RadioCardGroup>
+```
+
+The group must have a name. Put it in a [Field](/docs/components/field) with `labelAs="span"`, or pass `aria-label`.
+
+## Examples
+
+### Sizes and columns
+
+The `size` prop is `lg` by default. Use `sm` for a choice in a form. `columns` sets 1, 2 or 3 columns. A phone shows one column.
+
+<Demo name="radio-card-group/sizes" align="stretch" title="The sizes of Radio Card Group" />
+
+### Appearances
+
+The `appearance` prop sets the look of the selected card. Use `soft` in a form that is in a card.
+
+<Demo name="radio-card-group/appearances" align="stretch" title="The appearances of Radio Card Group" />
+
+| Appearance | Selected card | Default indicator |
+| --- | --- | --- |
+| `outline` (default) | A primary outline. | `check` |
+| `soft` | A soft primary fill. | `radio` |
+
+### Indicators
+
+The `indicator` prop sets the mark of the selected card.
+
+<Demo name="radio-card-group/indicators" align="stretch" title="The indicators of Radio Card Group" />
+
+| Indicator | Mark |
+| --- | --- |
+| `check` | A round check mark in the top right corner. |
+| `radio` | A radio dot at the end of the row. |
+| `none` | No mark. Only the border or the fill shows the selection. |
+
+### Controlled state
+
+Pass `value` and `onValueChange`. For a controlled group with no selection, pass `null`. With `undefined`, the group is uncontrolled.
+
+<Demo name="radio-card-group/controlled" align="stretch" title="A controlled group with a Clear button" />
+
+### More content in a card
+
+`RadioCard` shows its children below the description. Use them for a price or a [Badge](/docs/components/badge).
+
+<Demo name="radio-card-group/children" align="stretch" title="Three plans with a price in each card" />
+
+### Preview
+
+`media` puts a preview above the label. Use it to select a layout or an appearance.
+
+<Demo name="radio-card-group/media" align="stretch" title="Two layouts with a preview" />
+
+### Error
+
+While a `Field` shows an `error`, it sets `aria-invalid` on the group. The cards that are not selected then get a red border.
+
+<Demo name="radio-card-group/invalid" align="stretch" title="A form that shows an error when no plan is selected" />
+
+## Accessibility
+
+- The arrow keys move the focus and select a card. <Kbd>Tab</Kbd> enters and leaves the group.
+- The `label` is the accessible name of a card. The `description` is its accessible description.
+- The icon and the preview are decorative.
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive, the root and the item of RadioGroup.
+
+### RadioCardGroup
+
+<PropsTable of="RadioCardGroup" />
+
+### RadioCard
+
+<PropsTable of="RadioCard" />
+
+### RadioCardOption
+
+The type of one item of `options`.
+
+| Key | Type | Role |
+| --- | --- | --- |
+| `value` | `string` | The value of the card. Required. It must be unique in the group. |
+| `label` | `ReactNode` | The title of the card. Required. |
+| `description` | `ReactNode` | The text below the title. |
+| `icon` | `ReactNode` | A line icon in a box at the start of the card. |
+| `disabled` | `boolean` | The user cannot select the card. |
