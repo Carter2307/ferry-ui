@@ -3987,3 +3987,7 @@ npm run test                                                   # everything (sto
 npm run check:docs                                             # snippets of the docs + catalog coverage
 npm run build                                                  # dist: ESM + .d.ts + CSS
 ```
+
+A new public component also gets a page on the documentation site: `site/src/content/components/<name>.mdx`,
+with its live demos in `site/src/demos/<name>/`. `site/AUTHORING.md` gives the structure of a page and the
+writing rules; `npm run site:verify` checks the page, its demos and its links.
