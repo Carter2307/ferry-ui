@@ -94,7 +94,9 @@ Radix UI, lucide-react, cmdk, sonner and the class helpers are regular dependenc
 with the package. Everything is imported from the package root (`import { Button } from 'libui-kit'`); deep
 imports into `libui-kit/dist` are not part of the API.
 
-### From npm (once published)
+### From npm
+
+The package is named `libui-kit` on npm. (The name `libui` there belongs to another project.)
 
 ```sh
 npm install libui-kit
@@ -102,7 +104,8 @@ npm install libui-kit
 
 ### From a local checkout
 
-Build a tarball and install it. `npm pack` runs the build first (`prepack`).
+To try a version that is not released, build a tarball and install it. `npm pack` runs the build first
+(`prepack`).
 
 ```sh
 # in the libui checkout
@@ -122,7 +125,7 @@ creates a symlink, so two rules apply: run `npm run build` in libui after each c
 
 `dist/` is not committed, so a git dependency has to build itself during installation. npm does that
 with a `prepare` script only; libui builds in `prepack`, which npm does not run for git dependencies.
-Until a `prepare` script is added, install from a checkout instead:
+Until a `prepare` script is added, install from npm, or from a checkout:
 
 ```sh
 git clone https://github.com/Carter2307/libui.git libui
