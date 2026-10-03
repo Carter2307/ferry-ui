@@ -17,7 +17,7 @@
 //    must be mentioned in AGENTS.md, so a new export cannot ship undocumented.
 //
 // Usage: node scripts/check-docs-snippets.mjs [--keep] [--no-coverage] [files…]
-//   --keep         keep the temporary folder (node_modules/.cache/libui-docs-check) for debugging
+//   --keep         keep the temporary folder (node_modules/.cache/ferry-ui-docs-check) for debugging
 //   --no-coverage  skip the catalog coverage check
 //   files…         Markdown / MDX files to check instead of the default list
 import { spawnSync } from 'node:child_process'
@@ -33,7 +33,7 @@ const DEFAULT_DOCS = ['AGENTS.md', 'README.md', 'src/foundations/introduction.md
 /** The document whose catalog must mention every public export. */
 const CATALOG_DOC = 'AGENTS.md'
 /** Inside node_modules: ignored by git, ESLint, Tailwind and the project's own tsconfig. */
-const TEMP_DIR = join(root, 'node_modules', '.cache', 'libui-docs-check')
+const TEMP_DIR = join(root, 'node_modules', '.cache', 'ferry-ui-docs-check')
 
 const args = process.argv.slice(2)
 const keep = args.includes('--keep')
@@ -132,7 +132,7 @@ for (const doc of docs) {
 
 /**
  * Minimal declarations for the routers the docs show adapters for. They are only used when the
- * package is not installed here (libui depends on no router): just enough of the real API to check
+ * package is not installed here (ferry-ui depends on no router): just enough of the real API to check
  * that a `LinkComponent` adapter forwards the right props.
  */
 const ROUTER_STUBS = {

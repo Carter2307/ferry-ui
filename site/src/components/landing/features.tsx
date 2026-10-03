@@ -267,9 +267,9 @@ function AccessibilityDemo() {
   )
 }
 
-const LLMS_EXCERPT = `# libui
+const LLMS_EXCERPT = `# ferry-ui
 
-> libui is a React 19 design system for product interfaces.
+> ferry-ui is a React 19 design system for product interfaces.
 
 ## Primitives
 
@@ -375,7 +375,7 @@ export function Features({ onSearch }: { onSearch: () => void }) {
         <Reveal className="mt-14">
           <p className="max-w-[46rem] text-xl leading-snug font-medium text-foreground-lighter sm:text-2xl">
             <span className="text-foreground">One package, one import.</span> The page you read now uses the same
-            components: its navigation, its search, its code blocks and its tables are libui.
+            components: its navigation, its search, its code blocks and its tables are ferry-ui.
           </p>
         </Reveal>
       </div>

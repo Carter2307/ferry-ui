@@ -1,6 +1,6 @@
 ---
 title: LinkProvider
-description: A provider that sends each link of libui through the link component of your router.
+description: A provider that sends each link of ferry-ui through the link component of your router.
 source: src/lib/link.tsx
 ---
 
@@ -8,7 +8,7 @@ source: src/lib/link.tsx
 
 ## Usage
 
-libui does not import a router. A component with a link takes an `href` string and renders an `<a>` element. `LinkProvider` replaces this element with the link of your router. Then a click does not load a full page.
+ferry-ui does not import a router. A component with a link takes an `href` string and renders an `<a>` element. `LinkProvider` replaces this element with the link of your router. Then a click does not load a full page.
 
 Write an adapter at module level. Mount the provider one time, near the root of the app.
 
@@ -28,13 +28,13 @@ export function Providers({ children }: { children: ReactNode }) {
 - **Forward all the props.** The adapter gets `href` and the attributes of an anchor, for example `className`, `onClick` and `aria-current`. Give them all to the link.
 - **Keep the adapter stable.** Define it at module level, not in a component.
 - **Not for your own links.** For a link that you write, use the link of your router.
-- **Not necessary with no router.** With no provider, libui renders plain `<a>` elements.
+- **Not necessary with no router.** With no provider, ferry-ui renders plain `<a>` elements.
 
 ## Examples
 
 ### Adapters
 
-The adapter gives `href` to the link of your router. libui gives a plain string. If your router has typed routes, cast `href` in the adapter.
+The adapter gives `href` to the link of your router. ferry-ui gives a plain string. If your router has typed routes, cast `href` in the adapter.
 
 | Router | Adapter |
 | --- | --- |

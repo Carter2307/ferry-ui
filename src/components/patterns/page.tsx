@@ -127,7 +127,7 @@ export interface PageBackLinkProps extends LinkComponentProps {
 /**
  * The "← Parent" link above the title of a detail or create page: a left arrow and the parent
  * page's name, 13px lighter foreground that brightens on hover, with a focus ring. It renders
- * through the libui link contract (the nearest `LinkProvider`'s component or `linkComponent`).
+ * through the ferry-ui link contract (the nearest `LinkProvider`'s component or `linkComponent`).
  *
  * Put it in {@link PageHeader}'s `eyebrow`. Do NOT use it for browser-history "back" buttons
  * (it always points at a fixed parent `href`), or when the hierarchy is deeper than one level

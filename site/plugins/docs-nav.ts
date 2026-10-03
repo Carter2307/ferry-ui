@@ -18,7 +18,7 @@ export function docsNav(): Plugin {
     return `export const groups = ${JSON.stringify(GROUPS)}\nexport const pages = ${last}\n`
   }
   return {
-    name: 'libui-site:docs-nav',
+    name: 'ferry-ui-site:docs-nav',
     resolveId(id) {
       return id === VIRTUAL_ID ? RESOLVED_ID : undefined
     },

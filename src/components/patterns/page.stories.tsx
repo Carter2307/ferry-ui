@@ -38,7 +38,7 @@ const meta = {
   title: 'Patterns/Page',
   component: PageHeader,
   subcomponents: { PageContainer, PageSection, PageBackLink },
-  // Every libui link on these pages goes through a fake router, so clicks stay in the story.
+  // Every ferry-ui link on these pages goes through a fake router, so clicks stay in the story.
   decorators: [
     (Story) => (
       <LinkProvider component={RouterLink}>

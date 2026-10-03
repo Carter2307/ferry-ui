@@ -226,7 +226,7 @@ export interface ExampleAppProps {
 /**
  * The signed-in frame every example page sits in, composed once at the app root:
  *
- * - `LinkProvider` so every libui link goes through the router adapter;
+ * - `LinkProvider` so every ferry-ui link goes through the router adapter;
  * - `AppShell` with a `TopBar` (logo, workspace `ResourceSwitcher`, page trail, `TopBarSearch`,
  *   help button, `ThemeMenu`, `TopBarUserMenu`), an `IconRail` on desktop and a `MobileNav` drawer
  *   on phones, both fed by the same `NavGroup[]`;

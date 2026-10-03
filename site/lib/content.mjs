@@ -9,7 +9,7 @@ import GithubSlugger from 'github-slugger'
 
 /** Absolute path of the `site/` folder. */
 export const SITE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-/** Absolute path of the repository (the libui package). */
+/** Absolute path of the repository (the ferry-ui package). */
 export const REPO_ROOT = path.resolve(SITE_ROOT, '..')
 export const CONTENT_DIR = path.join(SITE_ROOT, 'src', 'content')
 export const DEMOS_DIR = path.join(SITE_ROOT, 'src', 'demos')

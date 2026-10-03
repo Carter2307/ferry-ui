@@ -81,7 +81,7 @@ export function Install() {
               <Reveal>
                 <h3 className="text-base font-medium text-foreground">Install the package</h3>
                 <p className="mt-1 mb-3 text-sm text-foreground-lighter">
-                  One package, named ferry-ui on npm, with the components, the tokens and the stylesheets.
+                  One package, with the components, the tokens and the stylesheets.
                 </p>
                 <PackageTabs packages="ferry-ui" />
               </Reveal>
@@ -99,18 +99,7 @@ export function Install() {
         </div>
 
         <div className="space-y-3 lg:pt-[7.75rem]">
-          <Reveal delay={0.0} className="rounded-xl border bg-surface-100 p-6">
-            <h3 className="text-base font-medium text-foreground">Its name on npm is ferry-ui</h3>
-            <p className="mt-2 text-sm text-foreground-lighter">
-              The name libui on npm is another project. Install{' '}
-              <code className="font-mono text-[0.9em] text-foreground">ferry-ui</code> and import from{' '}
-              <code className="font-mono text-[0.9em] text-foreground">ferry-ui</code>.
-            </p>
-            <RouterLink className="text-link mt-4 inline-block text-sm" href="/docs/overview/installation">
-              Read the installation page
-            </RouterLink>
-          </Reveal>
-          <Reveal delay={0.08} className="rounded-xl border bg-surface-100 p-6">
+          <Reveal delay={0} className="rounded-xl border bg-surface-100 p-6">
             <h3 className="text-base font-medium text-foreground">No Tailwind in your app?</h3>
             <p className="mt-2 text-sm text-foreground-lighter">
               Import <code className="font-mono text-[0.9em] text-foreground">ferry-ui/styles.css</code> at the root of
@@ -120,10 +109,10 @@ export function Install() {
               Read about styling
             </RouterLink>
           </Reveal>
-          <Reveal delay={0.16} className="rounded-xl border bg-surface-100 p-6">
+          <Reveal delay={0.08} className="rounded-xl border bg-surface-100 p-6">
             <h3 className="text-base font-medium text-foreground">Your colors, your fonts</h3>
             <p className="mt-2 text-sm text-foreground-lighter">
-              Override a few CSS variables after the import to give libui the look of your product, in light and in
+              Override a few CSS variables after the import to give ferry-ui the look of your product, in light and in
               dark.
             </p>
             <RouterLink className="text-link mt-4 inline-block text-sm" href="/docs/handbook/theming">

@@ -223,7 +223,7 @@ export interface PixelFieldProps {
 
 /**
  * A decorative background: a dense field of small pixels that thins out into the page, drawn by a
- * WebGPU shader and moving slowly. The colors are libui tokens (`foreground` and `primary-bright`),
+ * WebGPU shader and moving slowly. The colors are ferry-ui tokens (`foreground` and `primary-bright`),
  * so the field follows the theme. Use it at an edge of the page: the top of the hero, the bottom of
  * the footer.
  *

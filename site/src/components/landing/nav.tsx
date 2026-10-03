@@ -59,7 +59,7 @@ export function Nav({ onSearch }: { onSearch: () => void }) {
       <div className="container-page flex h-16 items-center gap-6">
         <RouterLink
           href="/"
-          aria-label="libui home"
+          aria-label="ferry-ui home"
           className="rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <Wordmark />
@@ -77,8 +77,8 @@ export function Nav({ onSearch }: { onSearch: () => void }) {
             <Kbd>{mod} K</Kbd>
           </Button>
           <Button variant="ghost" size="icon-md" icon={<Search />} onClick={onSearch} aria-label="Search the docs" className="lg:hidden" />
-          <Button asChild variant="ghost" size="icon-md" icon={<GithubIcon />} className="max-sm:hidden">
-            <a href={GITHUB_URL} aria-label="libui on GitHub" />
+          <Button asChild variant="ghost" size="icon-md" icon={<GithubIcon />} className="max-lg:hidden">
+            <a href={GITHUB_URL} aria-label="ferry-ui on GitHub" />
           </Button>
           <ThemeToggle />
           <Button asChild variant="primary" size="md" className="ml-1.5">

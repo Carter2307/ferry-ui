@@ -14,7 +14,7 @@ interface CodeProps {
 }
 
 /**
- * A code sample: libui's `CodeBlock` with token colors and an optional title bar. Shell commands
+ * A code sample: ferry-ui's `CodeBlock` with token colors and an optional title bar. Shell commands
  * show a `$` prompt that the copy button leaves out.
  */
 export function Code({ code, language, title, className }: CodeProps) {
@@ -62,7 +62,7 @@ const MANAGERS = [
 
 type ManagerId = (typeof MANAGERS)[number]['id']
 
-const STORAGE_KEY = 'libui-site-package-manager'
+const STORAGE_KEY = 'ferry-ui-site-package-manager'
 const listeners = new Set<() => void>()
 let choice: ManagerId | null = null
 
