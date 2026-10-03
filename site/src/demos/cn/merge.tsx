@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react'
-import { cn } from '@roger.b/libui'
+import { cn } from 'ferry-ui'
 
 // The base classes come first and `className` comes last: the class of the caller wins.
 function Panel({ className, ...props }: ComponentProps<'div'>) {

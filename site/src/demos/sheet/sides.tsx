@@ -1,4 +1,4 @@
-import { Button, Sheet, SheetBody, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@roger.b/libui'
+import { Button, Sheet, SheetBody, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from 'ferry-ui'
 
 const SIDES = ['top', 'right', 'bottom', 'left'] as const
 

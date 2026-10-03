@@ -12,7 +12,7 @@ import {
   TopBarSegment,
   TopBarSeparator,
   type NavGroup,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { Outlet, useLocation } from 'react-router'
 
 import { GithubIcon, LogoMark } from '@/components/logo'

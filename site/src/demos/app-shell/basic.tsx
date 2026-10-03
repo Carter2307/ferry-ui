@@ -16,7 +16,7 @@ import {
   TopBarSeparator,
   TopBarUserMenu,
   type NavGroup,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { CreditCard, FolderKanban, LayoutDashboard, Settings, Users } from 'lucide-react'
 
 const PAGES = [

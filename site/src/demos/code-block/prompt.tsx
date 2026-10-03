@@ -1,4 +1,4 @@
-import { CodeBlock } from '@roger.b/libui'
+import { CodeBlock } from 'ferry-ui'
 
 const SETUP = `git clone https://example.com/acme/web-app.git
 cd web-app

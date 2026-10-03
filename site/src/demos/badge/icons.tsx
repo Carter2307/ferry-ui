@@ -1,4 +1,4 @@
-import { Badge } from '@roger.b/libui'
+import { Badge } from 'ferry-ui'
 import { Lock, Sparkles, Users } from 'lucide-react'
 
 export default function BadgeIcons() {

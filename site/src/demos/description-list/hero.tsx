@@ -1,4 +1,4 @@
-import { DescriptionItem, DescriptionList, StatusBadge } from '@roger.b/libui'
+import { DescriptionItem, DescriptionList, StatusBadge } from 'ferry-ui'
 
 export default function DescriptionListHero() {
   return (

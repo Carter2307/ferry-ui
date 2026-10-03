@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Kbd, useModKey } from '@roger.b/libui'
+import { Button, Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Kbd, useModKey } from 'ferry-ui'
 
 export default function DialogNoDescription() {
   const mod = useModKey()

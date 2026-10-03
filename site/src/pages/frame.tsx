@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { EmptyState } from '@roger.b/libui'
+import { EmptyState } from 'ferry-ui'
 import { FileQuestion } from 'lucide-react'
 import { useSearchParams } from 'react-router'
 

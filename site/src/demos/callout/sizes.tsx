@@ -1,4 +1,4 @@
-import { Callout } from '@roger.b/libui'
+import { Callout } from 'ferry-ui'
 
 export default function CalloutSizes() {
   return (

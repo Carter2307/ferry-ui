@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from '@roger.b/libui'
+import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from 'ferry-ui'
 
 export default function Controlled() {
   // The state is in your code: you read it and you change it.

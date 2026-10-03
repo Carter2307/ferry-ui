@@ -1,4 +1,4 @@
-import { DescriptionItem, DescriptionList } from '@roger.b/libui'
+import { DescriptionItem, DescriptionList } from 'ferry-ui'
 
 export default function DescriptionListColumns() {
   return (

@@ -11,7 +11,7 @@ import {
   TableSkeletonRows,
   ToggleGroup,
   ToggleGroupItem,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 
 const INVOICES = [
   { number: 'INV-2041', amount: '$1,250.00' },

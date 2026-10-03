@@ -1,4 +1,4 @@
-import { StatusDot } from '@roger.b/libui'
+import { StatusDot } from 'ferry-ui'
 
 export default function StatusDots() {
   return (

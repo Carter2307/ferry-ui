@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { cn, useTheme } from '@roger.b/libui'
+import { cn, useTheme } from 'ferry-ui'
 
 import { withBase } from '@/config'
 

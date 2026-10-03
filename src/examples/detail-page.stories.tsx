@@ -13,7 +13,7 @@ const meta = {
   component: DetailPageExample,
   parameters: exampleParameters(
     [
-      'The page of one record (here: an API key), built only from the public `@roger.b/libui` exports.',
+      'The page of one record (here: an API key), built only from the public `ferry-ui` exports.',
       '',
       '- **Header** — `PageHeader` at `size="lg"` with a `PageBackLink` to the parent list in `eyebrow`, a small `StatusBadge` next to the title and the record actions on the right (the destructive one last). Both actions open a controlled `ConfirmDialog` rendered once at the end of the page. The top-bar trail repeats the hierarchy.',
       '- **What needs attention** — a `Callout` stays on the page while the condition holds (`warning` with an action at the `end`, `destructive` once revoked). Results of an action are `toast`s instead.',

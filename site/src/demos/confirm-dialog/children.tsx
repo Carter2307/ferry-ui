@@ -1,4 +1,4 @@
-import { Button, Callout, Checkbox, ConfirmDialog, Label, toast } from '@roger.b/libui'
+import { Button, Callout, Checkbox, ConfirmDialog, Label, toast } from 'ferry-ui'
 
 export default function ConfirmDialogChildren() {
   return (

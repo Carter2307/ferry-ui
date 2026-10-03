@@ -1,4 +1,4 @@
-import { MetricCard } from '@roger.b/libui'
+import { MetricCard } from 'ferry-ui'
 
 export default function MetricCardInfo() {
   return (

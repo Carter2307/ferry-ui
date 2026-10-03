@@ -1,4 +1,4 @@
-import { CodeBlock } from '@roger.b/libui'
+import { CodeBlock } from 'ferry-ui'
 
 const PLACEHOLDERS = [
   { code: '{{customer.first_name}}', help: 'The first name of the customer.' },

@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@roger.b/libui'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'ferry-ui'
 
 export default function Uncontrolled() {
   return (

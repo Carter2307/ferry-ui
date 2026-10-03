@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Label, SecretField, Switch } from '@roger.b/libui'
+import { Label, SecretField, Switch } from 'ferry-ui'
 
 export default function CopySecretControlled() {
   const [shown, setShown] = React.useState(false)

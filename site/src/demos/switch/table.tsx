@@ -1,4 +1,4 @@
-import { Switch, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@roger.b/libui'
+import { Switch, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'ferry-ui'
 
 const API_KEYS = [
   { id: 'production', name: 'Production', created: 'Mar 4, 2026', enabled: true },

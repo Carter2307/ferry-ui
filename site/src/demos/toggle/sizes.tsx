@@ -1,4 +1,4 @@
-import { Toggle } from '@roger.b/libui'
+import { Toggle } from 'ferry-ui'
 
 export default function ToggleSizes() {
   return (

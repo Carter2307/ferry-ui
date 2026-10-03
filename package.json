@@ -1,5 +1,5 @@
 {
-  "name": "@roger.b/libui",
+  "name": "ferry-ui",
   "version": "0.1.0",
   "description": "libui \u2014 a general-purpose React design system (tokens, primitives, patterns, layout) built on Radix UI, Tailwind CSS v4 and shadcn/ui conventions.",
   "type": "module",
@@ -22,9 +22,6 @@
     "AGENTS.md",
     "LICENSE"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

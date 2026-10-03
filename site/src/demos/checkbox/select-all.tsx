@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox, Label } from '@roger.b/libui'
+import { Checkbox, Label } from 'ferry-ui'
 
 const MEMBERS = [
   { id: 'maya', name: 'Maya Chen' },

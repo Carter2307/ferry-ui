@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
   cn,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 
 import { RouterLink } from '@/components/providers'
 

@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 
 export default function DialogWithTitle() {
   return (

@@ -1,4 +1,4 @@
-import { FormCard, FormRow, Switch } from '@roger.b/libui'
+import { FormCard, FormRow, Switch } from 'ferry-ui'
 
 export default function SwitchHero() {
   return (

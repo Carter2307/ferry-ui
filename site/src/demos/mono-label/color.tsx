@@ -1,4 +1,4 @@
-import { MonoLabel } from '@roger.b/libui'
+import { MonoLabel } from 'ferry-ui'
 
 export default function MonoLabelColor() {
   return (

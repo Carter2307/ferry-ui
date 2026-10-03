@@ -1,4 +1,4 @@
-import { InfoTile } from '@roger.b/libui'
+import { InfoTile } from 'ferry-ui'
 import { CalendarDays, CreditCard } from 'lucide-react'
 
 export default function InfoTileHint() {

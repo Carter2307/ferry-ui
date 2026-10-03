@@ -1,4 +1,4 @@
-import { Checkbox, Field, Label, RadioGroup, RadioGroupItem, Switch } from '@roger.b/libui'
+import { Checkbox, Field, Label, RadioGroup, RadioGroupItem, Switch } from 'ferry-ui'
 
 export default function Choices() {
   return (

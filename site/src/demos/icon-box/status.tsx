@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { IconBox, type IconBoxTone } from '@roger.b/libui'
+import { IconBox, type IconBoxTone } from 'ferry-ui'
 import { AlertTriangle, CreditCard, Receipt, UserPlus } from 'lucide-react'
 
 const EVENTS: { tone: IconBoxTone; icon: ReactNode; title: string; meta: string }[] = [

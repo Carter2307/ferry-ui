@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox, Label, cn } from '@roger.b/libui'
+import { Checkbox, Label, cn } from 'ferry-ui'
 
 export default function CnHero() {
   const [selected, setSelected] = React.useState(true)

@@ -1,4 +1,4 @@
-import { cn } from '@roger.b/libui'
+import { cn } from 'ferry-ui'
 
 const BORDERS = [
   { className: 'border', variable: '--border' },

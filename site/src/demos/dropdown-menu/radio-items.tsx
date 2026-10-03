@@ -7,7 +7,7 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { ArrowUpDown } from 'lucide-react'
 
 const LABELS: Record<string, string> = {

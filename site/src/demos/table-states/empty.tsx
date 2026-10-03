@@ -1,4 +1,4 @@
-import { Table, TableBody, TableHead, TableHeader, TableMessageRow, TableRow } from '@roger.b/libui'
+import { Table, TableBody, TableHead, TableHeader, TableMessageRow, TableRow } from 'ferry-ui'
 
 export default function TableStatesEmpty() {
   return (

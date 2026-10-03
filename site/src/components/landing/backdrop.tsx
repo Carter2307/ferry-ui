@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { cn } from '@roger.b/libui'
+import { cn } from 'ferry-ui'
 
 import { PixelField } from './pixel-field'
 

@@ -1,4 +1,4 @@
-import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from '@roger.b/libui'
+import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from 'ferry-ui'
 import { ChevronRight } from 'lucide-react'
 
 export default function CollapsibleAnimated() {

@@ -1,4 +1,4 @@
-import { Button, useCopy } from '@roger.b/libui'
+import { Button, useCopy } from 'ferry-ui'
 import { Check, Copy } from 'lucide-react'
 
 export default function UseCopyTimeout() {

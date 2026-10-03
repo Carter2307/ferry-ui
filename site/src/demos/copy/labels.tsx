@@ -1,4 +1,4 @@
-import { CopyButton, SecretField, type CopyLabels } from '@roger.b/libui'
+import { CopyButton, SecretField, type CopyLabels } from 'ferry-ui'
 
 // Module level: all the copy components of the app use this object. An entry that you leave out keeps its default.
 const LABELS: Partial<CopyLabels> = {

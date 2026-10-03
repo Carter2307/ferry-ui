@@ -1,4 +1,4 @@
-import { DropdownMenuItem, SplitButton } from '@roger.b/libui'
+import { DropdownMenuItem, SplitButton } from 'ferry-ui'
 
 const SIZES = [
   { size: 'tiny', label: 'Tiny' },

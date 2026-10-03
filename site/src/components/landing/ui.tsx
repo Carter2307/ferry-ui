@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { cn } from '@roger.b/libui'
+import { cn } from 'ferry-ui'
 
 import { Divider } from './backdrop'
 import { Reveal } from './reveal'

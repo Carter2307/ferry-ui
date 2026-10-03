@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableMessageRow,
   TableRow,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { X } from 'lucide-react'
 
 const CUSTOMERS = [

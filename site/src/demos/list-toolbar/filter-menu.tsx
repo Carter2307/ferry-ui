@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FilterMenu, StatusDot, type FilterOption } from '@roger.b/libui'
+import { FilterMenu, StatusDot, type FilterOption } from 'ferry-ui'
 
 const STATUS_OPTIONS: FilterOption[] = [
   { value: 'paid', label: 'Paid', count: 18, icon: <StatusDot tone="success" /> },

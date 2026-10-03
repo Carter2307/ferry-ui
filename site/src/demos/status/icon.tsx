@@ -1,4 +1,4 @@
-import { StatusBadge } from '@roger.b/libui'
+import { StatusBadge } from 'ferry-ui'
 import { CreditCard, Lock, ShieldAlert } from 'lucide-react'
 
 export default function StatusIcon() {

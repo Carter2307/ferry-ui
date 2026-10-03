@@ -1,4 +1,4 @@
-import { Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@roger.b/libui'
+import { Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'ferry-ui'
 
 export default function SelectHero() {
   return (

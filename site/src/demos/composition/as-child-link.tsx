@@ -1,4 +1,4 @@
-import { Button } from '@roger.b/libui'
+import { Button } from 'ferry-ui'
 import { ExternalLink } from 'lucide-react'
 
 export default function AsChildLink() {

@@ -1,4 +1,4 @@
-import { Button, ConfirmDialog, toast } from '@roger.b/libui'
+import { Button, ConfirmDialog, toast } from 'ferry-ui'
 import { KeyRound } from 'lucide-react'
 
 // Stands for a request to your server.

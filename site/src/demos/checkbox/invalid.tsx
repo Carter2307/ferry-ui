@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Checkbox, Label, toast } from '@roger.b/libui'
+import { Button, Checkbox, Label, toast } from 'ferry-ui'
 
 export default function CheckboxInvalid() {
   const [accepted, setAccepted] = React.useState(false)

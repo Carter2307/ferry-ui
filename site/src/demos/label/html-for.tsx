@@ -1,4 +1,4 @@
-import { Label, Switch } from '@roger.b/libui'
+import { Label, Switch } from 'ferry-ui'
 
 export default function LabelHtmlFor() {
   return (

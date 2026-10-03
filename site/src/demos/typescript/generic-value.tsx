@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { RadioCardGroup, type RadioCardOption } from '@roger.b/libui'
+import { RadioCardGroup, type RadioCardOption } from 'ferry-ui'
 import { Globe, Lock } from 'lucide-react'
 
 type Visibility = 'private' | 'public'

@@ -1,4 +1,4 @@
-import { Kbd, useModKey } from '@roger.b/libui'
+import { Kbd, useModKey } from 'ferry-ui'
 
 export default function UsePlatformHero() {
   // "⌘" on an Apple device, "Ctrl" on other devices.

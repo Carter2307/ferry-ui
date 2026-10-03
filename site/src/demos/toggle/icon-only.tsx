@@ -1,4 +1,4 @@
-import { Hint, Toggle } from '@roger.b/libui'
+import { Hint, Toggle } from 'ferry-ui'
 import { Bold, Italic, Underline } from 'lucide-react'
 
 export default function ToggleIconOnly() {

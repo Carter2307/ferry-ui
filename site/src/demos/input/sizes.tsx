@@ -1,4 +1,4 @@
-import { Input } from '@roger.b/libui'
+import { Input } from 'ferry-ui'
 
 export default function InputSizes() {
   return (

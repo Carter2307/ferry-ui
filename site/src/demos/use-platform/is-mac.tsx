@@ -1,4 +1,4 @@
-import { Kbd, useIsMac } from '@roger.b/libui'
+import { Kbd, useIsMac } from 'ferry-ui'
 
 export default function UsePlatformIsMac() {
   const isMac = useIsMac()

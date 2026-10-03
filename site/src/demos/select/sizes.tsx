@@ -1,4 +1,4 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@roger.b/libui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'ferry-ui'
 
 const SIZES = ['tiny', 'sm', 'md'] as const
 

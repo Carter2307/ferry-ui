@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from '@roger.b/libui'
+import { Button, type ButtonProps } from 'ferry-ui'
 import { Download } from 'lucide-react'
 
 // Each prop of Button, but this component sets the icon and the text.

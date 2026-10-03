@@ -1,4 +1,4 @@
-import { Badge } from '@roger.b/libui'
+import { Badge } from 'ferry-ui'
 
 const PLAN = 'Enterprise annual plan with priority support'
 

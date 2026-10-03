@@ -10,7 +10,7 @@ import {
   AlertDialogTrigger,
   Button,
   toast,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { Trash2 } from 'lucide-react'
 
 export default function AlertDialogHero() {

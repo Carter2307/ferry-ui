@@ -1,4 +1,4 @@
-import { Badge, Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@roger.b/libui'
+import { Badge, Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'ferry-ui'
 import { ArrowUpRight } from 'lucide-react'
 
 export default function CardWithFooter() {

@@ -26,7 +26,7 @@ function themeScript(): Plugin {
 }
 
 // The documentation site of libui: the landing page and the docs, built with libui itself.
-// `@roger.b/libui` resolves to the sources (../src), so a demo always shows the current code.
+// `ferry-ui` resolves to the sources (../src), so a demo always shows the current code.
 export default defineConfig({
   root,
   // Served from a sub-path (GitHub Pages: /libui/)? Build with SITE_BASE=/libui/.
@@ -47,7 +47,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@roger.b/libui': fileURLToPath(new URL('../src/index.ts', import.meta.url)),
+      'ferry-ui': fileURLToPath(new URL('../src/index.ts', import.meta.url)),
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },

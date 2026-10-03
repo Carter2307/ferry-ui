@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   toast,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { MoreHorizontal, Pencil, Trash2 } from 'lucide-react'
 
 export default function DropdownMenuConfirm() {

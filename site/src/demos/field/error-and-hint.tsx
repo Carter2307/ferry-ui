@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Field, Input } from '@roger.b/libui'
+import { Field, Input } from 'ferry-ui'
 
 export default function FieldErrorAndHint() {
   const [seats, setSeats] = React.useState('80')

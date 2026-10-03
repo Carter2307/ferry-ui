@@ -8,7 +8,7 @@ import {
   SelectValue,
   ToggleGroup,
   ToggleGroupItem,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 
 export default function FormCardComposite() {
   return (

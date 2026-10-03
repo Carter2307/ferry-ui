@@ -1,4 +1,4 @@
-import { MetricCard, MetricTrend, UsageBar } from '@roger.b/libui'
+import { MetricCard, MetricTrend, UsageBar } from 'ferry-ui'
 
 export default function MetricCardHero() {
   return (

@@ -1,4 +1,4 @@
-import { Field, Label, RadioGroup, RadioGroupItem } from '@roger.b/libui'
+import { Field, Label, RadioGroup, RadioGroupItem } from 'ferry-ui'
 
 export default function FieldGroup() {
   return (

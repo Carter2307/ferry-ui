@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 
 const CHANGES = [
   'Invoices show the tax for each line.',

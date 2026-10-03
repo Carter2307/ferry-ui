@@ -1,4 +1,4 @@
-import { Badge, Button, StatusBadge } from '@roger.b/libui'
+import { Badge, Button, StatusBadge } from 'ferry-ui'
 
 export default function LookFromProps() {
   return (

@@ -1,4 +1,4 @@
-import { Button, Kbd, toast, useModKey } from '@roger.b/libui'
+import { Button, Kbd, toast, useModKey } from 'ferry-ui'
 import { Search } from 'lucide-react'
 
 export default function KbdModKey() {

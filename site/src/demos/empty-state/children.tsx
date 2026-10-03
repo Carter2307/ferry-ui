@@ -1,4 +1,4 @@
-import { Button, CodeBlock, EmptyState, toast } from '@roger.b/libui'
+import { Button, CodeBlock, EmptyState, toast } from 'ferry-ui'
 import { KeyRound, Plus } from 'lucide-react'
 
 export default function EmptyStateChildren() {

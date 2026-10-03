@@ -1,4 +1,4 @@
-import { Badge, Button, Card, CardContent, PageSection } from '@roger.b/libui'
+import { Badge, Button, Card, CardContent, PageSection } from 'ferry-ui'
 import { Plus } from 'lucide-react'
 
 export default function PageSections() {

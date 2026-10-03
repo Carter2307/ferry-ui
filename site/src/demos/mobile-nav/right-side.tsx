@@ -1,4 +1,4 @@
-import { MobileNav, MobileNavTrigger, type NavItem } from '@roger.b/libui'
+import { MobileNav, MobileNavTrigger, type NavItem } from 'ferry-ui'
 import { FolderKanban, LayoutDashboard, Users } from 'lucide-react'
 
 const ITEMS: NavItem[] = [

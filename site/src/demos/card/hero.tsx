@@ -1,4 +1,4 @@
-import { Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@roger.b/libui'
+import { Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'ferry-ui'
 
 export default function CardHero() {
   return (

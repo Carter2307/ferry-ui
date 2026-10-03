@@ -1,4 +1,4 @@
-import { DropdownMenuItem, SplitButton } from '@roger.b/libui'
+import { DropdownMenuItem, SplitButton } from 'ferry-ui'
 
 const VARIANTS = [
   { variant: 'default', label: 'Default' },

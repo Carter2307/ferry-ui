@@ -1,4 +1,4 @@
-import { Checkbox, Label } from '@roger.b/libui'
+import { Checkbox, Label } from 'ferry-ui'
 
 export default function CheckboxStates() {
   return (

@@ -10,7 +10,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { Check, ChevronsUpDown } from 'lucide-react'
 
 const MEMBERS = [

@@ -1,4 +1,4 @@
-import { ScrollArea } from '@roger.b/libui'
+import { ScrollArea } from 'ferry-ui'
 
 const ENTRIES = [
   'Maya Chen invited Jonas Weber',

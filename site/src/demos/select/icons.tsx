@@ -1,4 +1,4 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@roger.b/libui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'ferry-ui'
 import { Banknote, CreditCard, Landmark, Wallet } from 'lucide-react'
 
 export default function SelectIcons() {

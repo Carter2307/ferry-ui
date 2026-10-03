@@ -1,4 +1,4 @@
-import { cn } from '@roger.b/libui'
+import { cn } from 'ferry-ui'
 
 const RADII = [
   { className: 'rounded-sm', variable: '--libui-radius-sm', size: '4px' },

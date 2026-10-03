@@ -1,4 +1,4 @@
-import { Field, ToggleGroup, ToggleGroupItem } from '@roger.b/libui'
+import { Field, ToggleGroup, ToggleGroupItem } from 'ferry-ui'
 import { Monitor, Moon, Sun } from 'lucide-react'
 
 export default function ToggleGroupField() {

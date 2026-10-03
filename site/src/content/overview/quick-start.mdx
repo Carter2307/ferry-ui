@@ -6,9 +6,9 @@ order: 1
 
 ## Install the library
 
-libui is one package. Its name on npm is `@roger.b/libui`. It needs React 19.
+libui is one package. Its name on npm is `ferry-ui`. The name `libui` on npm is a different project. It needs React 19.
 
-<PackageTabs packages="@roger.b/libui" />
+<PackageTabs packages="ferry-ui" />
 
 Your bundle contains only the components that your app imports.
 
@@ -18,15 +18,15 @@ Your app uses Tailwind CSS v4? Import the theme of libui after Tailwind.
 
 ```css title="app.css"
 @import "tailwindcss";
-@import "@roger.b/libui/fonts.css"; /* optional: Inter and Source Code Pro */
-@import "@roger.b/libui/theme.css";
+@import "ferry-ui/fonts.css"; /* optional: Inter and Source Code Pro */
+@import "ferry-ui/theme.css";
 ```
 
 Your app does not use Tailwind? Import the compiled stylesheet at the root of the app.
 
 ```ts title="main.tsx"
-import '@roger.b/libui/styles.css'
-import '@roger.b/libui/fonts.css' // optional
+import 'ferry-ui/styles.css'
+import 'ferry-ui/fonts.css' // optional
 ```
 
 ## Mount the providers
@@ -35,7 +35,7 @@ Mount the providers one time, at the root of the app.
 
 ```tsx title="providers.tsx"
 import type { ReactNode } from 'react'
-import { ThemeProvider, Toaster, TooltipProvider } from '@roger.b/libui'
+import { ThemeProvider, Toaster, TooltipProvider } from 'ferry-ui'
 
 export function Providers({ children }: { children: ReactNode }) {
   return (

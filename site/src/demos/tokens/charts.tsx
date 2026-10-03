@@ -1,4 +1,4 @@
-import { cn } from '@roger.b/libui'
+import { cn } from 'ferry-ui'
 
 const CHARTS = [
   { className: 'bg-chart-1', variable: '--chart-1' },

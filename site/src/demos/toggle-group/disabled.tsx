@@ -1,4 +1,4 @@
-import { ToggleGroup, ToggleGroupItem } from '@roger.b/libui'
+import { ToggleGroup, ToggleGroupItem } from 'ferry-ui'
 
 export default function ToggleGroupDisabled() {
   return (

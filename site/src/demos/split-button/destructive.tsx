@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ConfirmDialog, DropdownMenuItem, DropdownMenuSeparator, SplitButton, toast } from '@roger.b/libui'
+import { ConfirmDialog, DropdownMenuItem, DropdownMenuSeparator, SplitButton, toast } from 'ferry-ui'
 import { Ban, RefreshCw } from 'lucide-react'
 
 export default function SplitButtonDestructive() {

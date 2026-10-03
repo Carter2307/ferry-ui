@@ -1,4 +1,4 @@
-import { toast } from '@roger.b/libui'
+import { toast } from 'ferry-ui'
 
 import { DetailPageExample } from '../../../../src/examples/detail-page-example'
 

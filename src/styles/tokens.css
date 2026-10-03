@@ -3,8 +3,8 @@
    and elevation.
 
    Plain CSS custom properties only (no Tailwind directives), so any stack can
-   import this file (`@roger.b/libui/tokens.css`). Tailwind v4 projects should import
-   `@roger.b/libui/theme.css` instead, which maps these tokens onto Tailwind theme names.
+   import this file (`ferry-ui/tokens.css`). Tailwind v4 projects should import
+   `ferry-ui/theme.css` instead, which maps these tokens onto Tailwind theme names.
 
    Light values live on :root, dark values on `.dark` (class on <html>).
    Color names follow shadcn/ui (background, foreground, primary, …) plus the

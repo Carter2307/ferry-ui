@@ -1,4 +1,4 @@
-import { Button, Input } from '@roger.b/libui'
+import { Button, Input } from 'ferry-ui'
 
 export default function InputWithButton() {
   return (

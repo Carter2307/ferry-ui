@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, MobileNav, MobileNavTrigger, type NavGroup, type NavItem } from '@roger.b/libui'
+import { Button, MobileNav, MobileNavTrigger, type NavGroup, type NavItem } from 'ferry-ui'
 import { CreditCard, FolderKanban, LayoutDashboard, LogOut, Settings, Users } from 'lucide-react'
 
 const MAIN: NavItem[] = [

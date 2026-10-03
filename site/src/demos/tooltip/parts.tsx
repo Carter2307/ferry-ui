@@ -1,4 +1,4 @@
-import { Button, Tooltip, TooltipContent, TooltipTrigger } from '@roger.b/libui'
+import { Button, Tooltip, TooltipContent, TooltipTrigger } from 'ferry-ui'
 
 export default function TooltipParts() {
   return (

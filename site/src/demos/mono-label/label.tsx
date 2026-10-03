@@ -1,4 +1,4 @@
-import { Input, MonoLabel } from '@roger.b/libui'
+import { Input, MonoLabel } from 'ferry-ui'
 
 export default function MonoLabelForField() {
   return (

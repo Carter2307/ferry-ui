@@ -1,4 +1,4 @@
-import { ThemeMenu } from '@roger.b/libui'
+import { ThemeMenu } from 'ferry-ui'
 
 export default function ThemeMenuAlign() {
   return (

@@ -1,4 +1,4 @@
-import { Badge, ResourceCard, StatusLine } from '@roger.b/libui'
+import { Badge, ResourceCard, StatusLine } from 'ferry-ui'
 import { FolderKanban } from 'lucide-react'
 
 export default function Slots() {

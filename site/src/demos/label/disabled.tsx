@@ -1,4 +1,4 @@
-import { Checkbox, Input, Label } from '@roger.b/libui'
+import { Checkbox, Input, Label } from 'ferry-ui'
 
 export default function LabelDisabled() {
   return (

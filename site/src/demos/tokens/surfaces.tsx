@@ -1,4 +1,4 @@
-import { cn } from '@roger.b/libui'
+import { cn } from 'ferry-ui'
 
 const SURFACES = [
   { className: 'bg-background', variable: '--background' },

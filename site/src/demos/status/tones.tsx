@@ -1,4 +1,4 @@
-import { STATUS_TONES, StatusBadge, type StatusTone } from '@roger.b/libui'
+import { STATUS_TONES, StatusBadge, type StatusTone } from 'ferry-ui'
 
 const LABELS: Record<StatusTone, string> = {
   success: 'Active',

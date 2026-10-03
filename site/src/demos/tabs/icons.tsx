@@ -1,4 +1,4 @@
-import { Badge, Tabs, TabsContent, TabsList, TabsTrigger } from '@roger.b/libui'
+import { Badge, Tabs, TabsContent, TabsList, TabsTrigger } from 'ferry-ui'
 import { CircleCheck, CircleDot, GitPullRequest } from 'lucide-react'
 
 export default function TabsIcons() {

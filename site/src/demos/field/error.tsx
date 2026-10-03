@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Field, Input } from '@roger.b/libui'
+import { Field, Input } from 'ferry-ui'
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Field, Label, RadioGroup, RadioGroupItem } from '@roger.b/libui'
+import { Button, Field, Label, RadioGroup, RadioGroupItem } from 'ferry-ui'
 
 export default function RadioGroupForm() {
   const [sent, setSent] = React.useState<string>()

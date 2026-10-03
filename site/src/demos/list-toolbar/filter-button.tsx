@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox, FilterButton, Label, Popover, PopoverContent, PopoverTrigger } from '@roger.b/libui'
+import { Checkbox, FilterButton, Label, Popover, PopoverContent, PopoverTrigger } from 'ferry-ui'
 
 const OWNERS = ['Maya Chen', 'Jonas Weber', 'Priya Patel']
 

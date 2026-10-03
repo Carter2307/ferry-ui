@@ -1,4 +1,4 @@
-import { Button, Card, CardAction, CardContent, CardHeader, CardTitle } from '@roger.b/libui'
+import { Button, Card, CardAction, CardContent, CardHeader, CardTitle } from 'ferry-ui'
 import { MoreHorizontal, Plus } from 'lucide-react'
 
 export default function CardHeaderAction() {

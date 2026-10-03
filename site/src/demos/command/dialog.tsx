@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from '@roger.b/libui'
+import { Button, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from 'ferry-ui'
 import { Users } from 'lucide-react'
 
 const MEMBERS = [

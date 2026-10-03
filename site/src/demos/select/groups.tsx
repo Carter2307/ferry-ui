@@ -7,7 +7,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 
 export default function SelectGroups() {
   return (

@@ -14,7 +14,7 @@ Mount the provider one time, at the root of the app.
 
 ```tsx title="providers.tsx"
 import type { ReactNode } from 'react'
-import { ThemeProvider } from '@roger.b/libui'
+import { ThemeProvider } from 'ferry-ui'
 
 export function Providers({ children }: { children: ReactNode }) {
   return <ThemeProvider defaultTheme="system">{children}</ThemeProvider>
@@ -53,7 +53,7 @@ React applies the theme after it loads. That is too late for the first paint.
 
 ```tsx title="A server layout"
 import type { ReactNode } from 'react'
-import { themeInitScript } from '@roger.b/libui'
+import { themeInitScript } from 'ferry-ui'
 
 export function Document({ children }: { children: ReactNode }) {
   return (
@@ -73,7 +73,7 @@ In a Vite app, add the script to `index.html` from the Vite configuration.
 ```tsx title="vite.config.ts"
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import { themeInitScript } from '@roger.b/libui'
+import { themeInitScript } from 'ferry-ui'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -94,7 +94,7 @@ Override the source variables after the import of libui. Put the light values on
 
 ```css title="app.css"
 @import "tailwindcss";
-@import "@roger.b/libui/theme.css";
+@import "ferry-ui/theme.css";
 
 :root {
   --primary: oklch(0.55 0.2 290);

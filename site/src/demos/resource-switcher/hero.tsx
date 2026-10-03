@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ResourceSwitcher, type ResourceSwitcherItem } from '@roger.b/libui'
+import { ResourceSwitcher, type ResourceSwitcherItem } from 'ferry-ui'
 import { FolderKanban } from 'lucide-react'
 
 const PROJECTS: ResourceSwitcherItem[] = [

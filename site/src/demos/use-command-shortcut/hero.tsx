@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, CommandMenu, Kbd, toast, useCommandShortcut, useModKey, type CommandMenuGroup } from '@roger.b/libui'
+import { Button, CommandMenu, Kbd, toast, useCommandShortcut, useModKey, type CommandMenuGroup } from 'ferry-ui'
 import { FolderKanban, Receipt, Users } from 'lucide-react'
 
 const GROUPS: CommandMenuGroup[] = [

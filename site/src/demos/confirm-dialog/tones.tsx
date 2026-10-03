@@ -1,4 +1,4 @@
-import { Button, ConfirmDialog, toast } from '@roger.b/libui'
+import { Button, ConfirmDialog, toast } from 'ferry-ui'
 
 export default function ConfirmDialogTones() {
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormActions, FormCard, FormRow, Input, toast } from '@roger.b/libui'
+import { FormActions, FormCard, FormRow, Input, toast } from 'ferry-ui'
 
 export default function FormCardFooter() {
   const [saved, setSaved] = React.useState('500')

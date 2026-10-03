@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
   toast,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 
 const SETTINGS = { name: 'Billing portal', currency: 'eur', digest: true }
 

@@ -1,4 +1,4 @@
-import { CodeBlock, CodeBlockPrompt } from '@roger.b/libui'
+import { CodeBlock, CodeBlockPrompt } from 'ferry-ui'
 
 export default function CodeBlockRich() {
   return (

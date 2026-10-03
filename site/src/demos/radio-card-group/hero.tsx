@@ -1,4 +1,4 @@
-import { Field, RadioCardGroup, type RadioCardOption } from '@roger.b/libui'
+import { Field, RadioCardGroup, type RadioCardOption } from 'ferry-ui'
 import { Globe, Lock, Users } from 'lucide-react'
 
 const OPTIONS: RadioCardOption[] = [

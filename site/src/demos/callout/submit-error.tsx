@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Callout, Field, Input } from '@roger.b/libui'
+import { Button, Callout, Field, Input } from 'ferry-ui'
 
 const TAKEN_SLUGS = ['billing-portal', 'docs']
 

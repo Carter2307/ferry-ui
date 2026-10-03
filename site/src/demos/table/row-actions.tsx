@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
   toast,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { MoreHorizontal } from 'lucide-react'
 
 const MEMBERS = [

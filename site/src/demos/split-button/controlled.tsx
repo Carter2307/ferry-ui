@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, DropdownMenuItem, SplitButton, toast } from '@roger.b/libui'
+import { Button, DropdownMenuItem, SplitButton, toast } from 'ferry-ui'
 
 export default function SplitButtonControlled() {
   const [open, setOpen] = React.useState(false)

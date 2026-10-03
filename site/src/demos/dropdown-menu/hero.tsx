@@ -7,7 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   toast,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { Archive, ChevronDown, Copy, Pencil, Share2 } from 'lucide-react'
 
 export default function DropdownMenuHero() {

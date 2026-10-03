@@ -7,7 +7,7 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { Share2 } from 'lucide-react'
 
 export default function PopoverHero() {

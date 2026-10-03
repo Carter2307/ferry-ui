@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SearchInput } from '@roger.b/libui'
+import { SearchInput } from 'ferry-ui'
 
 export default function SearchInputDemo() {
   const [query, setQuery] = React.useState('')

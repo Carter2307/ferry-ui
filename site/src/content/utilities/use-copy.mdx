@@ -11,7 +11,7 @@ source: src/hooks/use-copy.ts
 `useCopy()` returns the pair `[copied, copy]`. `copy(text)` writes the text to the clipboard. After a copy with no error, `copied` is `true` for a short time.
 
 ```tsx
-import { Button, useCopy } from '@roger.b/libui'
+import { Button, useCopy } from 'ferry-ui'
 
 function CopyInviteLink({ url }: { url: string }) {
   const [copied, copy] = useCopy()

@@ -1,4 +1,4 @@
-import { Label, RadioGroup, RadioGroupItem } from '@roger.b/libui'
+import { Label, RadioGroup, RadioGroupItem } from 'ferry-ui'
 
 const ROLES = [
   { value: 'viewer', label: 'Viewer', description: 'Sees the projects and the reports.' },

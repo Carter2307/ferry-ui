@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 
 export default function SheetNoCloseButton() {
   return (

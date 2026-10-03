@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconRail, type NavGroup, type NavItem } from '@roger.b/libui'
+import { IconRail, type NavGroup, type NavItem } from 'ferry-ui'
 import { CreditCard, FolderKanban, LayoutDashboard, Settings, Users } from 'lucide-react'
 
 const MAIN: NavItem[] = [

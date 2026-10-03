@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, DescriptionItem, DescriptionList } from '@roger.b/libui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, DescriptionItem, DescriptionList } from 'ferry-ui'
 
 export default function DescriptionListStrip() {
   return (

@@ -1,4 +1,4 @@
-import { CopyField, Field, SecretField } from '@roger.b/libui'
+import { CopyField, Field, SecretField } from 'ferry-ui'
 
 export default function CopyHero() {
   return (

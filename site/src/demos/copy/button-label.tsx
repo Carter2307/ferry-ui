@@ -1,4 +1,4 @@
-import { CopyButton } from '@roger.b/libui'
+import { CopyButton } from 'ferry-ui'
 
 const INVITE_LINK = 'https://app.example.com/invite/8f2c41d9'
 

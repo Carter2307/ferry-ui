@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button } from '@roger.b/libui'
+import { Button } from 'ferry-ui'
 
 export default function ButtonLoading() {
   const [saving, setSaving] = React.useState(false)

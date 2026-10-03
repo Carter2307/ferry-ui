@@ -1,4 +1,4 @@
-import { Toggle } from '@roger.b/libui'
+import { Toggle } from 'ferry-ui'
 import { Pin } from 'lucide-react'
 
 export default function ToggleDisabled() {

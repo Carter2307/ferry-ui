@@ -1,4 +1,4 @@
-import { CopyButton, InfoTile, StatusBadge } from '@roger.b/libui'
+import { CopyButton, InfoTile, StatusBadge } from 'ferry-ui'
 import { Activity, Fingerprint } from 'lucide-react'
 
 const WORKSPACE_ID = 'ws_8f3a21c9e04b'

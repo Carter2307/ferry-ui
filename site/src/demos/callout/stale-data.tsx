@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StaleDataCallout } from '@roger.b/libui'
+import { StaleDataCallout } from 'ferry-ui'
 
 const ORDERS = [
   { id: 'ORD-1042', customer: 'Northwind Traders', total: '$1,250.00' },

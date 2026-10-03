@@ -1,4 +1,4 @@
-import { Button, Kbd, useModKey } from '@roger.b/libui'
+import { Button, Kbd, useModKey } from 'ferry-ui'
 import { Search } from 'lucide-react'
 
 export default function ModKeyHint() {

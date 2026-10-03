@@ -1,4 +1,4 @@
-import { FormCard, FormRow, Input, Textarea } from '@roger.b/libui'
+import { FormCard, FormRow, Input, Textarea } from 'ferry-ui'
 
 export default function FormCardLayout() {
   return (

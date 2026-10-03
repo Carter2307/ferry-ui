@@ -1,4 +1,4 @@
-import { FilterMenu, type FilterOption } from '@roger.b/libui'
+import { FilterMenu, type FilterOption } from 'ferry-ui'
 
 const PLAN_OPTIONS: FilterOption[] = [
   { value: 'free', label: 'Free' },

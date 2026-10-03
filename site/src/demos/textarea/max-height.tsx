@@ -1,4 +1,4 @@
-import { Field, Textarea } from '@roger.b/libui'
+import { Field, Textarea } from 'ferry-ui'
 
 const RELEASE_NOTES = [
   '- Invoices: the list loads faster.',

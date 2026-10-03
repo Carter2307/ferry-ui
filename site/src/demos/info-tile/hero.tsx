@@ -1,4 +1,4 @@
-import { InfoTile, StatusBadge } from '@roger.b/libui'
+import { InfoTile, StatusBadge } from 'ferry-ui'
 import { CreditCard, Globe, ShieldCheck, User } from 'lucide-react'
 
 export default function InfoTileHero() {

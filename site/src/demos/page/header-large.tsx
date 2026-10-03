@@ -1,5 +1,5 @@
 import type * as React from 'react'
-import { Button, PageBackLink, PageHeader, StatusBadge } from '@roger.b/libui'
+import { Button, PageBackLink, PageHeader, StatusBadge } from 'ferry-ui'
 import { Download } from 'lucide-react'
 
 // The demo stays on this page. In an app, give the path to `href` and remove `onClick`.

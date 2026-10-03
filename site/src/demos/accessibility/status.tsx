@@ -1,4 +1,4 @@
-import { MetricTrend, StatusBadge, StatusDot, UsageBar } from '@roger.b/libui'
+import { MetricTrend, StatusBadge, StatusDot, UsageBar } from 'ferry-ui'
 
 export default function StatusWithText() {
   return (

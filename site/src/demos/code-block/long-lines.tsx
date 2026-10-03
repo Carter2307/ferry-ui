@@ -1,4 +1,4 @@
-import { CodeBlock } from '@roger.b/libui'
+import { CodeBlock } from 'ferry-ui'
 
 const REQUEST =
   'curl -X POST https://api.example.com/v2/invoices -H "Authorization: Bearer $ACME_API_KEY" -d customer=cus_4QbX2'

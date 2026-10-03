@@ -1,4 +1,4 @@
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, copyText, toast } from '@roger.b/libui'
+import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, copyText, toast } from 'ferry-ui'
 import { MoreHorizontal } from 'lucide-react'
 
 export default function UseCopyCopyText() {

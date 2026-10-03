@@ -1,4 +1,4 @@
-import { ResourceCard, ResourceGrid, StatusLine } from '@roger.b/libui'
+import { ResourceCard, ResourceGrid, StatusLine } from 'ferry-ui'
 import { Calendar, CreditCard, HardDrive, Mail, MessageSquare, Webhook } from 'lucide-react'
 
 const INTEGRATIONS = [

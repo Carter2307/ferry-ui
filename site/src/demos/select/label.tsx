@@ -1,4 +1,4 @@
-import { Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@roger.b/libui'
+import { Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'ferry-ui'
 
 export default function SelectLabelFor() {
   return (

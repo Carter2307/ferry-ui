@@ -1,4 +1,4 @@
-import { Input, Label } from '@roger.b/libui'
+import { Input, Label } from 'ferry-ui'
 
 export default function InputLabel() {
   return (

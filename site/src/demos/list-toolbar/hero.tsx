@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, FilterMenu, ListToolbar, SearchInput, type FilterOption } from '@roger.b/libui'
+import { Button, FilterMenu, ListToolbar, SearchInput, type FilterOption } from 'ferry-ui'
 import { Plus } from 'lucide-react'
 
 const PROJECTS = [

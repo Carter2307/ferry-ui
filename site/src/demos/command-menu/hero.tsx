@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, CommandMenu, type CommandMenuGroup } from '@roger.b/libui'
+import { Button, CommandMenu, type CommandMenuGroup } from 'ferry-ui'
 import { CreditCard, FolderKanban, LayoutDashboard, Plus, Search, UserPlus, Users } from 'lucide-react'
 
 export default function CommandMenuHero() {

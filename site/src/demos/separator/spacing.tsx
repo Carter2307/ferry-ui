@@ -1,4 +1,4 @@
-import { Separator } from '@roger.b/libui'
+import { Separator } from 'ferry-ui'
 
 export default function SeparatorSpacing() {
   return (

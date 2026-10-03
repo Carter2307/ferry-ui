@@ -1,4 +1,4 @@
-import { Button, Hint } from '@roger.b/libui'
+import { Button, Hint } from 'ferry-ui'
 
 const SIDES = ['top', 'right', 'bottom', 'left'] as const
 

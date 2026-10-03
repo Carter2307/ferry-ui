@@ -1,4 +1,4 @@
-import { Badge, TopBar, TopBarLogo, TopBarSegment, TopBarSeparator } from '@roger.b/libui'
+import { Badge, TopBar, TopBarLogo, TopBarSegment, TopBarSeparator } from 'ferry-ui'
 import { Building2, FolderKanban } from 'lucide-react'
 
 export default function TopBarSegmentStates() {

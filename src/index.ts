@@ -3,13 +3,13 @@
  *
  * Everything a consuming app may import lives here: components, their prop
  * types, variant helpers (cva), hooks and utilities. Deep imports
- * (`@roger.b/libui/dist/...`) are not part of the public API.
+ * (`ferry-ui/dist/...`) are not part of the public API.
  *
  * Stylesheets are separate entry points:
- * - `@roger.b/libui/theme.css`  Tailwind v4 theme (import after `tailwindcss`).
- * - `@roger.b/libui/styles.css` precompiled CSS for apps without Tailwind.
- * - `@roger.b/libui/fonts.css`  optional Inter + Source Code Pro webfonts.
- * - `@roger.b/libui/tokens.css` raw design tokens (CSS custom properties) only.
+ * - `ferry-ui/theme.css`  Tailwind v4 theme (import after `tailwindcss`).
+ * - `ferry-ui/styles.css` precompiled CSS for apps without Tailwind.
+ * - `ferry-ui/fonts.css`  optional Inter + Source Code Pro webfonts.
+ * - `ferry-ui/tokens.css` raw design tokens (CSS custom properties) only.
  */
 
 /* -------------------------------------------------------------------------------------------------

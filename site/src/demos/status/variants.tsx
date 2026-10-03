@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StatusDot, cn, statusBadgeVariants, type StatusTone } from '@roger.b/libui'
+import { StatusDot, cn, statusBadgeVariants, type StatusTone } from 'ferry-ui'
 
 const FILTERS: { tone: StatusTone; label: string }[] = [
   { tone: 'success', label: 'Paid' },

@@ -1,4 +1,4 @@
-import { Badge } from '@roger.b/libui'
+import { Badge } from 'ferry-ui'
 
 export default function BadgeShape() {
   return (

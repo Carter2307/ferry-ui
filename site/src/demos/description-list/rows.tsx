@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, DescriptionItem, DescriptionList, type LinkComponent } from '@roger.b/libui'
+import { Card, CardHeader, CardTitle, DescriptionItem, DescriptionList, type LinkComponent } from 'ferry-ui'
 import { Globe, KeyRound, Tag, Users } from 'lucide-react'
 
 // In an app, the link component of your router opens the page. This one stays on the page.

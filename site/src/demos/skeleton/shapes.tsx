@@ -1,4 +1,4 @@
-import { Skeleton } from '@roger.b/libui'
+import { Skeleton } from 'ferry-ui'
 
 export default function SkeletonShapes() {
   return (

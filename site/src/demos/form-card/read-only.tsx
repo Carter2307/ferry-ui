@@ -1,4 +1,4 @@
-import { CopyField, FormCard, FormRow, SecretField, StatusBadge } from '@roger.b/libui'
+import { CopyField, FormCard, FormRow, SecretField, StatusBadge } from 'ferry-ui'
 
 export default function FormCardReadOnly() {
   return (

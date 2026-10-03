@@ -1,4 +1,4 @@
-import { Button, Popover, PopoverContent, PopoverTrigger } from '@roger.b/libui'
+import { Button, Popover, PopoverContent, PopoverTrigger } from 'ferry-ui'
 
 const ALIGNMENTS = ['start', 'center', 'end'] as const
 

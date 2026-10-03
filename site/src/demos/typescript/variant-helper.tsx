@@ -1,4 +1,4 @@
-import { buttonVariants, type ButtonProps } from '@roger.b/libui'
+import { buttonVariants, type ButtonProps } from 'ferry-ui'
 
 // The options of the helper have the same types as the props of Button.
 type RepositoryLinkProps = Pick<ButtonProps, 'variant' | 'size'>

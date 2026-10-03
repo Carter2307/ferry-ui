@@ -9,7 +9,7 @@ import {
   DescriptionItem,
   DescriptionList,
   StatusBadge,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 
 export default function Principles() {
   return (

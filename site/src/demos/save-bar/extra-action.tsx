@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, CardContent, Field, Input, SaveBar, toast } from '@roger.b/libui'
+import { Card, CardContent, Field, Input, SaveBar, toast } from 'ferry-ui'
 import { Send } from 'lucide-react'
 
 export default function SaveBarExtraAction() {

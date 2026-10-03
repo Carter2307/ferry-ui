@@ -1,4 +1,4 @@
-import { Button, toast } from '@roger.b/libui'
+import { Button, toast } from 'ferry-ui'
 
 export default function ToastDescription() {
   return (

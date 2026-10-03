@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Callout, getErrorMessage } from '@roger.b/libui'
+import { Button, Callout, getErrorMessage } from 'ferry-ui'
 
 // A request that fails, for the example.
 function saveInvoice(): Promise<void> {

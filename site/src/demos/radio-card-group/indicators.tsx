@@ -1,4 +1,4 @@
-import { RadioCardGroup, type RadioCardOption } from '@roger.b/libui'
+import { RadioCardGroup, type RadioCardOption } from 'ferry-ui'
 
 const OPTIONS: RadioCardOption[] = [
   { value: 'monthly', label: 'Monthly', description: 'One invoice each month.' },

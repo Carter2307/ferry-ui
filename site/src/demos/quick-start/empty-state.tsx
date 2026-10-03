@@ -1,4 +1,4 @@
-import { Button, EmptyState, toast } from '@roger.b/libui'
+import { Button, EmptyState, toast } from 'ferry-ui'
 import { FolderKanban, Plus } from 'lucide-react'
 
 export default function NoProjects() {

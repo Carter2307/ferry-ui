@@ -1,4 +1,4 @@
-import { Button, Field, Input } from '@roger.b/libui'
+import { Button, Field, Input } from 'ferry-ui'
 import { Plus } from 'lucide-react'
 
 export default function FieldInputWithButton() {

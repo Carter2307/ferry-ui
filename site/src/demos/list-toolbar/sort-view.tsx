@@ -11,7 +11,7 @@ import {
   SearchInput,
   ToggleGroup,
   ToggleGroupItem,
-} from '@roger.b/libui'
+} from 'ferry-ui'
 import { ArrowUpDown, LayoutGrid, List } from 'lucide-react'
 
 export default function ListToolbarSortView() {

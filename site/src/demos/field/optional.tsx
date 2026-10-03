@@ -1,4 +1,4 @@
-import { Field, Input } from '@roger.b/libui'
+import { Field, Input } from 'ferry-ui'
 
 export default function FieldOptional() {
   return (
