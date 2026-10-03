@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useCommandShortcut } from 'libui'
 import { MotionConfig } from 'motion/react'
 
-import { HeroBackdrop, PageRails } from '@/components/landing/backdrop'
+import { HeroBackdrop, PageEndBackdrop, PageRails } from '@/components/landing/backdrop'
 import { Features } from '@/components/landing/features'
 import { FinalCta } from '@/components/landing/final-cta'
 import { Footer } from '@/components/landing/footer'
@@ -32,6 +32,7 @@ export function LandingPage() {
       <div className="relative isolate overflow-x-clip text-base leading-normal">
         <PageRails />
         <HeroBackdrop />
+        <PageEndBackdrop />
         <a
           href="#main"
           className="sr-only z-50 rounded-md bg-surface-300 text-sm text-foreground outline-none focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:border focus:border-border-strong focus:px-3 focus:py-2 focus:shadow-overlay focus:ring-2 focus:ring-ring"

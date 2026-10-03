@@ -182,7 +182,7 @@
     mask-image: linear-gradient(to bottom, #000 60%, transparent);
   }
   .pixel-field[data-from='bottom'] {
-    mask-image: linear-gradient(to top, #000 60%, transparent);
+    mask-image: linear-gradient(to top, #000 85%, transparent);
   }
 
   /* No WebGPU: a still grid of the same 3px pixels, faded with a gradient. */

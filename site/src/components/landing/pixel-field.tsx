@@ -21,7 +21,7 @@ struct Uniforms {
   cell: f32,         // side of a cell, in device pixels
   ink: vec4f,        // neutral pixel color (rgb) and its opacity (a)
   accent: vec4f,     // accent pixel color (rgb) and its opacity (a)
-  options: vec4f,    // x: 0 = dense at the top, 1 = dense at the bottom
+  options: vec4f,    // x: 0 = dense at the top, 1 = dense at the bottom; y: falloff (power of the fade)
 }
 @group(0) @binding(0) var<uniform> u: Uniforms;
 
@@ -67,8 +67,9 @@ fn fragment(@builtin(position) position: vec4f) -> @location(0) vec4f {
   let fade = 1.0 - smoothstep(0.0, 0.92, edge);
   // A little more on the right, where the page has less text.
   let side = mix(0.8, 1.0, smoothstep(0.1, 0.95, uv.x));
-  // The power makes the field dense at the top and thin where the text of the page is.
-  let density = pow(fade, 2.6) * side;
+  // The power makes the field dense at its edge and thin where the text of the page is. A higher
+  // power gives a short dense band and a long tail of scattered pixels.
+  let density = pow(fade, u.options.y) * side;
 
   // Dither: each cell has its own threshold.
   let lit = step(hash(cell + 3.0), density);
@@ -139,7 +140,7 @@ function getGpu(): Promise<Gpu | null> {
   return sharedGpu
 }
 
-async function createRenderer(canvas: HTMLCanvasElement, from: PixelFieldOrigin): Promise<Renderer | null> {
+async function createRenderer(canvas: HTMLCanvasElement, from: PixelFieldOrigin, falloff: number): Promise<Renderer | null> {
   const gpu = await getGpu()
   if (!gpu) return null
   const { device, format, pipeline } = gpu
@@ -150,6 +151,7 @@ async function createRenderer(canvas: HTMLCanvasElement, from: PixelFieldOrigin)
   // resolution (2) + time (1) + cell (1) + ink (4) + accent (4) + options (4)
   const values = new Float32Array(16)
   values[12] = from === 'bottom' ? 1 : 0
+  values[13] = falloff
   const buffer = device.createBuffer({ size: values.byteLength, usage: UNIFORM_BUFFER })
   const bindGroup = device.createBindGroup({
     layout: pipeline.getBindGroupLayout(0),
@@ -209,6 +211,12 @@ export interface PixelFieldProps {
    * `bottom` is dense at the bottom and thins out upward.
    */
   from?: PixelFieldOrigin
+  /**
+   * How fast the field thins out: the power applied to the fade. Default 2.6. A higher value keeps
+   * the dense band short and leaves a long tail of scattered pixels (use it for a tall field that
+   * passes behind text).
+   */
+  falloff?: number
   /** Position and size of the field: it fills this box (for example `absolute inset-x-0 top-0 h-96`). */
   className?: string
 }
@@ -223,7 +231,7 @@ export interface PixelFieldProps {
  * in CSS (`.pixel-fallback`). A reader who asks for reduced motion gets one still frame. A field
  * stops when it is out of view.
  */
-export function PixelField({ from = 'top', className }: PixelFieldProps) {
+export function PixelField({ from = 'top', falloff = 2.6, className }: PixelFieldProps) {
   const canvas = React.useRef<HTMLCanvasElement>(null)
   const renderer = React.useRef<Renderer | null>(null)
   const { resolvedTheme } = useTheme()
@@ -260,7 +268,7 @@ export function PixelField({ from = 'top', className }: PixelFieldProps) {
       visible = entry?.isIntersecting ?? true
     })
 
-    createRenderer(element, from)
+    createRenderer(element, from, falloff)
       .then((created) => {
         if (cancelled) {
           created?.destroy()
@@ -291,7 +299,7 @@ export function PixelField({ from = 'top', className }: PixelFieldProps) {
       renderer.current?.destroy()
       renderer.current = null
     }
-  }, [from])
+  }, [from, falloff])
 
   // The tokens change with the theme: read them again after the class of <html> changed.
   React.useEffect(() => {

@@ -2,7 +2,7 @@ import { GithubIcon, Wordmark } from '@/components/logo'
 import { RouterLink } from '@/components/providers'
 import { DOCS_HOME, GITHUB_URL, LICENSE_URL } from '@/config'
 
-import { Divider, FooterBackdrop } from './backdrop'
+import { Divider } from './backdrop'
 import { ThemeToggle } from './nav'
 
 const COLUMNS = [
@@ -48,10 +48,9 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    // `isolate` keeps the pixel field of the footer above the footer's own background.
-    <footer className="relative isolate overflow-hidden bg-background">
+    // No background: the pixel field of the end of the page shows through the footer.
+    <footer>
       <Divider delay="-5s" />
-      <FooterBackdrop />
       <div className="container-page grid gap-12 py-16 lg:grid-cols-[minmax(0,2fr)_repeat(4,minmax(0,1fr))]">
         <div>
           <RouterLink href="/" aria-label="libui home" className="inline-block rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring">
@@ -89,7 +88,7 @@ export function Footer() {
         <span>libui is open source under the MIT license.</span>
         <ThemeToggle />
       </div>
-      {/* A free band at the end of the page: the pixel field is dense here. */}
+      {/* A free band at the end of the page: the pixel field (PageEndBackdrop) is dense here. */}
       <div aria-hidden="true" className="h-36 sm:h-48" />
     </footer>
   )

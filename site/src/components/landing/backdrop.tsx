@@ -12,11 +12,13 @@ export function HeroBackdrop() {
 }
 
 /**
- * The background of the end of the page: a pixel field that starts at the very bottom and thins
- * out upward. The footer leaves a free band under its last line for it (see footer.tsx).
+ * The background of the end of the page: a pixel field that starts at the very bottom of the page
+ * and thins out upward. It is dense in the free band under the footer, it mixes with the footer,
+ * and its last scattered pixels reach the closing title above the footer. The footer has no
+ * background of its own, so the field shows through it.
  */
-export function FooterBackdrop() {
-  return <PixelField from="bottom" className="absolute inset-x-0 bottom-0 -z-10 h-[26rem]" />
+export function PageEndBackdrop() {
+  return <PixelField from="bottom" falloff={3} className="absolute inset-x-0 bottom-0 -z-10 h-[64rem]" />
 }
 
 /**
