@@ -1,6 +1,6 @@
-# libui
+# ferry-ui
 
-libui is a React design system for dense product interfaces: dashboards, admin consoles, settings
+ferry-ui is a React design system for dense product interfaces: dashboards, admin consoles, settings
 pages, data tables and developer tools. It ships design tokens, accessible primitives built on
 [Radix UI](https://www.radix-ui.com), higher-level patterns and application-shell layout pieces, all
 styled with Tailwind CSS v4 and following the [shadcn/ui](https://ui.shadcn.com) conventions (`cn()`,
@@ -10,9 +10,6 @@ It is written for two audiences: the people building product screens, and the AI
 next to them. Every component, prop and hook carries a JSDoc that says what it is, when to use it and
 when not to. Storybook shows that text next to live examples, and [AGENTS.md](./AGENTS.md) condenses
 it into one reference for agents.
-
-On npm the package is named `ferry-ui`, because the name `libui` there belongs to another project. You
-install and import `ferry-ui`.
 
 ```tsx
 import { Button, EmptyState } from 'ferry-ui'
@@ -99,8 +96,6 @@ imports into `ferry-ui/dist` are not part of the API.
 
 ### From npm
 
-The package is named `ferry-ui` on npm. (The name `libui` there belongs to another project.)
-
 ```sh
 npm install ferry-ui
 ```
@@ -111,34 +106,34 @@ To try a version that is not released, build a tarball and install it. `npm pack
 (`prepack`).
 
 ```sh
-# in the libui checkout
+# in the ferry-ui checkout
 npm install
 npm pack                                # writes ferry-ui-<version>.tgz
 
 # in your app
-npm install ../libui/ferry-ui-0.1.0.tgz
+npm install ../ferry-ui/ferry-ui-0.1.0.tgz
 ```
 
-To work on libui and an app side by side, install the folder itself (`npm install ../libui`). npm then
-creates a symlink, so two rules apply: run `npm run build` in libui after each change (the app consumes
+To work on ferry-ui and an app side by side, install the folder itself (`npm install ../ferry-ui`). npm then
+creates a symlink, so two rules apply: run `npm run build` in ferry-ui after each change (the app consumes
 `dist/`), and make your bundler use a single copy of React (with Vite:
 `resolve: { dedupe: ['react', 'react-dom'] }`).
 
 ### From a git repository
 
 `dist/` is not committed, so a git dependency has to build itself during installation. npm does that
-with a `prepare` script only; libui builds in `prepack`, which npm does not run for git dependencies.
+with a `prepare` script only; ferry-ui builds in `prepack`, which npm does not run for git dependencies.
 Until a `prepare` script is added, install from npm, or from a checkout:
 
 ```sh
-git clone https://github.com/Carter2307/ferry-ui.git libui
-cd libui && npm ci && npm pack          # writes ferry-ui-<version>.tgz
-cd ../my-app && npm install ../libui/ferry-ui-0.1.0.tgz
+git clone https://github.com/Carter2307/ferry-ui.git
+cd ferry-ui && npm ci && npm pack          # writes ferry-ui-<version>.tgz
+cd ../my-app && npm install ../ferry-ui/ferry-ui-0.1.0.tgz
 ```
 
 ## CSS setup
 
-libui has four stylesheet entry points:
+ferry-ui has four stylesheet entry points:
 
 | Entry | Content | Use it when |
 | --- | --- | --- |
@@ -157,7 +152,7 @@ Import the theme in your main stylesheet, after Tailwind:
 @import "ferry-ui/theme.css";
 ```
 
-`theme.css` registers libui's own files as a Tailwind source, so the classes used by the components are
+`theme.css` registers ferry-ui's own files as a Tailwind source, so the classes used by the components are
 generated without any `@source` or `content` configuration. Your code can then use the same tokens:
 `bg-surface-100`, `text-foreground-light`, `border-border-strong`, `rounded-lg`, `shadow-card`,
 `mono-label`.
@@ -180,7 +175,7 @@ The utilities `mono-label`, `bg-dot-grid`, `tabular` and `scrollbar-none` are av
 
 ## Fonts
 
-The tokens name two families: `--libui-font-sans` (Inter, then system fonts) and `--libui-font-mono`
+The tokens name two families: `--ferry-ui-font-sans` (Inter, then system fonts) and `--ferry-ui-font-mono`
 (Source Code Pro, then system monospace).
 
 - `ferry-ui/fonts.css` loads both as variable fonts from the bundled `@fontsource-variable` packages. No
@@ -190,8 +185,8 @@ The tokens name two families: `--libui-font-sans` (Inter, then system fonts) and
 
 ```css
 :root {
-  --libui-font-sans: "Geist", system-ui, sans-serif;
-  --libui-font-mono: "Geist Mono", ui-monospace, monospace;
+  --ferry-ui-font-sans: "Geist", system-ui, sans-serif;
+  --ferry-ui-font-mono: "Geist Mono", ui-monospace, monospace;
 }
 ```
 
@@ -224,7 +219,7 @@ export function Providers({ children }: { children: ReactNode }) {
 | Provider | Role | Required |
 | --- | --- | --- |
 | `ThemeProvider` | Applies light / dark / system and exposes `useTheme()` | No. Skip it if another library manages the `dark` class |
-| `LinkProvider` | Routes libui links through your router | No. Without it links are plain `<a>` elements |
+| `LinkProvider` | Routes ferry-ui links through your router | No. Without it links are plain `<a>` elements |
 | `TooltipProvider` | Shared tooltip timing | Yes, for `Tooltip`, `Hint` and every component that shows a tooltip |
 | `Toaster` | Outlet for `toast()` | Yes, if you call `toast` or use the copy components |
 
@@ -243,7 +238,7 @@ exposes it through `useTheme()`.
 | Prop | Default | Meaning |
 | --- | --- | --- |
 | `defaultTheme` | `'system'` | Preference used when nothing is stored yet: `'light'`, `'dark'` or `'system'` |
-| `storageKey` | `'libui-theme'` | `localStorage` key; `null` disables persistence |
+| `storageKey` | `'ferry-ui-theme'` | `localStorage` key; `null` disables persistence |
 | `theme`, `onThemeChange` | none | Controlled mode, for a preference saved in the user's account |
 
 `useTheme()` returns `{ theme, resolvedTheme, setTheme }`. Bind pickers to `theme`; read
@@ -321,7 +316,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     {
-      name: 'libui-theme-init',
+      name: 'ferry-ui-theme-init',
       transformIndexHtml: () => [{ tag: 'script', children: themeInitScript(), injectTo: 'head-prepend' }],
     },
   ],
@@ -330,7 +325,7 @@ export default defineConfig({
 
 ## Links and routers
 
-libui never imports a router. Components that render links (navigation items, cards, breadcrumbs,
+ferry-ui never imports a router. Components that render links (navigation items, cards, breadcrumbs,
 command items, back links) take an `href` string and ask `useLinkComponent()` which element to render: a
 plain `<a>` by default. Plug your router in once with `LinkProvider`. The adapter receives `href` plus
 the usual anchor props and must forward all of them (`className`, `onClick`, `aria-current`, `target`…).
@@ -363,7 +358,7 @@ import type { LinkComponent } from 'ferry-ui'
 export const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
 ```
 
-libui hands the adapter a plain string. Routers that type their destinations against the route tree
+ferry-ui hands the adapter a plain string. Routers that type their destinations against the route tree
 (TanStack Router, Next.js with `typedRoutes`) may reject it: cast `href` in the adapter, which is the
 only place where the two meet.
 
@@ -373,8 +368,8 @@ as `active: true` on the matching navigation item.
 
 ## Theming a product
 
-Override the CSS variables after the libui import, globally on `:root` / `.dark`. Change the source
-tokens (`--primary`, `--surface-100`, `--libui-radius-md`, `--libui-font-sans`…), never the shadcn
+Override the CSS variables after the ferry-ui import, globally on `:root` / `.dark`. Change the source
+tokens (`--primary`, `--surface-100`, `--ferry-ui-radius-md`, `--ferry-ui-font-sans`…), never the shadcn
 aliases (`--card`, `--popover`, `--muted`…), which point at them.
 
 ```css
@@ -389,7 +384,7 @@ aliases (`--card`, `--popover`, `--muted`…), which point at them.
   --primary-soft: oklch(0.66 0.2 290 / 0.1);
   --ring: oklch(0.55 0.2 290 / 0.75);
   --brand: oklch(0.55 0.2 290);
-  --libui-radius-md: 8px;
+  --ferry-ui-radius-md: 8px;
 }
 
 .dark {
@@ -408,8 +403,8 @@ aliases (`--card`, `--popover`, `--muted`…), which point at them.
 | Primary | `--primary`, `--primary-solid`, `--primary-solid-border`, `--primary-bright`, `--primary-soft`, `--primary-foreground`, `--ring` |
 | Brand and charts | `--brand`, `--chart-1` to `--chart-5` |
 | Feedback | `--success`, `--warning`, `--destructive`, `--info`, each with a `-soft` companion; `--warning`, `--destructive` and `--info` also have a `-border` (success borders are `border-success/30`); `--destructive-solid` for the confirm button |
-| Shape | `--libui-radius-sm` (4px), `--libui-radius-md` (6px), `--libui-radius-lg` (8px), `--libui-radius-xl` (12px), `--shadow-card`, `--shadow-overlay` |
-| Fonts | `--libui-font-sans`, `--libui-font-mono` |
+| Shape | `--ferry-ui-radius-sm` (4px), `--ferry-ui-radius-md` (6px), `--ferry-ui-radius-lg` (8px), `--ferry-ui-radius-xl` (12px), `--shadow-card`, `--shadow-overlay` |
+| Fonts | `--ferry-ui-font-sans`, `--ferry-ui-font-mono` |
 
 ### Scoping a theme to a container
 
@@ -569,7 +564,7 @@ STORIES=primitives/button,patterns/empty-state npx vitest run src/stories.test.t
 ## Project structure
 
 ```text
-libui/
+ferry-ui/
 ├─ src/
 │  ├─ index.ts                  public barrel: everything an app may import
 │  ├─ styles/                   tokens.css, theme.css, fonts.css, standalone.css
@@ -585,7 +580,7 @@ libui/
 │  ├─ stories.test.tsx          smoke test: renders every story and runs its play function
 │  └─ index.test.ts             checks that every public module is exported by the barrel
 ├─ scripts/                     build helpers and the docs check
-├─ site/                        documentation site: landing page and docs, built with libui (see site/README.md)
+├─ site/                        documentation site: landing page and docs, built with ferry-ui (see site/README.md)
 ├─ .storybook/                  Storybook configuration
 ├─ AGENTS.md                    reference for AI coding agents
 └─ dist/                        build output (not committed)
@@ -595,7 +590,7 @@ Each component file sits next to its stories: `button.tsx` and `button.stories.t
 
 ## Contributing
 
-The full rules are in [AGENTS.md, section 10](./AGENTS.md#10-extending-libui); they apply to people and
+The full rules are in [AGENTS.md, section 10](./AGENTS.md#10-extending-ferry-ui); they apply to people and
 agents alike. In short, to add a component:
 
 1. **Pick the layer.** A primitive wraps one Radix part or HTML element. A pattern composes primitives
@@ -629,7 +624,7 @@ Before opening a pull request, run `npm run check` and `npm run build`.
 
 ## Documentation for AI agents
 
-- [AGENTS.md](./AGENTS.md): the rules for building UI with libui, a decision table (which component for
+- [AGENTS.md](./AGENTS.md): the rules for building UI with ferry-ui, a decision table (which component for
   which job), recipes for common screens, the catalog of every export with its props, the token cheat
   sheet, accessibility rules and the contributor conventions. Its snippets are type-checked by
   `npm run check:docs`.

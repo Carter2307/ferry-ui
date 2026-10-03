@@ -40,7 +40,7 @@ const subscribePhone = (onChange: () => void) => {
 }
 
 /**
- * The product itself as the picture of the page: four full screens built only with libui, live in
+ * The product itself as the picture of the page: four full screens built only with ferry-ui, live in
  * a frame. A phone gets the phone layout of each screen, a wider window gets the desktop layout.
  */
 export function Showcase() {
@@ -55,7 +55,7 @@ export function Showcase() {
   return (
     <section aria-labelledby="showcase-title" className="container-page pb-20 lg:pb-28">
       <h2 id="showcase-title" className="sr-only">
-        Screens built with libui
+        Screens built with ferry-ui
       </h2>
       <Reveal immediate delay={0.32} y={20}>
         <Tabs value={screen} onValueChange={(value) => setScreen(value as ScreenId)}>

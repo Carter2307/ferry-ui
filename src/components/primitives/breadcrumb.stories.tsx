@@ -32,7 +32,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Shows where the current page sits in a hierarchy and links back to its ancestors. End with exactly one `BreadcrumbPage`; collapse deep middle levels into a `BreadcrumbEllipsis` menu. `BreadcrumbLink` renders through the libui link contract: wrap the app in `LinkProvider` (or pass `linkComponent`) to use your router, or use `asChild` to style an element you render yourself.',
+          'Shows where the current page sits in a hierarchy and links back to its ancestors. End with exactly one `BreadcrumbPage`; collapse deep middle levels into a `BreadcrumbEllipsis` menu. `BreadcrumbLink` renders through the ferry-ui link contract: wrap the app in `LinkProvider` (or pass `linkComponent`) to use your router, or use `asChild` to style an element you render yourself.',
       },
     },
   },

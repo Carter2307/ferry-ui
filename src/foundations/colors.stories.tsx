@@ -126,7 +126,7 @@ const groups: ColorGroup[] = [
     id: 'aliases',
     title: 'shadcn aliases',
     description:
-      'The standard shadcn/ui names, mapped onto the tokens above so third-party shadcn components look native. Prefer the libui names in new code; override the source token, not the alias.',
+      'The standard shadcn/ui names, mapped onto the tokens above so third-party shadcn components look native. Prefer the ferry-ui names in new code; override the source token, not the alias.',
     tokens: [
       { name: 'card', variable: '--card', utility: 'bg-card', swatch: 'bg-card', kind: 'fill', usage: 'Card surface.', alias: '--surface-100' },
       { name: 'card-foreground', variable: '--card-foreground', utility: 'text-card-foreground', swatch: 'bg-card text-card-foreground', kind: 'text', usage: 'Text on cards.', alias: '--foreground' },
@@ -136,7 +136,7 @@ const groups: ColorGroup[] = [
       { name: 'secondary-foreground', variable: '--secondary-foreground', utility: 'text-secondary-foreground', swatch: 'bg-secondary text-secondary-foreground', kind: 'text', usage: 'Text on secondary fills.', alias: '--foreground' },
       { name: 'muted', variable: '--muted', utility: 'bg-muted', swatch: 'bg-muted', kind: 'fill', usage: 'Muted fills (skeletons, tracks).', alias: '--surface-200' },
       { name: 'muted-foreground', variable: '--muted-foreground', utility: 'text-muted-foreground', swatch: 'bg-background text-muted-foreground', kind: 'text', usage: 'Muted text.', alias: '--foreground-lighter' },
-      { name: 'accent', variable: '--accent', utility: 'bg-accent', swatch: 'bg-accent', kind: 'fill', usage: 'shadcn hover / highlight fill. libui menus highlight with `surface-200` instead.', alias: '--selection' },
+      { name: 'accent', variable: '--accent', utility: 'bg-accent', swatch: 'bg-accent', kind: 'fill', usage: 'shadcn hover / highlight fill. ferry-ui menus highlight with `surface-200` instead.', alias: '--selection' },
       { name: 'accent-foreground', variable: '--accent-foreground', utility: 'text-accent-foreground', swatch: 'bg-accent text-accent-foreground', kind: 'text', usage: 'Text on accent.', alias: '--foreground' },
       { name: 'input', variable: '--input', utility: 'border-input', swatch: 'border-input', kind: 'line', usage: 'Form control borders.', alias: '--border-strong' },
       { name: 'ring', variable: '--ring', utility: 'ring-ring', swatch: 'bg-ring', kind: 'fill', usage: 'Focus rings (focus-visible:ring-2 ring-ring).' },
@@ -193,7 +193,7 @@ interface ColorTokensProps {
 }
 
 /**
- * Gallery of libui color tokens: preview, Tailwind utility, CSS variable, computed value and usage.
+ * Gallery of ferry-ui color tokens: preview, Tailwind utility, CSS variable, computed value and usage.
  * Values are read with getComputedStyle, so they follow the light / dark toolbar toggle.
  */
 function ColorTokens({ group = 'all', showValues = true }: ColorTokensProps) {

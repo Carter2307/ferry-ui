@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 /**
- * Props every libui link receives. Router adapters must forward them all
+ * Props every ferry-ui link receives. Router adapters must forward them all
  * (className, aria-current, onClick, target, rel…) to the rendered anchor.
  */
 export type LinkComponentProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -27,16 +27,16 @@ const LinkContext = React.createContext<LinkComponent>(DefaultLink)
 /** Props of {@link LinkProvider}. */
 export interface LinkProviderProps {
   /**
-   * The link to render for every libui link below (a router adapter). Must forward all props to an
+   * The link to render for every ferry-ui link below (a router adapter). Must forward all props to an
    * anchor. Define it at module level so it keeps the same identity between renders.
    */
   component: LinkComponent
-  /** The part of the app whose libui links go through `component` (usually the whole app). */
+  /** The part of the app whose ferry-ui links go through `component` (usually the whole app). */
   children?: React.ReactNode
 }
 
 /**
- * Makes every libui component that renders a link (navigation items, cards,
+ * Makes every ferry-ui component that renders a link (navigation items, cards,
  * breadcrumbs, command items…) go through your router instead of a plain <a>,
  * so clicks become client-side navigations. Mount it once near the app root.
  *

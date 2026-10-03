@@ -47,7 +47,7 @@ function ProseLink({ href = '', children, ...props }: ComponentProps<'a'>) {
 }
 
 /**
- * What a page can use with no import: Markdown elements rendered with libui components, and the
+ * What a page can use with no import: Markdown elements rendered with ferry-ui components, and the
  * blocks of the documentation (`Demo`, `PropsTable`, `PackageTabs`, `Callout`, `Kbd`, `Badge`).
  */
 export const mdxComponents: MDXComponents = {

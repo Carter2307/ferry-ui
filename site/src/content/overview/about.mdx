@@ -1,16 +1,16 @@
 ---
-title: About libui
-description: What libui is, who it is for, and the ideas behind its design.
+title: About ferry-ui
+description: What ferry-ui is, who it is for, and the ideas behind its design.
 order: 5
 ---
 
-libui is a React design system for dense product interfaces: dashboards, admin consoles, settings pages, data tables and developer tools.
+ferry-ui is a React design system for dense product interfaces: dashboards, admin consoles, settings pages, data tables and developer tools.
 
 <Demo name="about/principles" title="A card that shows the design principles" align="stretch" />
 
 ## For people and for AI agents
 
-libui is for two groups: the people who build product screens, and the AI agents that work with them.
+ferry-ui is for two groups: the people who build product screens, and the AI agents that work with them.
 
 Each component, prop and hook has a JSDoc text. The text says what the thing is, when to use it and when not to use it. The `AGENTS.md` file puts this text in one reference for agents. The [AI agents](/docs/handbook/ai-agents) page describes this file.
 
@@ -35,11 +35,11 @@ The card at the top of this page follows these principles.
 | Two radii | Controls have a 6px radius. Containers have an 8px radius. |
 | Mono labels | [Mono Label](/docs/components/mono-label) is a small uppercase caption in a monospace font. It names cards, table columns and metrics. |
 | One primary action | The solid `primary` button is the one main action of a page, a dialog or a card. |
-| Two font weights | The hierarchy comes from the size and the text color. libui uses only the weights 400 and 500. |
+| Two font weights | The hierarchy comes from the size and the text color. ferry-ui uses only the weights 400 and 500. |
 | One class for the theme | Each color is a CSS variable. The `dark` class on the `html` element changes the palette. |
-| No router and no store | libui has no global store, no router dependency and no data fetch. Props control each component. Links go through a link component that you supply. |
+| No router and no store | ferry-ui has no global store, no router dependency and no data fetch. Props control each component. Links go through a link component that you supply. |
 
-## What libui uses
+## What ferry-ui uses
 
 | Library | Role |
 | --- | --- |
@@ -50,7 +50,7 @@ The card at the top of this page follows these principles.
 
 ## License and author
 
-libui has the MIT license. The `LICENSE` file is in the [repository](https://github.com/Carter2307/ferry-ui).
+ferry-ui has the MIT license. The `LICENSE` file is in the [repository](https://github.com/Carter2307/ferry-ui).
 
 | Subject | Value |
 | --- | --- |
@@ -58,7 +58,7 @@ libui has the MIT license. The `LICENSE` file is in the [repository](https://git
 | Author | B.ROGER |
 | Version | 0.1.0 |
 
-The package contains its documentation and its license. The name of the package on npm is `ferry-ui`.
+The package contains its documentation and its license.
 
 ```text
 node_modules/ferry-ui/README.md

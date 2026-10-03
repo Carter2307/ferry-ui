@@ -26,7 +26,9 @@ export function ScaledFrame({ name, title, width, height, className }: ScaledFra
   const stage = React.useRef<HTMLDivElement>(null)
   const { resolvedTheme } = useTheme()
   const [available, setAvailable] = React.useState<number | null>(null)
-  const scale = available === null ? 1 : Math.min(1, available / width)
+  // A stage with no width yet (a hidden pane, a closed tab panel) has nothing to scale to.
+  const measured = available !== null && available > 0
+  const scale = measured ? Math.min(1, available / width) : 1
 
   React.useEffect(() => {
     const element = stage.current
@@ -50,7 +52,7 @@ export function ScaledFrame({ name, title, width, height, className }: ScaledFra
   return (
     <div ref={stage} data-slot="scaled-frame" className={cn('flex justify-center overflow-hidden', className)} style={{ height }}>
       <div style={{ width: width * scale, height }} className="shrink-0 overflow-hidden bg-background">
-        {available !== null && (
+        {measured && (
           <iframe
             ref={frame}
             title={title}

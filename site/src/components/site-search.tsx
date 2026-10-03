@@ -15,7 +15,7 @@ const SEARCH_GROUPS: CommandMenuGroup[] = pagesByGroup.map(({ group, pages }) =>
   })),
 }))
 
-/** The search of the site: libui's `CommandMenu` over the pages of the documentation. */
+/** The search of the site: ferry-ui's `CommandMenu` over the pages of the documentation. */
 export function SiteSearch({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   return (
     <CommandMenu

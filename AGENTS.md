@@ -1,17 +1,17 @@
-# libui: guide for AI coding agents
+# ferry-ui: guide for AI coding agents
 
-libui is a React 19 design system for dense product interfaces (dashboards, admin consoles, settings
+ferry-ui is a React 19 design system for dense product interfaces (dashboards, admin consoles, settings
 pages, data tables, developer tools): design tokens, accessible primitives on Radix UI, higher-level
 patterns and application-shell layout pieces, styled with Tailwind CSS v4.
 
-This file is the authoritative reference for building UI **with** libui and for contributing **to** it.
+This file is the authoritative reference for building UI **with** ferry-ui and for contributing **to** it.
 Follow it over your defaults. Every `tsx` snippet below is type-checked against the current sources
 (`npm run check:docs`), and every public export is listed in the catalog (section 7).
 
 | Section | Read it when |
 | --- | --- |
 | [1. Rules](#1-rules) | Always, before writing any UI |
-| [2. App setup](#2-app-setup) | Wiring libui into an app (CSS, providers, router) |
+| [2. App setup](#2-app-setup) | Wiring ferry-ui into an app (CSS, providers, router) |
 | [3. Design language](#3-design-language) | Choosing sizes, spacing, type |
 | [4. Tokens](#4-tokens) | Writing any class that sets a color, radius, shadow or font |
 | [5. Which component for which job](#5-which-component-for-which-job) | Picking a component |
@@ -19,17 +19,16 @@ Follow it over your defaults. Every `tsx` snippet below is type-checked against 
 | [7. Catalog](#7-catalog) | Looking up exports, props and allowed values |
 | [8. Accessibility](#8-accessibility) | Before finishing any screen |
 | [9. Do and don't](#9-do-and-dont) | Reviewing your own output |
-| [10. Extending libui](#10-extending-libui) | Adding or changing a component in this repository |
+| [10. Extending ferry-ui](#10-extending-ferry-ui) | Adding or changing a component in this repository |
 
 ## 1. Rules
 
-1. **Import from the package root only.** `import { Button, cn } from 'ferry-ui'`. `ferry-ui` is the name
-   of libui on npm (`npm install ferry-ui`); the name `libui` on npm is another project, so never install
-   or import `libui`. Never import from `ferry-ui/dist/...` and never copy a libui component into the app. The only other entry points are the
+1. **Import from the package root only.** `import { Button, cn } from 'ferry-ui'`. Never import from
+   `ferry-ui/dist/...` and never copy a ferry-ui component into the app. The only other entry points are the
    stylesheets: `ferry-ui/theme.css`, `ferry-ui/styles.css`, `ferry-ui/fonts.css`, `ferry-ui/tokens.css`. Icons come
    from `lucide-react`.
 2. **Look in the catalog before writing markup.** Compose existing primitives and patterns. Build a new
-   component only when nothing in sections 5 and 7 fits, and build it from libui primitives and tokens.
+   component only when nothing in sections 5 and 7 fits, and build it from ferry-ui primitives and tokens.
 3. **Tokens only.** Colors, radii, shadows and fonts come from the token classes of section 4
    (`bg-surface-100`, `text-foreground-light`, `border-border-strong`). Never write raw colors (`#fff`,
    `rgb()`, `oklch()`), Tailwind palette classes (`bg-white`, `text-gray-600`, `bg-blue-500`) or
@@ -51,9 +50,9 @@ Follow it over your defaults. Every `tsx` snippet below is type-checked against 
    `rounded-sm` (4px) for chips, `rounded-full` for pills and avatars.
 9. **State lives in props.** Every stateful component is controlled (`value` + `onValueChange`, `open` +
    `onOpenChange`, `checked` + `onCheckedChange`) or uncontrolled (`defaultValue`, `defaultOpen`,
-   `defaultChecked`). libui has no store, fetches nothing and knows no router.
+   `defaultChecked`). ferry-ui has no store, fetches nothing and knows no router.
 10. **Links are `href` strings.** Components that navigate take `href` and render it through the app's
-    link component (`LinkProvider`, section 2). Do not wrap a libui component in a router link, and do not
+    link component (`LinkProvider`, section 2). Do not wrap a ferry-ui component in a router link, and do not
     pass router objects. For links you write yourself, use your router's own `Link`.
 11. **Mount the providers once.** `TooltipProvider` is required by `Tooltip`, `Hint` and every component
     that shows a tooltip (icon-only `CopyButton`, `SecretField`, `CodeBlock`, `KeyValueEditor`,
@@ -84,7 +83,7 @@ App that uses Tailwind CSS v4 (preferred: the app can use the same tokens in its
 ```
 
 `theme.css` maps the tokens onto Tailwind theme names, declares the class-based `dark` variant, adds the
-utilities `mono-label`, `bg-dot-grid`, `tabular`, `scrollbar-none`, and registers libui's own files as a
+utilities `mono-label`, `bg-dot-grid`, `tabular`, `scrollbar-none`, and registers ferry-ui's own files as a
 Tailwind source, so the classes used by the components are generated without extra configuration.
 
 App without Tailwind: import the precompiled stylesheet once (it includes Tailwind's preflight reset).
@@ -122,9 +121,9 @@ export function Providers({ children }: { children: ReactNode }) {
 ```
 
 - `ThemeProvider` toggles `class="dark"` on `<html>` and persists the preference in `localStorage`
-  (key `libui-theme`). Add `<script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />` to
+  (key `ferry-ui-theme`). Add `<script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />` to
   `<head>` to avoid a flash of the wrong theme; pass it the same `storageKey` and `defaultTheme`.
-- `LinkProvider` is optional: without it libui renders plain `<a>` elements. A component's own
+- `LinkProvider` is optional: without it ferry-ui renders plain `<a>` elements. A component's own
   `linkComponent` prop overrides the provider for that component.
 - Next.js adapter: `({ href, ...props }) => <NextLink href={href} {...props} />`. TanStack Router adapter:
   `({ href, ...props }) => <Link to={href} {...props} />`.
@@ -236,7 +235,7 @@ Every element's default border color is `--border`: write `border`, `border-t`, 
 
 ### shadcn aliases, charts, focus
 
-These aliases point at the tokens above so stock shadcn/ui classes keep working. Prefer the libui names
+These aliases point at the tokens above so stock shadcn/ui classes keep working. Prefer the ferry-ui names
 in new code, and never override the aliases when theming (override the source token).
 
 | Tailwind class | CSS variable | Resolves to |
@@ -254,15 +253,15 @@ in new code, and never override the aliases when theming (override the source to
 
 | Tailwind class | CSS variable | Meaning |
 | --- | --- | --- |
-| `rounded-sm` | `--libui-radius-sm` (4px) | Chips, square badges, keycaps |
-| `rounded-md` | `--libui-radius-md` (6px) | Controls: buttons, inputs, navigation items |
-| `rounded-lg` | `--libui-radius-lg` (8px) | Containers: cards, tables, popovers, dialogs |
-| `rounded-xl` | `--libui-radius-xl` (12px) | Large standalone panels (rare) |
+| `rounded-sm` | `--ferry-ui-radius-sm` (4px) | Chips, square badges, keycaps |
+| `rounded-md` | `--ferry-ui-radius-md` (6px) | Controls: buttons, inputs, navigation items |
+| `rounded-lg` | `--ferry-ui-radius-lg` (8px) | Containers: cards, tables, popovers, dialogs |
+| `rounded-xl` | `--ferry-ui-radius-xl` (12px) | Large standalone panels (rare) |
 | `rounded-full` | n/a | Pills, avatars, dots |
 | `shadow-card` | `--shadow-card` | Resting cards (almost invisible; none in dark mode) |
 | `shadow-overlay` | `--shadow-overlay` | Floating layers: menus, popovers, dialogs, toasts |
-| `font-sans` | `--libui-font-sans` | Inter, then system fonts |
-| `font-mono` | `--libui-font-mono` | Source Code Pro, then system monospace |
+| `font-sans` | `--ferry-ui-font-sans` | Inter, then system fonts |
+| `font-mono` | `--ferry-ui-font-mono` | Source Code Pro, then system monospace |
 | `mono-label` | n/a | 11.5px uppercase mono caption in `foreground-lighter` |
 | `tabular` | n/a | Tabular figures for numbers that align or update |
 | `bg-dot-grid` | n/a | Dotted-grid canvas background |
@@ -272,7 +271,7 @@ Focus ring of a custom interactive element: `outline-none focus-visible:ring-2 f
 
 ### Theming a product
 
-Override the source variables after the libui import, on `:root` / `.dark`. Do not edit libui and do not
+Override the source variables after the ferry-ui import, on `:root` / `.dark`. Do not edit ferry-ui and do not
 override the shadcn aliases. The variables can also be set on a container to scope a brand to it, with
 two limits: the shadcn aliases and `--chart-1` are resolved on `:root`, so re-declare in the scope the
 aliases of every token you change (`--card: var(--surface-100)`, `--chart-1: var(--brand)`…), and
@@ -1248,7 +1247,7 @@ Exports: `ThemeProvider`, `useTheme`, types `ThemeProviderProps`, `ThemeContextV
 (`'light' | 'dark' | 'system'`), `ResolvedTheme` (`'light' | 'dark'`).
 
 - `ThemeProvider` props: `defaultTheme` (default `system`, read on mount), `storageKey` (default
-  `libui-theme`; `null` disables persistence), `theme` + `onThemeChange` (controlled, e.g. a preference
+  `ferry-ui-theme`; `null` disables persistence), `theme` + `onThemeChange` (controlled, e.g. a preference
   saved in the user's account). Mount once at the root; do not nest it or use it to theme one section.
 - `useTheme()` returns `{ theme, resolvedTheme, setTheme }`. Bind pickers to `theme`; branch on
   `resolvedTheme` for things that cannot use tokens (charts, code highlighting). Outside a provider it
@@ -1283,7 +1282,7 @@ export function AppearanceSetting() {
 
 #### themeInitScript
 
-Exports: `themeInitScript`, `DEFAULT_THEME_STORAGE_KEY` (`'libui-theme'`). Server-safe.
+Exports: `themeInitScript`, `DEFAULT_THEME_STORAGE_KEY` (`'ferry-ui-theme'`). Server-safe.
 
 `themeInitScript(storageKey?, defaultTheme?)` returns the source of an inline script that applies the
 stored theme before first paint. Pass the same arguments as the `ThemeProvider`.
@@ -1324,7 +1323,7 @@ Exports: `LinkProvider`, `useLinkComponent`, types `LinkComponent`, `LinkCompone
 
 - `LinkComponent` is `React.ComponentType<LinkComponentProps>`; `LinkComponentProps` is every anchor
   attribute plus a required string `href`. An adapter must forward all props to the rendered anchor.
-- `<LinkProvider component={RouterLink}>` makes every libui link below go through the router (setup
+- `<LinkProvider component={RouterLink}>` makes every ferry-ui link below go through the router (setup
   snippet in section 2).
 - `useLinkComponent(override?)` is for authors of components that render links: it returns the
   `override`, else the provider's component, else a plain `<a>`.
@@ -3668,7 +3667,7 @@ export function AppCommandMenu({ onNewInvoice }: { onNewInvoice: () => void }) {
 
 ## 8. Accessibility
 
-libui components ship the roles, focus management and keyboard behavior. The parts that depend on you:
+ferry-ui components ship the roles, focus management and keyboard behavior. The parts that depend on you:
 
 1. **Name every control.** Icon-only `Button`, `Toggle`, `ToggleGroupItem`, menu triggers:
    `aria-label`. `Hint` and tooltips are not accessible names. Name what the action targets when a
@@ -3691,7 +3690,7 @@ libui components ship the roles, focus management and keyboard behavior. The par
 8. **Headings.** One `<h1>` per page (`PageHeader`), `<h2>` per `PageSection`, `<h3>` in `FormCard`
    and `ResourceCard` (`titleAs` to change it). `CardTitle` is a `<div>`: put a heading inside when
    the outline needs one.
-9. **Decorative icons** inside libui slots (`icon` props) are hidden for you. An icon that carries
+9. **Decorative icons** inside ferry-ui slots (`icon` props) are hidden for you. An icon that carries
    meaning alone needs a text alternative: `IconBox label`, `StatusDot label`, or `sr-only` text.
 10. **Focus.** Never remove focus rings. A custom interactive element uses
     `outline-none focus-visible:ring-2 focus-visible:ring-ring`. Do not put interactive elements inside
@@ -3772,7 +3771,7 @@ export function DangerZone({ name, onDelete }: { name: string; onDelete: () => P
 }
 ```
 
-## 10. Extending libui
+## 10. Extending ferry-ui
 
 Rules for changing this repository. They are the conventions of the existing code: match them exactly.
 

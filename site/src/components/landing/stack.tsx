@@ -18,7 +18,7 @@ import { BrandIcon } from '@/components/logo'
 import { Divider } from './backdrop'
 import { Reveal } from './reveal'
 
-/** What libui is built on, then what it runs in. */
+/** What ferry-ui is built on, then what it runs in. */
 const ITEMS = [
   { icon: siReact, name: 'React 19' },
   { icon: siTypescript, name: 'TypeScript' },

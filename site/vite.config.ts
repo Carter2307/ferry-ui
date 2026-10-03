@@ -20,16 +20,16 @@ const root = fileURLToPath(new URL('.', import.meta.url))
 /** Applies the stored theme before first paint (the same script an app puts in its `<head>`). */
 function themeScript(): Plugin {
   return {
-    name: 'libui-site:theme-script',
+    name: 'ferry-ui-site:theme-script',
     transformIndexHtml: () => [{ tag: 'script', children: themeInitScript(), injectTo: 'head-prepend' }],
   }
 }
 
-// The documentation site of libui: the landing page and the docs, built with libui itself.
+// The documentation site of ferry-ui: the landing page and the docs, built with ferry-ui itself.
 // `ferry-ui` resolves to the sources (../src), so a demo always shows the current code.
 export default defineConfig({
   root,
-  // Served from a sub-path (GitHub Pages: /libui/)? Build with SITE_BASE=/libui/.
+  // Served from a sub-path (GitHub Pages: /ferry-ui/)? Build with SITE_BASE=/ferry-ui/.
   base: process.env.SITE_BASE ?? '/',
   plugins: [
     {

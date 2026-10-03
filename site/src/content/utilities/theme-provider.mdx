@@ -63,7 +63,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     {
-      name: 'libui-theme-init',
+      name: 'ferry-ui-theme-init',
       transformIndexHtml: () => [{ tag: 'script', children: themeInitScript(), injectTo: 'head-prepend' }],
     },
   ],
@@ -143,14 +143,14 @@ To keep nothing in `localStorage`, pass `storageKey={null}`.
 
 | Parameter | Type | Default | Role |
 | --- | --- | --- | --- |
-| `storageKey` | `string` | `'libui-theme'` | The `localStorage` key that the script reads. |
+| `storageKey` | `string` | `'ferry-ui-theme'` | The `localStorage` key that the script reads. |
 | `defaultTheme` | `ThemePreference` | `'system'` | The preference when the storage is empty. |
 
 ### Constant and types
 
 | Name | Value |
 | --- | --- |
-| `DEFAULT_THEME_STORAGE_KEY` | `'libui-theme'` |
+| `DEFAULT_THEME_STORAGE_KEY` | `'ferry-ui-theme'` |
 | `ThemePreference` | `'light' \| 'dark' \| 'system'` |
 | `ResolvedTheme` | `'light' \| 'dark'` |
 | `ThemeContextValue` | The type of the object that `useTheme()` returns. |

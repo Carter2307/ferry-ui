@@ -156,7 +156,8 @@ export function extract(source) {
 function sentences(text) {
   return text
     .replace(/\s+/g, ' ')
-    .split(/(?<=[.?!])\s+(?=[A-Z"“`(]|CODE)/)
+    // A sentence starts with a capital, a quote, a code span or the lowercase name of the project.
+    .split(/(?<=[.?!])\s+(?=[A-Z"“`(]|CODE|ferry-ui\b)/)
     .map((s) => s.trim())
     .filter((s) => words(s).length > 0)
 }

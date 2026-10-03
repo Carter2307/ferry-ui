@@ -185,7 +185,7 @@ for (const exported of checker.getExportsOfModule(moduleSymbol)) {
         (tagDefault ? ts.displayPartsToString(tagDefault.text).replace(/^["'`]|["'`]$/g, '') : null),
       description: docOf(prop),
       deprecated: tags.some((tag) => tag.name === 'deprecated'),
-      // Sort keys, removed below: the props libui declares come before the ones of the primitive.
+      // Sort keys, removed below: the props ferry-ui declares come before the ones of the primitive.
       own,
       position: declarations[0] ? declarations[0].getStart() : 0,
     })

@@ -1,5 +1,5 @@
 /**
- * libui — public entry point.
+ * ferry-ui — public entry point.
  *
  * Everything a consuming app may import lives here: components, their prop
  * types, variant helpers (cva), hooks and utilities. Deep imports

@@ -61,16 +61,16 @@ export function pageMarkdown(page) {
 
 /**
  * The llms.txt index: every page with its one-sentence description, grouped like the sidebar.
- * @param {string} base Public base path of the site, with a trailing slash (`/` or `/libui/`).
+ * @param {string} base Public base path of the site, with a trailing slash (`/` or `/ferry-ui/`).
  */
 export function llmsText(base) {
   const pages = readPages()
   const lines = [
-    '# libui',
+    '# ferry-ui',
     '',
-    '> libui is a React 19 design system for product interfaces (dashboards, admin consoles, settings pages, data tables, developer tools): design tokens, accessible primitives on Radix UI, patterns and application-shell layout pieces, styled with Tailwind CSS v4.',
+    '> ferry-ui is a React 19 design system for product interfaces (dashboards, admin consoles, settings pages, data tables, developer tools): design tokens, accessible primitives on Radix UI, patterns and application-shell layout pieces, styled with Tailwind CSS v4.',
     '',
-    "The npm package of libui is named `ferry-ui` (`npm install ferry-ui`): the name `libui` on npm is a different project. Import everything from the package root (`import { Button } from 'ferry-ui'`). Each link below is the Markdown version of a documentation page.",
+    "Install the package with `npm install ferry-ui`. Import everything from the package root (`import { Button } from 'ferry-ui'`). Each link below is the Markdown version of a documentation page.",
   ]
   for (const group of GROUPS) {
     const inGroup = pages.filter((page) => page.group === group)

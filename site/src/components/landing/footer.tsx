@@ -12,7 +12,7 @@ const COLUMNS = [
       { label: 'Quick start', href: DOCS_HOME },
       { label: 'Installation', href: '/docs/overview/installation' },
       { label: 'Accessibility', href: '/docs/overview/accessibility' },
-      { label: 'About libui', href: '/docs/overview/about' },
+      { label: 'About ferry-ui', href: '/docs/overview/about' },
     ],
   },
   {
@@ -53,7 +53,7 @@ export function Footer() {
       <Divider delay="-5s" />
       <div className="container-page grid gap-12 py-16 lg:grid-cols-[minmax(0,2fr)_repeat(4,minmax(0,1fr))]">
         <div>
-          <RouterLink href="/" aria-label="libui home" className="inline-block rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <RouterLink href="/" aria-label="ferry-ui home" className="inline-block rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring">
             <Wordmark />
           </RouterLink>
           <p className="mt-4 max-w-[17rem] text-sm text-foreground-lighter">
@@ -61,7 +61,7 @@ export function Footer() {
           </p>
           <a
             href={GITHUB_URL}
-            aria-label="libui on GitHub"
+            aria-label="ferry-ui on GitHub"
             className="mt-5 inline-grid size-8 place-items-center rounded-md text-foreground-lighter transition-colors outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
           >
             <GithubIcon className="size-5" />
@@ -85,7 +85,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container-page flex items-center justify-between border-t py-5 text-[13px] text-foreground-lighter">
-        <span>libui is open source under the MIT license.</span>
+        <span>ferry-ui is open source under the MIT license.</span>
         <ThemeToggle />
       </div>
       {/* A free band at the end of the page: the pixel field (PageEndBackdrop) is dense here. */}

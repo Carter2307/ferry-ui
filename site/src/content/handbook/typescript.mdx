@@ -1,6 +1,6 @@
 ---
 title: TypeScript
-description: The types that libui exports, and how to use them in your own components.
+description: The types that ferry-ui exports, and how to use them in your own components.
 order: 8
 ---
 
@@ -12,7 +12,7 @@ import { Button, type ButtonProps, type NavGroup, type StatusTone } from 'ferry-
 
 ## Prop types
 
-A component that adds props of its own exports a prop type: `ButtonProps`, `CalloutProps`, `FieldProps`. Use this type to make a component that extends a libui component.
+A component that adds props of its own exports a prop type: `ButtonProps`, `CalloutProps`, `FieldProps`. Use this type to make a component that extends a ferry-ui component.
 
 <Demo name="typescript/prop-types" title="A component that extends ButtonProps" />
 
@@ -26,7 +26,7 @@ Read the props of these components with `ComponentProps` from React.
 
 ## Value types
 
-Some props accept a closed list of values. libui exports a type for many of these lists.
+Some props accept a closed list of values. ferry-ui exports a type for many of these lists.
 
 | Type | Values |
 | --- | --- |
@@ -36,7 +36,7 @@ Some props accept a closed list of values. libui exports a type for many of thes
 | `ThemePreference` | `light`, `dark`, `system` |
 | `ResolvedTheme` | `light`, `dark` |
 
-Use these types to connect the values of your domain to libui in one place. This example gives one tone to each status of an invoice.
+Use these types to connect the values of your domain to ferry-ui in one place. This example gives one tone to each status of an invoice.
 
 <Demo name="typescript/status-map" title="A typed map from invoice statuses to tones" />
 
@@ -62,9 +62,9 @@ A variant helper returns the classes of a component, for an element that is not 
 
 <Demo name="typescript/variant-helper" title="A link that gets its classes from buttonVariants" />
 
-To get the type of one option, read it from the prop type: `ButtonProps['variant']`. For `iconBoxVariants`, libui exports the `IconBoxVariantProps` type.
+To get the type of one option, read it from the prop type: `ButtonProps['variant']`. For `iconBoxVariants`, ferry-ui exports the `IconBoxVariantProps` type.
 
-libui makes these helpers with `cva` from `class-variance-authority`. The `VariantProps` type of that package gives all the options of one helper. Add the package to the dependencies of your app before you import it.
+ferry-ui makes these helpers with `cva` from `class-variance-authority`. The `VariantProps` type of that package gives all the options of one helper. Add the package to the dependencies of your app before you import it.
 
 ```ts
 import type { VariantProps } from 'class-variance-authority'

@@ -1,10 +1,10 @@
 ---
 title: Routing
-description: How the links of libui work with React Router, Next.js, TanStack Router or plain anchors.
+description: How the links of ferry-ui work with React Router, Next.js, TanStack Router or plain anchors.
 order: 6
 ---
 
-libui does not import a router. A component that opens a page accepts an `href` string. With no setup, it renders a plain `<a>` element.
+ferry-ui does not import a router. A component that opens a page accepts an `href` string. With no setup, it renders a plain `<a>` element.
 
 ## Write an adapter
 
@@ -33,11 +33,11 @@ import type { LinkComponent } from 'ferry-ui'
 export const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
 ```
 
-libui gives a plain string to the adapter. If your router has typed routes, cast `href` in the adapter.
+ferry-ui gives a plain string to the adapter. If your router has typed routes, cast `href` in the adapter.
 
 ## Mount the provider
 
-Give the adapter to [LinkProvider](/docs/utilities/link-provider), one time, at the root of the app. All the links of libui below it then go through your router.
+Give the adapter to [LinkProvider](/docs/utilities/link-provider), one time, at the root of the app. All the links of ferry-ui below it then go through your router.
 
 ```tsx title="providers.tsx"
 import type { ReactNode } from 'react'
@@ -52,7 +52,7 @@ export function Providers({ children }: { children: ReactNode }) {
 
 ## Mark the current page
 
-libui does not know the current page. Your router knows it. Set `active` on the navigation item of the current page.
+ferry-ui does not know the current page. Your router knows it. Set `active` on the navigation item of the current page.
 
 ```tsx title="app-frame.tsx"
 // `pathname` comes from your router.
@@ -88,7 +88,7 @@ A navigation item with `external: true` opens a new tab. It does not use the ada
 ## Your own links
 
 - For a link that you write, use the link of your router.
-- Do not put a libui component in a router link. Pass `href` to the component.
+- Do not put a ferry-ui component in a router link. Pass `href` to the component.
 - For a link with the look of a button, use `asChild` on [Button](/docs/components/button).
 
 ```tsx title="A router link with the look of a button"

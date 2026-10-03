@@ -1,6 +1,6 @@
-# libui documentation site
+# ferry-ui documentation site
 
-The landing page and the documentation of libui. The site is a libui app: its frame is `AppShell`,
+The landing page and the documentation of ferry-ui. The site is a ferry-ui app: its frame is `AppShell`,
 `TopBar`, `InnerMenu` and `MobileNav`, its search is `CommandMenu`, and every demo runs the current
 sources of the library (`ferry-ui` resolves to `../src`).
 
@@ -69,5 +69,5 @@ not approve; it does not have the STE dictionary.
 Markdown file per page and `llms.txt`. Any static host can serve it.
 
 - Build command: `npm ci && npm run site:build`. Publish directory: `site/dist`.
-- Served from a sub-path (for example GitHub Pages at `/libui/`)? Build with `SITE_BASE=/libui/`.
+- Served from a sub-path (for example GitHub Pages at `/ferry-ui/`)? Build with `SITE_BASE=/ferry-ui/`.
 - `404.html` is the page a static host shows for an unknown address.
