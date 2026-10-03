@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useCommandShortcut } from 'libui-kit'
+import { useCommandShortcut } from 'ferry-ui'
 import { MotionConfig } from 'motion/react'
 
 import { HeroBackdrop, PageEndBackdrop, PageRails } from '@/components/landing/backdrop'
@@ -16,7 +16,7 @@ import { SiteToaster } from '@/components/providers'
 import { SiteSearch } from '@/components/site-search'
 import { usePageMeta } from '@/lib/use-page-meta'
 
-/** The landing page. Every control on it is a libui component, and the demos are live. */
+/** The landing page. Every control on it is a ferry-ui component, and the demos are live. */
 export function LandingPage() {
   usePageMeta()
   const [searchOpen, setSearchOpen] = React.useState(false)

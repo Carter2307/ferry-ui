@@ -1,6 +1,6 @@
 # Authoring guide
 
-How to write a page of the libui documentation. The goal: a developer who is new to libui, and whose
+How to write a page of the ferry-ui documentation. The goal: a developer who is new to ferry-ui, and whose
 first language is possibly not English, understands each page at the first read and copies code that
 works.
 
@@ -29,9 +29,9 @@ site/src/demos/<slug>/<demo>.tsx        → <Demo name="<slug>/<demo>" />
 
 | Folder | Sidebar group | Content |
 | --- | --- | --- |
-| `overview/` | Overview | What libui is, how to start. |
+| `overview/` | Overview | What ferry-ui is, how to start. |
 | `handbook/` | Handbook | One subject that goes across components: styling, theming, forms. |
-| `examples/` | Examples | A full screen built with libui. |
+| `examples/` | Examples | A full screen built with ferry-ui. |
 | `components/` | Primitives, Patterns or Layout (`group:` in the front matter) | One page per component file of `src/components/`. |
 | `utilities/` | Utilities | Providers, hooks and helper functions. |
 
@@ -97,7 +97,7 @@ Rules:
 A demo is one `.tsx` file with one default export, a component with no props.
 
 ```tsx
-import { Button } from 'libui-kit'
+import { Button } from 'ferry-ui'
 import { Plus } from 'lucide-react'
 
 export default function ButtonWithIcon() {
@@ -105,13 +105,13 @@ export default function ButtonWithIcon() {
 }
 ```
 
-- **It is the code a reader copies.** Import from `'libui-kit'` (and `lucide-react`, `react`) only. No import
+- **It is the code a reader copies.** Import from `'ferry-ui'` (and `lucide-react`, `react`) only. No import
   from the site, no relative import, no helper file. A demo that needs data declares it in the file.
 - **One idea per demo.** 10 to 60 lines. If a demo shows two ideas, make two demos.
 - **The first demo of the page (`hero`) shows a real use**, not every variant.
 - **Real, neutral content.** Projects, members, invoices, API keys, orders, customers. Names like
   "Maya Chen", "Acme", `maya@example.com`. No "foo", no "Lorem ipsum", no real brand.
-- **libui rules apply** (`AGENTS.md`, section 1): token classes only (`text-foreground-light`,
+- **ferry-ui rules apply** (`AGENTS.md`, section 1): token classes only (`text-foreground-light`,
   `bg-surface-100`), no raw colors, no `dark:` forks, sizes through the `size` prop, one `primary`
   button per view, an `aria-label` on each icon-only button, a title in each dialog.
 - **It renders on the server.** The build writes each page as HTML first. Use `window`, `document`,
@@ -148,7 +148,7 @@ All these work in every page with no import.
 | --- | --- |
 | ` ```tsx title="app.tsx" ` | Code that is not a live demo: setup code, a fragment, an anatomy. `title` is optional. Languages: `tsx`, `ts`, `css`, `sh`, `json`, `text`. |
 | ` ```sh ` | Commands. Each line gets a `$` prompt that the copy button leaves out. |
-| `<PackageTabs packages="libui-kit" />` | An install command for npm, pnpm, yarn and bun. |
+| `<PackageTabs packages="ferry-ui" />` | An install command for npm, pnpm, yarn and bun. |
 | `<PropsTable of="Button" />` | The generated props of a component. |
 | `<Callout tone="warning" title="…">…</Callout>` | One per page at most: a risk, or the one thing to remember. Tones: `info`, `warning`, `destructive`, `success`, `neutral`. |
 | `<Kbd>Esc</Kbd>` | A key. |
@@ -204,12 +204,12 @@ One thing, one name. Use these words, and no other word for the same thing:
 
 | Word | Meaning |
 | --- | --- |
-| component | A React component that libui exports. |
+| component | A React component that ferry-ui exports. |
 | part | One component of a group that works together (`DialogTitle` is a part of Dialog). |
 | prop | An input of a component. |
 | variant, size, tone | The three usual props for the look, the height and the meaning color. |
-| token | A named design value (a color, a radius, a font) that libui gives as a CSS variable and a Tailwind class. |
-| primitive, pattern, layout component | The three layers of libui components. |
+| token | A named design value (a color, a radius, a font) that ferry-ui gives as a CSS variable and a Tailwind class. |
+| primitive, pattern, layout component | The three layers of ferry-ui components. |
 | controlled, uncontrolled | State that your code holds, or state that the component holds. |
 | trigger | The element that opens an overlay. |
 | overlay | A dialog, a sheet, a menu, a popover or a tooltip: content above the page. |
@@ -230,7 +230,7 @@ not fit.
   truth, then its story file (`*.stories.tsx`) for real examples, then the catalog entry in `AGENTS.md`
   (section 7). Do not write a prop, a value, a default, a size in pixels or a behavior that you did not
   read there.
-- **Do not invent packages, commands or URLs.** The name of the package on npm is `libui-kit`: the README says how to install it.
+- **Do not invent packages, commands or URLs.** The package is `ferry-ui` on npm: the README says how to install it.
 - If you are not sure of a fact, leave it out.
 
 ## 7. Before you are done

@@ -1,4 +1,4 @@
-import { ToggleGroup, ToggleGroupItem } from 'libui-kit'
+import { ToggleGroup, ToggleGroupItem } from 'ferry-ui'
 
 const SIZES = ['tiny', 'sm', 'md'] as const
 

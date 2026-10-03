@@ -1,10 +1,10 @@
-import { cn } from 'libui-kit'
+import { cn } from 'ferry-ui'
 
 const RADII = [
-  { className: 'rounded-sm', variable: '--libui-radius-sm', size: '4px' },
-  { className: 'rounded-md', variable: '--libui-radius-md', size: '6px' },
-  { className: 'rounded-lg', variable: '--libui-radius-lg', size: '8px' },
-  { className: 'rounded-xl', variable: '--libui-radius-xl', size: '12px' },
+  { className: 'rounded-sm', variable: '--ferry-ui-radius-sm', size: '4px' },
+  { className: 'rounded-md', variable: '--ferry-ui-radius-md', size: '6px' },
+  { className: 'rounded-lg', variable: '--ferry-ui-radius-lg', size: '8px' },
+  { className: 'rounded-xl', variable: '--ferry-ui-radius-xl', size: '12px' },
   { className: 'rounded-full', variable: 'No variable', size: 'Full' },
 ]
 

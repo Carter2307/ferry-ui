@@ -1,4 +1,4 @@
-import { cn } from 'libui-kit'
+import { cn } from 'ferry-ui'
 
 const FEEDBACK = [
   { className: 'bg-success', variable: '--success' },

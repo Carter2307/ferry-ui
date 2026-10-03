@@ -3,9 +3,9 @@
 @import '../../src/styles/theme.css';
 
 /*
- * The site is a libui app: every color, radius and font below is a libui token.
+ * The site is a ferry-ui app: every color, radius and font below is a ferry-ui token.
  * Two product-level overrides, as "Theming a product" describes: a pure white canvas in light
- * mode, and reading text at 15px (libui's 14px body is tuned for dense product screens).
+ * mode, and reading text at 15px (ferry-ui's 14px body is tuned for dense product screens).
  */
 :root:not(.dark) {
   --background: oklch(1 0 0);
@@ -56,7 +56,7 @@
 
 @layer components {
   /* ---------------------------------------------------------------------------------------------
-   * Landing page type. Two weights only (400 and 500), as everywhere in libui.
+   * Landing page type. Two weights only (400 and 500), as everywhere in ferry-ui.
    * ------------------------------------------------------------------------------------------- */
   .heading-hero {
     font-weight: 500;
@@ -127,7 +127,7 @@
   .docs-prose :not(pre) > code:not([data-slot='demo'] *) {
     padding: 0.1em 0.35em;
     border: 1px solid var(--border);
-    border-radius: var(--libui-radius-sm);
+    border-radius: var(--ferry-ui-radius-sm);
     background: var(--surface-200);
     font-size: 0.85em;
     color: var(--foreground);

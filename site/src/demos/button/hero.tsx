@@ -1,4 +1,4 @@
-import { Button } from 'libui-kit'
+import { Button } from 'ferry-ui'
 
 export default function ButtonHero() {
   return (

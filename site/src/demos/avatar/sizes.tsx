@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from 'libui-kit'
+import { Avatar, AvatarFallback } from 'ferry-ui'
 
 const SIZES = ['sm', 'md', 'lg'] as const
 

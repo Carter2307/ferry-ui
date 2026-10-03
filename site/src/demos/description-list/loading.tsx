@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { DescriptionItem, DescriptionList, Label, Switch } from 'libui-kit'
+import { DescriptionItem, DescriptionList, Label, Switch } from 'ferry-ui'
 
 export default function DescriptionListLoading() {
   // In an app, `loading` comes from the request that loads the record.

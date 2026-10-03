@@ -11,7 +11,7 @@ import {
   SheetHeader,
   SheetTitle,
   toast,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { ListFilter } from 'lucide-react'
 
 const STATUSES = ['Paid', 'Open', 'Overdue']

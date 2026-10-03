@@ -1,4 +1,4 @@
-import { Kbd, MonoLabel, useModKey } from 'libui-kit'
+import { Kbd, MonoLabel, useModKey } from 'ferry-ui'
 
 export default function KbdHero() {
   const mod = useModKey()

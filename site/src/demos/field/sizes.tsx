@@ -1,4 +1,4 @@
-import { Field, Input } from 'libui-kit'
+import { Field, Input } from 'ferry-ui'
 
 export default function FieldSizes() {
   return (

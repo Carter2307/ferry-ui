@@ -1,4 +1,4 @@
-import { Table, TableBody, TableHead, TableHeader, TableRow, TableSkeletonRows } from 'libui-kit'
+import { Table, TableBody, TableHead, TableHeader, TableRow, TableSkeletonRows } from 'ferry-ui'
 
 export default function TableStatesLoading() {
   return (

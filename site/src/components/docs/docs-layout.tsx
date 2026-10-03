@@ -12,7 +12,7 @@ import {
   TopBarSegment,
   TopBarSeparator,
   type NavGroup,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { Outlet, useLocation } from 'react-router'
 
 import { GithubIcon, LogoMark } from '@/components/logo'
@@ -36,7 +36,7 @@ function useNavGroups(pathname: string): NavGroup[] {
 }
 
 /**
- * The frame of the documentation, built with libui's own application shell: `TopBar`, `InnerMenu`
+ * The frame of the documentation, built with ferry-ui's own application shell: `TopBar`, `InnerMenu`
  * as the sidebar, `MobileNav` on phones and `CommandMenu` as the search (see site-search.tsx).
  */
 export function DocsLayout() {
@@ -71,28 +71,28 @@ export function DocsLayout() {
             onOpenMobileNav={() => setNavOpen(true)}
             navLabel="Site"
             logo={
-              <TopBarLogo href="/" label="libui home">
+              <TopBarLogo href="/" label="ferry-ui home">
                 <LogoMark />
               </TopBarLogo>
             }
             actions={
               <>
                 <TopBarSearch onClick={() => setSearchOpen(true)} label="Search the documentation" />
-                <TopBarIconButton icon={<GithubIcon />} label="GitHub" href={GITHUB_URL} external />
+                <TopBarIconButton icon={<GithubIcon />} label="GitHub" href={GITHUB_URL} external className="max-sm:hidden" />
                 {/* The icon shows the stored preference, which the server does not know. */}
                 {mounted ? <ThemeMenu /> : <span className="size-8" aria-hidden="true" />}
               </>
             }
           >
             <TopBarSeparator />
-            <TopBarSegment href="/">libui</TopBarSegment>
+            <TopBarSegment href="/">ferry-ui</TopBarSegment>
             <TopBarSeparator />
             <TopBarSegment href={DOCS_HOME} current badge={<Badge font="mono" case="normal">{`v${VERSION}`}</Badge>}>
               Docs
             </TopBarSegment>
           </TopBar>
         }
-        mobileNav={<MobileNav groups={groups} title="libui" description="Documentation" showThemeToggle />}
+        mobileNav={<MobileNav groups={groups} title="ferry-ui" description="Documentation" showThemeToggle />}
       >
         <div className="flex min-h-0 flex-1 flex-col md:flex-row">
           <InnerMenu groups={groups} label="Documentation" mobileTabs={false} className="hidden md:flex" />

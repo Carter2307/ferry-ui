@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Badge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'libui-kit'
+import { Badge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'ferry-ui'
 
 export interface ApiProp {
   name: string
@@ -29,7 +29,7 @@ function InlineDoc({ text }: { text: string }) {
 }
 
 export interface PropsTableProps {
-  /** Name of the component, as exported by libui: `Button`, `DialogContent`. */
+  /** Name of the component, as exported by ferry-ui: `Button`, `DialogContent`. */
   of: string
   /** Set by the build from `of`: the props read from the sources (`npm run site:api`). */
   data?: ApiData

@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
   Textarea,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export default function SheetHero() {
   return (

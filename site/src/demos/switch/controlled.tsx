@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Label, Switch, toast } from 'libui-kit'
+import { Label, Switch, toast } from 'ferry-ui'
 
 export default function SwitchControlled() {
   const [enabled, setEnabled] = React.useState(false)

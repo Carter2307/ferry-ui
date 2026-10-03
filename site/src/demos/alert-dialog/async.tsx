@@ -11,7 +11,7 @@ import {
   AlertDialogTrigger,
   Button,
   toast,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export default function AlertDialogAsync() {
   const [open, setOpen] = React.useState(false)

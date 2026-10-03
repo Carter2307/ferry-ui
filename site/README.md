@@ -1,8 +1,8 @@
-# libui documentation site
+# ferry-ui documentation site
 
-The landing page and the documentation of libui. The site is a libui app: its frame is `AppShell`,
+The landing page and the documentation of ferry-ui. The site is a ferry-ui app: its frame is `AppShell`,
 `TopBar`, `InnerMenu` and `MobileNav`, its search is `CommandMenu`, and every demo runs the current
-sources of the library (`libui-kit` resolves to `../src`).
+sources of the library (`ferry-ui` resolves to `../src`).
 
 ```sh
 npm run site:dev       # http://localhost:5181
@@ -20,7 +20,7 @@ All commands run from the repository root. The site has no `package.json` of its
 site/
 ├─ AUTHORING.md              how to write a page: structure, demos, Simplified Technical English
 ├─ index.html                the HTML shell
-├─ vite.config.ts            Vite + MDX + Tailwind, the `libui-kit` alias
+├─ vite.config.ts            Vite + MDX + Tailwind, the `ferry-ui` alias
 ├─ lib/                      reads the pages (front matter, headings) and writes their Markdown version
 ├─ plugins/                  Vite / MDX plugins: the page list, <Demo> and <PropsTable>, the .md files
 ├─ scripts/
@@ -69,5 +69,5 @@ not approve; it does not have the STE dictionary.
 Markdown file per page and `llms.txt`. Any static host can serve it.
 
 - Build command: `npm ci && npm run site:build`. Publish directory: `site/dist`.
-- Served from a sub-path (for example GitHub Pages at `/libui/`)? Build with `SITE_BASE=/libui/`.
+- Served from a sub-path (for example GitHub Pages at `/ferry-ui/`)? Build with `SITE_BASE=/ferry-ui/`.
 - `404.html` is the page a static host shows for an unknown address.

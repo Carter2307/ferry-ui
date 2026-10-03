@@ -1,17 +1,17 @@
-# libui: guide for AI coding agents
+# ferry-ui: guide for AI coding agents
 
-libui is a React 19 design system for dense product interfaces (dashboards, admin consoles, settings
+ferry-ui is a React 19 design system for dense product interfaces (dashboards, admin consoles, settings
 pages, data tables, developer tools): design tokens, accessible primitives on Radix UI, higher-level
 patterns and application-shell layout pieces, styled with Tailwind CSS v4.
 
-This file is the authoritative reference for building UI **with** libui and for contributing **to** it.
+This file is the authoritative reference for building UI **with** ferry-ui and for contributing **to** it.
 Follow it over your defaults. Every `tsx` snippet below is type-checked against the current sources
 (`npm run check:docs`), and every public export is listed in the catalog (section 7).
 
 | Section | Read it when |
 | --- | --- |
 | [1. Rules](#1-rules) | Always, before writing any UI |
-| [2. App setup](#2-app-setup) | Wiring libui into an app (CSS, providers, router) |
+| [2. App setup](#2-app-setup) | Wiring ferry-ui into an app (CSS, providers, router) |
 | [3. Design language](#3-design-language) | Choosing sizes, spacing, type |
 | [4. Tokens](#4-tokens) | Writing any class that sets a color, radius, shadow or font |
 | [5. Which component for which job](#5-which-component-for-which-job) | Picking a component |
@@ -19,16 +19,16 @@ Follow it over your defaults. Every `tsx` snippet below is type-checked against 
 | [7. Catalog](#7-catalog) | Looking up exports, props and allowed values |
 | [8. Accessibility](#8-accessibility) | Before finishing any screen |
 | [9. Do and don't](#9-do-and-dont) | Reviewing your own output |
-| [10. Extending libui](#10-extending-libui) | Adding or changing a component in this repository |
+| [10. Extending ferry-ui](#10-extending-ferry-ui) | Adding or changing a component in this repository |
 
 ## 1. Rules
 
-1. **Import from the package root only.** `import { Button, cn } from 'libui-kit'`. Never import from
-   `libui-kit/dist/...` and never copy a libui component into the app. The only other entry points are the
-   stylesheets: `libui-kit/theme.css`, `libui-kit/styles.css`, `libui-kit/fonts.css`, `libui-kit/tokens.css`. Icons come
+1. **Import from the package root only.** `import { Button, cn } from 'ferry-ui'`. Never import from
+   `ferry-ui/dist/...` and never copy a ferry-ui component into the app. The only other entry points are the
+   stylesheets: `ferry-ui/theme.css`, `ferry-ui/styles.css`, `ferry-ui/fonts.css`, `ferry-ui/tokens.css`. Icons come
    from `lucide-react`.
 2. **Look in the catalog before writing markup.** Compose existing primitives and patterns. Build a new
-   component only when nothing in sections 5 and 7 fits, and build it from libui primitives and tokens.
+   component only when nothing in sections 5 and 7 fits, and build it from ferry-ui primitives and tokens.
 3. **Tokens only.** Colors, radii, shadows and fonts come from the token classes of section 4
    (`bg-surface-100`, `text-foreground-light`, `border-border-strong`). Never write raw colors (`#fff`,
    `rgb()`, `oklch()`), Tailwind palette classes (`bg-white`, `text-gray-600`, `bg-blue-500`) or
@@ -50,9 +50,9 @@ Follow it over your defaults. Every `tsx` snippet below is type-checked against 
    `rounded-sm` (4px) for chips, `rounded-full` for pills and avatars.
 9. **State lives in props.** Every stateful component is controlled (`value` + `onValueChange`, `open` +
    `onOpenChange`, `checked` + `onCheckedChange`) or uncontrolled (`defaultValue`, `defaultOpen`,
-   `defaultChecked`). libui has no store, fetches nothing and knows no router.
+   `defaultChecked`). ferry-ui has no store, fetches nothing and knows no router.
 10. **Links are `href` strings.** Components that navigate take `href` and render it through the app's
-    link component (`LinkProvider`, section 2). Do not wrap a libui component in a router link, and do not
+    link component (`LinkProvider`, section 2). Do not wrap a ferry-ui component in a router link, and do not
     pass router objects. For links you write yourself, use your router's own `Link`.
 11. **Mount the providers once.** `TooltipProvider` is required by `Tooltip`, `Hint` and every component
     that shows a tooltip (icon-only `CopyButton`, `SecretField`, `CodeBlock`, `KeyValueEditor`,
@@ -70,7 +70,7 @@ Follow it over your defaults. Every `tsx` snippet below is type-checked against 
 
 - `react` and `react-dom` 19 (components take `ref` as a regular prop; React 18 is not supported).
 - ESM only. One module per component, tree-shakeable.
-- `tailwindcss` 4.1 or later, only when the app compiles `libui-kit/theme.css` itself.
+- `tailwindcss` 4.1 or later, only when the app compiles `ferry-ui/theme.css` itself.
 
 ### CSS
 
@@ -78,30 +78,30 @@ App that uses Tailwind CSS v4 (preferred: the app can use the same tokens in its
 
 ```css
 @import "tailwindcss";
-@import "libui-kit/fonts.css"; /* optional: Inter + Source Code Pro */
-@import "libui-kit/theme.css";
+@import "ferry-ui/fonts.css"; /* optional: Inter + Source Code Pro */
+@import "ferry-ui/theme.css";
 ```
 
 `theme.css` maps the tokens onto Tailwind theme names, declares the class-based `dark` variant, adds the
-utilities `mono-label`, `bg-dot-grid`, `tabular`, `scrollbar-none`, and registers libui's own files as a
+utilities `mono-label`, `bg-dot-grid`, `tabular`, `scrollbar-none`, and registers ferry-ui's own files as a
 Tailwind source, so the classes used by the components are generated without extra configuration.
 
 App without Tailwind: import the precompiled stylesheet once (it includes Tailwind's preflight reset).
 The app then styles its own markup with plain CSS and the variables of section 4.
 
 ```ts
-import 'libui-kit/styles.css'
-import 'libui-kit/fonts.css' // optional
+import 'ferry-ui/styles.css'
+import 'ferry-ui/fonts.css' // optional
 ```
 
-`libui-kit/tokens.css` contains only the CSS custom properties (no Tailwind), for other stacks.
+`ferry-ui/tokens.css` contains only the CSS custom properties (no Tailwind), for other stacks.
 
 ### Providers
 
 ```tsx
 import type { ReactNode } from 'react'
 import { Link } from 'react-router'
-import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from 'libui-kit'
+import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from 'ferry-ui'
 
 // Module level, so the component identity is stable between renders.
 const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
@@ -121,9 +121,9 @@ export function Providers({ children }: { children: ReactNode }) {
 ```
 
 - `ThemeProvider` toggles `class="dark"` on `<html>` and persists the preference in `localStorage`
-  (key `libui-theme`). Add `<script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />` to
+  (key `ferry-ui-theme`). Add `<script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />` to
   `<head>` to avoid a flash of the wrong theme; pass it the same `storageKey` and `defaultTheme`.
-- `LinkProvider` is optional: without it libui renders plain `<a>` elements. A component's own
+- `LinkProvider` is optional: without it ferry-ui renders plain `<a>` elements. A component's own
   `linkComponent` prop overrides the provider for that component.
 - Next.js adapter: `({ href, ...props }) => <NextLink href={href} {...props} />`. TanStack Router adapter:
   `({ href, ...props }) => <Link to={href} {...props} />`.
@@ -235,7 +235,7 @@ Every element's default border color is `--border`: write `border`, `border-t`, 
 
 ### shadcn aliases, charts, focus
 
-These aliases point at the tokens above so stock shadcn/ui classes keep working. Prefer the libui names
+These aliases point at the tokens above so stock shadcn/ui classes keep working. Prefer the ferry-ui names
 in new code, and never override the aliases when theming (override the source token).
 
 | Tailwind class | CSS variable | Resolves to |
@@ -253,15 +253,15 @@ in new code, and never override the aliases when theming (override the source to
 
 | Tailwind class | CSS variable | Meaning |
 | --- | --- | --- |
-| `rounded-sm` | `--libui-radius-sm` (4px) | Chips, square badges, keycaps |
-| `rounded-md` | `--libui-radius-md` (6px) | Controls: buttons, inputs, navigation items |
-| `rounded-lg` | `--libui-radius-lg` (8px) | Containers: cards, tables, popovers, dialogs |
-| `rounded-xl` | `--libui-radius-xl` (12px) | Large standalone panels (rare) |
+| `rounded-sm` | `--ferry-ui-radius-sm` (4px) | Chips, square badges, keycaps |
+| `rounded-md` | `--ferry-ui-radius-md` (6px) | Controls: buttons, inputs, navigation items |
+| `rounded-lg` | `--ferry-ui-radius-lg` (8px) | Containers: cards, tables, popovers, dialogs |
+| `rounded-xl` | `--ferry-ui-radius-xl` (12px) | Large standalone panels (rare) |
 | `rounded-full` | n/a | Pills, avatars, dots |
 | `shadow-card` | `--shadow-card` | Resting cards (almost invisible; none in dark mode) |
 | `shadow-overlay` | `--shadow-overlay` | Floating layers: menus, popovers, dialogs, toasts |
-| `font-sans` | `--libui-font-sans` | Inter, then system fonts |
-| `font-mono` | `--libui-font-mono` | Source Code Pro, then system monospace |
+| `font-sans` | `--ferry-ui-font-sans` | Inter, then system fonts |
+| `font-mono` | `--ferry-ui-font-mono` | Source Code Pro, then system monospace |
 | `mono-label` | n/a | 11.5px uppercase mono caption in `foreground-lighter` |
 | `tabular` | n/a | Tabular figures for numbers that align or update |
 | `bg-dot-grid` | n/a | Dotted-grid canvas background |
@@ -271,7 +271,7 @@ Focus ring of a custom interactive element: `outline-none focus-visible:ring-2 f
 
 ### Theming a product
 
-Override the source variables after the libui import, on `:root` / `.dark`. Do not edit libui and do not
+Override the source variables after the ferry-ui import, on `:root` / `.dark`. Do not edit ferry-ui and do not
 override the shadcn aliases. The variables can also be set on a container to scope a brand to it, with
 two limits: the shadcn aliases and `--chart-1` are resolved on `:root`, so re-declare in the scope the
 aliases of every token you change (`--card: var(--surface-100)`, `--chart-1: var(--brand)`…), and
@@ -423,7 +423,7 @@ import {
   TopBarSeparator,
   TopBarUserMenu,
   type NavGroup,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { CreditCard, FolderKanban, LayoutDashboard, Settings, Users } from 'lucide-react'
 
 interface AppFrameProps {
@@ -532,7 +532,7 @@ import {
   rowLinkProps,
   type FilterOption,
   type StatusTone,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { MoreHorizontal, Plus } from 'lucide-react'
 
 type InvoiceStatus = 'paid' | 'open' | 'overdue'
@@ -686,7 +686,7 @@ import {
   SelectValue,
   getErrorMessage,
   toast,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 interface ProjectSettings {
   name: string
@@ -822,7 +822,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { Download } from 'lucide-react'
 
 interface Customer {
@@ -919,7 +919,7 @@ import {
   ResourceGrid,
   StatusLine,
   UsageBar,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { FolderKanban } from 'lucide-react'
 
 interface Project {
@@ -1010,7 +1010,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
   toast,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { MoreHorizontal, Trash2 } from 'lucide-react'
 
 export function ApiKeyActions({ name, onRevoke }: { name: string; onRevoke: () => Promise<void> }) {
@@ -1054,7 +1054,7 @@ export function ApiKeyActions({ name, onRevoke }: { name: string; onRevoke: () =
 One component per state; never show a blank area or a bare spinner.
 
 ```tsx
-import { Button, EmptyState, ErrorState, Skeleton, StaleDataCallout } from 'libui-kit'
+import { Button, EmptyState, ErrorState, Skeleton, StaleDataCallout } from 'ferry-ui'
 import { FolderKanban, Plus } from 'lucide-react'
 
 interface ProjectListProps {
@@ -1140,7 +1140,7 @@ import {
   SelectTrigger,
   SelectValue,
   getErrorMessage,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export function InviteMemberDialog({ onInvite }: { onInvite: (email: string, role: string) => Promise<void> }) {
   const [open, setOpen] = React.useState(false)
@@ -1247,14 +1247,14 @@ Exports: `ThemeProvider`, `useTheme`, types `ThemeProviderProps`, `ThemeContextV
 (`'light' | 'dark' | 'system'`), `ResolvedTheme` (`'light' | 'dark'`).
 
 - `ThemeProvider` props: `defaultTheme` (default `system`, read on mount), `storageKey` (default
-  `libui-theme`; `null` disables persistence), `theme` + `onThemeChange` (controlled, e.g. a preference
+  `ferry-ui-theme`; `null` disables persistence), `theme` + `onThemeChange` (controlled, e.g. a preference
   saved in the user's account). Mount once at the root; do not nest it or use it to theme one section.
 - `useTheme()` returns `{ theme, resolvedTheme, setTheme }`. Bind pickers to `theme`; branch on
   `resolvedTheme` for things that cannot use tokens (charts, code highlighting). Outside a provider it
   reads the `dark` class of `<html>` and `setTheme` is a no-op. Plain styling never needs it.
 
 ```tsx
-import { ToggleGroup, ToggleGroupItem, useTheme, type ThemePreference } from 'libui-kit'
+import { ToggleGroup, ToggleGroupItem, useTheme, type ThemePreference } from 'ferry-ui'
 
 const isPreference = (value: string): value is ThemePreference =>
   value === 'light' || value === 'dark' || value === 'system'
@@ -1282,14 +1282,14 @@ export function AppearanceSetting() {
 
 #### themeInitScript
 
-Exports: `themeInitScript`, `DEFAULT_THEME_STORAGE_KEY` (`'libui-theme'`). Server-safe.
+Exports: `themeInitScript`, `DEFAULT_THEME_STORAGE_KEY` (`'ferry-ui-theme'`). Server-safe.
 
 `themeInitScript(storageKey?, defaultTheme?)` returns the source of an inline script that applies the
 stored theme before first paint. Pass the same arguments as the `ThemeProvider`.
 
 ```tsx
 import type { ReactNode } from 'react'
-import { themeInitScript } from 'libui-kit'
+import { themeInitScript } from 'ferry-ui'
 
 export function Document({ children }: { children: ReactNode }) {
   return (
@@ -1323,7 +1323,7 @@ Exports: `LinkProvider`, `useLinkComponent`, types `LinkComponent`, `LinkCompone
 
 - `LinkComponent` is `React.ComponentType<LinkComponentProps>`; `LinkComponentProps` is every anchor
   attribute plus a required string `href`. An adapter must forward all props to the rendered anchor.
-- `<LinkProvider component={RouterLink}>` makes every libui link below go through the router (setup
+- `<LinkProvider component={RouterLink}>` makes every ferry-ui link below go through the router (setup
   snippet in section 2).
 - `useLinkComponent(override?)` is for authors of components that render links: it returns the
   `override`, else the provider's component, else a plain `<a>`.
@@ -1333,7 +1333,7 @@ Exports: `LinkProvider`, `useLinkComponent`, types `LinkComponent`, `LinkCompone
 
 ```tsx
 import type { ReactNode } from 'react'
-import { cn, useLinkComponent, type LinkComponent } from 'libui-kit'
+import { cn, useLinkComponent, type LinkComponent } from 'ferry-ui'
 
 interface DocsLinkProps {
   href: string
@@ -1372,7 +1372,7 @@ Exports: `useCopy`, `copyText`, type `UseCopyOptions`.
 - Prefer the ready-made `CopyButton`, `CopyField`, `SecretField`, `CodeBlock`.
 
 ```tsx
-import { Button, useCopy } from 'libui-kit'
+import { Button, useCopy } from 'ferry-ui'
 import { Check, Link2 } from 'lucide-react'
 
 export function CopyInviteLink({ url }: { url: string }) {
@@ -1401,7 +1401,7 @@ default and ignores presses with Alt or Shift. Bind each letter in one place onl
 
 ```tsx
 import * as React from 'react'
-import { Button, CommandMenu, Kbd, useCommandShortcut, useModKey, type CommandMenuGroup } from 'libui-kit'
+import { Button, CommandMenu, Kbd, useCommandShortcut, useModKey, type CommandMenuGroup } from 'ferry-ui'
 
 export function SearchEverywhere({ groups }: { groups: CommandMenuGroup[] }) {
   const [open, setOpen] = React.useState(false)
@@ -1443,7 +1443,7 @@ Exports: `Button`, `buttonVariants`, type `ButtonProps`.
   `asChild`.
 
 ```tsx
-import { Button, Hint } from 'libui-kit'
+import { Button, Hint } from 'ferry-ui'
 import { ArrowRight, Download, Plus } from 'lucide-react'
 
 export function ButtonExamples({ saving, onCreate }: { saving: boolean; onCreate: () => void }) {
@@ -1483,7 +1483,7 @@ state of a record use `StatusBadge`.
 - `badgeVariants({ variant, font, shape, case })` returns the classes.
 
 ```tsx
-import { Badge } from 'libui-kit'
+import { Badge } from 'ferry-ui'
 
 export function PlanBadges() {
   return (
@@ -1513,7 +1513,7 @@ Exports: `Input`, `inputVariants`, type `InputProps`.
 - `inputVariants({ size, mono })` gives a non-input element the field look.
 
 ```tsx
-import { Input, Label } from 'libui-kit'
+import { Input, Label } from 'ferry-ui'
 
 export function SlugField({ value, onChange }: { value: string; onChange: (slug: string) => void }) {
   return (
@@ -1540,7 +1540,7 @@ Multi-line field with the `Input` look. Grows with its content from an 80px mini
 content (JSON, keys). Same `aria-invalid` / `disabled` states as `Input`.
 
 ```tsx
-import { Field, Textarea } from 'libui-kit'
+import { Field, Textarea } from 'ferry-ui'
 
 export function NotesField({ value, onChange }: { value: string; onChange: (notes: string) => void }) {
   return (
@@ -1568,7 +1568,7 @@ Export: `Checkbox`. 16px checkbox for choices applied on submit and for row sele
 - Needs a `Label` (wrapping it or via `htmlFor`) or an `aria-label` (table cells).
 
 ```tsx
-import { Checkbox, Label } from 'libui-kit'
+import { Checkbox, Label } from 'ferry-ui'
 
 export function TermsCheckbox({ accepted, onChange }: { accepted: boolean; onChange: (accepted: boolean) => void }) {
   return (
@@ -1590,7 +1590,7 @@ Exports: `Switch`, type `SwitchProps`. On/off toggle for settings that apply imm
 - Needs an accessible name: `<Label htmlFor>` or `aria-label`.
 
 ```tsx
-import { Label, Switch } from 'libui-kit'
+import { Label, Switch } from 'ferry-ui'
 
 export function NotificationsSwitch({ enabled, onChange }: { enabled: boolean; onChange: (enabled: boolean) => void }) {
   return (
@@ -1612,7 +1612,7 @@ Exports: `RadioGroup`, `RadioGroupItem`. Single choice among 2 to 5 visible opti
 - `RadioGroupItem`: `value` (required), `disabled`, `aria-invalid`. Wrap it with its text in a `Label`.
 
 ```tsx
-import { Label, RadioGroup, RadioGroupItem } from 'libui-kit'
+import { Label, RadioGroup, RadioGroupItem } from 'ferry-ui'
 
 export function BillingPeriod({ value, onChange }: { value: string; onChange: (period: string) => void }) {
   return (
@@ -1658,7 +1658,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export function RoleSelect({ value, onChange }: { value: string; onChange: (role: string) => void }) {
   return (
@@ -1707,7 +1707,7 @@ Exports: `ToggleGroup`, `ToggleGroupItem`, types `ToggleGroupProps`, `ToggleGrou
 - `ToggleGroupItem`: `value` (required), `disabled`; icon-only items need `aria-label`.
 
 ```tsx
-import { Toggle, ToggleGroup, ToggleGroupItem } from 'libui-kit'
+import { Toggle, ToggleGroup, ToggleGroupItem } from 'ferry-ui'
 import { Archive, LayoutGrid, List } from 'lucide-react'
 
 interface ViewOptionsProps {
@@ -1757,7 +1757,7 @@ for filtering the same content (use `ToggleGroup`).
 - `tabsListVariants({ variant })` returns the list classes.
 
 ```tsx
-import { Badge, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
+import { Badge, Tabs, TabsContent, TabsList, TabsTrigger } from 'ferry-ui'
 
 export function ProjectTabs({ openInvoices }: { openInvoices: number }) {
   return (
@@ -1807,7 +1807,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export function ShortcutsDialog() {
   return (
@@ -1863,7 +1863,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export function DiscardChanges({ onDiscard }: { onDiscard: () => void }) {
   return (
@@ -1916,7 +1916,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export function OrderDetailsSheet({ orderNumber, children }: { orderNumber: string; children: ReactNode }) {
   return (
@@ -1955,7 +1955,7 @@ Floating panel for small forms and pickers. Non-modal: clicking outside closes i
 
 ```tsx
 import type { ReactNode } from 'react'
-import { Button, Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from 'libui-kit'
+import { Button, Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from 'ferry-ui'
 
 export function ShareLinkPopover({ children }: { children: ReactNode }) {
   return (
@@ -2016,7 +2016,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
   useModKey,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { Copy, MoreHorizontal, Trash2 } from 'lucide-react'
 
 interface OrderMenuProps {
@@ -2088,7 +2088,7 @@ Exports: `TooltipProvider`, `Tooltip`, `TooltipTrigger`, `TooltipContent`, `Hint
   essential or interactive content in a tooltip (touch users cannot hover).
 
 ```tsx
-import { Button, Hint, Tooltip, TooltipContent, TooltipTrigger } from 'libui-kit'
+import { Button, Hint, Tooltip, TooltipContent, TooltipTrigger } from 'ferry-ui'
 import { RefreshCw } from 'lucide-react'
 
 export function RefreshButton({ onRefresh, updatedAt }: { onRefresh: () => void; updatedAt: string }) {
@@ -2143,7 +2143,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { Check, ChevronsUpDown } from 'lucide-react'
 
 interface OwnerComboboxProps {
@@ -2201,7 +2201,7 @@ Wrap `CardTitle` + `CardDescription` in a `<div>` to stack them. Do not nest car
 use `FormCard`, for KPIs `MetricCard`, for entity lists `ResourceCard`.
 
 ```tsx
-import { Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'libui-kit'
+import { Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'ferry-ui'
 
 export function PaymentMethodCard({ last4, onReplace }: { last4: string; onReplace: () => void }) {
   return (
@@ -2244,7 +2244,7 @@ Native table in a bordered, horizontally scrolling container. Full example: reci
   `TableErrorRow` (7.5).
 
 ```tsx
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from 'libui-kit'
+import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from 'ferry-ui'
 
 interface OrderLine {
   id: string
@@ -2297,7 +2297,7 @@ type `AvatarProps`.
 - `AvatarGroup` stacks avatars; `AvatarGroupCount` is the trailing "+N".
 
 ```tsx
-import { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage } from 'libui-kit'
+import { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage } from 'ferry-ui'
 
 export function TeamAvatars({ members, extra }: { members: { name: string; initials: string; photo?: string }[]; extra: number }) {
   return (
@@ -2341,7 +2341,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export function InvoiceBreadcrumb({ customer, invoice }: { customer: { id: string; name: string }; invoice: string }) {
   return (
@@ -2372,7 +2372,7 @@ options"). `open` + `onOpenChange`, or `defaultOpen`. `CollapsibleTrigger asChil
 
 ```tsx
 import type { ReactNode } from 'react'
-import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from 'libui-kit'
+import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from 'ferry-ui'
 import { ChevronRight } from 'lucide-react'
 
 export function AdvancedOptions({ children }: { children: ReactNode }) {
@@ -2399,7 +2399,7 @@ focusable (plain text, a read-only list), pass `tabIndex: 0`, `role: 'region'` a
 the area can be scrolled from the keyboard; leave it unset when the content has links or fields.
 
 ```tsx
-import { ScrollArea, ScrollBar } from 'libui-kit'
+import { ScrollArea, ScrollBar } from 'ferry-ui'
 
 export function ActivityLog({ entries }: { entries: string[] }) {
   return (
@@ -2434,7 +2434,7 @@ Export: `Skeleton`. Pulsing placeholder; size it like the content it replaces
 `ResourceCardSkeleton` where they exist.
 
 ```tsx
-import { Separator, Skeleton } from 'libui-kit'
+import { Separator, Skeleton } from 'ferry-ui'
 
 export function ProfileSkeleton() {
   return (
@@ -2461,11 +2461,11 @@ Exports: `Toaster`, `toast`, type `ToasterProps`. Brief, non-blocking feedback (
   option (`position`, `duration`, `visibleToasts`…). It follows the theme by itself.
 - `toast(title, { description, action, cancel, id, duration })`, `toast.success`, `toast.error`,
   `toast.warning`, `toast.info`, `toast.loading`, `toast.promise(promise, { loading, success, error })`,
-  `toast.dismiss(id?)`. Always import `toast` from `libui-kit`, not from `sonner`.
+  `toast.dismiss(id?)`. Always import `toast` from `ferry-ui`, not from `sonner`.
 - Not for errors that need a decision (`ConfirmDialog`) or persistent status (`Callout`).
 
 ```tsx
-import { Button, getErrorMessage, toast } from 'libui-kit'
+import { Button, getErrorMessage, toast } from 'ferry-ui'
 
 export function ExportButton({ onExport }: { onExport: () => Promise<void> }) {
   return (
@@ -2504,7 +2504,7 @@ Exports: `PageContainer`, `PageHeader`, `PageBackLink`, `PageSection`, types `Pa
 
 ```tsx
 import type { ReactNode } from 'react'
-import { Button, PageBackLink, PageContainer, PageHeader, PageSection } from 'libui-kit'
+import { Button, PageBackLink, PageContainer, PageHeader, PageSection } from 'ferry-ui'
 import { Plus } from 'lucide-react'
 
 export function MembersPage({ onInvite, children }: { onInvite: () => void; children: ReactNode }) {
@@ -2551,7 +2551,7 @@ Exports: `ListToolbar`, `SearchInput`, `FilterMenu`, `FilterButton`, types `List
 
 ```tsx
 import * as React from 'react'
-import { Button, FilterMenu, ListToolbar, SearchInput, StatusDot, type FilterOption } from 'libui-kit'
+import { Button, FilterMenu, ListToolbar, SearchInput, StatusDot, type FilterOption } from 'ferry-ui'
 import { Download } from 'lucide-react'
 
 const STATUS_OPTIONS: FilterOption[] = [
@@ -2601,7 +2601,7 @@ a text selection. Keep a real link in the first cell. Server-safe function, but 
 only works in a client component.
 
 ```tsx
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableSkeletonRows, rowLinkProps } from 'libui-kit'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableSkeletonRows, rowLinkProps } from 'ferry-ui'
 
 interface Member {
   id: string
@@ -2650,7 +2650,7 @@ Exports: `EmptyState`, `ErrorState`, types `EmptyStateProps`, `ErrorStateProps`.
   `retryLabel`. Omit `onRetry` when retrying cannot help.
 
 ```tsx
-import { Button, EmptyState } from 'libui-kit'
+import { Button, EmptyState } from 'ferry-ui'
 import { SearchX } from 'lucide-react'
 
 export function NoResults({ query, onClear }: { query: string; onClear: () => void }) {
@@ -2683,7 +2683,7 @@ Persistent inline message tied to a page, card or form. Not for transient feedba
   that could not be refreshed.
 
 ```tsx
-import { Button, Callout } from 'libui-kit'
+import { Button, Callout } from 'ferry-ui'
 
 export function TrialCallout({ daysLeft, onAddCard }: { daysLeft: number; onAddCard: () => void }) {
   return (
@@ -2735,7 +2735,7 @@ Exports: `CopyButton`, `CopyField`, `SecretField`, types `CopyButtonProps`, `Cop
   names). Unset entries keep their default.
 
 ```tsx
-import { CopyButton, CopyField, FormCard, FormRow, SecretField } from 'libui-kit'
+import { CopyButton, CopyField, FormCard, FormRow, SecretField } from 'ferry-ui'
 
 export function ApiAccessCard({ projectId, apiKey }: { projectId: string; apiKey: string }) {
   return (
@@ -2775,7 +2775,7 @@ Monospace snippet with a copy button. No syntax highlighting.
 - `CodeBlockPrompt`: the muted prompt for rich `children` (children default `$`).
 
 ```tsx
-import { CodeBlock, CodeBlockPrompt } from 'libui-kit'
+import { CodeBlock, CodeBlockPrompt } from 'ferry-ui'
 
 export function QuickStart({ apiKey }: { apiKey: string }) {
   return (
@@ -2808,7 +2808,7 @@ Read-only label / value facts about **one** record, as a semantic `<dl>`. Exampl
 - In `grid`, fill every row or use `span` so no empty cell shows.
 
 ```tsx
-import { DescriptionItem, DescriptionList } from 'libui-kit'
+import { DescriptionItem, DescriptionList } from 'ferry-ui'
 import { KeyRound, Users } from 'lucide-react'
 
 export function WorkspaceSummary({ members, pending, keys }: { members: number; pending: number; keys: number }) {
@@ -2847,7 +2847,7 @@ settings rows use `FormRow`; for a checkbox or switch with an inline label use `
   (`<SelectTrigger {...control}>`).
 
 ```tsx
-import { Field, Input, RadioGroup, RadioGroupItem, Label } from 'libui-kit'
+import { Field, Input, RadioGroup, RadioGroupItem, Label } from 'ferry-ui'
 
 interface WebhookFieldsProps {
   url: string
@@ -2906,7 +2906,7 @@ Exports: `FormCard`, `FormRow`, `FormActions`, `ActionRow`, types `FormCardProps
   `description`, `tone` (inherits the card's).
 
 ```tsx
-import { ActionRow, Button, FormCard } from 'libui-kit'
+import { ActionRow, Button, FormCard } from 'ferry-ui'
 
 export function DataActions({ onExport, exporting }: { onExport: () => void; exporting: boolean }) {
   return (
@@ -2979,7 +2979,7 @@ import {
   validateIdentifierKey,
   type KeyValuePair,
   type ValidateRowsOptions,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 // Module level: keeps the validation options stable between renders.
 const OPTIONS: ValidateRowsOptions = { validateKey: validateIdentifierKey }
@@ -3042,7 +3042,7 @@ Single choice among 2 to 6 options shown as selectable cards (icon, title, descr
 - Wrap it in `Field labelAs="span"` for a visible label, hint and error.
 
 ```tsx
-import { Field, RadioCardGroup, type RadioCardOption } from 'libui-kit'
+import { Field, RadioCardGroup, type RadioCardOption } from 'ferry-ui'
 import { Globe, Lock } from 'lucide-react'
 
 type Visibility = 'private' | 'public'
@@ -3092,7 +3092,7 @@ import {
   ResourceCard,
   ResourceGrid,
   StatusLine,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { FolderKanban, MoreVertical } from 'lucide-react'
 
 interface Project {
@@ -3155,7 +3155,7 @@ types `MetricCardProps`, `MetricTrendProps`, `MetricTrendDirection`, `MetricTren
   `warning`, `destructive`, `info`, `neutral`; `dotClassName`. `LEGEND_DOT_TONES` lists the tones.
 
 ```tsx
-import { LegendDot, MetricCard, MetricTrend, UsageBar } from 'libui-kit'
+import { LegendDot, MetricCard, MetricTrend, UsageBar } from 'ferry-ui'
 
 export function SeatUsage({ used, total, change }: { used: number; total: number; change: string }) {
   return (
@@ -3179,7 +3179,7 @@ Props: `label` (required), `value`, `icon`, `hint`, `loading`. Lay tiles out in
 `grid gap-x-8 gap-y-6 sm:grid-cols-2`. For numbers people compare, use `MetricCard`.
 
 ```tsx
-import { InfoTile, StatusBadge } from 'libui-kit'
+import { InfoTile, StatusBadge } from 'ferry-ui'
 import { CreditCard, ShieldCheck, User } from 'lucide-react'
 
 export function AccountOverview({ owner, plan, renewsOn }: { owner: string | undefined; plan: string; renewsOn: string }) {
@@ -3223,7 +3223,7 @@ tone once (recipe 6.2). `STATUS_TONES` lists the tones in display order.
 - `statusBadgeVariants({ tone, size })` returns the badge classes.
 
 ```tsx
-import { IconBox, StatusBadge, StatusDot, StatusLine } from 'libui-kit'
+import { IconBox, StatusBadge, StatusDot, StatusLine } from 'ferry-ui'
 import { Webhook } from 'lucide-react'
 
 export function WebhookStatus({ syncing }: { syncing: boolean }) {
@@ -3262,7 +3262,7 @@ alternatives.
   `actionProps` (extra props of the main button).
 
 ```tsx
-import { DropdownMenuItem, SplitButton } from 'libui-kit'
+import { DropdownMenuItem, SplitButton } from 'ferry-ui'
 
 interface PublishButtonProps {
   publishing: boolean
@@ -3304,7 +3304,7 @@ Exports: `Kbd`, type `KbdProps`. A keycap for shortcut hints: `<Kbd>Esc</Kbd>`, 
 with `const mod = useModKey()`. Display only: bind the shortcut yourself.
 
 ```tsx
-import { Kbd, MonoLabel, useModKey } from 'libui-kit'
+import { Kbd, MonoLabel, useModKey } from 'ferry-ui'
 
 export function ShortcutList() {
   const mod = useModKey()
@@ -3420,7 +3420,7 @@ import {
   TopBarSeparator,
   TopBarUserMenu,
   type ResourceSwitcherItem,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { LifeBuoy, LogOut, Plus } from 'lucide-react'
 
 interface AppTopBarProps {
@@ -3498,7 +3498,7 @@ destinations that each have an icon. Desktop only: `AppShell` hides it on phones
   that adapts to the width.
 
 ```tsx
-import { IconRail, IconRailItem, useIconRail, type NavGroup } from 'libui-kit'
+import { IconRail, IconRailItem, useIconRail, type NavGroup } from 'ferry-ui'
 import { LifeBuoy } from 'lucide-react'
 
 function Wordmark() {
@@ -3547,7 +3547,7 @@ Phone navigation drawer. Inside an `AppShell` (`mobileNav` slot) it needs no `op
 - `MobileNavSection`: `label` + free content below the navigation groups.
 
 ```tsx
-import { Button, MobileNav, MobileNavSection, MobileNavTrigger, type NavItem } from 'libui-kit'
+import { Button, MobileNav, MobileNavSection, MobileNavTrigger, type NavItem } from 'ferry-ui'
 
 export function PhoneNavigation({ items, workspace, onSignOut }: { items: NavItem[]; workspace: string; onSignOut: () => void }) {
   return (
@@ -3585,7 +3585,7 @@ strip (`mobileTabs`, default `true`).
 
 ```tsx
 import * as React from 'react'
-import { InnerMenu, PageContainer, PageHeader, type NavGroup } from 'libui-kit'
+import { InnerMenu, PageContainer, PageHeader, type NavGroup } from 'ferry-ui'
 
 const GROUPS: NavGroup[] = [
   {
@@ -3639,7 +3639,7 @@ command palette. Mount it once near the root.
   `CommandItem` rows), `className`. The panel carries `data-slot="command-menu"`.
 
 ```tsx
-import { CommandMenu, type CommandMenuGroup } from 'libui-kit'
+import { CommandMenu, type CommandMenuGroup } from 'ferry-ui'
 import { FolderKanban, Plus, Receipt } from 'lucide-react'
 
 export function AppCommandMenu({ onNewInvoice }: { onNewInvoice: () => void }) {
@@ -3667,7 +3667,7 @@ export function AppCommandMenu({ onNewInvoice }: { onNewInvoice: () => void }) {
 
 ## 8. Accessibility
 
-libui components ship the roles, focus management and keyboard behavior. The parts that depend on you:
+ferry-ui components ship the roles, focus management and keyboard behavior. The parts that depend on you:
 
 1. **Name every control.** Icon-only `Button`, `Toggle`, `ToggleGroupItem`, menu triggers:
    `aria-label`. `Hint` and tooltips are not accessible names. Name what the action targets when a
@@ -3690,7 +3690,7 @@ libui components ship the roles, focus management and keyboard behavior. The par
 8. **Headings.** One `<h1>` per page (`PageHeader`), `<h2>` per `PageSection`, `<h3>` in `FormCard`
    and `ResourceCard` (`titleAs` to change it). `CardTitle` is a `<div>`: put a heading inside when
    the outline needs one.
-9. **Decorative icons** inside libui slots (`icon` props) are hidden for you. An icon that carries
+9. **Decorative icons** inside ferry-ui slots (`icon` props) are hidden for you. An icon that carries
    meaning alone needs a text alternative: `IconBox label`, `StatusDot label`, or `sr-only` text.
 10. **Focus.** Never remove focus rings. A custom interactive element uses
     `outline-none focus-visible:ring-2 focus-visible:ring-ring`. Do not put interactive elements inside
@@ -3705,7 +3705,7 @@ libui components ship the roles, focus management and keyboard behavior. The par
 
 **Do**
 
-- Import from `'libui-kit'`; take icons from `lucide-react`.
+- Import from `'ferry-ui'`; take icons from `lucide-react`.
 - Start a screen from a recipe (section 6), then swap parts using the decision tables (section 5).
 - Use tokens for every color, and the two weights 400 / 500.
 - Keep one `primary` button per view; confirm destructive actions with `ConfirmDialog`.
@@ -3731,7 +3731,7 @@ libui components ship the roles, focus management and keyboard behavior. The par
   `DropdownMenu`), `Switch` inside a form saved with a button (use `Checkbox`).
 - Don't nest `Card`s, `PageContainer`s, `AppShell`s or `ThemeProvider`s.
 - Don't bind the same shortcut in several places, and don't mount several `Toaster`s.
-- Don't import `toast` from `sonner`, Radix parts from `radix-ui`, or anything from `libui-kit/dist`.
+- Don't import `toast` from `sonner`, Radix parts from `radix-ui`, or anything from `ferry-ui/dist`.
 - Don't call variant helpers (`buttonVariants`…) or hooks from a server component.
 - Don't use the deprecated aliases (`danger` / `danger-solid` button variants, size `default` on
   `Select`, `Switch`, `Avatar`, `Toggle`): use `destructive`, `destructive-solid` and `md` / `sm`.
@@ -3748,7 +3748,7 @@ libui components ship the roles, focus management and keyboard behavior. The par
 
 ```tsx
 // Do: tokens through components, one action that is confirmed, named controls.
-import { ActionRow, Button, ConfirmDialog, FormCard } from 'libui-kit'
+import { ActionRow, Button, ConfirmDialog, FormCard } from 'ferry-ui'
 
 export function DangerZone({ name, onDelete }: { name: string; onDelete: () => Promise<void> }) {
   return (
@@ -3771,7 +3771,7 @@ export function DangerZone({ name, onDelete }: { name: string; onDelete: () => P
 }
 ```
 
-## 10. Extending libui
+## 10. Extending ferry-ui
 
 Rules for changing this repository. They are the conventions of the existing code: match them exactly.
 
@@ -3800,7 +3800,7 @@ Primitives never import patterns or layout.
 
 1. **Files** are kebab-case: `timeline.tsx` next to `timeline.stories.tsx` (and `timeline.test.ts` for
    pure logic). One module may export a small family (`Timeline`, `TimelineItem`).
-2. **Relative imports only** (`'../../lib/utils'`); no `@/` alias, no import from `'libui-kit'` inside `src`.
+2. **Relative imports only** (`'../../lib/utils'`); no `@/` alias, no import from `'ferry-ui'` inside `src`.
 3. **Function components, no `forwardRef`.** `ref` is a regular prop (React 19). Spread the remaining
    props onto the root element so `id`, `aria-*` and `data-*` pass through. A composite with no single
    root (a trigger plus a portaled panel, a fragment of buttons) takes a closed list of props instead:

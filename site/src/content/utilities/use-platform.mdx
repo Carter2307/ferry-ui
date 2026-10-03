@@ -8,12 +8,12 @@ source: src/hooks/use-platform.ts
 
 ## Usage
 
-The `use-platform` module has two hooks: `useIsMac()` and `useModKey()`. libui has no export with the name `usePlatform`.
+The `use-platform` module has two hooks: `useIsMac()` and `useModKey()`. ferry-ui has no export with the name `usePlatform`.
 
 `useModKey()` returns the label of the main modifier key. The label is `⌘` on an Apple platform (Mac, iPhone, iPad) and `Ctrl` on the other platforms. Show it in a [Kbd](/docs/components/kbd).
 
 ```tsx
-import { Kbd, useModKey } from 'libui-kit'
+import { Kbd, useModKey } from 'ferry-ui'
 
 function SearchHint() {
   const mod = useModKey()
@@ -39,7 +39,7 @@ function SearchHint() {
 Use the constants in code that runs only in the browser, for example an event handler. In markup that a server can render, use the hooks. On a server, the constants describe the platform of the server.
 
 ```ts
-import { isMac } from 'libui-kit'
+import { isMac } from 'ferry-ui'
 
 function onKeyDown(event: KeyboardEvent) {
   const mod = isMac ? event.metaKey : event.ctrlKey

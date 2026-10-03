@@ -1,4 +1,4 @@
-import { Button, EmptyState, toast } from 'libui-kit'
+import { Button, EmptyState, toast } from 'ferry-ui'
 import { FileQuestion } from 'lucide-react'
 
 export default function EmptyStateFullPage() {

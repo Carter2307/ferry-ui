@@ -61,7 +61,7 @@ type BreadcrumbLinkProps = React.ComponentProps<"a"> & {
 /**
  * A clickable ancestor crumb (muted, foreground on hover, focus ring on
  * keyboard focus like every interactive primitive). With an `href` it
- * renders through the libui link contract: the component from the nearest
+ * renders through the ferry-ui link contract: the component from the nearest
  * `LinkProvider` (a plain `<a>` by default) or the `linkComponent` prop, so
  * crumbs use your router without extra wiring. Without an `href` it renders a
  * bare `<a>`. Pass `asChild` to style an element you render yourself instead.

@@ -1,4 +1,4 @@
-import { Field, Input, Tabs, TabsContent, TabsList, TabsTrigger, Textarea } from 'libui-kit'
+import { Field, Input, Tabs, TabsContent, TabsList, TabsTrigger, Textarea } from 'ferry-ui'
 
 export default function TabsForceMount() {
   return (

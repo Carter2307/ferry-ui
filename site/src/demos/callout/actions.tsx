@@ -1,4 +1,4 @@
-import { Button, Callout, toast } from 'libui-kit'
+import { Button, Callout, toast } from 'ferry-ui'
 import { RefreshCw } from 'lucide-react'
 
 export default function CalloutActions() {

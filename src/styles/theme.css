@@ -1,21 +1,21 @@
 /* ---------------------------------------------------------------------------
-   libui — Tailwind CSS v4 theme.
+   ferry-ui — Tailwind CSS v4 theme.
 
    Usage (in your app's main stylesheet):
      @import "tailwindcss";
-     @import "libui-kit/fonts.css";   (optional: Inter + Source Code Pro)
-     @import "libui-kit/theme.css";
+     @import "ferry-ui/fonts.css";   (optional: Inter + Source Code Pro)
+     @import "ferry-ui/theme.css";
 
    It maps the design tokens (tokens.css) onto Tailwind theme names so stock
-   shadcn classes (bg-background, border-input, ring-ring…) and the libui
+   shadcn classes (bg-background, border-input, ring-ring…) and the ferry-ui
    extras (bg-surface-100, text-foreground-light, border-strong,
-   bg-primary-solid, bg-warning-soft…) work, and registers libui's own
+   bg-primary-solid, bg-warning-soft…) work, and registers ferry-ui's own
    component files as a Tailwind source so their classes get generated.
    --------------------------------------------------------------------------- */
 @import "tw-animate-css";
 @import "./tokens.css";
 
-/* Scan libui's components (src/ in this repo, dist/ once published). Source maps
+/* Scan ferry-ui's components (src/ in this repo, dist/ once published). Source maps
    and declaration files repeat the same classes (JSON-escaped in maps): skip them. */
 @source "../";
 @source not "../**/*.map";
@@ -25,13 +25,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--libui-font-sans);
-  --font-mono: var(--libui-font-mono);
+  --font-sans: var(--ferry-ui-font-sans);
+  --font-mono: var(--ferry-ui-font-mono);
 
-  --radius-sm: var(--libui-radius-sm);
-  --radius-md: var(--libui-radius-md);
-  --radius-lg: var(--libui-radius-lg);
-  --radius-xl: var(--libui-radius-xl);
+  --radius-sm: var(--ferry-ui-radius-sm);
+  --radius-md: var(--ferry-ui-radius-md);
+  --radius-lg: var(--ferry-ui-radius-lg);
+  --radius-xl: var(--ferry-ui-radius-xl);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -132,7 +132,7 @@
   }
 }
 
-/* The libui signature: small uppercase monospace labels (card titles,
+/* The ferry-ui signature: small uppercase monospace labels (card titles,
    table headers, menu groups). Prefer the <MonoLabel> component. */
 @utility mono-label {
   font-family: var(--font-mono);

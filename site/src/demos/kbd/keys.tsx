@@ -1,4 +1,4 @@
-import { Kbd } from 'libui-kit'
+import { Kbd } from 'ferry-ui'
 
 const KEYS = ['⌘', '⇧', '⌥', 'Ctrl', 'Esc', 'Tab', '↵', '↑', '↓', '/', 'Backspace']
 

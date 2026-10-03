@@ -11,7 +11,7 @@ import {
   DialogTrigger,
   Field,
   Input,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export default function DialogHero() {
   return (

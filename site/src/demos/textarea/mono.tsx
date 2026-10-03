@@ -1,4 +1,4 @@
-import { Field, Textarea } from 'libui-kit'
+import { Field, Textarea } from 'ferry-ui'
 
 const PAYLOAD = `{
   "event": "invoice.paid",

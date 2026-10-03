@@ -1,9 +1,9 @@
 import type { ComponentProps } from 'react'
-import { cn } from 'libui-kit'
+import { cn } from 'ferry-ui'
 import { siGithub } from 'simple-icons'
 
 /**
- * The libui mark: a control (the solid square) on a surface (the outlined one), which is the
+ * The ferry-ui mark: a control (the solid square) on a surface (the outlined one), which is the
  * library in one picture. It takes the `brand` color.
  */
 export function LogoMark({ className, ...props }: ComponentProps<'svg'>) {
@@ -19,9 +19,9 @@ export function LogoMark({ className, ...props }: ComponentProps<'svg'>) {
 /** Mark and name, for the navigation bar and the footer of the landing page. */
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <span className={cn('inline-flex items-center gap-2 text-[17px] font-medium tracking-tight text-foreground', className)}>
+    <span className={cn('inline-flex items-center gap-2 text-[17px] font-medium tracking-tight whitespace-nowrap text-foreground', className)}>
       <LogoMark className="size-[22px]" />
-      libui
+      ferry-ui
     </span>
   )
 }

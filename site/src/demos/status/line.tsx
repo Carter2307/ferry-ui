@@ -1,4 +1,4 @@
-import { StatusLine } from 'libui-kit'
+import { StatusLine } from 'ferry-ui'
 import { Pause } from 'lucide-react'
 
 export default function StatusLines() {

@@ -8,7 +8,7 @@ import { Code, DocSection, TokenValue, useCssVariables, withInlineCode } from '.
 const radii = {
   sm: {
     className: 'rounded-sm',
-    variable: '--libui-radius-sm',
+    variable: '--ferry-ui-radius-sm',
     literal: '',
     usage: 'Square badges, keyboard caps, checkboxes, inline code chips.',
   },
@@ -21,19 +21,19 @@ const radii = {
   },
   md: {
     className: 'rounded-md',
-    variable: '--libui-radius-md',
+    variable: '--ferry-ui-radius-md',
     literal: '',
     usage: 'Controls: buttons, inputs, select triggers, toggles, tooltips, navigation items.',
   },
   lg: {
     className: 'rounded-lg',
-    variable: '--libui-radius-lg',
+    variable: '--ferry-ui-radius-lg',
     literal: '',
     usage: 'Containers: cards, tables, popovers, menus, dialogs, toasts, callouts.',
   },
   xl: {
     className: 'rounded-xl',
-    variable: '--libui-radius-xl',
+    variable: '--ferry-ui-radius-xl',
     literal: '',
     usage: 'Reserved for large standalone surfaces (sign-in panel, onboarding frame). No built-in component uses it.',
   },

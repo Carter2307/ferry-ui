@@ -1,4 +1,4 @@
-import { Label, RadioGroup, RadioGroupItem } from 'libui-kit'
+import { Label, RadioGroup, RadioGroupItem } from 'ferry-ui'
 
 export default function RadioGroupRow() {
   return (

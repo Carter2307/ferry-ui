@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Kbd, Label, Switch, useCommandShortcut, useModKey } from 'libui-kit'
+import { Kbd, Label, Switch, useCommandShortcut, useModKey } from 'ferry-ui'
 
 export default function UseCommandShortcutEnabled() {
   const [enabled, setEnabled] = React.useState(true)

@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'libui-kit'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'ferry-ui'
 
 const PROJECTS = [
   {

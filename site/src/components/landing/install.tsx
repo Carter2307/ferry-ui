@@ -5,11 +5,11 @@ import { Reveal } from './reveal'
 import { Heading, Section } from './ui'
 
 const STYLES = `@import "tailwindcss";
-@import "libui-kit/fonts.css"; /* optional: Inter and Source Code Pro */
-@import "libui-kit/theme.css";`
+@import "ferry-ui/fonts.css"; /* optional: Inter and Source Code Pro */
+@import "ferry-ui/theme.css";`
 
 const PROVIDERS = `import type { ReactNode } from 'react'
-import { ThemeProvider, Toaster, TooltipProvider } from 'libui-kit'
+import { ThemeProvider, Toaster, TooltipProvider } from 'ferry-ui'
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
@@ -22,7 +22,7 @@ export function Providers({ children }: { children: ReactNode }) {
   )
 }`
 
-const FIRST_SCREEN = `import { Button, EmptyState } from 'libui-kit'
+const FIRST_SCREEN = `import { Button, EmptyState } from 'ferry-ui'
 import { FolderKanban, Plus } from 'lucide-react'
 
 export function NoProjects({ onCreate }: { onCreate: () => void }) {
@@ -83,7 +83,7 @@ export function Install() {
                 <p className="mt-1 mb-3 text-sm text-foreground-lighter">
                   One package, with the components, the tokens and the stylesheets.
                 </p>
-                <PackageTabs packages="libui-kit" />
+                <PackageTabs packages="ferry-ui" />
               </Reveal>
             </li>
             {STEPS.map((step) => (
@@ -99,31 +99,20 @@ export function Install() {
         </div>
 
         <div className="space-y-3 lg:pt-[7.75rem]">
-          <Reveal delay={0.0} className="rounded-xl border bg-surface-100 p-6">
-            <h3 className="text-base font-medium text-foreground">Its name on npm is libui-kit</h3>
-            <p className="mt-2 text-sm text-foreground-lighter">
-              The name libui on npm is another project. Install{' '}
-              <code className="font-mono text-[0.9em] text-foreground">libui-kit</code> and import from{' '}
-              <code className="font-mono text-[0.9em] text-foreground">libui-kit</code>.
-            </p>
-            <RouterLink className="text-link mt-4 inline-block text-sm" href="/docs/overview/installation">
-              Read the installation page
-            </RouterLink>
-          </Reveal>
-          <Reveal delay={0.08} className="rounded-xl border bg-surface-100 p-6">
+          <Reveal delay={0} className="rounded-xl border bg-surface-100 p-6">
             <h3 className="text-base font-medium text-foreground">No Tailwind in your app?</h3>
             <p className="mt-2 text-sm text-foreground-lighter">
-              Import <code className="font-mono text-[0.9em] text-foreground">libui-kit/styles.css</code> at the root of
+              Import <code className="font-mono text-[0.9em] text-foreground">ferry-ui/styles.css</code> at the root of
               the app. Style your own markup with plain CSS and the variables of the tokens.
             </p>
             <RouterLink className="text-link mt-4 inline-block text-sm" href="/docs/handbook/styling">
               Read about styling
             </RouterLink>
           </Reveal>
-          <Reveal delay={0.16} className="rounded-xl border bg-surface-100 p-6">
+          <Reveal delay={0.08} className="rounded-xl border bg-surface-100 p-6">
             <h3 className="text-base font-medium text-foreground">Your colors, your fonts</h3>
             <p className="mt-2 text-sm text-foreground-lighter">
-              Override a few CSS variables after the import to give libui the look of your product, in light and in
+              Override a few CSS variables after the import to give ferry-ui the look of your product, in light and in
               dark.
             </p>
             <RouterLink className="text-link mt-4 inline-block text-sm" href="/docs/handbook/theming">

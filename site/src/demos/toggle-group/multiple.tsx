@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ToggleGroup, ToggleGroupItem } from 'libui-kit'
+import { ToggleGroup, ToggleGroupItem } from 'ferry-ui'
 import { Bold, Italic, Underline } from 'lucide-react'
 
 export default function ToggleGroupMultiple() {

@@ -9,7 +9,7 @@ import { llmsText, pageMarkdown, readPages } from '../lib/markdown.mjs'
 export function markdownPages(): Plugin {
   let base = '/'
   return {
-    name: 'libui-site:markdown-pages',
+    name: 'ferry-ui-site:markdown-pages',
     configResolved(config) {
       base = config.base
     },

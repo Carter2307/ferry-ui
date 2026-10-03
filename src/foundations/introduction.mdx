@@ -2,9 +2,9 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 <Meta title="Introduction" />
 
-# libui
+# ferry-ui
 
-libui is a React design system for dense product interfaces: dashboards, admin consoles, settings
+ferry-ui is a React design system for dense product interfaces: dashboards, admin consoles, settings
 pages, data tables and developer tools. It ships design tokens, accessible primitives built on
 [Radix UI](https://www.radix-ui.com), higher-level patterns and application-shell layout pieces, all
 styled with Tailwind CSS v4 and following the [shadcn/ui](https://ui.shadcn.com) conventions
@@ -40,19 +40,18 @@ when to use it and when not to — the same text you read in the Docs tab of eac
 ## Installation
 
 ```sh
-npm install libui-kit
+npm install ferry-ui
 ```
 
-The package is named `libui-kit` on npm. To try a version that is not released, install a tarball built
-from a checkout: `npm pack` in the libui folder (it runs the build), then
-`npm install ../libui/libui-kit-0.1.0.tgz` in your app.
+To try a version that is not released, install a tarball built from a checkout: `npm pack` in the
+ferry-ui folder (it runs the build), then `npm install ../ferry-ui/ferry-ui-0.1.0.tgz` in your app.
 
 Peer dependencies: `react` and `react-dom` 19 (components take `ref` as a regular prop), and
-`tailwindcss` 4.1+ only if you use `libui-kit/theme.css`. Radix UI, lucide-react, cmdk, sonner and the
+`tailwindcss` 4.1+ only if you use `ferry-ui/theme.css`. Radix UI, lucide-react, cmdk, sonner and the
 class helpers come along as regular dependencies.
 
-Everything is imported from the package root (`import { Button } from "libui-kit"`); deep imports into
-`libui-kit/dist` are not part of the API. The package is ESM-only and tree-shakeable (one module per
+Everything is imported from the package root (`import { Button } from "ferry-ui"`); deep imports into
+`ferry-ui/dist` are not part of the API. The package is ESM-only and tree-shakeable (one module per
 component). With React Server Components, every component and hook module is marked
 `"use client"`, while the plain helpers (`cn`, `getErrorMessage`, `themeInitScript`,
 `rowLinkProps`, `isMac` / `modKey`) stay callable on the server. The variant helpers
@@ -63,13 +62,13 @@ component). With React Server Components, every component and hook module is mar
 ### Apps using Tailwind CSS v4 (recommended)
 
 Import the theme in your main stylesheet. It maps the tokens onto Tailwind theme names, enables the
-class-based `dark` variant, adds the custom utilities and registers libui's components as a Tailwind
+class-based `dark` variant, adds the custom utilities and registers ferry-ui's components as a Tailwind
 source so their classes are generated.
 
 ```css
 @import "tailwindcss";
-@import "libui-kit/fonts.css"; /* optional: Inter + Source Code Pro webfonts */
-@import "libui-kit/theme.css";
+@import "ferry-ui/fonts.css"; /* optional: Inter + Source Code Pro webfonts */
+@import "ferry-ui/theme.css";
 ```
 
 You can then use the same tokens in your own code: `bg-surface-100`, `text-foreground-light`,
@@ -84,18 +83,18 @@ Import the precompiled stylesheet once, at the root of the app. It contains the 
 the tokens and every utility the components use.
 
 ```ts
-import "libui-kit/styles.css";
-import "libui-kit/fonts.css"; // optional
+import "ferry-ui/styles.css";
+import "ferry-ui/fonts.css"; // optional
 ```
 
-Only need the variables (another framework, emails, a marketing site)? `libui-kit/tokens.css` is plain
+Only need the variables (another framework, emails, a marketing site)? `ferry-ui/tokens.css` is plain
 CSS custom properties with no Tailwind dependency.
 
 ### Fonts
 
-`libui-kit/fonts.css` loads Inter and Source Code Pro as variable fonts from the bundled `@fontsource`
+`ferry-ui/fonts.css` loads Inter and Source Code Pro as variable fonts from the bundled `@fontsource`
 packages. Skip it to use the system fallbacks, or load your own typefaces and override
-`--libui-font-sans` / `--libui-font-mono`.
+`--ferry-ui-font-sans` / `--ferry-ui-font-mono`.
 
 ## App setup
 
@@ -104,7 +103,7 @@ Mount the providers once, at the root of the app:
 ```tsx
 import type { ReactNode } from "react";
 import { Link } from "react-router";
-import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from "libui-kit";
+import { LinkProvider, ThemeProvider, Toaster, TooltipProvider, type LinkComponent } from "ferry-ui";
 
 // Module level, so the adapter keeps the same identity between renders.
 const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />;
@@ -124,7 +123,7 @@ export function Providers({ children }: { children: ReactNode }) {
 ```
 
 - **`ThemeProvider`** toggles the `dark` class on `<html>`, persists the preference in
-  localStorage (`storageKey`, default `libui-theme`, `null` to disable) and exposes it through
+  localStorage (`storageKey`, default `ferry-ui-theme`, `null` to disable) and exposes it through
   `useTheme()` → `{ theme, resolvedTheme, setTheme }`. Pass `theme` + `onThemeChange` to control it
   yourself. `ThemeMenu` (Layout) is a ready-made light / dark / system picker wired to it.
 - **`themeInitScript()`** returns an inline script for `<head>` that applies the stored theme before
@@ -133,7 +132,7 @@ export function Providers({ children }: { children: ReactNode }) {
 
   ```tsx
   import type { ReactNode } from "react";
-  import { themeInitScript } from "libui-kit";
+  import { themeInitScript } from "ferry-ui";
 
   export function Document({ children }: { children: ReactNode }) {
     return (
@@ -153,7 +152,7 @@ export function Providers({ children }: { children: ReactNode }) {
 
 ## Links and routers
 
-libui never imports a router. Components that render links (navigation, cards, breadcrumbs, command
+ferry-ui never imports a router. Components that render links (navigation, cards, breadcrumbs, command
 items) take an `href` string and ask `useLinkComponent()` for the link to render — a plain `<a>` by
 default. Plug your router in once with `LinkProvider`, or pass `linkComponent` to a single component
 (the prop wins over the provider). The adapter receives `href` plus the usual anchor props and must
@@ -163,7 +162,7 @@ forward them all; define it once at module level so it keeps the same identity b
 import NextLink from "next/link";
 import { Link as TanStackLink } from "@tanstack/react-router";
 import { Link as ReactRouterLink } from "react-router";
-import type { LinkComponent } from "libui-kit";
+import type { LinkComponent } from "ferry-ui";
 
 // Pick the adapter of your router.
 export const ReactRouterAdapter: LinkComponent = ({ href, ...props }) => <ReactRouterLink to={href} {...props} />;
@@ -175,9 +174,9 @@ The current page is your router's knowledge: mark the matching navigation item w
 
 ## Theming a product
 
-Override the CSS variables after the libui import, globally on `:root` / `.dark`. Change the source
-tokens (`--primary`, `--primary-solid`, `--surface-100`, `--libui-radius-md`,
-`--libui-font-sans`…), never the shadcn aliases. The same variables can be set on a container to
+Override the CSS variables after the ferry-ui import, globally on `:root` / `.dark`. Change the source
+tokens (`--primary`, `--primary-solid`, `--surface-100`, `--ferry-ui-radius-md`,
+`--ferry-ui-font-sans`…), never the shadcn aliases. The same variables can be set on a container to
 scope a brand to it, with two limits: the shadcn aliases are resolved on `:root` (re-declare the
 aliases of the tokens you change inside the scope), and overlays render in `<body>`, outside the
 scope. The README section "Scoping a theme to a container" has the details.
@@ -231,13 +230,13 @@ state. Use the toolbar's theme switch to review any story in light and dark mode
 
 ## Conventions
 
-- Import everything from `libui-kit`; each component accepts `className` (merged with `cn()`) and
+- Import everything from `ferry-ui`; each component accepts `className` (merged with `cn()`) and
   exposes a `data-slot` attribute for targeted styling.
 - Prefer the tokens and existing sizes over arbitrary values; never hard-code colors.
 - Compose patterns from primitives before creating new components, and keep one primary action per
   view.
 - Stateful components are controlled (`value` + `onValueChange`, `open` + `onOpenChange`) or
-  uncontrolled (`defaultValue`, `defaultOpen`): libui holds no global state and fetches nothing.
+  uncontrolled (`defaultValue`, `defaultOpen`): ferry-ui holds no global state and fetches nothing.
 
 The repository's `README.md` covers installation and contribution in more detail, and `AGENTS.md`
 is the dense reference for AI coding agents: which component for which job, recipes for common

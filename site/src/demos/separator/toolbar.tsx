@@ -1,4 +1,4 @@
-import { Button, Separator } from 'libui-kit'
+import { Button, Separator } from 'ferry-ui'
 import { Bold, Italic, Link2, List, ListOrdered, Underline } from 'lucide-react'
 
 export default function SeparatorToolbar() {

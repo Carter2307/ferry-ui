@@ -1,4 +1,4 @@
-import { Button, Field, Input, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, toast } from 'libui-kit'
+import { Button, Field, Input, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, toast } from 'ferry-ui'
 
 export default function StackedFields() {
   return (

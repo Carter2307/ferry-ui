@@ -1,4 +1,4 @@
-import { Field, SecretField } from 'libui-kit'
+import { Field, SecretField } from 'ferry-ui'
 
 export default function CopySecret() {
   return (

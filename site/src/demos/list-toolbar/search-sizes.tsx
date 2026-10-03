@@ -1,4 +1,4 @@
-import { SearchInput } from 'libui-kit'
+import { SearchInput } from 'ferry-ui'
 
 export default function SearchInputSizes() {
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ErrorState } from 'libui-kit'
+import { ErrorState } from 'ferry-ui'
 
 export default function ErrorStateRetry() {
   const [retrying, setRetrying] = React.useState(false)

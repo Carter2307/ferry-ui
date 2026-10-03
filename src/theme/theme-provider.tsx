@@ -60,7 +60,7 @@ export interface ThemeProviderProps {
   children?: React.ReactNode
   /** Preference used when nothing is stored yet (default `system`). Read on mount only. */
   defaultTheme?: ThemePreference
-  /** localStorage key the preference is persisted under (default `libui-theme`; `null` disables persistence). */
+  /** localStorage key the preference is persisted under (default `ferry-ui-theme`; `null` disables persistence). */
   storageKey?: string | null
   /** Controlled preference (pair with `onThemeChange`), e.g. when it is saved in the user's account. */
   theme?: ThemePreference

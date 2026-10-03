@@ -1,4 +1,4 @@
-import { RadioCard, RadioCardGroup } from 'libui-kit'
+import { RadioCard, RadioCardGroup } from 'ferry-ui'
 
 // A small drawing of a page layout, made with token classes.
 function Preview({ sidebar = false }: { sidebar?: boolean }) {

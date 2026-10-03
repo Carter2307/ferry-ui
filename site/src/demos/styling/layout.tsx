@@ -1,4 +1,4 @@
-import { Button, Input } from 'libui-kit'
+import { Button, Input } from 'ferry-ui'
 
 export default function LayoutClasses() {
   return (

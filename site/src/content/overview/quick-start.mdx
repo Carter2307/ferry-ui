@@ -1,32 +1,32 @@
 ---
 title: Quick start
-description: Install libui, add its styles and show your first component.
+description: Install ferry-ui, add its styles and show your first component.
 order: 1
 ---
 
 ## Install the library
 
-libui is one package. Its name on npm is `libui-kit`. It needs React 19.
+ferry-ui is one package. It needs React 19.
 
-<PackageTabs packages="libui-kit" />
+<PackageTabs packages="ferry-ui" />
 
 Your bundle contains only the components that your app imports.
 
 ## Add the styles
 
-Your app uses Tailwind CSS v4? Import the theme of libui after Tailwind.
+Your app uses Tailwind CSS v4? Import the theme of ferry-ui after Tailwind.
 
 ```css title="app.css"
 @import "tailwindcss";
-@import "libui-kit/fonts.css"; /* optional: Inter and Source Code Pro */
-@import "libui-kit/theme.css";
+@import "ferry-ui/fonts.css"; /* optional: Inter and Source Code Pro */
+@import "ferry-ui/theme.css";
 ```
 
 Your app does not use Tailwind? Import the compiled stylesheet at the root of the app.
 
 ```ts title="main.tsx"
-import 'libui-kit/styles.css'
-import 'libui-kit/fonts.css' // optional
+import 'ferry-ui/styles.css'
+import 'ferry-ui/fonts.css' // optional
 ```
 
 ## Mount the providers
@@ -35,7 +35,7 @@ Mount the providers one time, at the root of the app.
 
 ```tsx title="providers.tsx"
 import type { ReactNode } from 'react'
-import { ThemeProvider, Toaster, TooltipProvider } from 'libui-kit'
+import { ThemeProvider, Toaster, TooltipProvider } from 'ferry-ui'
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
@@ -61,7 +61,7 @@ Import each component from the package root. This example shows an empty list wi
 
 <Demo name="quick-start/empty-state" title="An empty state with one primary action" />
 
-## Use libui with an AI assistant
+## Use ferry-ui with an AI assistant
 
 Each page has a **View as Markdown** link. Give this link to your assistant.
 
@@ -70,5 +70,5 @@ The file [llms.txt](/llms.txt) lists all the pages. The repository also has an `
 ## Next steps
 
 - Read [Styling](/docs/handbook/styling) to learn the tokens and the rules for `className`.
-- Read [Theming](/docs/handbook/theming) to give libui the colors of your product.
+- Read [Theming](/docs/handbook/theming) to give ferry-ui the colors of your product.
 - Open a component page, for example [Button](/docs/components/button).

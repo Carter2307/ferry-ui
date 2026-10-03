@@ -1,18 +1,18 @@
 ---
 title: TypeScript
-description: The types that libui exports, and how to use them in your own components.
+description: The types that ferry-ui exports, and how to use them in your own components.
 order: 8
 ---
 
 The package contains its type declarations. Import each type from the package root, with the components.
 
 ```ts
-import { Button, type ButtonProps, type NavGroup, type StatusTone } from 'libui-kit'
+import { Button, type ButtonProps, type NavGroup, type StatusTone } from 'ferry-ui'
 ```
 
 ## Prop types
 
-A component that adds props of its own exports a prop type: `ButtonProps`, `CalloutProps`, `FieldProps`. Use this type to make a component that extends a libui component.
+A component that adds props of its own exports a prop type: `ButtonProps`, `CalloutProps`, `FieldProps`. Use this type to make a component that extends a ferry-ui component.
 
 <Demo name="typescript/prop-types" title="A component that extends ButtonProps" />
 
@@ -26,7 +26,7 @@ Read the props of these components with `ComponentProps` from React.
 
 ## Value types
 
-Some props accept a closed list of values. libui exports a type for many of these lists.
+Some props accept a closed list of values. ferry-ui exports a type for many of these lists.
 
 | Type | Values |
 | --- | --- |
@@ -36,7 +36,7 @@ Some props accept a closed list of values. libui exports a type for many of thes
 | `ThemePreference` | `light`, `dark`, `system` |
 | `ResolvedTheme` | `light`, `dark` |
 
-Use these types to connect the values of your domain to libui in one place. This example gives one tone to each status of an invoice.
+Use these types to connect the values of your domain to ferry-ui in one place. This example gives one tone to each status of an invoice.
 
 <Demo name="typescript/status-map" title="A typed map from invoice statuses to tones" />
 
@@ -62,13 +62,13 @@ A variant helper returns the classes of a component, for an element that is not 
 
 <Demo name="typescript/variant-helper" title="A link that gets its classes from buttonVariants" />
 
-To get the type of one option, read it from the prop type: `ButtonProps['variant']`. For `iconBoxVariants`, libui exports the `IconBoxVariantProps` type.
+To get the type of one option, read it from the prop type: `ButtonProps['variant']`. For `iconBoxVariants`, ferry-ui exports the `IconBoxVariantProps` type.
 
-libui makes these helpers with `cva` from `class-variance-authority`. The `VariantProps` type of that package gives all the options of one helper. Add the package to the dependencies of your app before you import it.
+ferry-ui makes these helpers with `cva` from `class-variance-authority`. The `VariantProps` type of that package gives all the options of one helper. Add the package to the dependencies of your app before you import it.
 
 ```ts
 import type { VariantProps } from 'class-variance-authority'
-import { badgeVariants } from 'libui-kit'
+import { badgeVariants } from 'ferry-ui'
 
 type BadgeOptions = VariantProps<typeof badgeVariants>
 ```
@@ -80,7 +80,7 @@ Call a variant helper only from a client component. The [Server Components](/doc
 `NavItem` and `NavGroup` describe the navigation of your app. [Icon Rail](/docs/components/icon-rail), [Mobile Nav](/docs/components/mobile-nav), [Inner Menu](/docs/components/inner-menu) and [Command Menu](/docs/components/command-menu) accept the same value.
 
 ```tsx title="navigation.tsx"
-import type { NavGroup } from 'libui-kit'
+import type { NavGroup } from 'ferry-ui'
 import { FolderKanban, Settings } from 'lucide-react'
 
 export const groups: NavGroup[] = [
@@ -100,7 +100,7 @@ export const groups: NavGroup[] = [
 
 ```tsx title="router-link.tsx"
 import { Link } from 'react-router'
-import type { LinkComponent } from 'libui-kit'
+import type { LinkComponent } from 'ferry-ui'
 
 export const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
 ```

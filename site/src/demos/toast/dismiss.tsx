@@ -1,4 +1,4 @@
-import { Button, toast } from 'libui-kit'
+import { Button, toast } from 'ferry-ui'
 
 export default function ToastDismiss() {
   return (

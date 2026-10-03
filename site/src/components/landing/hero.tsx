@@ -1,4 +1,4 @@
-import { Button } from 'libui-kit'
+import { Button } from 'ferry-ui'
 import { ArrowRight } from 'lucide-react'
 
 import { GithubIcon } from '@/components/logo'
@@ -40,7 +40,7 @@ export function Hero() {
         <div className="lg:pt-2">
           <Reveal immediate delay={0.16}>
             <p className="max-w-[33rem] text-foreground-light sm:text-lg">
-              libui is a React design system for dashboards, admin consoles and developer tools. You get the tokens,
+              ferry-ui is a React design system for dashboards, admin consoles and developer tools. You get the tokens,
               the controls, the page patterns and the application shell, so you start from a finished screen.
             </p>
           </Reveal>

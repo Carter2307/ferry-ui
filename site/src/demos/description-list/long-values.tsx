@@ -1,4 +1,4 @@
-import { DescriptionItem, DescriptionList } from 'libui-kit'
+import { DescriptionItem, DescriptionList } from 'ferry-ui'
 
 const ENDPOINT = 'https://hooks.example.com/v2/workspaces/acme/integrations/billing-events/receiver'
 

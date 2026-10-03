@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { InnerMenu, type NavGroup } from 'libui-kit'
+import { InnerMenu, type NavGroup } from 'ferry-ui'
 
 const GROUPS: NavGroup[] = [
   {

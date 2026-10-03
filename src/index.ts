@@ -1,15 +1,15 @@
 /**
- * libui — public entry point.
+ * ferry-ui — public entry point.
  *
  * Everything a consuming app may import lives here: components, their prop
  * types, variant helpers (cva), hooks and utilities. Deep imports
- * (`libui-kit/dist/...`) are not part of the public API.
+ * (`ferry-ui/dist/...`) are not part of the public API.
  *
  * Stylesheets are separate entry points:
- * - `libui-kit/theme.css`  Tailwind v4 theme (import after `tailwindcss`).
- * - `libui-kit/styles.css` precompiled CSS for apps without Tailwind.
- * - `libui-kit/fonts.css`  optional Inter + Source Code Pro webfonts.
- * - `libui-kit/tokens.css` raw design tokens (CSS custom properties) only.
+ * - `ferry-ui/theme.css`  Tailwind v4 theme (import after `tailwindcss`).
+ * - `ferry-ui/styles.css` precompiled CSS for apps without Tailwind.
+ * - `ferry-ui/fonts.css`  optional Inter + Source Code Pro webfonts.
+ * - `ferry-ui/tokens.css` raw design tokens (CSS custom properties) only.
  */
 
 /* -------------------------------------------------------------------------------------------------

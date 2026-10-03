@@ -1,4 +1,4 @@
-import { Badge, PageHeader } from 'libui-kit'
+import { Badge, PageHeader } from 'ferry-ui'
 
 export default function PageHeaderBadges() {
   return (

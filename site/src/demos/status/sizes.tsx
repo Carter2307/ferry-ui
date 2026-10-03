@@ -1,4 +1,4 @@
-import { StatusBadge } from 'libui-kit'
+import { StatusBadge } from 'ferry-ui'
 
 export default function StatusSizes() {
   return (

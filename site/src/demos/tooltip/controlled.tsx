@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Tooltip, TooltipContent, TooltipTrigger } from 'libui-kit'
+import { Button, Tooltip, TooltipContent, TooltipTrigger } from 'ferry-ui'
 import { Archive } from 'lucide-react'
 
 export default function TooltipControlled() {

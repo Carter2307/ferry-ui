@@ -1,4 +1,4 @@
-import { Button, Callout, toast } from 'libui-kit'
+import { Button, Callout, toast } from 'ferry-ui'
 
 export default function CalloutHero() {
   return (

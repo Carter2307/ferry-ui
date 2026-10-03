@@ -126,7 +126,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Light / dark is a single `dark` class on `<html>`: `ThemeProvider` sets it (persisted in localStorage, "system" follows the OS), `useTheme()` reads it, and `themeInitScript()` applies it before first paint. For a ready-made picker use the `ThemeMenu` layout component. Brands override the CSS variables of `tokens.css`, globally or on any container. `LinkProvider` plugs your router into every libui link. The theme demos below drive the whole page, like the toolbar toggle.',
+          'Light / dark is a single `dark` class on `<html>`: `ThemeProvider` sets it (persisted in localStorage, "system" follows the OS), `useTheme()` reads it, and `themeInitScript()` applies it before first paint. For a ready-made picker use the `ThemeMenu` layout component. Brands override the CSS variables of `tokens.css`, globally or on any container. `LinkProvider` plugs your router into every ferry-ui link. The theme demos below drive the whole page, like the toolbar toggle.',
       },
     },
   },
@@ -374,7 +374,7 @@ function BrandPreview({ name, brand, ...props }: BrandPreviewProps) {
 
 /**
  * Per-product theming: override the token variables. Globally, put the overrides in your stylesheet
- * after the libui import (repeat them under `.dark` for dark-mode values); locally, set them on any
+ * after the ferry-ui import (repeat them under `.dark` for dark-mode values); locally, set them on any
  * container. This demo sets `--primary` / `--primary-solid` (and derives the soft, ring and border
  * variants with `color-mix`) through a `style` attribute — use the controls to try colors. In dark
  * mode it lightens the `--primary` ink, as the `.dark` block of the stylesheet does.
@@ -392,7 +392,7 @@ export const BrandOverride: StoryObj<BrandOverrideArgs> = {
       <div className="flex min-w-0 flex-col gap-3">
         <span className="mono-label">app.css</span>
         <Snippet>{`@import "tailwindcss";
-@import "libui-kit/theme.css";
+@import "ferry-ui/theme.css";
 
 :root {
   --primary: oklch(0.55 0.2 290);
@@ -409,7 +409,7 @@ export const BrandOverride: StoryObj<BrandOverrideArgs> = {
   --ring: oklch(0.75 0.14 290 / 0.7);
 }`}</Snippet>
         <p className="text-xs text-foreground-light">
-          Radii (<Code>--libui-radius-*</Code>) and fonts (<Code>--libui-font-sans</Code>, <Code>--libui-font-mono</Code>)
+          Radii (<Code>--ferry-ui-radius-*</Code>) and fonts (<Code>--ferry-ui-font-sans</Code>, <Code>--ferry-ui-font-mono</Code>)
           are overridden the same way. Never edit the alias tokens (<Code>--card</Code>, <Code>--accent</Code>…): change
           the token they point to.
         </p>
@@ -454,7 +454,7 @@ const navItems = [
   { href: '/billing', label: 'Billing' },
 ]
 
-/** A minimal navigation built the way libui's own nav components are: links come from `useLinkComponent`. */
+/** A minimal navigation built the way ferry-ui's own nav components are: links come from `useLinkComponent`. */
 function DemoNav({ current, linkComponent }: { current: string; linkComponent?: LinkComponent }) {
   const Link = useLinkComponent(linkComponent)
   return (
@@ -536,7 +536,7 @@ const RouterLink: LinkComponent = ({ href, ...props }) => <NextLink href={href} 
   <App />
 </LinkProvider>
 
-// One component only: every libui nav component also takes a linkComponent prop
+// One component only: every ferry-ui nav component also takes a linkComponent prop
 <ResourceCard href="/projects/42" linkComponent={RouterLink} … />`}</Snippet>
       </div>
     </div>
@@ -544,7 +544,7 @@ const RouterLink: LinkComponent = ({ href, ...props }) => <NextLink href={href} 
 }
 
 /**
- * `LinkProvider` makes every libui link (navigation, cards, breadcrumbs…) render through your router's
+ * `LinkProvider` makes every ferry-ui link (navigation, cards, breadcrumbs…) render through your router's
  * link instead of a plain `<a>`. The adapter receives `href` plus the usual anchor props and must forward
  * them all. A component's own `linkComponent` prop wins over the provider (`useLinkComponent(override)`).
  * Here the adapter logs clicks with `onNavigate` instead of reloading the page.

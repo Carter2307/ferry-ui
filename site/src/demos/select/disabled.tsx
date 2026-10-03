@@ -1,4 +1,4 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'libui-kit'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'ferry-ui'
 
 export default function SelectDisabled() {
   return (

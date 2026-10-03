@@ -1,4 +1,4 @@
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from 'libui-kit'
+import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from 'ferry-ui'
 
 const ALIGNMENTS = ['start', 'center', 'end'] as const
 

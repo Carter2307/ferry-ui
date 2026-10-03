@@ -1,8 +1,8 @@
-import { StatusBadge, type StatusTone } from 'libui-kit'
+import { StatusBadge, type StatusTone } from 'ferry-ui'
 
 type InvoiceStatus = 'paid' | 'open' | 'overdue'
 
-// TypeScript refuses a tone that libui does not have, and a status with no entry.
+// TypeScript refuses a tone that ferry-ui does not have, and a status with no entry.
 const INVOICE_STATUS: Record<InvoiceStatus, { tone: StatusTone; label: string }> = {
   paid: { tone: 'success', label: 'Paid' },
   open: { tone: 'info', label: 'Open' },

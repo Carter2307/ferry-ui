@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { MobileNav, MobileNavTrigger, type NavItem } from 'libui-kit'
+import { MobileNav, MobileNavTrigger, type NavItem } from 'ferry-ui'
 import { FolderKanban, LayoutDashboard, Users } from 'lucide-react'
 
 const PAGES: NavItem[] = [

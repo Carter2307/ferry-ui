@@ -1,4 +1,4 @@
-import { cn } from 'libui-kit'
+import { cn } from 'ferry-ui'
 
 const PRIMARY = [
   { className: 'bg-primary', variable: '--primary' },

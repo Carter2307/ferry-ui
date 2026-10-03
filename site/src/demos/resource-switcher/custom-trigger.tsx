@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ResourceSwitcher, type ResourceSwitcherItem } from 'libui-kit'
+import { ResourceSwitcher, type ResourceSwitcherItem } from 'ferry-ui'
 import { Building2 } from 'lucide-react'
 
 const WORKSPACES: ResourceSwitcherItem[] = [

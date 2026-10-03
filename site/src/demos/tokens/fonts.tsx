@@ -1,8 +1,8 @@
-import { cn } from 'libui-kit'
+import { cn } from 'ferry-ui'
 
 const FONTS = [
-  { className: 'font-sans', variable: '--libui-font-sans', sample: 'Invoices of October 2026' },
-  { className: 'font-mono', variable: '--libui-font-mono', sample: 'inv_2041 · 4,280.00 USD' },
+  { className: 'font-sans', variable: '--ferry-ui-font-sans', sample: 'Invoices of October 2026' },
+  { className: 'font-mono', variable: '--ferry-ui-font-mono', sample: 'inv_2041 · 4,280.00 USD' },
 ]
 
 export default function FontTokens() {

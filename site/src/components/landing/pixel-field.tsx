@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { cn, useTheme } from 'libui-kit'
+import { cn, useTheme } from 'ferry-ui'
 
 /** Side of one pixel cell in CSS pixels: a 3px square and a 1px gap. */
 const CELL = 4
@@ -223,7 +223,7 @@ export interface PixelFieldProps {
 
 /**
  * A decorative background: a dense field of small pixels that thins out into the page, drawn by a
- * WebGPU shader and moving slowly. The colors are libui tokens (`foreground` and `primary-bright`),
+ * WebGPU shader and moving slowly. The colors are ferry-ui tokens (`foreground` and `primary-bright`),
  * so the field follows the theme. Use it at an edge of the page: the top of the hero, the bottom of
  * the footer.
  *

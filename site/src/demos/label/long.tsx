@@ -1,4 +1,4 @@
-import { Checkbox, Label } from 'libui-kit'
+import { Checkbox, Label } from 'ferry-ui'
 
 export default function LabelLong() {
   return (

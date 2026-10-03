@@ -1,4 +1,4 @@
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from 'libui-kit'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, toast } from 'ferry-ui'
 import { CreditCard, KeyRound, LayoutDashboard, Users } from 'lucide-react'
 
 export default function CommandItems() {

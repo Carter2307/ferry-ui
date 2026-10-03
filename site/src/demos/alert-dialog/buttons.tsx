@@ -9,7 +9,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 export default function AlertDialogButtons() {
   return (

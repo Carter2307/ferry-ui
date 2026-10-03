@@ -2,8 +2,8 @@
 //
 // 1. Snippets. Every ```tsx code block of AGENTS.md, README.md and the Storybook introduction is
 //    extracted into a temporary folder and type-checked with the project's own tsconfig, with
-//    `libui-kit` mapped onto ./src/index.ts. A snippet is checked as ONE standalone module: it must
-//    import what it uses (from 'libui-kit', 'react', 'lucide-react'…) and declare its own data.
+//    `ferry-ui` mapped onto ./src/index.ts. A snippet is checked as ONE standalone module: it must
+//    import what it uses (from 'ferry-ui', 'react', 'lucide-react'…) and declare its own data.
 //      - ```tsx file=app/providers.tsx   writes the snippet at that path (inside a folder of its
 //        own per document), so a later snippet of the same document can import it ('./providers').
 //      - ```tsx file=src/components/patterns/x.tsx   a path under src/ is overlaid on the real
@@ -17,7 +17,7 @@
 //    must be mentioned in AGENTS.md, so a new export cannot ship undocumented.
 //
 // Usage: node scripts/check-docs-snippets.mjs [--keep] [--no-coverage] [files…]
-//   --keep         keep the temporary folder (node_modules/.cache/libui-docs-check) for debugging
+//   --keep         keep the temporary folder (node_modules/.cache/ferry-ui-docs-check) for debugging
 //   --no-coverage  skip the catalog coverage check
 //   files…         Markdown / MDX files to check instead of the default list
 import { spawnSync } from 'node:child_process'
@@ -33,7 +33,7 @@ const DEFAULT_DOCS = ['AGENTS.md', 'README.md', 'src/foundations/introduction.md
 /** The document whose catalog must mention every public export. */
 const CATALOG_DOC = 'AGENTS.md'
 /** Inside node_modules: ignored by git, ESLint, Tailwind and the project's own tsconfig. */
-const TEMP_DIR = join(root, 'node_modules', '.cache', 'libui-docs-check')
+const TEMP_DIR = join(root, 'node_modules', '.cache', 'ferry-ui-docs-check')
 
 const args = process.argv.slice(2)
 const keep = args.includes('--keep')
@@ -132,7 +132,7 @@ for (const doc of docs) {
 
 /**
  * Minimal declarations for the routers the docs show adapters for. They are only used when the
- * package is not installed here (libui depends on no router): just enough of the real API to check
+ * package is not installed here (ferry-ui depends on no router): just enough of the real API to check
  * that a `LinkComponent` adapter forwards the right props.
  */
 const ROUTER_STUBS = {
@@ -210,7 +210,7 @@ function typeCheck() {
       noUnusedLocals: false,
       noUnusedParameters: false,
       // The package name resolves to the sources, so the docs are checked against the current API.
-      paths: { 'libui-kit': [fromTemp(join(root, 'src', 'index.ts'))] },
+      paths: { 'ferry-ui': [fromTemp(join(root, 'src', 'index.ts'))] },
       // Relative imports of `file=src/...` snippets resolve as if they were written in ./src.
       ...(overlays.size > 0 && { rootDirs: [join(root, 'src'), ...overlays].map(fromTemp) }),
     },

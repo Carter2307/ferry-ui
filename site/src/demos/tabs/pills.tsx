@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger } from 'libui-kit'
+import { Card, CardContent, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger } from 'ferry-ui'
 
 export default function TabsPills() {
   return (

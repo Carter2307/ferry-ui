@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from 'libui-kit'
+import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from 'ferry-ui'
 
 const LINES = [
   { product: 'Standard plan', quantity: 12, total: '$1,440.00' },

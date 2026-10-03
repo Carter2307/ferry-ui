@@ -1,4 +1,4 @@
-import { DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, SplitButton, toast } from 'libui-kit'
+import { DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, SplitButton, toast } from 'ferry-ui'
 import { CalendarClock, Download, FileSpreadsheet, FileText } from 'lucide-react'
 
 export default function SplitButtonHero() {

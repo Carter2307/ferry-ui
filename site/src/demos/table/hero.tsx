@@ -1,4 +1,4 @@
-import { StatusBadge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, type StatusTone } from 'libui-kit'
+import { StatusBadge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, type StatusTone } from 'ferry-ui'
 
 type InvoiceStatus = 'paid' | 'open' | 'overdue'
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { DropdownMenuItem, SplitButton, toast } from 'libui-kit'
+import { DropdownMenuItem, SplitButton, toast } from 'ferry-ui'
 import { CalendarClock, Save, Send } from 'lucide-react'
 
 export default function SplitButtonLoading() {

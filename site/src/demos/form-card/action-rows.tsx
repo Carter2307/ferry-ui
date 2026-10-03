@@ -1,4 +1,4 @@
-import { ActionRow, Button, FormCard, FormRow, Switch, toast } from 'libui-kit'
+import { ActionRow, Button, FormCard, FormRow, Switch, toast } from 'ferry-ui'
 import { Download, LogOut } from 'lucide-react'
 
 export default function FormCardActionRows() {

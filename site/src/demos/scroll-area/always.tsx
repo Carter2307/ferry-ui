@@ -1,4 +1,4 @@
-import { ScrollArea, Separator } from 'libui-kit'
+import { ScrollArea, Separator } from 'ferry-ui'
 
 const VERSIONS = Array.from({ length: 24 }, (_, index) => `v2.${24 - index}.0`)
 

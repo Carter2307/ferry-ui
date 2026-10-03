@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from 'libui-kit'
+import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from 'ferry-ui'
 
 const MEMBERS = [
   { name: 'Maya Chen', initials: 'MC' },

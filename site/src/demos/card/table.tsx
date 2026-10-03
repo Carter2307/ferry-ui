@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
   type StatusTone,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 const ORDERS: { id: string; customer: string; total: string; tone: StatusTone; status: string }[] = [
   { id: '#1042', customer: 'Northwind Traders', total: '$1,240.00', tone: 'success', status: 'Paid' },

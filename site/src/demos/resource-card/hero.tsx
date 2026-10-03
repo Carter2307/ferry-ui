@@ -1,4 +1,4 @@
-import { Badge, ResourceCard, ResourceGrid, StatusLine, type LinkComponent } from 'libui-kit'
+import { Badge, ResourceCard, ResourceGrid, StatusLine, type LinkComponent } from 'ferry-ui'
 import { BookOpen, Globe, LayoutDashboard, Smartphone } from 'lucide-react'
 
 // In an app, the link component of your router opens the page. This one stays on the page.

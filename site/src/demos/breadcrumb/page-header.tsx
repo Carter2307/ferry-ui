@@ -9,7 +9,7 @@ import {
   Button,
   PageHeader,
   StatusBadge,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { Download } from 'lucide-react'
 
 // The demo stays on this page. In an app, give the path to `href` and remove `onClick`.

@@ -1,4 +1,4 @@
-import { CopyField, Field, Input } from 'libui-kit'
+import { CopyField, Field, Input } from 'ferry-ui'
 
 export default function FieldLabelVariants() {
   return (

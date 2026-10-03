@@ -1,4 +1,4 @@
-import { Button, PageHeader, Tabs, TabsList, TabsTrigger } from 'libui-kit'
+import { Button, PageHeader, Tabs, TabsList, TabsTrigger } from 'ferry-ui'
 import { UserPlus } from 'lucide-react'
 
 export default function PageHeaderTabs() {

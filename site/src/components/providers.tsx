@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   type LinkComponent,
   type ThemePreference,
-} from 'libui-kit'
+} from 'ferry-ui'
 import { Link } from 'react-router'
 
 import { withBase } from '@/config'
@@ -19,7 +19,7 @@ const isExternalHref = (href: string) => /^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(
 const isFileHref = (href: string) => href.startsWith('/') && /\.(md|txt)$/.test(href)
 
 /**
- * The router adapter: libui components take `href` strings and render them through this link, so
+ * The router adapter: ferry-ui components take `href` strings and render them through this link, so
  * a click in the sidebar or in the command menu is a client-side navigation.
  */
 const RouterLink: LinkComponent = ({ href, onPointerEnter, ...props }) =>
@@ -97,7 +97,7 @@ function SiteTheme({ children }: { children: React.ReactNode }) {
 }
 
 /**
- * The providers libui needs, mounted once around the whole site. The `Toaster` is not here: each
+ * The providers ferry-ui needs, mounted once around the whole site. The `Toaster` is not here: each
  * page mounts {@link SiteToaster}, because a framed example that brings its own must not get two.
  */
 export function Providers({ children }: { children: React.ReactNode }) {

@@ -1,4 +1,4 @@
-import { KeyValueEditor } from 'libui-kit'
+import { KeyValueEditor } from 'ferry-ui'
 
 export default function KeyValueEditorTexts() {
   return (

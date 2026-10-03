@@ -1,4 +1,4 @@
-import { Skeleton } from 'libui-kit'
+import { Skeleton } from 'ferry-ui'
 
 export default function SkeletonText() {
   return (

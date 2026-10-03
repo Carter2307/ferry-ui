@@ -11,7 +11,7 @@ source: src/lib/utils.ts
 Import `cn` from the package root. Give it the class names in order. When two Tailwind classes set the same property, the last class stays.
 
 ```tsx
-import { cn } from 'libui-kit'
+import { cn } from 'ferry-ui'
 
 cn('px-3 py-2', 'p-4') // 'p-4'
 cn('text-sm', selected && 'text-foreground') // 'text-sm' when selected is false
@@ -40,7 +40,7 @@ Put the base classes first and `className` last. Then the caller can replace a b
 
 <Demo name="cn/merge" title="A component that merges its className prop" />
 
-The libui components use the same rule. Your `className` comes last, and it wins.
+The ferry-ui components use the same rule. Your `className` comes last, and it wins.
 
 ## API reference
 

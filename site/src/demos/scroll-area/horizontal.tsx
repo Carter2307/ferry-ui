@@ -1,4 +1,4 @@
-import { ScrollArea, ScrollBar } from 'libui-kit'
+import { ScrollArea, ScrollBar } from 'ferry-ui'
 
 const PROJECTS = [
   { name: 'Marketing site', tasks: 14 },

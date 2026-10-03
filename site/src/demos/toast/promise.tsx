@@ -1,4 +1,4 @@
-import { Button, getErrorMessage, toast } from 'libui-kit'
+import { Button, getErrorMessage, toast } from 'ferry-ui'
 
 // A request that takes 1.5 seconds. Replace it with your own request.
 function saveReport() {

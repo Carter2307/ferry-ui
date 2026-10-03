@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Badge, Toggle } from 'libui-kit'
+import { Badge, Toggle } from 'ferry-ui'
 import { Archive } from 'lucide-react'
 
 const PROJECTS = [

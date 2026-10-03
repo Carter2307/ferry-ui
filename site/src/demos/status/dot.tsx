@@ -1,4 +1,4 @@
-import { StatusDot } from 'libui-kit'
+import { StatusDot } from 'ferry-ui'
 
 export default function StatusDots() {
   return (

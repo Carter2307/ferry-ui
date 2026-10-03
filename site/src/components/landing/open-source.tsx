@@ -1,4 +1,4 @@
-import { Button } from 'libui-kit'
+import { Button } from 'ferry-ui'
 
 import { GithubIcon } from '@/components/logo'
 import { RouterLink } from '@/components/providers'
@@ -24,7 +24,7 @@ export function OpenSource() {
         <Heading id="oss-title" strong="Open source, MIT licensed" quiet="Read it, run it, change it" />
         <Reveal delay={0.12}>
           <p className="mt-5 max-w-[28rem] text-foreground-lighter">
-            libui is built in the open. Each component has a JSDoc that says when to use it and when not to, a story
+            ferry-ui is built in the open. Each component has a JSDoc that says when to use it and when not to, a story
             in Storybook and a page in these docs.
           </p>
         </Reveal>
@@ -33,7 +33,7 @@ export function OpenSource() {
             <a href={GITHUB_URL}>View on GitHub</a>
           </Button>
           <RouterLink className="text-link text-sm" href="/docs/overview/about">
-            About libui
+            About ferry-ui
           </RouterLink>
         </Reveal>
       </div>

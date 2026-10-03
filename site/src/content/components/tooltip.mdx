@@ -23,7 +23,7 @@ source: src/components/primitives/tooltip.tsx
 Mount `TooltipProvider` one time, at the root of the app. Each tooltip must have this provider above it.
 
 ```tsx title="app.tsx"
-import { TooltipProvider } from 'libui-kit'
+import { TooltipProvider } from 'ferry-ui'
 
 export function App() {
   return <TooltipProvider>{/* the app */}</TooltipProvider>
@@ -33,7 +33,7 @@ export function App() {
 Then import `Hint`, or the three parts of a tooltip.
 
 ```tsx title="Anatomy"
-import { Button, Hint, Tooltip, TooltipContent, TooltipTrigger } from 'libui-kit'
+import { Button, Hint, Tooltip, TooltipContent, TooltipTrigger } from 'ferry-ui'
 
 <Hint label="Refresh">
   <Button />
@@ -115,7 +115,7 @@ To change the delay for one area, nest a second `TooltipProvider`. Pass `delayDu
 
 ### TooltipProvider
 
-In libui, the default `delayDuration` is 250.
+In ferry-ui, the default `delayDuration` is 250.
 
 <PropsTable of="TooltipProvider" />
 
@@ -129,6 +129,6 @@ In libui, the default `delayDuration` is 250.
 
 ### TooltipContent
 
-In libui, the default `sideOffset` is 6.
+In ferry-ui, the default `sideOffset` is 6.
 
 <PropsTable of="TooltipContent" />

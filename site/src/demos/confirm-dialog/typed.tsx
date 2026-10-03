@@ -1,4 +1,4 @@
-import { Button, ConfirmDialog, toast } from 'libui-kit'
+import { Button, ConfirmDialog, toast } from 'ferry-ui'
 
 export default function ConfirmDialogTyped() {
   return (

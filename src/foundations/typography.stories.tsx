@@ -207,7 +207,7 @@ export const LongContent: Story = {
   ),
 }
 
-const fontVariables = ['--libui-font-sans', '--libui-font-mono'] as const
+const fontVariables = ['--ferry-ui-font-sans', '--ferry-ui-font-mono'] as const
 
 function FontFamiliesDemo() {
   const values = useCssVariables(fontVariables)
@@ -215,13 +215,13 @@ function FontFamiliesDemo() {
     {
       name: 'Sans — Inter',
       className: 'font-sans',
-      variable: '--libui-font-sans',
+      variable: '--ferry-ui-font-sans',
       usage: 'All UI text: titles, body, buttons, inputs, menus.',
     },
     {
       name: 'Mono — Source Code Pro',
       className: 'font-mono',
-      variable: '--libui-font-mono',
+      variable: '--ferry-ui-font-mono',
       usage: 'Code, IDs, keys, hashes, mono labels, keyboard caps, mono badges.',
     },
   ]
@@ -250,7 +250,7 @@ function FontFamiliesDemo() {
 }
 
 /**
- * The two families and their full fallback stacks (read live from the tokens). `libui-kit/fonts.css` loads
+ * The two families and their full fallback stacks (read live from the tokens). `ferry-ui/fonts.css` loads
  * Inter and Source Code Pro as variable webfonts; skip it to fall back to the system fonts. The body
  * also enables Inter's `cv11` (single-storey a) and `ss01` (open digits) features.
  */

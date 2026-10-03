@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from 'libui-kit'
+} from 'ferry-ui'
 
 const SIZES = ['sm', 'md', 'lg', 'xl', 'xxl'] as const
 

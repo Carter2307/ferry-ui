@@ -1,4 +1,4 @@
-import { MetricCard, UsageBar } from 'libui-kit'
+import { MetricCard, UsageBar } from 'ferry-ui'
 
 const QUOTAS = [
   { label: 'API calls', value: '320k', unit: 'of 1M', percent: 32 },

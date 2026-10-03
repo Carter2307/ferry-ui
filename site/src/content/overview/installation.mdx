@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Install libui from npm, then add a stylesheet and the fonts.
+description: Install ferry-ui from npm, then add a stylesheet and the fonts.
 order: 2
 ---
 
@@ -8,19 +8,17 @@ order: 2
 
 | Requirement | Detail |
 | --- | --- |
-| `react` and `react-dom` 19 | Components take `ref` as a regular prop. libui does not support React 18. |
+| `react` and `react-dom` 19 | Components take `ref` as a regular prop. ferry-ui does not support React 18. |
 | An ESM toolchain | Vite, Next.js or another modern bundler. The package is ESM only. |
-| `tailwindcss` 4.1 or later | Necessary only if your app compiles `libui-kit/theme.css`. |
+| `tailwindcss` 4.1 or later | Necessary only if your app compiles `ferry-ui/theme.css`. |
 
 The package has one module for each component. Your bundle contains only the components that your app imports.
 
-Radix UI, lucide-react, cmdk, sonner and the class helpers are dependencies of the package. Your package manager installs them with libui.
+Radix UI, lucide-react, cmdk, sonner and the class helpers are dependencies of the package. Your package manager installs them with ferry-ui.
 
 ## Install the package
 
-The name of the package on npm is `libui-kit`. The name `libui` on npm is a different project.
-
-<PackageTabs packages="libui-kit" />
+<PackageTabs packages="ferry-ui" />
 
 ## Build from the repository
 
@@ -28,38 +26,38 @@ Use the repository to try a version that is not on npm.
 
 ### From a local checkout
 
-Build a tarball in the libui folder. The `npm pack` command builds the package first.
+Build a tarball in the ferry-ui folder. The `npm pack` command builds the package first.
 
-```sh title="In the libui folder"
+```sh title="In the ferry-ui folder"
 npm install
 npm pack
 ```
 
-The command writes the file `libui-kit-0.1.0.tgz`. Install this file in your app.
+The command writes the file `ferry-ui-0.1.0.tgz`. Install this file in your app.
 
 ```sh title="In your app"
-npm install ../libui/libui-kit-0.1.0.tgz
+npm install ../ferry-ui/ferry-ui-0.1.0.tgz
 ```
 
 ### From a git clone
 
-Do not install libui as a git dependency. The repository does not contain the `dist/` folder, and npm does not build it for a git dependency. Clone the repository. Then build the tarball.
+Do not install ferry-ui as a git dependency. The repository does not contain the `dist/` folder, and npm does not build it for a git dependency. Clone the repository. Then build the tarball.
 
 ```sh
-git clone https://github.com/Carter2307/libui.git libui
-cd libui && npm ci && npm pack
-cd ../my-app && npm install ../libui/libui-kit-0.1.0.tgz
+git clone https://github.com/Carter2307/ferry-ui.git
+cd ferry-ui && npm ci && npm pack
+cd ../my-app && npm install ../ferry-ui/ferry-ui-0.1.0.tgz
 ```
 
-### Change libui and your app together
+### Change ferry-ui and your app together
 
-Install the libui folder itself. npm then makes a symlink to the folder.
+Install the ferry-ui folder itself. npm then makes a symlink to the folder.
 
 ```sh title="In your app"
-npm install ../libui
+npm install ../ferry-ui
 ```
 
-Your app reads the `dist/` folder. Run `npm run build` in the libui folder after each change.
+Your app reads the `dist/` folder. Run `npm run build` in the ferry-ui folder after each change.
 
 Make your bundler use one copy of React. This example is for Vite.
 
@@ -73,24 +71,24 @@ export default defineConfig({
 
 ## Import from the package root
 
-Import each component, hook and helper from `'libui-kit'`.
+Import each component, hook and helper from `'ferry-ui'`.
 
 ```tsx
-import { Button } from 'libui-kit'
+import { Button } from 'ferry-ui'
 ```
 
-Do not import from `libui-kit/dist`. These paths are not part of the API.
+Do not import from `ferry-ui/dist`. These paths are not part of the API.
 
 ## Add a stylesheet
 
-libui has four stylesheet entry points.
+ferry-ui has four stylesheet entry points.
 
 | Entry point | Content | Use |
 | --- | --- | --- |
-| `libui-kit/theme.css` | The tokens, the Tailwind v4 theme, the `dark` variant, the base styles and the utilities. | Your app uses Tailwind CSS v4. |
-| `libui-kit/styles.css` | Compiled CSS: the Tailwind preflight, the tokens and each class of the components. | Your app does not use Tailwind. |
-| `libui-kit/fonts.css` | The Inter and Source Code Pro fonts. | You want the default fonts. |
-| `libui-kit/tokens.css` | The CSS variables only. | Another stack needs the tokens, for example emails or a marketing site. |
+| `ferry-ui/theme.css` | The tokens, the Tailwind v4 theme, the `dark` variant, the base styles and the utilities. | Your app uses Tailwind CSS v4. |
+| `ferry-ui/styles.css` | Compiled CSS: the Tailwind preflight, the tokens and each class of the components. | Your app does not use Tailwind. |
+| `ferry-ui/fonts.css` | The Inter and Source Code Pro fonts. | You want the default fonts. |
+| `ferry-ui/tokens.css` | The CSS variables only. | Another stack needs the tokens, for example emails or a marketing site. |
 
 ### App with Tailwind CSS v4
 
@@ -98,11 +96,11 @@ Import the theme in your main stylesheet, after Tailwind.
 
 ```css title="app.css"
 @import "tailwindcss";
-@import "libui-kit/fonts.css"; /* optional */
-@import "libui-kit/theme.css";
+@import "ferry-ui/fonts.css"; /* optional */
+@import "ferry-ui/theme.css";
 ```
 
-The theme gives the files of libui to Tailwind as a source. You do not write an `@source` rule or a `content` list. Your code can use the same token classes, for example `bg-surface-100` and `text-foreground-light`.
+The theme gives the files of ferry-ui to Tailwind as a source. You do not write an `@source` rule or a `content` list. Your code can use the same token classes, for example `bg-surface-100` and `text-foreground-light`.
 
 If your project folder is not a git repository, add a `.gitignore` file that lists your build output. Tailwind reads this file to find the folders that it must not scan.
 
@@ -111,8 +109,8 @@ If your project folder is not a git repository, add a `.gitignore` file that lis
 Import the compiled stylesheet one time, at the root of the app. It includes the preflight reset of Tailwind.
 
 ```ts title="main.tsx"
-import 'libui-kit/styles.css'
-import 'libui-kit/fonts.css' // optional
+import 'ferry-ui/styles.css'
+import 'ferry-ui/fonts.css' // optional
 ```
 
 Style your own markup with plain CSS and the variables, for example `var(--surface-100)`.
@@ -123,17 +121,17 @@ The tokens name two font families.
 
 | Variable | Fonts |
 | --- | --- |
-| `--libui-font-sans` | Inter, then the system fonts. |
-| `--libui-font-mono` | Source Code Pro, then the system monospace font. |
+| `--ferry-ui-font-sans` | Inter, then the system fonts. |
+| `--ferry-ui-font-mono` | Source Code Pro, then the system monospace font. |
 
-`libui-kit/fonts.css` loads the two families as variable fonts. The fonts come from packages that libui installs. The browser sends no request to a font CDN.
+`ferry-ui/fonts.css` loads the two families as variable fonts. The fonts come from packages that ferry-ui installs. The browser sends no request to a font CDN.
 
 To use the system fonts, do not import `fonts.css`. To use other fonts, load them in your app and override the two variables.
 
 ```css title="app.css"
 :root {
-  --libui-font-sans: "Geist", system-ui, sans-serif;
-  --libui-font-mono: "Geist Mono", ui-monospace, monospace;
+  --ferry-ui-font-sans: "Geist", system-ui, sans-serif;
+  --ferry-ui-font-mono: "Geist Mono", ui-monospace, monospace;
 }
 ```
 

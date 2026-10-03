@@ -1,4 +1,4 @@
-import { ResourceSwitcher, type ResourceSwitcherItem } from 'libui-kit'
+import { ResourceSwitcher, type ResourceSwitcherItem } from 'ferry-ui'
 import { FolderKanban } from 'lucide-react'
 
 const PROJECTS: ResourceSwitcherItem[] = [

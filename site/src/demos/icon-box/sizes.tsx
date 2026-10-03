@@ -1,4 +1,4 @@
-import { IconBox, type IconBoxSize } from 'libui-kit'
+import { IconBox, type IconBoxSize } from 'ferry-ui'
 import { Receipt } from 'lucide-react'
 
 const SIZES: IconBoxSize[] = ['xs', 'sm', 'md', 'lg', 'xl']
