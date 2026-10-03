@@ -1,0 +1,73 @@
+---
+title: Textarea
+description: A field for text on more than one line.
+group: Primitives
+source: src/components/primitives/textarea.tsx
+---
+
+<Demo name="textarea/hero" title="A textarea with a label and a hint" />
+
+## Usage guidelines
+
+- **Text on more than one line.** Use a textarea for a description, a message or a block of text that the user pastes.
+- **One line is an input.** For one line of text, use [Input](/docs/components/input).
+- **Not a code editor.** `mono` is for content that looks like code, such as JSON. To edit real code, use an editor component.
+- **Give each textarea a label.** Use [Field](/docs/components/field), a [Label](/docs/components/label) or `aria-label`.
+
+## Anatomy
+
+Import the component. A textarea has one part.
+
+```tsx title="Anatomy"
+import { Textarea } from 'libui'
+
+<Textarea />
+```
+
+## Examples
+
+### Height
+
+A textarea grows with its content. The minimum height is 80px.
+
+Add a `max-h-*` class to set a maximum height. The textarea then scrolls.
+
+<Demo name="textarea/max-height" title="A textarea with a maximum height" />
+
+### Fixed height
+
+Add the `field-sizing-fixed` class to stop the growth. Then set the height with `rows` or with an `h-*` class.
+
+<Demo name="textarea/fixed" title="A textarea with a fixed height of three rows" />
+
+### Monospace
+
+Set `mono` for content that looks like code: JSON, a certificate or a list of keys.
+
+<Demo name="textarea/mono" title="A textarea with a monospace font" />
+
+### States
+
+`disabled` stops all input. `aria-invalid` shows the error border. `Field` sets it when you pass `error`.
+
+<Demo name="textarea/states" title="A disabled textarea and an invalid textarea" />
+
+### Controlled value
+
+A textarea holds its value by default. Use `defaultValue` for the first value.
+
+To control the value, pass `value` and `onChange`. This example counts the characters that the user can add.
+
+<Demo name="textarea/controlled" title="A textarea with a controlled value and a counter" />
+
+## Accessibility
+
+- A placeholder is not a label. Each textarea must have an accessible name.
+- Show each error as text. Color alone is not sufficient.
+- Link the hint and the error message to the textarea with `aria-describedby`. `Field` does this for you.
+
+## API reference
+
+`Textarea` also accepts each attribute of the `<textarea>` element.
+
+<PropsTable of="Textarea" />

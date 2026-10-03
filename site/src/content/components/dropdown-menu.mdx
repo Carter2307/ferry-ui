@@ -1,0 +1,201 @@
+---
+title: Dropdown Menu
+description: A short list of actions or options that opens from a trigger.
+group: Primitives
+source: src/components/primitives/dropdown-menu.tsx
+---
+
+<Demo name="dropdown-menu/hero" title="A menu with the actions of a project" />
+
+## Usage guidelines
+
+- **A list of actions.** Use a menu for the actions of a row or a card, and for view options.
+- **A form value is not a menu.** To pick the value of a field, use [Select](/docs/components/select).
+- **Other content needs a popover.** For a small form or a picker, use [Popover](/docs/components/popover).
+- **Confirm a destructive item.** A `destructive` item opens a [Confirm Dialog](/docs/components/confirm-dialog). It does not delete on a click.
+
+## Anatomy
+
+Import the parts. Put them together in this order.
+
+```tsx title="Anatomy"
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from 'libui'
+
+<DropdownMenu>
+  <DropdownMenuTrigger />
+  <DropdownMenuContent>
+    <DropdownMenuLabel />
+    <DropdownMenuGroup>
+      <DropdownMenuItem>
+        <DropdownMenuShortcut />
+      </DropdownMenuItem>
+    </DropdownMenuGroup>
+    <DropdownMenuSeparator />
+    <DropdownMenuCheckboxItem />
+    <DropdownMenuRadioGroup>
+      <DropdownMenuRadioItem />
+    </DropdownMenuRadioGroup>
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger />
+      <DropdownMenuPortal>
+        <DropdownMenuSubContent />
+      </DropdownMenuPortal>
+    </DropdownMenuSub>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+| Part | Role |
+| --- | --- |
+| `DropdownMenu` | Holds the open state. |
+| `DropdownMenuTrigger` | Opens the menu. |
+| `DropdownMenuContent` | The panel. |
+| `DropdownMenuItem` | One action. |
+| `DropdownMenuCheckboxItem` | An option that is on or off. |
+| `DropdownMenuRadioGroup` | Holds the radio items and their value. |
+| `DropdownMenuRadioItem` | One option of a radio group. |
+| `DropdownMenuLabel` | A heading above a group of items. |
+| `DropdownMenuSeparator` | A line between two groups. |
+| `DropdownMenuShortcut` | A key hint at the right of an item. It binds no key. |
+| `DropdownMenuGroup` | Groups items for screen readers. It has no style. |
+| `DropdownMenuSub` | Holds a submenu. |
+| `DropdownMenuSubTrigger` | The item that opens the submenu. |
+| `DropdownMenuSubContent` | The panel of the submenu. |
+| `DropdownMenuPortal` | Renders the panel of a submenu in `document.body`. |
+
+With `asChild`, `DropdownMenuTrigger` gives its behavior to its child element. Use it with a [Button](/docs/components/button). With `asChild`, `DropdownMenuItem` renders its child element, for example a link.
+
+## Examples
+
+### Items
+
+Run the action of an item in `onSelect`. An item can hold an icon and a `DropdownMenuShortcut`. Set `disabled` on an action that is not available.
+
+<Demo name="dropdown-menu/items" title="A menu with icons, a shortcut and a disabled item" />
+
+### Checkbox items
+
+`DropdownMenuCheckboxItem` takes `checked` and `onCheckedChange`. To keep the menu open after a click, call `event.preventDefault()` in `onSelect`.
+
+The `inset` prop aligns a label or a plain item with the checkbox items.
+
+<Demo name="dropdown-menu/checkbox-items" title="A menu that shows and hides the columns of a table" />
+
+### Radio items
+
+`DropdownMenuRadioGroup` holds one value. Pass `value` and `onValueChange`.
+
+<Demo name="dropdown-menu/radio-items" title="A menu that sets the sort order" />
+
+### Submenu
+
+Put `DropdownMenuSubTrigger` and `DropdownMenuSubContent` in `DropdownMenuSub`. Wrap the content in `DropdownMenuPortal`. Use one level of submenu only.
+
+<Demo name="dropdown-menu/submenu" title="A menu with a submenu" />
+
+### Side and alignment
+
+The `align` prop of `DropdownMenuContent` aligns the panel to the start, the center or the end of the trigger. The `side` prop sets the side where the panel opens. Set the width with a class such as `w-48`.
+
+<Demo name="dropdown-menu/align" title="The three alignments of a menu" />
+
+### Open state
+
+A menu holds its open state by default. To control the state, pass `open` and `onOpenChange`.
+
+Pass `modal={false}` to keep the page interactive while the menu is open.
+
+<Demo name="dropdown-menu/controlled" title="A menu with a controlled open state" />
+
+### Destructive item
+
+Give `variant="destructive"` to an item that deletes or revokes. The item opens a Confirm Dialog with a controlled `open`.
+
+<Demo name="dropdown-menu/confirm" title="A destructive item that opens a confirmation" />
+
+## Accessibility
+
+- Give an icon-only trigger an `aria-label` that names the target, for example "Actions for INV-2041".
+- Run each action in `onSelect`, not in `onClick`. Then the keyboard selection works.
+- <Kbd>Enter</Kbd>, <Kbd>Space</Kbd> or <Kbd>↓</Kbd> on the trigger opens the menu.
+- The arrow keys move the focus between the items. <Kbd>Enter</Kbd> selects an item. <Kbd>→</Kbd> opens a submenu.
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### DropdownMenu
+
+<PropsTable of="DropdownMenu" />
+
+### DropdownMenuTrigger
+
+<PropsTable of="DropdownMenuTrigger" />
+
+### DropdownMenuContent
+
+<PropsTable of="DropdownMenuContent" />
+
+### DropdownMenuItem
+
+<PropsTable of="DropdownMenuItem" />
+
+### DropdownMenuCheckboxItem
+
+<PropsTable of="DropdownMenuCheckboxItem" />
+
+### DropdownMenuRadioGroup
+
+<PropsTable of="DropdownMenuRadioGroup" />
+
+### DropdownMenuRadioItem
+
+<PropsTable of="DropdownMenuRadioItem" />
+
+### DropdownMenuLabel
+
+<PropsTable of="DropdownMenuLabel" />
+
+### DropdownMenuSeparator
+
+<PropsTable of="DropdownMenuSeparator" />
+
+### DropdownMenuShortcut
+
+<PropsTable of="DropdownMenuShortcut" />
+
+### DropdownMenuGroup
+
+<PropsTable of="DropdownMenuGroup" />
+
+### DropdownMenuSub
+
+<PropsTable of="DropdownMenuSub" />
+
+### DropdownMenuSubTrigger
+
+<PropsTable of="DropdownMenuSubTrigger" />
+
+### DropdownMenuSubContent
+
+<PropsTable of="DropdownMenuSubContent" />
+
+### DropdownMenuPortal
+
+<PropsTable of="DropdownMenuPortal" />

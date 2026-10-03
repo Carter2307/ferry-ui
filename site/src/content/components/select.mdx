@@ -1,0 +1,177 @@
+---
+title: Select
+description: A control that opens a list of options and takes one value.
+group: Primitives
+source: src/components/primitives/select.tsx
+---
+
+<Demo name="select/hero" title="A select with a label and a hint" />
+
+## Usage guidelines
+
+- **One value among 4 to 15 options.** Use a select for a short list that you know: a language, a role, a currency.
+- **Values, not actions.** For a list of actions, use [Dropdown Menu](/docs/components/dropdown-menu).
+- **Give the trigger a name.** Use [Field](/docs/components/field), a [Label](/docs/components/label) or `aria-label`.
+- **No empty value.** The `value` of a `SelectItem` cannot be an empty string. Use a value such as `"none"`.
+
+| Choice | Control |
+| --- | --- |
+| One value among 4 to 15 options | `Select` |
+| One value among 2 to 5 options | [Radio Group](/docs/components/radio-group) |
+| One value among 2 to 6 options with a description or an icon | [Radio Card Group](/docs/components/radio-card-group) |
+| One value in a long list, or a list with a search field | [Command](/docs/components/command) in a [Popover](/docs/components/popover) |
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from 'libui'
+
+<Select>
+  <SelectTrigger>
+    <SelectValue />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectGroup>
+      <SelectLabel />
+      <SelectItem />
+    </SelectGroup>
+    <SelectSeparator />
+    <SelectItem />
+  </SelectContent>
+</Select>
+```
+
+| Part | Role |
+| --- | --- |
+| `Select` | Holds the value and the open state. |
+| `SelectTrigger` | The button that opens the list. |
+| `SelectValue` | Shows the text of the selected option, or the placeholder. |
+| `SelectContent` | The overlay that holds the options. |
+| `SelectItem` | One option. |
+| `SelectGroup` | A set of options below a `SelectLabel`. |
+| `SelectLabel` | The heading of a group. It is not an option. |
+| `SelectSeparator` | A line between two groups. |
+| `SelectScrollUpButton`, `SelectScrollDownButton` | The scroll buttons of a long list. `SelectContent` adds them for you. |
+
+## Examples
+
+### Label and width
+
+In a `Field`, pass a function as the child. The function gets the props of the control. Spread them on `SelectTrigger`.
+
+To link a `Label` yourself, pass the same value to `htmlFor` and to the `id` of `SelectTrigger`.
+
+The trigger is as wide as its content. In a form, add `className="w-full"`.
+
+<Demo name="select/label" title="A select with a label above it" />
+
+### Sizes
+
+The `size` prop of `SelectTrigger` sets the height. The three heights are the same as for [Input](/docs/components/input) and [Button](/docs/components/button). There is no `lg` size.
+
+<Demo name="select/sizes" title="The sizes of the trigger" />
+
+| Size | Height | Use |
+| --- | --- | --- |
+| `tiny` | 26px | Toolbars. |
+| `sm` | 30px | Filters and dense forms. |
+| `md` | 34px | Form fields. It is the default. |
+
+### Groups
+
+`SelectGroup` and `SelectLabel` give a heading to a set of options. `SelectSeparator` adds a line between two groups.
+
+<Demo name="select/groups" title="A select with three groups of time zones" />
+
+### Placeholder and controlled value
+
+`SelectValue` shows its `placeholder` when the select has no value.
+
+A select holds its value by default. To control the value, pass `value` and `onValueChange`. An empty `value` shows the placeholder again.
+
+<Demo name="select/controlled" title="A select with a controlled value and a clear button" />
+
+### Position
+
+By default, the list covers the trigger. With `position="popper"`, the list opens below the trigger. It is then as wide as the trigger or wider. It also follows `side`, `align` and `sideOffset`.
+
+<Demo name="select/popper" title="A select that opens below the trigger" />
+
+### Icons
+
+An option can start with an icon. `SelectItem` sets the size and the color of the icon. The trigger shows the icon of the selected option.
+
+<Demo name="select/icons" title="A select with an icon in each option" />
+
+### Disabled state
+
+`disabled` on `Select` disables the trigger. `disabled` on a `SelectItem` disables one option.
+
+<Demo name="select/disabled" title="A disabled select and a select with one disabled option" />
+
+### Error
+
+`aria-invalid` on `SelectTrigger` shows the error border. `Field` sets it when you pass `error`.
+
+<Demo name="select/invalid" title="A select with an error message" />
+
+## Accessibility
+
+- <Kbd>Enter</Kbd> or <Kbd>↓</Kbd> opens the list. The arrow keys move the focus between the options.
+- <Kbd>Enter</Kbd> selects the option that has the focus. <Kbd>Esc</Kbd> closes the list.
+- The trigger must have an accessible name.
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### Select
+
+<PropsTable of="Select" />
+
+### SelectTrigger
+
+<PropsTable of="SelectTrigger" />
+
+### SelectValue
+
+<PropsTable of="SelectValue" />
+
+### SelectContent
+
+<PropsTable of="SelectContent" />
+
+### SelectItem
+
+<PropsTable of="SelectItem" />
+
+### SelectGroup
+
+<PropsTable of="SelectGroup" />
+
+### SelectLabel
+
+<PropsTable of="SelectLabel" />
+
+### SelectSeparator
+
+<PropsTable of="SelectSeparator" />
+
+### SelectScrollUpButton
+
+<PropsTable of="SelectScrollUpButton" />
+
+### SelectScrollDownButton
+
+<PropsTable of="SelectScrollDownButton" />

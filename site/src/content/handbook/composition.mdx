@@ -1,0 +1,90 @@
+---
+title: Composition
+description: How the components of libui go together with parts, asChild, slot props and state props.
+order: 4
+---
+
+libui has three layers of components. A primitive is one control or one container. A pattern puts primitives together for a frequent need. A layout component makes the frame of the app.
+
+## Put parts together
+
+Many components are a group of parts. Import the parts. Nest them. Leave out a part that you do not need.
+
+<Demo name="composition/parts" title="A card made of its parts" />
+
+## Use asChild to keep your element
+
+`DialogTrigger` renders a `<button>`. With `asChild`, it renders no element of its own. It gives its behavior to its child.
+
+Use `asChild` to make a [Button](/docs/components/button) the trigger of a [Dialog](/docs/components/dialog), a menu or a popover.
+
+<Demo name="composition/as-child-trigger" title="A button that is the trigger of a dialog" />
+
+`Button` also accepts `asChild`. It then gives its look to its child, for example a link.
+
+<Demo name="composition/as-child-link" title="A link with the look of a button" />
+
+## Fill a slot with a prop
+
+A slot is a prop that accepts an element. The component puts the element in the correct place.
+
+<Demo name="composition/slots" title="A resource card with four slots" />
+
+| Slot prop | Components |
+| --- | --- |
+| `icon` | `Button`, `EmptyState`, `ResourceCard` |
+| `actions` | `PageHeader`, `EmptyState`, `Callout` |
+| `footer` | `FormCard`, `ResourceCard`, `IconRail` |
+| `trigger` | `ConfirmDialog`, `MobileNav` |
+| `topBar`, `rail`, `mobileNav` | `AppShell` |
+
+## Choose who holds the state
+
+A component with a state has two modes. In the uncontrolled mode, the component holds the state. A prop such as `defaultValue` gives the first value.
+
+<Demo name="composition/uncontrolled" title="Tabs that hold their state" />
+
+In the controlled mode, your code holds the state. Pass the value and a function that gets each change.
+
+<Demo name="composition/controlled" title="Tabs with a state that the code controls" />
+
+| State | Controlled | Uncontrolled |
+| --- | --- | --- |
+| A value | `value` and `onValueChange` | `defaultValue` |
+| Open or closed | `open` and `onOpenChange` | `defaultOpen` |
+| Checked or not | `checked` and `onCheckedChange` | `defaultChecked` |
+| Pressed or not | `pressed` and `onPressedChange` | `defaultPressed` |
+
+libui has no store. It does not load data, and it does not know your router.
+
+## Find a part with data-slot
+
+Each component sets a `data-slot` attribute on its root element and on its important parts. The value is the name of the part: `dialog-title`, `card-footer`, `field-hint`.
+
+Use the attribute to find a part in a test.
+
+```ts title="invite-dialog.test.ts"
+const title = document.querySelector('[data-slot="dialog-title"]')
+```
+
+Use it also to reach a part from CSS. In this demo, a class on `Field` aligns the hint to the right.
+
+<Demo name="composition/data-slot" title="A class that finds the hint of a field by its data-slot" />
+
+## Props that most components accept
+
+| Prop | What the component does |
+| --- | --- |
+| `className` | Adds it after its own classes. Your class wins. |
+| `ref` | Accepts it as a regular prop. |
+| Other props | Puts them on its root element: `id`, `aria-*`, `data-*`. |
+
+<Callout tone="info" title="Some components have a closed list of props">
+  A component that puts many parts together has no single root element. It accepts only the props that its page lists. Examples are [Confirm Dialog](/docs/components/confirm-dialog) and [Command Menu](/docs/components/command-menu).
+</Callout>
+
+## Next steps
+
+- Read [Forms](/docs/handbook/forms) to put fields and actions together.
+- Read [Routing](/docs/handbook/routing) to connect the links to your router.
+- Open the page of [Dialog](/docs/components/dialog) to see a component with many parts.

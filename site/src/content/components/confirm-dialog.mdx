@@ -1,0 +1,92 @@
+---
+title: Confirm Dialog
+description: A dialog that asks the user to confirm an action before the action runs.
+group: Patterns
+source: src/components/patterns/confirm-dialog.tsx
+---
+
+<Demo name="confirm-dialog/hero" title="A destructive button that opens a confirm dialog" />
+
+## Usage guidelines
+
+- **Confirm each destructive action.** A `destructive` [Button](/docs/components/button) opens the dialog. The confirm button of the dialog is `destructive-solid`.
+- **Name the target and the action.** The title is a question that names the target. `confirmLabel` names the action, not "OK".
+- **A form is not a confirmation.** For a form or a flow with steps, use [Dialog](/docs/components/dialog).
+- **Do not ask for a small action.** If the user can undo the action, do it. Then offer Undo in a [Toast](/docs/components/toast).
+- **Another layout.** For a custom layout, put the parts of [Alert Dialog](/docs/components/alert-dialog) together.
+
+## Anatomy
+
+Import the component. It has one part and builds the dialog from its props. Pass the button that opens the dialog to `trigger`.
+
+```tsx title="Anatomy"
+import { Button, ConfirmDialog } from 'libui'
+
+<ConfirmDialog
+  trigger={<Button variant="destructive" />}
+  title=""
+  description=""
+  confirmLabel=""
+  onConfirm={() => {}}
+/>
+```
+
+## Examples
+
+### Pending state
+
+Return a promise from `onConfirm`. While the promise is pending, the confirm button shows a spinner. The user cannot close the dialog.
+
+The dialog closes when the promise resolves. Do not close it from `onConfirm`.
+
+<Demo name="confirm-dialog/pending" title="A confirm dialog with a pending state" />
+
+### Error
+
+If `onConfirm` throws or the promise rejects, the dialog stays open. It shows the message of the error above the buttons. The user can try again.
+
+The error and the typed text reset each time the dialog opens.
+
+<Demo name="confirm-dialog/error" title="A confirm dialog that shows an error" />
+
+### Tones
+
+The `tone` prop sets the variant of the confirm button. Use `cancelLabel` to change the text of the Cancel button.
+
+<Demo name="confirm-dialog/tones" title="The tones of Confirm Dialog" />
+
+| Tone | Confirm button | Use |
+| --- | --- | --- |
+| `destructive` (default) | `destructive-solid` | Delete, revoke, remove. |
+| `warning` | `warning` | An action that disrupts but that the user can undo: pause, suspend. |
+| `primary` | `primary` | A safe action with consequences: send, publish. |
+
+### Typed confirmation
+
+With `confirmText`, the user must type this text. The confirm button stays disabled until the text is the same. Use it only for an action with a large effect that the user cannot undo.
+
+<Demo name="confirm-dialog/typed" title="A confirm dialog where the user types a name" />
+
+### Open from a menu
+
+To open the dialog from an item of a [Dropdown Menu](/docs/components/dropdown-menu), control the state. Pass `open` and `onOpenChange`. Do not pass `trigger`.
+
+<Demo name="confirm-dialog/controlled" title="A confirm dialog that a menu item opens" className="min-h-56" />
+
+### More content
+
+The children show below the description. Use them for a [Callout](/docs/components/callout), a [Checkbox](/docs/components/checkbox) or a list of items.
+
+<Demo name="confirm-dialog/children" title="A confirm dialog with a callout and a checkbox" />
+
+## Accessibility
+
+- When the dialog opens, the focus goes to the Cancel button. With `confirmText`, it goes to the field.
+- <Kbd>Esc</Kbd> closes the dialog. A click outside the panel does not close it.
+- The error message has the `alert` role. Screen readers read it when it shows.
+
+## API reference
+
+`ConfirmDialog` accepts only the props of this table.
+
+<PropsTable of="ConfirmDialog" />

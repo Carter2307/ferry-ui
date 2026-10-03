@@ -1,0 +1,122 @@
+---
+title: Form Card
+description: A card for a settings form, with one row for each setting and a footer that saves.
+group: Patterns
+source: src/components/patterns/form-card.tsx
+---
+
+<Demo name="form-card/hero" align="stretch" title="A settings form with a Cancel button and a Save button" />
+
+## Usage guidelines
+
+- **One card for each topic.** Use `FormCard` for a settings form. Each `FormRow` holds one setting.
+- **A short form is not a card.** In a dialog or a sign-in form, use [Field](/docs/components/field).
+- **You do the validation.** The form has `noValidate`. Check the values in `onSubmit`.
+- **Destructive actions go last.** Group them in one `tone="destructive"` card at the bottom of the page.
+- **A long editor has its own footer.** Use [Save Bar](/docs/components/save-bar) there.
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import { ActionRow, Button, FormActions, FormCard, FormRow } from 'libui'
+
+<FormCard title="" description="" footer={<FormActions dirty={false} />}>
+  <FormRow label="" description="" htmlFor="">
+    {/* one control */}
+  </FormRow>
+</FormCard>
+
+<FormCard asDiv>
+  <ActionRow title="" description="" action={<Button />} />
+</FormCard>
+```
+
+| Part | Role |
+| --- | --- |
+| `FormCard` | The card. It holds the header, the rows and the footer. |
+| `FormRow` | One setting. The label is on the left and the control is on the right. |
+| `FormActions` | The content of the footer: a status, Cancel and Save. |
+| `ActionRow` | One action. The text is on the left and one button is on the right. |
+
+## Examples
+
+### Validation error
+
+Pass the message to `error` on the row. After a submit that fails, set `invalid` on `FormActions`. Save stays enabled. The user corrects the field and submits again.
+
+<Demo name="form-card/validation" align="stretch" title="A row that shows an error after a submit" />
+
+### Composite control and group
+
+With `htmlFor`, the row gives the `id` and the ARIA attributes to one control. For a [Select](/docs/components/select), pass a function and spread `control` on the trigger.
+
+For a group, leave out `htmlFor`. The `control` object then has `aria-labelledby`.
+
+<Demo name="form-card/composite" align="stretch" title="A row with a select and a row with a toggle group" className="min-h-80" />
+
+### Read-only card
+
+With `asDiv`, the card is a `<div>` and not a form. Use it for values that the user copies and for settings that save on a change. `headerActions` puts a badge or a small button at the right of the header.
+
+<Demo name="form-card/read-only" align="stretch" title="A card with values to copy" />
+
+### Row layout
+
+Set `layout` to `vertical` to put a wide control below its label. `controlClassName` sets the width of the control column.
+
+<Demo name="form-card/layout" align="stretch" title="A narrow control and a vertical row" />
+
+### Footer
+
+`FormActions` enables Save only while `dirty` is true. Set `saving` while the request is in progress. Pass `onReset` to show Cancel.
+
+`hint` shows a note while the form has no change. `saveLabel` replaces the text of Save.
+
+In a card with `asDiv`, pass `onSave`. In a form, Save submits the form.
+
+<Demo name="form-card/footer" align="stretch" title="A footer with a hint and a custom Save label" />
+
+### Action rows
+
+An `ActionRow` has no value to save. Its button runs the action on a click.
+
+<Demo name="form-card/action-rows" align="stretch" title="A card with a switch and two actions" />
+
+### Danger zone
+
+With `tone="destructive"`, the card has a red border and its action rows have a red tint. Open a [Confirm Dialog](/docs/components/confirm-dialog) from each destructive button.
+
+<Demo name="form-card/danger-zone" align="stretch" title="A danger zone with two actions" />
+
+## Accessibility
+
+- With `htmlFor`, the row connects the label, the description and the error to the control. Do not set `id`, `aria-describedby` or `aria-invalid` on the control.
+- The error of a row has `role="alert"`.
+
+## API reference
+
+### FormCard
+
+`FormCard` also accepts each attribute of the `<form>` element. With `asDiv`, these attributes go to the card.
+
+<PropsTable of="FormCard" />
+
+### FormRow
+
+`FormRow` also accepts each attribute of the `<div>` element.
+
+<PropsTable of="FormRow" />
+
+### FormActions
+
+`FormActions` accepts only the props of this table.
+
+<PropsTable of="FormActions" />
+
+### ActionRow
+
+`ActionRow` also accepts each attribute of the `<div>` element.
+
+<PropsTable of="ActionRow" />

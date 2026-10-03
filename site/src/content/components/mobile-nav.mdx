@@ -1,0 +1,115 @@
+---
+title: Mobile Nav
+description: The navigation drawer of an application on a phone.
+group: Layout
+source: src/components/layout/mobile-nav.tsx
+---
+
+<Demo name="mobile-nav/hero" frame viewport="phone" height={560} title="A navigation drawer with a menu button" />
+
+Use the menu button to open the drawer. The preview starts at the width of a phone.
+
+## Usage guidelines
+
+- **For phones.** Put the drawer in the `mobileNav` slot of [App Shell](/docs/components/app-shell). On wide screens, [Icon Rail](/docs/components/icon-rail) shows the navigation.
+- **The same items as the rail.** Give the same `NavGroup[]` to the rail and to the drawer. See [`NavItem`](/docs/components/icon-rail#navitem).
+- **Not a general side panel.** For other content, use [Sheet](/docs/components/sheet).
+- **The footer is for the sign-out button.** Put the destinations in `groups` or `items`.
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import { Button, MobileNav, MobileNavSection, MobileNavTrigger } from 'libui'
+
+<MobileNav trigger={<MobileNavTrigger />} groups={groups} footer={<Button />}>
+  <MobileNavSection />
+</MobileNav>
+```
+
+| Part | Role |
+| --- | --- |
+| `MobileNav` | The drawer: a header, the items, the sections and a footer. |
+| `MobileNavTrigger` | The menu button. It hides from 768px. |
+| `MobileNavSection` | A block with a heading, below the items. |
+
+## Examples
+
+### In an app shell
+
+In an `AppShell`, the drawer follows the state of the shell. It needs no `open` prop and no `trigger`. In a custom top bar, a `MobileNavTrigger` opens the drawer. [Top Bar](/docs/components/top-bar) has its own menu button.
+
+```tsx
+<AppShell
+  topBar={
+    <header className="flex h-12 items-center border-b px-2">
+      <MobileNavTrigger />
+    </header>
+  }
+  mobileNav={<MobileNav groups={groups} title="Acme" />}
+>
+  {children}
+</AppShell>
+```
+
+### Controlled state
+
+Outside a shell, pass a `trigger` or control the state. To control the state, pass `open` and `onOpenChange`.
+
+<Demo name="mobile-nav/controlled" frame viewport="phone" height={360} title="A drawer with a controlled open state" />
+
+### Sections and theme
+
+The children show below the items. Use `MobileNavSection` for a block with a heading. `showThemeToggle` adds a control for the light, dark and system themes. The control changes the theme of the nearest [ThemeProvider](/docs/utilities/theme-provider).
+
+<Demo name="mobile-nav/sections" frame viewport="phone" height={480} title="A drawer with a section and a theme control" />
+
+### Drawer that stays open
+
+By default, the drawer closes when the user selects an item. Set `closeOnSelect` to `false` to keep it open.
+
+<Demo name="mobile-nav/keep-open" frame viewport="phone" height={360} title="A drawer that stays open after a selection" />
+
+### Right side
+
+`side="right"` moves the drawer to the right edge of the screen.
+
+<Demo name="mobile-nav/right-side" frame viewport="phone" height={360} title="A drawer on the right side" />
+
+## Accessibility
+
+- When the drawer opens, the focus moves to the `active` item. With no active item, the focus moves to the first item.
+- `title` is the accessible name of the drawer. The default is "Menu".
+- The `aria-label` of `MobileNavTrigger` sets the name of the menu button. The default is "Open navigation".
+- `labels` sets the other texts of the drawer. Use it to translate them.
+
+| Key of `labels` | Default text |
+| --- | --- |
+| `navigation` | "Main" |
+| `theme` | "Theme" |
+| `light` | "Light" |
+| `dark` | "Dark" |
+| `system` | "System" |
+| `close` | "Close" |
+| `external` | "(opens in a new tab)" |
+
+## API reference
+
+### MobileNav
+
+`MobileNav` accepts only the props of this table.
+
+<PropsTable of="MobileNav" />
+
+### MobileNavTrigger
+
+`MobileNavTrigger` accepts the props of [Button](/docs/components/button), without `children`.
+
+<PropsTable of="MobileNavTrigger" />
+
+### MobileNavSection
+
+`MobileNavSection` also accepts each attribute of the `<div>` element.
+
+<PropsTable of="MobileNavSection" />

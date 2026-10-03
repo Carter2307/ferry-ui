@@ -1,0 +1,45 @@
+---
+title: Detail page
+description: The page of one record, with its status, its facts, its credentials and tabs for the other views.
+order: 3
+---
+
+<Demo name="detail-page/app" frame height={640} code="src/examples/detail-page-example.tsx" title="A detail page screen" />
+
+The record is an API key that expires soon. Select "Rotate key" or "Revoke key". Then confirm in the dialog. The page shows another state.
+
+The example has no router. A click on a link shows a message with the target of the link.
+
+## Components
+
+The code under the preview is the page. The frame around it is `ExampleApp`. The [Dashboard](/docs/examples/dashboard#the-frame) example tells how the frame works.
+
+| Region | Components |
+| --- | --- |
+| Header | [Page](/docs/components/page), [Status](/docs/components/status), [Button](/docs/components/button) |
+| Message | [Callout](/docs/components/callout) |
+| Views | [Tabs](/docs/components/tabs) |
+| Facts | [Description List](/docs/components/description-list), [Badge](/docs/components/badge) |
+| Credentials | [Form Card](/docs/components/form-card), [Copy](/docs/components/copy): `CopyField`, `SecretField` |
+| Code sample | [Code Block](/docs/components/code-block) |
+| Usage tab | [Metric Card](/docs/components/metric-card) |
+| Activity tab | [Table](/docs/components/table) |
+| Confirmations | [Confirm Dialog](/docs/components/confirm-dialog), [Toast](/docs/components/toast) |
+
+## Design rules
+
+- **The header tells where the record is.** The `eyebrow` of `PageHeader` holds a `PageBackLink` to the parent list. A small `StatusBadge` shows the status next to the title.
+- **A callout for a condition, a toast for a result.** The `Callout` stays on the page while the condition is true. The result of an action is a toast.
+- **Tabs change the view, not the page.** The `underline` tabs show the views of the same record. The `pills` tabs change the language of the code sample.
+- **A secret stays masked.** `SecretField` hides the value until the user reveals it. A copy does not reveal the value.
+- **Each action asks first.** "Rotate key" and "Revoke key" each open a controlled `ConfirmDialog`. The destructive action comes last in the header.
+
+## States
+
+The `status` prop of the example sets the state of the record. The `defaultTab` prop sets the first tab.
+
+| `status` | The page shows |
+| --- | --- |
+| `active` | A success badge and no callout. |
+| `expiring` | A warning badge and a warning callout with a "Rotate now" action. This is the default. |
+| `revoked` | A destructive badge and a destructive callout. The page has no secret row. The only action is "Create new key". |

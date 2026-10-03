@@ -1,0 +1,104 @@
+---
+title: Routing
+description: How the links of libui work with React Router, Next.js, TanStack Router or plain anchors.
+order: 6
+---
+
+libui does not import a router. A component that opens a page accepts an `href` string. With no setup, it renders a plain `<a>` element.
+
+## Write an adapter
+
+An adapter is a component that renders the link of your router. It gets `href` and the attributes of an anchor. It must give all these props to the link.
+
+Define the adapter at module level, not in a component.
+
+```tsx title="React Router"
+import { Link } from 'react-router'
+import type { LinkComponent } from 'libui'
+
+export const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
+```
+
+```tsx title="Next.js"
+import NextLink from 'next/link'
+import type { LinkComponent } from 'libui'
+
+export const RouterLink: LinkComponent = ({ href, ...props }) => <NextLink href={href} {...props} />
+```
+
+```tsx title="TanStack Router"
+import { Link } from '@tanstack/react-router'
+import type { LinkComponent } from 'libui'
+
+export const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
+```
+
+libui gives a plain string to the adapter. If your router has typed routes, cast `href` in the adapter.
+
+## Mount the provider
+
+Give the adapter to [LinkProvider](/docs/utilities/link-provider), one time, at the root of the app. All the links of libui below it then go through your router.
+
+```tsx title="providers.tsx"
+import type { ReactNode } from 'react'
+import { LinkProvider } from 'libui'
+
+import { RouterLink } from './router-link'
+
+export function Providers({ children }: { children: ReactNode }) {
+  return <LinkProvider component={RouterLink}>{children}</LinkProvider>
+}
+```
+
+## Mark the current page
+
+libui does not know the current page. Your router knows it. Set `active` on the navigation item of the current page.
+
+```tsx title="app-frame.tsx"
+// `pathname` comes from your router.
+const items: NavItem[] = [
+  { id: 'projects', label: 'Projects', href: '/projects', active: pathname.startsWith('/projects') },
+  { id: 'members', label: 'Members', href: '/members', active: pathname.startsWith('/members') },
+]
+```
+
+In this demo, a small context does the work of the router. The adapter sends each click to it.
+
+<Demo name="routing/active" title="A menu that gets its active item from the location" />
+
+## Components that render links
+
+| Area | Components |
+| --- | --- |
+| Navigation | `IconRail`, `IconRailItem`, `MobileNav`, `InnerMenu`, `CommandMenu`, `ResourceSwitcher` |
+| Top bar | `TopBarLogo`, `TopBarSegment`, `TopBarIconButton` |
+| Page | `BreadcrumbLink`, `PageBackLink` |
+| Content | `ResourceCard`, `DescriptionItem` |
+
+Each of these components also has a `linkComponent` prop. It replaces the adapter of the provider for this component only.
+
+## External items
+
+A navigation item with `external: true` opens a new tab. It does not use the adapter. It renders a plain `<a>` element with `target="_blank"` and `rel="noreferrer"`.
+
+```tsx title="An external item"
+{ id: 'docs', label: 'Documentation', href: 'https://example.com/docs', external: true }
+```
+
+## Your own links
+
+- For a link that you write, use the link of your router.
+- Do not put a libui component in a router link. Pass `href` to the component.
+- For a link with the look of a button, use `asChild` on [Button](/docs/components/button).
+
+```tsx title="A router link with the look of a button"
+<Button asChild>
+  <Link to="/projects/new">New project</Link>
+</Button>
+```
+
+## Next steps
+
+- Read the [LinkProvider](/docs/utilities/link-provider) page for the API and the `useLinkComponent()` hook.
+- See the links in a full frame in the [App Shell](/docs/components/app-shell) page.
+- Read [Composition](/docs/handbook/composition) to learn more about `asChild`.

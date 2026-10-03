@@ -1,0 +1,128 @@
+---
+title: Resource Switcher
+description: A button that opens a list of projects, workspaces or teams with a search field.
+group: Layout
+source: src/components/layout/resource-switcher.tsx
+---
+
+<Demo name="resource-switcher/hero" title="A switcher for the current project" />
+
+## Usage guidelines
+
+- **For items of one kind.** Use it to go from one project, workspace or team to a different one.
+- **For the trail of the top bar.** Put it after a `TopBarSeparator` in a [Top Bar](/docs/components/top-bar). Its trigger is a `TopBarSegment`.
+- **Not a field of a form.** For a value in a form, use [Select](/docs/components/select).
+- **Not a list of actions.** For a few actions, use [Dropdown Menu](/docs/components/dropdown-menu).
+
+## Anatomy
+
+The switcher has one part. `items` gives the list, and `actions` gives the commands below the list.
+
+```tsx title="Anatomy"
+import { ResourceSwitcher } from 'libui'
+
+<ResourceSwitcher items={items} value={value} onValueChange={setValue} actions={actions} />
+```
+
+## Examples
+
+### Current item
+
+The trigger shows the label and the icon of the current item. To control the current item, pass `value` and `onValueChange`. With `defaultValue`, the component holds the state.
+
+```tsx
+<ResourceSwitcher items={projects} defaultValue="billing-portal" />
+```
+
+### Actions
+
+`actions` adds commands below the list, for example "New project". The search does not hide them. `heading` adds a heading above the items.
+
+<Demo name="resource-switcher/actions" title="A switcher with a heading and two actions" />
+
+### Items with more content
+
+An item accepts a `description` below its label and `meta` content on the right. `keywords` gives more words to the search. The user cannot select a `disabled` item.
+
+<Demo name="resource-switcher/rich-items" title="Items with a description and a status" />
+
+### States
+
+While the items load, set `loading`. The trigger then shows a skeleton until the current item is in `items`. With no current item, the trigger shows `placeholder`. `disabled` blocks the trigger.
+
+<Demo name="resource-switcher/states" title="A switcher that loads, one with a placeholder and one disabled" />
+
+### Custom trigger
+
+The children replace the text of the trigger. `icon` replaces its icon. Long text stops at 180px.
+
+<Demo name="resource-switcher/custom-trigger" title="A switcher with custom text and a custom icon" />
+
+### Links
+
+An item with `href` is a link. The link component of the app renders it. An action accepts `href` too.
+
+```tsx
+<ResourceSwitcher
+  items={projects.map((project) => ({ ...project, href: `/projects/${project.id}` }))}
+  value={projectId}
+  actions={[{ id: 'new', label: 'New project', icon: <Plus />, href: '/projects/new' }]}
+/>
+```
+
+### Results from a server
+
+Set `shouldFilter` to `false`. Get the results in `onSearchChange`. If the results do not contain the current item, pass the text of the trigger as children.
+
+```tsx
+<ResourceSwitcher
+  items={results}
+  value={projectId}
+  onValueChange={setProjectId}
+  shouldFilter={false}
+  onSearchChange={setQuery}
+  loading={pending}
+>
+  {currentProject.name}
+</ResourceSwitcher>
+```
+
+## Accessibility
+
+- `label` tells what the trigger does, for example "switch project". The accessible name of the trigger is its visible text, then the label.
+- `label` is also the accessible name of the popover.
+- The focus moves to the search field when the popover opens. <Kbd>Enter</Kbd> selects the item. <Kbd>Esc</Kbd> closes the popover.
+
+## API reference
+
+`ResourceSwitcher` accepts only the props of this table.
+
+<PropsTable of="ResourceSwitcher" />
+
+### ResourceSwitcherItem
+
+One item of the list.
+
+| Field | Type | Role |
+| --- | --- | --- |
+| `id` | `string` | A stable id. The component compares it with `value`. Required. |
+| `label` | `string` | The name in the list and in the trigger. Required. |
+| `icon` | `ReactNode` | An icon before the label. |
+| `description` | `ReactNode` | A second line below the label. |
+| `meta` | `ReactNode` | Content on the right, before the check mark. |
+| `href` | `string` | The destination. The row is then a link. |
+| `keywords` | `string[]` | More words that the search matches. |
+| `disabled` | `boolean` | The item shows, but the user cannot select it. |
+
+### ResourceSwitcherAction
+
+One command below the list.
+
+| Field | Type | Role |
+| --- | --- | --- |
+| `id` | `string` | A stable key. Required. |
+| `label` | `string` | The visible text. Required. |
+| `icon` | `ReactNode` | An icon before the label. |
+| `href` | `string` | The destination. The row is then a link. |
+| `onSelect` | `() => void` | Runs when the user selects the action. The popover closes first. |
+| `disabled` | `boolean` | The action shows, but the user cannot select it. |

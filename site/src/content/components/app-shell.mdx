@@ -1,0 +1,96 @@
+---
+title: App Shell
+description: The frame of an application, with a top bar, a side rail and one region that scrolls.
+group: Layout
+source: src/components/layout/app-shell.tsx
+---
+
+<Demo name="app-shell/basic" frame height={520} title="An application frame" />
+
+Use the buttons above the preview to see the frame on a tablet and on a phone.
+
+## Usage guidelines
+
+- **One shell for each app.** Put `AppShell` at the root of the signed-in part of the app. Do not nest shells.
+- **Only the page scrolls.** The top bar and the rail stay in place.
+- **One navigation for all screens.** Give the same `NavGroup[]` to the rail, the phone drawer and the command menu.
+- **Not for public pages.** A marketing page or a sign-in page has no persistent navigation. Use a plain layout there.
+
+## Anatomy
+
+`AppShell` has four slots. Each slot takes a component.
+
+```tsx title="Anatomy"
+import { AppShell, IconRail, MobileNav, TopBar } from 'libui'
+
+<AppShell topBar={<TopBar />} rail={<IconRail />} mobileNav={<MobileNav />}>
+  {/* the page */}
+</AppShell>
+```
+
+| Slot | Content | Component |
+| --- | --- | --- |
+| `topBar` | The bar above the rail and the page. | [Top Bar](/docs/components/top-bar) |
+| `rail` | The side navigation. It shows from 768px. | [Icon Rail](/docs/components/icon-rail) |
+| `mobileNav` | The navigation drawer for phones. | [Mobile Nav](/docs/components/mobile-nav) |
+| `children` | The page. It is the only region that scrolls. | [Page](/docs/components/page) |
+
+## Examples
+
+### Phone drawer
+
+`AppShell` holds the open state of the phone drawer. A `MobileNav` in the shell follows this state with no prop.
+
+To open the drawer from the top bar, control the state. Pass `mobileNavOpen` and `onMobileNavOpenChange`.
+
+```tsx
+const [navOpen, setNavOpen] = React.useState(false)
+
+<AppShell
+  mobileNavOpen={navOpen}
+  onMobileNavOpenChange={setNavOpen}
+  topBar={<TopBar onOpenMobileNav={() => setNavOpen(true)} />}
+  mobileNav={<MobileNav groups={groups} />}
+/>
+```
+
+### Command shortcut
+
+`onCommandShortcut` runs when the user presses <Kbd>⌘ K</Kbd> or <Kbd>Ctrl K</Kbd>. Use it to open a [Command Menu](/docs/components/command-menu).
+
+```tsx
+const [commandOpen, setCommandOpen] = React.useState(false)
+
+<AppShell onCommandShortcut={() => setCommandOpen((open) => !open)} />
+<CommandMenu open={commandOpen} onOpenChange={setCommandOpen} groups={groups} />
+```
+
+### Scroll position
+
+Pass the current path to `scrollKey`. When the value changes, the page region scrolls back to the top.
+
+```tsx
+<AppShell scrollKey={pathname} />
+```
+
+## Accessibility
+
+- The shell adds a "Skip to content" link. It shows on keyboard focus and moves the focus to the page region.
+- `skipLinkLabel` sets the text of this link. Pass a translation in an app that is not in English.
+- The page region is a `<main>` element. `mainId` sets its id.
+
+## API reference
+
+`AppShell` also accepts each attribute of the `<div>` element.
+
+<PropsTable of="AppShell" />
+
+### useAppShell
+
+`useAppShell()` reads the state of the nearest shell. Outside a shell, it returns `null`.
+
+| Value | Type | Role |
+| --- | --- | --- |
+| `mobileNavOpen` | `boolean` | Tells if the phone drawer is open. |
+| `setMobileNavOpen` | `(open: boolean) => void` | Opens or closes the phone drawer. |
+| `mainId` | `string` | The id of the page region. |

@@ -1,0 +1,100 @@
+---
+title: Split Button
+description: A main action button with a second button that opens a menu of alternatives.
+group: Patterns
+source: src/components/patterns/split-button.tsx
+---
+
+<Demo name="split-button/hero" title="An export button with a menu of other formats" className="min-h-64" />
+
+## Usage guidelines
+
+- **One default action and a few alternatives.** The main button runs the default action. The menu holds variants of this action.
+- **Equal actions are separate buttons.** If no action is the default, use two [Button](/docs/components/button) components.
+- **A menu alone is not a split button.** For a button that only opens a menu, or for unrelated actions, use [Dropdown Menu](/docs/components/dropdown-menu).
+- **Confirm a destructive item.** Open a [Confirm Dialog](/docs/components/confirm-dialog) from `onSelect` of the item.
+
+## Anatomy
+
+Import the component. Give the label as the child and the items in `menu`.
+
+```tsx title="Anatomy"
+import { DropdownMenuItem, SplitButton } from 'libui'
+
+<SplitButton
+  onClick={() => {}}
+  menuLabel=""
+  menu={
+    <>
+      <DropdownMenuItem onSelect={() => {}} />
+    </>
+  }
+>
+  {/* the label of the main action */}
+</SplitButton>
+```
+
+The `menu` prop takes the items, the labels, the separators and the groups of Dropdown Menu. Run each action in `onSelect` of its item.
+
+## Examples
+
+### Variants
+
+The `variant` prop sets the look of the two buttons. A split button has five of the variants of Button.
+
+<Demo name="split-button/variants" title="The variants of Split Button" />
+
+### Sizes
+
+The `size` prop sets the height of the two buttons.
+
+<Demo name="split-button/sizes" title="The sizes of Split Button" />
+
+| Size | Height |
+| --- | --- |
+| `tiny` | 26px |
+| `sm` | 30px (default) |
+| `md` | 34px |
+| `lg` | 38px |
+
+### Loading state
+
+Set `loading` while the main action is in progress. The main button shows a spinner. The two buttons are disabled.
+
+<Demo name="split-button/loading" title="A split button with a loading state" />
+
+### Menu that stays available
+
+`disabled` disables the two buttons. If the alternatives still apply, set `menuDisabled` to `false`. Tell the user why the main action is not available.
+
+<Demo name="split-button/menu-available" title="A disabled main action with a menu that opens" className="min-h-56" />
+
+### Controlled menu
+
+To open the menu from the code, pass `open` and `onOpenChange`. Update the state in `onOpenChange`, or the menu cannot close.
+
+<Demo name="split-button/controlled" title="A button that opens the menu of a split button" className="min-h-56" />
+
+### Submit button
+
+With `type="submit"`, the main button submits the form around it. <Kbd>Enter</Kbd> in a field then runs the main action.
+
+<Demo name="split-button/submit" align="stretch" title="A form with a split button that submits" />
+
+### Destructive item
+
+If the user cannot undo the action of an item, give the item `variant="destructive"`. Open the confirmation from its `onSelect`. A `className` in `menuProps` sets the width of the menu.
+
+<Demo name="split-button/destructive" title="A destructive split button that asks for a confirmation" className="min-h-56" />
+
+## Accessibility
+
+- `menuLabel` is the accessible name of the menu button. The default is "More actions".
+- If a view has more than one split button, name the action in `menuLabel`: "More publish options".
+- <Kbd>Enter</Kbd> on the menu button opens the menu. The arrow keys move between the items.
+
+## API reference
+
+`SplitButton` also accepts each attribute of the `<div>` element. They go to the root group.
+
+<PropsTable of="SplitButton" />

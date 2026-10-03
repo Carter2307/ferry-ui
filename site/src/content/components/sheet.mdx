@@ -1,0 +1,155 @@
+---
+title: Sheet
+description: A panel that slides in from an edge of the screen and keeps the page in view.
+group: Primitives
+source: src/components/primitives/sheet.tsx
+---
+
+<Demo name="sheet/hero" title="A sheet with a form to edit a member" />
+
+## Usage guidelines
+
+- **Keep the page in view.** Use a sheet for a detail panel, a set of filters or a long form.
+- **A short task is not a sheet.** For one short form, use [Dialog](/docs/components/dialog). For a confirmation, use [Confirm Dialog](/docs/components/confirm-dialog).
+- **A small panel opens from its trigger.** For a small form or a list of actions, use [Popover](/docs/components/popover) or [Dropdown Menu](/docs/components/dropdown-menu).
+- **Give each sheet a title.** `SheetTitle` is the accessible name of the sheet.
+
+## Anatomy
+
+Import the parts. Put them together in this order.
+
+```tsx title="Anatomy"
+import {
+  Sheet,
+  SheetBody,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from 'libui'
+
+<Sheet>
+  <SheetTrigger />
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle />
+      <SheetDescription />
+    </SheetHeader>
+    <SheetBody />
+    <SheetFooter>
+      <SheetClose />
+    </SheetFooter>
+  </SheetContent>
+</Sheet>
+```
+
+| Part | Role |
+| --- | --- |
+| `Sheet` | Holds the open state. |
+| `SheetTrigger` | Opens the sheet on a click. |
+| `SheetContent` | The panel. It adds the backdrop and the close button. |
+| `SheetHeader` | Holds the title and the description. |
+| `SheetTitle` | The title. It is required. |
+| `SheetDescription` | A short text below the title. |
+| `SheetBody` | The content. It is the only part that scrolls. |
+| `SheetFooter` | The actions. It stays at the bottom of the panel. |
+| `SheetClose` | Closes the sheet on a click. |
+
+With `asChild`, `SheetTrigger` and `SheetClose` give their behavior to their child element. Use it with a [Button](/docs/components/button).
+
+## Examples
+
+### Side
+
+The `side` prop of `SheetContent` sets the edge that the panel comes from.
+
+<Demo name="sheet/sides" title="A sheet on each side of the screen" />
+
+| Side | Use |
+| --- | --- |
+| `right` | A detail panel or an edit panel (default). |
+| `left` | A navigation drawer. For the app navigation on a phone, use [Mobile Nav](/docs/components/mobile-nav). |
+| `bottom` | A list of actions on a phone. |
+| `top` | An announcement or a search. It is rare. |
+
+### Width
+
+A left or right sheet is 384px wide at most. Pass a class such as `sm:max-w-lg` to `SheetContent` to make it wider.
+
+<Demo name="sheet/width" title="A wider sheet with the details of an order" />
+
+### Footer
+
+`SheetFooter` stacks its buttons. Add `className="flex-row justify-end"` to put them in one row.
+
+<Demo name="sheet/footer" title="A footer with stacked buttons and a footer with one row of buttons" />
+
+### Long content
+
+Put long content in `SheetBody`. The body scrolls. The header and the footer stay in view.
+
+<Demo name="sheet/scroll" title="A sheet with a list that scrolls" />
+
+### Open state
+
+A sheet holds its open state by default. Use `defaultOpen` to open it at the start.
+
+To control the state, pass `open` and `onOpenChange`. Use this to open the sheet from code, or to close it after an action.
+
+<Demo name="sheet/controlled" title="A sheet with a controlled open state" />
+
+### No close button
+
+Set `showCloseButton={false}` to remove the close button. Then put a `SheetClose` in the footer.
+
+<Demo name="sheet/no-close-button" title="A sheet with no close button" />
+
+## Accessibility
+
+- The focus moves into the sheet when it opens. It stays in the sheet until the sheet closes.
+- <Kbd>Esc</Kbd> closes the sheet. A click outside the panel also closes it.
+- `closeLabel` sets the accessible name of the close button. The default is "Close".
+- If a sheet has no `SheetDescription`, pass `aria-describedby={undefined}` to `SheetContent`.
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### Sheet
+
+<PropsTable of="Sheet" />
+
+### SheetTrigger
+
+<PropsTable of="SheetTrigger" />
+
+### SheetContent
+
+<PropsTable of="SheetContent" />
+
+### SheetHeader
+
+<PropsTable of="SheetHeader" />
+
+### SheetTitle
+
+<PropsTable of="SheetTitle" />
+
+### SheetDescription
+
+<PropsTable of="SheetDescription" />
+
+### SheetBody
+
+<PropsTable of="SheetBody" />
+
+### SheetFooter
+
+<PropsTable of="SheetFooter" />
+
+### SheetClose
+
+<PropsTable of="SheetClose" />

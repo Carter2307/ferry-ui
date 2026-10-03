@@ -1,0 +1,118 @@
+---
+title: Page
+description: The column, the title block and the sections that give each page the same structure.
+group: Patterns
+source: src/components/patterns/page.tsx
+---
+
+<Demo name="page/hero" align="stretch" title="A page with a header and two sections" />
+
+## Usage guidelines
+
+- **One container for each page.** Put `PageContainer` in the page region of [App Shell](/docs/components/app-shell). Do not nest containers.
+- **One header for each page.** `PageHeader` is the first child of the container. It holds the only `<h1>` of the page.
+- **One section for each topic.** `PageSection` divides the page into topics, such as "General" and "Billing". It does not group the rows of a card.
+- **One level up is a back link.** `PageBackLink` points to the parent page. For a deeper hierarchy, use a [Breadcrumb](/docs/components/breadcrumb).
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import { PageBackLink, PageContainer, PageHeader, PageSection } from 'libui'
+
+<PageContainer>
+  <PageHeader title="" eyebrow={<PageBackLink href="" />} />
+  <PageSection title="" />
+  <PageSection title="" />
+</PageContainer>
+```
+
+| Part | Element | Role |
+| --- | --- | --- |
+| `PageContainer` | `div` | The centered column. It sets the maximum width and the padding. |
+| `PageHeader` | `header` | The title block. It holds the `h1` of the page. |
+| `PageBackLink` | `a` | The link to the parent page. It goes in `eyebrow`. |
+| `PageSection` | `section` | One topic of the page. Its title is an `h2`. |
+
+## Examples
+
+### Actions
+
+Give the buttons of the page to `actions`. Put the secondary buttons first and the primary button last.
+
+<Demo name="page/header-actions" align="stretch" title="A page header with two actions" />
+
+### Badges
+
+`badges` shows small elements after the title. Use it for a tag or for the status of a record.
+
+<Demo name="page/header-badges" align="stretch" title="A page header with a badge after the title" />
+
+### Back link
+
+On a detail page or a create page, put a `PageBackLink` in `eyebrow`. Write only the name of the parent page. The component adds the arrow.
+
+<Demo name="page/back-link" align="stretch" title="A page header with a link to the parent page" />
+
+### Large title
+
+Set `size="lg"` on the home page of one record. The title and the description become larger.
+
+<Demo name="page/header-large" align="stretch" title="The large header of a customer page" />
+
+### Content below the title
+
+The children of `PageHeader` show below the title row. Use them for [Tabs](/docs/components/tabs) or a [Callout](/docs/components/callout).
+
+<Demo name="page/header-tabs" align="stretch" title="A page header with tabs below the title" />
+
+### Sections
+
+`PageSection` takes a `title`, a `description` and `actions`. Pass an `id` to link to the section. The space between two sections is 40px.
+
+<Demo name="page/sections" align="stretch" title="Two sections of a billing page" />
+
+### Container width
+
+The `size` prop of `PageContainer` sets the maximum width of the column.
+
+```tsx
+<PageContainer size="narrow">
+  <PageHeader title="Project settings" />
+</PageContainer>
+```
+
+| Size | Content width | Use |
+| --- | --- | --- |
+| `narrow` | About 800px | Settings, forms, detail pages. |
+| `default` | About 1200px | Lists, overviews, dashboards. |
+| `full` | No maximum | Logs, wide tables, editors. |
+
+## Accessibility
+
+- The title of `PageHeader` is the `<h1>` of the page. Do not add a second `<h1>`.
+- The title of a `PageSection` is an `<h2>`. It also gives the section its accessible name.
+- The arrow of `PageBackLink` is decorative. The name of the parent page is the text of the link.
+
+## API reference
+
+Each part also accepts the attributes of its element.
+
+### PageContainer
+
+<PropsTable of="PageContainer" />
+
+### PageHeader
+
+<PropsTable of="PageHeader" />
+
+### PageBackLink
+
+`PageBackLink` uses the link component of [Link Provider](/docs/utilities/link-provider).
+
+<PropsTable of="PageBackLink" />
+
+### PageSection
+
+<PropsTable of="PageSection" />

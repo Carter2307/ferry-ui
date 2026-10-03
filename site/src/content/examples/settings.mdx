@@ -1,0 +1,47 @@
+---
+title: Settings
+description: A settings area with a side menu, one form, a save bar and a danger zone.
+order: 4
+---
+
+<Demo name="settings/app" frame height={640} code="src/examples/settings-example.tsx" title="A settings screen" />
+
+Change a field to see the save bar change. Use the side menu to open another section.
+
+The example has no router. A click on a link shows a message with the target of the link.
+
+## Components
+
+The code under the preview is the page. The frame around it is `ExampleApp`. The [Dashboard](/docs/examples/dashboard#the-frame) example tells how the frame works.
+
+| Region | Components |
+| --- | --- |
+| Section menu | [Inner Menu](/docs/components/inner-menu) |
+| Page column | [Page](/docs/components/page): `PageContainer`, `PageHeader` |
+| Rows with the label on the left | [Form Card](/docs/components/form-card): `FormCard`, `FormRow` |
+| Controls | [Input](/docs/components/input), [Textarea](/docs/components/textarea), [Select](/docs/components/select), [Checkbox](/docs/components/checkbox), [Radio Card Group](/docs/components/radio-card-group) |
+| Stacked fields | [Field](/docs/components/field) |
+| Request headers | [Key Value Editor](/docs/components/key-value-editor) |
+| Save | [Save Bar](/docs/components/save-bar), [Toast](/docs/components/toast) |
+| Danger zone | `FormCard`, `ActionRow`, [Confirm Dialog](/docs/components/confirm-dialog) |
+
+## Design rules
+
+- **The menu changes the section in place.** The items of `InnerMenu` have no `href`. `value` and `onValueChange` hold the current section. On a phone, the menu is a row of tabs.
+- **One form for the page.** The cards have `asDiv` because the page holds the only `<form>`.
+- **One save bar for all the sections of the form.** The sticky `SaveBar` gets `dirty`, `invalid` and `saving`. Its "Save changes" button is the submit button of the form.
+- **A checkbox for a value that the form saves.** A [Switch](/docs/components/switch) is for a setting that applies immediately.
+- **A hook holds the headers.** `useKeyValueRows` gives the rows and the errors to `KeyValueEditor`. It gives the dirty state to the save bar.
+- **The danger zone is not in the form.** Each `ActionRow` opens a `ConfirmDialog`. To delete the workspace, the user must type its slug.
+
+## Sections
+
+The `defaultSection` prop of the example sets the first section.
+
+| `defaultSection` | The section shows |
+| --- | --- |
+| `general` | Rows with an input, a textarea, a select and radio cards. This is the default. |
+| `notifications` | One checkbox for each row. |
+| `billing` | Stacked fields in a grid of two columns. |
+| `webhooks` | A URL field and the editor of the request headers. |
+| `danger` | Two actions, each with a confirmation. |

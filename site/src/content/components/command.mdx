@@ -1,0 +1,142 @@
+---
+title: Command
+description: A search field above a list that the user filters and moves through with the keyboard.
+group: Primitives
+source: src/components/primitives/command.tsx
+---
+
+<Demo name="command/hero" title="A list of commands with a search field" />
+
+## Usage guidelines
+
+- **A list with a search.** Use `Command` for a long list that the user filters with the keyboard.
+- **A short list needs no search.** For a few actions, use [Dropdown Menu](/docs/components/dropdown-menu). For a form value among 4 to 15 options, use [Select](/docs/components/select).
+- **A picker opens from a field.** Put `Command` in a [Popover](/docs/components/popover) to pick one value in a long list.
+- **The app has one command menu.** To search the full app, use [Command Menu](/docs/components/command-menu), not `CommandDialog`.
+
+## Anatomy
+
+Import the parts. Put them together in this order.
+
+```tsx title="Anatomy"
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from 'libui'
+
+<Command>
+  <CommandInput />
+  <CommandList>
+    <CommandEmpty />
+    <CommandGroup>
+      <CommandItem>
+        <CommandShortcut />
+      </CommandItem>
+    </CommandGroup>
+    <CommandSeparator />
+  </CommandList>
+</Command>
+
+<CommandDialog>
+  <CommandInput />
+  <CommandList />
+</CommandDialog>
+```
+
+| Part | Role |
+| --- | --- |
+| `Command` | The root. It filters the items and holds the selection. |
+| `CommandInput` | The search field. |
+| `CommandList` | Holds the groups and the items. It scrolls. |
+| `CommandEmpty` | The message that shows when no item matches. |
+| `CommandGroup` | A section of items. `heading` sets its title. |
+| `CommandItem` | One row that the user can select. |
+| `CommandSeparator` | A line between two groups. |
+| `CommandShortcut` | A key hint at the right of an item. It binds no key. |
+| `CommandDialog` | A `Command` in a dialog. |
+
+## Examples
+
+### Items
+
+`CommandItem` runs `onSelect` on a click and on <Kbd>Enter</Kbd>. The search reads the text of each item. Use `value` to give a different text to the search. Use `keywords` to add more words.
+
+Set `disabled` on an item that the user cannot select.
+
+<Demo name="command/items" title="Items with keywords, a value and a disabled state" />
+
+### Picker in a popover
+
+Put `Command` in `PopoverContent` to make a picker with a search. Control the open state of the popover. Close the popover in `onSelect`.
+
+<Demo name="command/combobox" title="A picker that finds a member in a list" />
+
+### Your own filter
+
+If your code filters the list, pass `shouldFilter={false}`. This is necessary for a search on a server. Control `CommandInput` with `value` and `onValueChange`. Render only the items that match.
+
+<Demo name="command/filter" title="A list of invoices with a filter in the code of the app" />
+
+### Command in a dialog
+
+`CommandDialog` shows a `Command` in a [Dialog](/docs/components/dialog). Pass `open` and `onOpenChange`. The `commandProps` prop takes the props of the `Command` root.
+
+`CommandDialog` binds no key. To open it with a shortcut, use [useCommandShortcut](/docs/utilities/use-command-shortcut).
+
+<Demo name="command/dialog" title="A dialog that finds a member" />
+
+## Accessibility
+
+- <Kbd>↑</Kbd> and <Kbd>↓</Kbd> move the selection. <Kbd>Enter</Kbd> runs the selected item.
+- The `label` prop of `Command` gives an accessible name to the search field. It does not show.
+- `CommandDialog` has a hidden title and a hidden description. Set them with `title` and `description`.
+- For a picker, give `role="combobox"` and `aria-expanded` to the trigger. Give an `aria-label` to `PopoverContent`.
+
+## API reference
+
+Each part also accepts the props of its cmdk primitive and the attributes of its element.
+
+### Command
+
+<PropsTable of="Command" />
+
+### CommandInput
+
+<PropsTable of="CommandInput" />
+
+### CommandList
+
+<PropsTable of="CommandList" />
+
+### CommandEmpty
+
+<PropsTable of="CommandEmpty" />
+
+### CommandGroup
+
+<PropsTable of="CommandGroup" />
+
+### CommandItem
+
+<PropsTable of="CommandItem" />
+
+### CommandSeparator
+
+<PropsTable of="CommandSeparator" />
+
+### CommandShortcut
+
+<PropsTable of="CommandShortcut" />
+
+### CommandDialog
+
+`CommandDialog` also accepts the props of the `Dialog` root.
+
+<PropsTable of="CommandDialog" />

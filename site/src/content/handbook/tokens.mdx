@@ -1,0 +1,155 @@
+---
+title: Tokens
+description: The colors, the radii, the shadows and the fonts of libui, as Tailwind classes and CSS variables.
+order: 2
+---
+
+A token is a named design value. Each token is a CSS variable. With Tailwind, each token is also a class.
+
+A color token gives one class for each use. For example, `--primary` gives `bg-primary`, `text-primary` and `border-primary`. Add a slash and a number to set the opacity: `bg-destructive/10`.
+
+A square sample in a demo uses the `bg-` class of the token. The table below it gives the class that you use most.
+
+The light values are on `:root`. The dark values are on `.dark`. Change the theme of this site to see the two values of each token.
+
+## Surfaces
+
+A surface is the background of a part of the screen.
+
+<Demo name="tokens/surfaces" title="The surface tokens" align="stretch" />
+
+| Class | Use |
+| --- | --- |
+| `bg-background` | The page, behind all the content |
+| `bg-surface-75` | Card footers, save bars |
+| `bg-surface-100` | Cards, panels, inputs |
+| `bg-surface-200` | Hover states, table headers |
+| `bg-surface-300` | Menus, popovers, dialogs, tooltips |
+| `bg-selection` | Selected row, active navigation item |
+| `bg-overlay` | Dim layer behind dialogs and sheets |
+| `bg-code` | Your own code samples |
+
+## Text
+
+The size and these four colors give the hierarchy of the text. libui does not use bold text.
+
+`text-foreground-muted` is too faint for text that a person must read.
+
+<Demo name="tokens/text" title="The text tokens" align="stretch" />
+
+| Class | Use |
+| --- | --- |
+| `text-foreground` | Titles, values, body text |
+| `text-foreground-light` | Descriptions, inactive items |
+| `text-foreground-lighter` | Captions, table headers, icons |
+| `text-foreground-muted` | Decorative marks only |
+
+## Borders
+
+Each element has `--border` as its default border color. Write `border`, `border-t` or `divide-y` with no color class.
+
+<Demo name="tokens/borders" title="The border tokens" align="stretch" />
+
+| Class | Use |
+| --- | --- |
+| `border` | Cards, dividers, table rows |
+| `border-border-strong` | Controls, outlines of overlays |
+| `border-border-stronger` | Controls on hover, dashed outlines |
+
+## Primary and brand
+
+Primary is the color of the main action, of links and of the focus ring. Brand is the color of your product.
+
+<Demo name="tokens/primary" title="The primary tokens, the focus ring and the brand token" align="stretch" />
+
+| Class | Use |
+| --- | --- |
+| `text-primary` | Links, active icons, selected text |
+| `bg-primary-solid` | Primary button, checked controls |
+| `border-primary-solid-border` | Border of a solid primary fill |
+| `border-primary-bright` | Border of a field with the focus |
+| `bg-primary-soft` | Counters, selected cards |
+| `text-primary-foreground` | Text on `primary-solid` |
+| `ring-ring` | Focus ring |
+| `bg-brand` | Logo marks, first chart series |
+
+## Feedback
+
+Use these colors only for a status or for feedback.
+
+<Demo name="tokens/feedback" title="The feedback tokens" align="stretch" />
+
+| Class | Use |
+| --- | --- |
+| `text-success` | Healthy, completed, paid |
+| `bg-success-soft` | Success fill |
+| `text-warning` | Needs attention |
+| `bg-warning-soft` | Warning fill |
+| `border-warning-border` | Warning border |
+| `text-destructive` | Errors, failed states |
+| `bg-destructive-solid` | Confirm button of a destructive dialog |
+| `bg-destructive-soft` | Error fill |
+| `border-destructive-border` | Error border |
+| `text-info` | In progress |
+| `bg-info-soft` | Info fill |
+| `border-info-border` | Info border |
+
+## Charts
+
+Five tokens give the colors of chart series. The first series has the brand color.
+
+<Demo name="tokens/charts" title="The chart tokens" align="stretch" />
+
+## Radius
+
+The radius shows the role of an element.
+
+<Demo name="tokens/radius" title="The radius tokens" align="stretch" />
+
+| Class | Size | Use |
+| --- | --- | --- |
+| `rounded-sm` | 4px | Chips, square badges, keycaps |
+| `rounded-md` | 6px | Controls: buttons, inputs |
+| `rounded-lg` | 8px | Containers: cards, tables, dialogs |
+| `rounded-xl` | 12px | Large panels (rare) |
+| `rounded-full` | Full | Pills, avatars, dots |
+
+## Elevation
+
+Borders give the structure. A shadow shows that an element is above the page.
+
+<Demo name="tokens/elevation" title="The two shadow tokens" align="stretch" />
+
+| Class | Use |
+| --- | --- |
+| `shadow-card` | Cards. No shadow in the dark theme |
+| `shadow-overlay` | Menus, popovers, dialogs, toasts |
+
+## Fonts
+
+The `libui/fonts.css` file loads Inter and Source Code Pro. Without this file, the browser uses system fonts.
+
+<Demo name="tokens/fonts" title="The two font tokens" align="stretch" />
+
+| Class | Fonts |
+| --- | --- |
+| `font-sans` | Inter, then system fonts |
+| `font-mono` | Source Code Pro, then system monospace |
+
+## shadcn aliases
+
+The class names of shadcn/ui also work. Each alias points to a token of this page. In new code, use the libui name.
+
+| Alias | Token |
+| --- | --- |
+| `bg-card` | `surface-100` |
+| `bg-popover` | `surface-300` |
+| `bg-secondary`, `bg-muted` | `surface-200` |
+| `text-muted-foreground` | `foreground-lighter` |
+| `bg-accent` | `selection` |
+| `border-input` | `border-strong` |
+
+## Next steps
+
+- Read [Styling](/docs/handbook/styling) for the rules of `className`.
+- Read [Theming](/docs/handbook/theming) to change the value of a token.

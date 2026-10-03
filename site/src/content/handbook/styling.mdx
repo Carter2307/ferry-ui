@@ -1,0 +1,104 @@
+---
+title: Styling
+description: The rules to style a screen with token classes, props and the utility classes of libui.
+order: 1
+---
+
+libui uses Tailwind CSS v4. Your markup can use the same classes as the components.
+
+If your app does not use Tailwind, use the CSS variables of the tokens in your own CSS.
+
+## Use token classes
+
+A token is a named design value: a color, a radius, a shadow or a font. Each token is a CSS variable and a Tailwind class.
+
+The color tokens change with the theme. Do not write a raw color, a class of the Tailwind palette or a `dark:` variant.
+
+<Demo name="styling/token-classes" title="A list made with token classes" />
+
+| Do not write | Write |
+| --- | --- |
+| `bg-white` | `bg-surface-100` |
+| `text-gray-600` | `text-foreground-light` |
+| `border-[#e5e5e5]` | `border` |
+| `dark:bg-…` | One token class |
+| `font-bold` | `font-medium` |
+
+The [Tokens](/docs/handbook/tokens) page shows each token.
+
+## Set the look with props
+
+A control gets its colors from the `variant` prop or the `tone` prop. Do not set a color, a height, a padding or a font size on a control with `className`.
+
+<Demo name="styling/variants" title="Colors from the variant prop and the tone prop" />
+
+The `size` prop sets the height. A field and a button of the same size have the same height.
+
+<Demo name="styling/sizes" title="A field and a button at each size" />
+
+| Height | `Button` | `Input` | `SelectTrigger` | `Toggle` |
+| --- | --- | --- | --- | --- |
+| 26px | `tiny` | `tiny` | `tiny` | `tiny` |
+| 30px | `sm` (default) | `sm` | `sm` | `sm` (default) |
+| 34px | `md` | `md` (default) | `md` (default) | `md` |
+| 38px | `lg` | `lg` | None | None |
+
+## Use className for layout
+
+On a control, `className` is for layout: a margin, a width or a position in a grid.
+
+<Demo name="styling/layout" title="Layout classes on fields and buttons" />
+
+A container accepts token classes. Examples are the parts of [Card](/docs/components/card), a cell of [Table](/docs/components/table) and [Avatar](/docs/components/avatar).
+
+<Demo name="styling/containers" title="Token classes on the parts of a card" />
+
+## Merge classes with cn
+
+[`cn()`](/docs/utilities/cn) joins class names. If two Tailwind classes set the same property, the last class wins.
+
+Each component adds your `className` after its own classes. As a result, your class wins. Use `cn()` in your code for a class that depends on a condition.
+
+<Demo name="styling/cn" title="A class that depends on a state" />
+
+## Use the utility classes
+
+The theme of libui adds four utility classes.
+
+<Demo name="styling/utilities" title="The four utility classes" />
+
+| Class | Effect |
+| --- | --- |
+| `mono-label` | A small uppercase caption in the mono font. The look of [Mono Label](/docs/components/mono-label). |
+| `tabular` | Digits of one width, for numbers in a column. |
+| `bg-dot-grid` | A background with a grid of dots. |
+| `scrollbar-none` | No scrollbar. The element continues to scroll. |
+
+## Add the focus ring
+
+Each control shows a ring when it gets the keyboard focus. Give the same ring to your own interactive elements.
+
+```tsx title="The classes of the focus ring"
+<button className="outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+```
+
+Press <Kbd>Tab</Kbd> to move the focus to this custom button.
+
+<Demo name="styling/focus-ring" title="A custom button with the focus ring" />
+
+## Follow the design rules
+
+| Subject | Rule |
+| --- | --- |
+| Font weight | `font-normal` and `font-medium` only. No bold text. |
+| Border | A 1px `border` gives structure to cards and tables. |
+| Shadow | `shadow-overlay` is for overlays only. |
+| Radius | `rounded-md` for controls, `rounded-lg` for containers. |
+| Color | Neutral surfaces. Color shows a meaning. |
+| Icons | Icons come from `lucide-react`. The component sets their size. |
+
+## Next steps
+
+- Read [Tokens](/docs/handbook/tokens) to see each color, radius and shadow.
+- Read [Theming](/docs/handbook/theming) to change the colors and the fonts.
+- Read [Composition](/docs/handbook/composition) to learn how the components go together.

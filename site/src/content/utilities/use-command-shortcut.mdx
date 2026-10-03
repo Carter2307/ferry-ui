@@ -1,0 +1,62 @@
+---
+title: useCommandShortcut
+description: A hook that runs a function when the user presses the command key or the control key with a letter.
+source: src/hooks/use-command-shortcut.ts
+---
+
+<Demo name="use-command-shortcut/hero" title="A command menu that opens with a keyboard shortcut" />
+
+## Usage
+
+Call the hook one time, near the root of the app. Put it next to the state of your [Command Menu](/docs/components/command-menu). With no second argument, the shortcut is <Kbd>⌘ K</Kbd> on an Apple device and <Kbd>Ctrl K</Kbd> on other devices.
+
+```tsx
+import * as React from 'react'
+import { CommandMenu, useCommandShortcut, type CommandMenuGroup } from 'libui'
+
+export function SearchEverywhere({ groups }: { groups: CommandMenuGroup[] }) {
+  const [open, setOpen] = React.useState(false)
+  useCommandShortcut(() => setOpen((current) => !current))
+  return <CommandMenu open={open} onOpenChange={setOpen} groups={groups} />
+}
+```
+
+- **The shortcut works in the full window.** It also works when the focus is in a text field.
+- **The browser does not get the shortcut.** The hook stops the default action of the browser.
+- **The modifier keys matter.** The hook ignores a press with <Kbd>Shift</Kbd> or <Kbd>Alt</Kbd>.
+- **The hook shows no key.** To show the keys, use [Kbd](/docs/components/kbd) with `useModKey()` from [usePlatform](/docs/utilities/use-platform).
+- **Not for one widget.** For a shortcut that works only in one widget, use `onKeyDown` on this widget.
+
+<Callout tone="warning" title="Bind each letter in one place">
+  [App Shell](/docs/components/app-shell) calls this hook for its `onCommandShortcut` prop. `CommandMenu` calls it for its `shortcut` prop. Use only one of the three for a letter. If not, each press runs more than one handler.
+</Callout>
+
+## Examples
+
+### Another letter
+
+Pass a letter as the second argument. The case of the letter does not matter. For two letters, call the hook two times.
+
+```tsx
+useCommandShortcut(openInvoiceSearch, 'j')
+```
+
+### Shortcut on and off
+
+Pass an object with `enabled`. While `enabled` is `false`, the hook does not listen.
+
+<Demo name="use-command-shortcut/enabled" title="A shortcut with a switch that turns it off" />
+
+## API reference
+
+`useCommandShortcut(handler, options)` returns nothing.
+
+| Parameter | Type | Role |
+| --- | --- | --- |
+| `handler` | `(event: KeyboardEvent) => void` | Runs on each press. The hook always calls the latest function. |
+| `options` | `string \| CommandShortcutOptions` | Optional. A letter, or an object with the options below. |
+
+| Option | Type | Default | Role |
+| --- | --- | --- | --- |
+| `key` | `string` | `'k'` | The letter of the shortcut. |
+| `enabled` | `boolean` | `true` | The hook listens only while the value is `true`. |

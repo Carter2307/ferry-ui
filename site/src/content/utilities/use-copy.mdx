@@ -1,0 +1,76 @@
+---
+title: useCopy
+description: A hook that copies text to the clipboard and holds the state of a copy button.
+source: src/hooks/use-copy.ts
+---
+
+<Demo name="use-copy/hero" title="A button that copies a link" />
+
+## Usage
+
+`useCopy()` returns the pair `[copied, copy]`. `copy(text)` writes the text to the clipboard. After a copy with no error, `copied` is `true` for a short time.
+
+```tsx
+import { Button, useCopy } from 'libui'
+
+function CopyInviteLink({ url }: { url: string }) {
+  const [copied, copy] = useCopy()
+  return <Button onClick={() => void copy(url)}>{copied ? 'Link copied' : 'Copy invite link'}</Button>
+}
+```
+
+- **Use the copy components first.** [Copy](/docs/components/copy) has `CopyButton`, `CopyField` and `SecretField`. [Code Block](/docs/components/code-block) has its own copy button. They all use this hook.
+- **Mount a `Toaster`.** When a copy fails, the hook shows an error toast. The [Toast](/docs/components/toast) page tells how to mount `Toaster`.
+
+## Examples
+
+### Feedback time
+
+`copied` stays `true` for 1500 milliseconds. Pass `timeout` to change this time.
+
+<Demo name="use-copy/timeout" title="A copy button with a longer feedback time" />
+
+### Failed copy
+
+When a copy fails, the hook shows the toast "Could not copy to the clipboard". Pass `errorMessage` to change this text.
+
+```tsx
+const [copied, copy] = useCopy({ errorMessage: 'Copy the link by hand' })
+```
+
+Pass `onError` to replace the toast with your code. The function gets the text of the failed copy.
+
+```tsx
+const [copied, copy] = useCopy({ onError: (text) => reportCopyError(text) })
+```
+
+### Copy with no hook
+
+`copyText(text)` is the function that the hook calls. Use it outside React, or when your code gives the feedback. Its promise gives `true` or `false`. It does not throw.
+
+<Demo name="use-copy/copy-text" title="A menu item that copies an ID" className="min-h-56" />
+
+## API reference
+
+### useCopy
+
+`useCopy(options)` returns `[copied, copy]`. The `options` object is optional. Its type is `UseCopyOptions`.
+
+| Option | Type | Default | Role |
+| --- | --- | --- | --- |
+| `timeout` | `number` | `1500` | The time that `copied` stays `true`, in milliseconds. |
+| `errorMessage` | `string` | `'Could not copy to the clipboard'` | The text of the error toast. |
+| `onError` | `(text: string) => void` | | Runs when the copy fails, with the text. It replaces the error toast. |
+
+| Value | Type | Role |
+| --- | --- | --- |
+| `copied` | `boolean` | `true` after a copy, for the time of `timeout`. |
+| `copy` | `(text: string) => Promise<void>` | Copies the text. The function keeps the same identity between renders. |
+
+### copyText
+
+`copyText(text)` returns a `Promise<boolean>`. It uses the Clipboard API of the browser. On a page with no secure context (plain HTTP), it uses a hidden `<textarea>`.
+
+| Parameter | Type | Role |
+| --- | --- | --- |
+| `text` | `string` | The text to copy. |

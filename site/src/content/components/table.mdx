@@ -1,0 +1,169 @@
+---
+title: Table
+description: A table for records that people compare by column, such as members, invoices or orders.
+group: Primitives
+source: src/components/primitives/table.tsx
+---
+
+<Demo name="table/hero" align="stretch" title="A table of invoices" />
+
+## Usage guidelines
+
+- **Records with the same columns.** Use a table for records that people compare by column.
+- **One record is not a table.** For the facts about one record, use [Description List](/docs/components/description-list).
+- **Named things can be cards.** For a collection that people browse, use [Resource Card](/docs/components/resource-card).
+- **Keep the header in each state.** For the loading, empty and error rows, use [Table States](/docs/components/table-states).
+- **Show a state with a status.** In a cell, use the `StatusBadge` of [Status](/docs/components/status), not a [Badge](/docs/components/badge).
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from 'libui'
+
+<Table>
+  <TableCaption />
+  <TableHeader>
+    <TableRow>
+      <TableHead />
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell />
+    </TableRow>
+  </TableBody>
+  <TableFooter>
+    <TableRow>
+      <TableCell />
+    </TableRow>
+  </TableFooter>
+</Table>
+```
+
+| Part | Element | Role |
+| --- | --- | --- |
+| `Table` | `table` | The table, in a container with a border. |
+| `TableHeader` | `thead` | The section for the column labels. |
+| `TableBody` | `tbody` | The section for the data rows. |
+| `TableFooter` | `tfoot` | The section for the totals. |
+| `TableRow` | `tr` | One row. It changes color on hover. |
+| `TableHead` | `th` | The label of one column. |
+| `TableCell` | `td` | One value. |
+| `TableCaption` | `caption` | A short note below the rows. |
+
+Give `className="hover:bg-transparent"` to the row of the header. The header then does not change on hover.
+
+## Examples
+
+### Footer and caption
+
+Use `TableFooter` for totals only. `TableCaption` shows a note below the rows. It also gives the table its accessible name.
+
+<Demo name="table/footer-caption" align="stretch" title="A table with a total row and a caption" />
+
+### Numbers and long values
+
+A cell does not wrap its text. Align the numbers with `text-right tabular`. For a long value, give the cell `w-full max-w-0`. Put a `truncate` element in the cell.
+
+<Demo name="table/columns" align="stretch" title="A table with a column that cuts long text" />
+
+### Row actions
+
+Put a [Dropdown Menu](/docs/components/dropdown-menu) on a `ghost` icon button in the last cell. The row keeps its hover color while the menu is open.
+
+<Demo name="table/row-actions" align="stretch" title="A table with a menu of actions in each row" />
+
+### Selected rows
+
+Add a column of [Checkbox](/docs/components/checkbox) controls. Set `data-state="selected"` on a row to give it the selection color.
+
+<Demo name="table/selection" align="stretch" title="A table with rows that the user selects" />
+
+### Clickable rows
+
+Spread `rowLinkProps()` on a row to open the record on a click. A click on a link, a button or a menu in the row does not open the record.
+
+<Demo name="table/clickable-rows" align="stretch" title="A table with rows that open a record" />
+
+### Sticky header
+
+Give the container a maximum height with `containerClassName`. The container then scrolls. Add `sticky top-0 z-10` and an opaque background to `TableHeader`. The labels then stay in view.
+
+<Demo name="table/sticky-header" align="stretch" title="A table that scrolls below a sticky header" />
+
+### Table in a card
+
+In a [Card](/docs/components/card), remove the frame of the table. The border of the card is then the only border.
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Recent invoices</CardTitle>
+  </CardHeader>
+  <Table aria-label="Recent invoices" containerClassName="rounded-none border-0 shadow-none">
+    {/* the header and the rows */}
+  </Table>
+</Card>
+```
+
+## Accessibility
+
+- Name each table with `aria-label` or with a `TableCaption`.
+- A column that has only icons needs an `sr-only` label in its header cell.
+- Keep a real link in the first cell of a clickable row. Keyboard users and screen readers use this link.
+- A table that scrolls and has no link or button needs keyboard access. Pass `tabIndex`, `role` and `aria-label` in `containerProps`.
+
+## API reference
+
+`Table` also accepts each attribute of the `<table>` element. The other parts accept the attributes of their element.
+
+### Table
+
+<PropsTable of="Table" />
+
+### TableHeader
+
+<PropsTable of="TableHeader" />
+
+### TableBody
+
+<PropsTable of="TableBody" />
+
+### TableFooter
+
+<PropsTable of="TableFooter" />
+
+### TableRow
+
+<PropsTable of="TableRow" />
+
+### TableHead
+
+<PropsTable of="TableHead" />
+
+### TableCell
+
+<PropsTable of="TableCell" />
+
+### TableCaption
+
+<PropsTable of="TableCaption" />
+
+### rowLinkProps
+
+`rowLinkProps(onOpen)` returns the props that make a row clickable. Spread them on a `TableRow`.
+
+```ts
+function rowLinkProps(onOpen: (event: React.MouseEvent<HTMLTableRowElement>) => void): {
+  className: string
+  onClick: React.MouseEventHandler<HTMLTableRowElement>
+}
+```
+
+| Name | Type | Role |
+| --- | --- | --- |
+| `onOpen` | `(event) => void` | The function that opens the record. It gets the click event. |
+| `className` | `string` | The class for the pointer cursor. |
+| `onClick` | `MouseEventHandler` | The click handler of the row. |

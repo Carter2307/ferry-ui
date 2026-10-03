@@ -1,0 +1,45 @@
+---
+title: List page
+description: A page that lists records in a table, with a search field, a status filter and row actions.
+order: 2
+---
+
+<Demo name="list-page/app" frame height={640} code="src/examples/list-page-example.tsx" title="A list page screen" />
+
+Type in the search field, or open the Status filter, to change the rows. Open the menu of a row to see its actions.
+
+The example has no router. A click on a link shows a message with the target of the link.
+
+## Components
+
+The code under the preview is the page. The frame around it is `ExampleApp`. The [Dashboard](/docs/examples/dashboard#the-frame) example tells how the frame works.
+
+| Region | Components |
+| --- | --- |
+| Header | [Page](/docs/components/page), [Button](/docs/components/button) |
+| Toolbar | [List Toolbar](/docs/components/list-toolbar): `ListToolbar`, `SearchInput`, `FilterMenu` |
+| Table | [Table](/docs/components/table), [Status](/docs/components/status), [Badge](/docs/components/badge), [Avatar](/docs/components/avatar) |
+| Row actions | [Dropdown Menu](/docs/components/dropdown-menu), [Confirm Dialog](/docs/components/confirm-dialog), [Toast](/docs/components/toast) |
+| Load and error states | [Table States](/docs/components/table-states): `TableSkeletonRows`, `TableErrorRow` |
+| Empty states | [Empty State](/docs/components/empty-state) |
+
+## Design rules
+
+- **The full row opens the record.** `rowLinkProps()` makes the row open the record on a click. The link in the first cell stays the target for the keyboard and for screen readers.
+- **One map for the status.** `PROJECT_STATUS` gives a tone and a label to each status. Each `StatusBadge` and each `StatusDot` reads this map.
+- **One dialog for all the rows.** The "Delete" item of each row opens the same controlled `ConfirmDialog`.
+- **A toast for a quick action.** "Pause" and "Resume" apply immediately. A toast tells the result.
+- **The toolbar shows the result count.** The `actions` slot of `ListToolbar` holds the count.
+
+## States
+
+The example has a prop for each state of the list.
+
+| Prop | The page shows |
+| --- | --- |
+| `loading` | Skeleton rows below the table header. The toolbar is disabled. |
+| `error` | An error row with the message of the error. The toolbar is disabled. |
+| `onRetry` | A "Retry" button in the error row. |
+| `projects={[]}` | An empty state with the "New project" action. |
+
+When the filters find no row, an empty state replaces the table. Its "Clear filters" button brings the rows back.

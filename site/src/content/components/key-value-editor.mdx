@@ -1,0 +1,119 @@
+---
+title: Key Value Editor
+description: A list of key and value pairs that the user can edit, with validation, masked values and import.
+group: Patterns
+source: src/components/patterns/key-value-editor.tsx
+---
+
+<Demo name="key-value-editor/hero" align="stretch" title="A card where the user edits the labels of a project" />
+
+## Usage guidelines
+
+- **For a small map with free keys.** Use it for request headers, metadata, labels or variables. Keep the list to a few dozen rows.
+- **Known fields are a form.** For a fixed set of fields, use [Field](/docs/components/field) or [Form Card](/docs/components/form-card).
+- **Many records are a table.** For a large list, use [Table](/docs/components/table).
+- **Mount the tooltip provider.** The icon buttons have tooltips. They need a `TooltipProvider` above the editor.
+
+## Anatomy
+
+Import the component and the hook. The hook holds the rows for a controlled editor.
+
+```tsx title="Anatomy"
+import { KeyValueEditor, useKeyValueRows } from 'libui'
+
+const state = useKeyValueRows(pairs)
+
+<KeyValueEditor value={state.rows} onValueChange={state.setRows} errors={state.errors} />
+```
+
+| Type | Shape | Use |
+| --- | --- | --- |
+| `KeyValuePair` | `{ key, value, secret? }` | The data that your app stores. |
+| `KeyValueRow` | A pair and a stable `id`. | The data that the editor shows. |
+
+## Examples
+
+### Save flow
+
+`useKeyValueRows` gives `pairs` for the request, `errors` and `valid` for the validation, and `dirty` for a [Save Bar](/docs/components/save-bar). The hook reads its argument on the first render only. After a load or a save, call `reset`.
+
+<Demo name="key-value-editor/save-bar" align="stretch" title="An editor with a save bar" />
+
+### Validation
+
+The editor shows an error for a value with no key and for a duplicate key. `validateKey` adds a check of the key format. `validateIdentifierKey` is a validator for the names of variables.
+
+Give the same validator to the hook and to the editor.
+
+<Demo name="key-value-editor/validation" align="stretch" title="An editor with three rows that are not valid" />
+
+### Secret values
+
+A row with `secret: true` shows a mask and a reveal button. `maskValues` masks each row. `revealAll` shows each value and hides the reveal buttons.
+
+<Demo name="key-value-editor/secret" align="stretch" title="An editor with two masked values and a switch that reveals them" />
+
+### Texts and empty list
+
+`keyLabel`, `addLabel`, `importLabel` and `itemNoun` set the visible texts. `emptyMessage` shows while the list has no row. To translate the other texts, pass `labels`.
+
+<Demo name="key-value-editor/texts" align="stretch" title="An empty editor with custom texts" />
+
+### Read-only and disabled
+
+`readOnly` removes the add, remove and import buttons. `disabled` locks each field and each button but keeps the layout. Use `disabled` while a save is in progress.
+
+<Demo name="key-value-editor/read-only" align="stretch" title="A read-only editor" />
+
+### Paste and import
+
+The user can paste `key=value` lines into a key field, or open the Import dialog. A key that exists gets the new value. A new key goes to the end of the list. To hide the Import button, set `allowImport` to `false`.
+
+```text
+team=growth
+owner="Maya Chen"
+# a comment
+```
+
+## Accessibility
+
+- Each field has an accessible name, for example "Key 1" and "Value of team".
+- A new row gets the focus on its key field.
+- The error of a row has `role="alert"`.
+
+## API reference
+
+`KeyValueEditor` also accepts each attribute of the `<div>` element.
+
+<PropsTable of="KeyValueEditor" />
+
+### useKeyValueRows
+
+`useKeyValueRows(initial, options?)` returns an object. Keep `options` stable between renders.
+
+| Name | Type | Role |
+| --- | --- | --- |
+| `initial` | `KeyValuePair[]` | Argument. The saved pairs. |
+| `options` | `ValidateRowsOptions` | Argument. It holds `validateKey` and `messages`. |
+| `rows` | `KeyValueRow[]` | The rows. Pass them to `value`. |
+| `setRows` | function | The setter. Pass it to `onValueChange`. |
+| `reset` | `(pairs) => void` | Replaces the saved pairs and the rows. |
+| `pairs` | `KeyValuePair[]` | The rows as pairs, with no blank row. |
+| `errors` | `Map` | The messages. The key of the map is the row id. |
+| `valid` | `boolean` | `true` when there is no error. |
+| `dirty` | `boolean` | `true` when `pairs` is different from the saved pairs. |
+
+### Helpers
+
+| Name | Role |
+| --- | --- |
+| `rowsFromPairs(pairs)` | Makes rows with new ids from pairs. |
+| `pairsFromRows(rows)` | Makes pairs from rows. It removes blank rows and trims the keys. |
+| `validateRows(rows, options?)` | Returns the messages in a map with the row id as key. |
+| `mergeRows(rows, incoming)` | Updates the rows by key and adds the new keys at the end. |
+| `newRowId()` | Returns a new row id. |
+| `parseKeyValueText(text, options?)` | Reads `key=value` lines. It returns `pairs` and the `invalid` lines. |
+| `formatKeyValueText(pairs)` | Writes pairs as `key=value` lines. |
+| `validateIdentifierKey` | A validator for keys with letters, digits, `_`, `.` and `-`. A digit cannot come first. |
+| `isIdentifierKey(key)` | Returns `true` for a key that the validator accepts. |
+| `VALUE_MASK` | The text that replaces a masked value. |

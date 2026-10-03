@@ -1,0 +1,54 @@
+---
+title: getErrorMessage
+description: A function that returns a readable message for each value that code can throw.
+source: src/lib/errors.ts
+---
+
+<Demo name="get-error-message/hero" title="A failed request with its message in a callout" />
+
+## Usage
+
+In a `catch` block, the type of the error is `unknown`. Give the error to `getErrorMessage` to get a string. Then show the string in a [Toast](/docs/components/toast), a [Callout](/docs/components/callout) or a [Save Bar](/docs/components/save-bar).
+
+```tsx
+import { getErrorMessage, toast } from 'libui'
+
+try {
+  await saveInvoice()
+} catch (err) {
+  toast.error(getErrorMessage(err))
+}
+```
+
+- [`ErrorState`](/docs/components/empty-state), [`TableErrorRow`](/docs/components/table-states), `StaleDataCallout` and [`ConfirmDialog`](/docs/components/confirm-dialog) call this function. Do not call it again for these components.
+- `getErrorMessage` is a plain function. A server component can call it.
+
+## Examples
+
+### Results
+
+The function reads the message of an `Error`. It returns a string as it is. For each other value, it returns the fallback text.
+
+| Value | Result |
+| --- | --- |
+| `new Error('Invoice not found')` | `'Invoice not found'` |
+| `'Network error'` | `'Network error'` |
+| `new Error('')` | The fallback text |
+| `''` | The fallback text |
+| `null` | The fallback text |
+| `{ status: 503 }` | The fallback text |
+
+### Fallback text
+
+The second argument sets the text for a value with no message. The default is "Something went wrong."
+
+<Demo name="get-error-message/toast" title="A toast with a custom fallback text" />
+
+## API reference
+
+`getErrorMessage(err, fallback)` returns a string.
+
+| Parameter | Type | Default | Role |
+| --- | --- | --- | --- |
+| `err` | `unknown` | | The value that the code threw, or the reason of a rejected promise. |
+| `fallback` | `string` | `'Something went wrong.'` | The text for a value with no message. |

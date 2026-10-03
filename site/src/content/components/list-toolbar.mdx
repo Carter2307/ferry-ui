@@ -1,0 +1,126 @@
+---
+title: List Toolbar
+description: The row of search, filters and actions above a list, a table or a grid.
+group: Patterns
+source: src/components/patterns/list-toolbar.tsx
+---
+
+<Demo name="list-toolbar/hero" align="stretch" title="A toolbar that filters a list of projects" />
+
+## Usage guidelines
+
+- **Put it above the list.** The toolbar controls the list, the table or the grid directly below it.
+- **Search first, then filters.** Put `SearchInput` first, then one `FilterMenu` for each filter.
+- **Only actions on the list.** Put the other actions in the `PageHeader` of the [Page](/docs/components/page).
+- **The search is for the list only.** For a search in the full app, use [Command Menu](/docs/components/command-menu).
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import { Button, FilterButton, FilterMenu, ListToolbar, SearchInput } from 'libui'
+
+<ListToolbar actions={<Button />}>
+  <SearchInput />
+  <FilterMenu label="" options={[]} />
+</ListToolbar>
+```
+
+| Part | Role |
+| --- | --- |
+| `ListToolbar` | The row. The children go to the left and `actions` to the right. |
+| `SearchInput` | The search field, with a button that clears it. |
+| `FilterMenu` | A filter button with a menu of options. |
+| `FilterButton` | The filter button alone, for a panel that you build. |
+
+The toolbar has no outer margin. Add `className="mb-4"` if the parent does not space its children.
+
+## Examples
+
+### Search
+
+`onValueChange` gives the query after each key. Your code filters the list. <Kbd>Esc</Kbd> and the × button clear the query.
+
+Pass `value` to control the query, or `defaultValue` to let the field hold it.
+
+<Demo name="list-toolbar/search" title="A search field that shows its query" />
+
+### Search sizes
+
+The `size` prop of `SearchInput` sets the height. The default is `sm`, the height of the toolbar buttons.
+
+<Demo name="list-toolbar/search-sizes" title="The sizes of the search field" />
+
+| Size | Height |
+| --- | --- |
+| `tiny` | 26px |
+| `sm` (default) | 30px |
+| `md` | 34px |
+
+### Filter menu
+
+`FilterMenu` takes a `label` and a short list of `options`, about 10 at most. An option can have an `icon`, a `count` and a `disabled` state.
+
+The user can select more than one option. The button shows the count. An empty selection means no filter.
+
+<Demo name="list-toolbar/filter-menu" title="A filter menu with icons and counts" />
+
+### Custom filter panel
+
+For a long list or a custom panel, use `FilterButton` as the trigger of a [Popover](/docs/components/popover). Give the labels of the selected values to `selected`.
+
+<Demo name="list-toolbar/filter-button" title="A filter button that opens a popover of checkboxes" />
+
+### Sort and view controls
+
+For the sort order, use a [Button](/docs/components/button) with a [Dropdown Menu](/docs/components/dropdown-menu). Put a [Toggle Group](/docs/components/toggle-group) for the view in `actions`.
+
+<Demo name="list-toolbar/sort-view" align="stretch" title="A toolbar with a sort menu and a view control" />
+
+### Menu texts
+
+Each text of `FilterMenu` is a prop with an English default. Use `heading`, `clearLabel` and `triggerLabel` to change or translate them. Pass `heading={null}` to hide the heading.
+
+<Demo name="list-toolbar/menu-texts" title="A filter menu with custom texts" />
+
+## Accessibility
+
+- The placeholder is the accessible name of `SearchInput`. Pass `label` to give a different name.
+- The default name of a filter button is "Filter by status". With a selection, it becomes "Status filter: Paid, Overdue".
+
+## API reference
+
+`ListToolbar` also accepts each attribute of the `<div>` element.
+
+### ListToolbar
+
+<PropsTable of="ListToolbar" />
+
+### SearchInput
+
+`SearchInput` also accepts most props of [Input](/docs/components/input), such as `id`, `name` and `disabled`.
+
+<PropsTable of="SearchInput" />
+
+### FilterMenu
+
+<PropsTable of="FilterMenu" />
+
+### FilterOption
+
+The type of one option of `FilterMenu`.
+
+| Name | Type | Role |
+| --- | --- | --- |
+| `value` | `string` | The value that the selection holds. |
+| `label` | `string` | The text in the menu and in the name of the trigger. |
+| `count` | `number` | The number of items that match. Optional. |
+| `icon` | `ReactNode` | A small element before the label. Optional. |
+| `disabled` | `boolean` | Makes the option not selectable. Optional. |
+
+### FilterButton
+
+`FilterButton` also accepts the props of [Button](/docs/components/button), but not `children` and `variant`.
+
+<PropsTable of="FilterButton" />

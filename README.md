@@ -550,6 +550,9 @@ pieces fit together.
 | `npm run test:watch` | Runs Vitest in watch mode |
 | `npm run check:docs` | Type-checks the `tsx` snippets of this file, of AGENTS.md and of the Storybook introduction, and verifies that AGENTS.md mentions every public export |
 | `npm run check` | `typecheck`, `lint`, `test` and `check:docs` in sequence |
+| `npm run site:dev` | Starts the documentation site (landing page and docs) on http://localhost:5181 |
+| `npm run site:build` | Builds the documentation site into `site/dist/` as static pages |
+| `npm run site:verify` | Type-checks the site, renders every demo, checks the writing rules and the links, then builds |
 
 Run the stories of a few files only:
 
@@ -576,6 +579,7 @@ libui/
 │  ├─ stories.test.tsx          smoke test: renders every story and runs its play function
 │  └─ index.test.ts             checks that every public module is exported by the barrel
 ├─ scripts/                     build helpers and the docs check
+├─ site/                        documentation site: landing page and docs, built with libui (see site/README.md)
 ├─ .storybook/                  Storybook configuration
 ├─ AGENTS.md                    reference for AI coding agents
 └─ dist/                        build output (not committed)

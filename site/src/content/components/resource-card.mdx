@@ -1,0 +1,109 @@
+---
+title: Resource Card
+description: A card that opens one named thing, and the grid that holds the cards.
+group: Patterns
+source: src/components/patterns/resource-card.tsx
+---
+
+<Demo name="resource-card/hero" align="stretch" title="A grid of four project cards" />
+
+## Usage guidelines
+
+- **A collection that people browse.** Use the cards for named things, such as projects, workspaces or integrations.
+- **Records to compare are a table.** For dense rows, use [Table](/docs/components/table).
+- **Not a container.** For other content, use [Card](/docs/components/card). For a KPI, use [Metric Card](/docs/components/metric-card).
+- **Cards go in a grid.** Put the cards in a `ResourceGrid`. Give the grid an `aria-label`.
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import { Badge, ResourceCard, ResourceCardSkeleton, ResourceGrid, StatusLine } from 'libui'
+
+<ResourceGrid aria-label="">
+  <ResourceCard name="" href="" icon={<Icon />} subtitle="" badges={<Badge />} footer={<StatusLine />} />
+  <ResourceCardSkeleton />
+</ResourceGrid>
+```
+
+| Part | Element | Role |
+| --- | --- | --- |
+| `ResourceGrid` | `ul` | The grid. The width sets the number of columns. |
+| `ResourceCard` | `li` | One card. With `href`, the full card is a link. |
+| `ResourceCardSkeleton` | `li` | A placeholder with the size of a card. |
+
+## Examples
+
+### Menu
+
+`menu` is the slot at the top right. Put a `ghost` button of size `icon-tiny` there, with a [Dropdown Menu](/docs/components/dropdown-menu). A click on the menu does not open the card.
+
+<Demo name="resource-card/menu" align="stretch" title="Two cards with a menu of actions" />
+
+### Footer
+
+`footer` stays at the bottom of the card. Use it for a line of data and a `StatusLine` of [Status](/docs/components/status).
+
+The link covers the full card. Thus a button or a link in the footer needs `className="relative z-10"`.
+
+<Demo name="resource-card/footer" align="stretch" title="Two cards with a footer" />
+
+### Static card
+
+A card with no `href` is not a link. It does not change on hover.
+
+<Demo name="resource-card/static" align="stretch" title="Two cards with no link" />
+
+### Loading
+
+While the list loads, show `ResourceCardSkeleton` in the grid. Set `aria-busy` on the grid.
+
+<Demo name="resource-card/loading" align="stretch" title="A grid with a switch for the loading state" />
+
+### Column width
+
+`minItemWidth` sets the minimum width of a column. The default is 248px. Pass a number of pixels or a CSS length.
+
+<Demo name="resource-card/min-width" align="stretch" title="A grid with narrow columns" />
+
+### Standalone card
+
+Outside a grid, set `as="div"`. The card is then not a list item.
+
+<Demo name="resource-card/standalone" title="One card outside a grid" />
+
+### Heading level
+
+The name is an `<h3>` by default. `titleAs` changes the element. Use `h2` if the grid comes directly below the title of the page.
+
+```tsx
+<ResourceCard titleAs="h2" name="Web app" href="/projects/web-app" />
+```
+
+## Accessibility
+
+- The name is the accessible name of the link. The icon is decorative.
+- The link gets the keyboard focus first, then the menu. The focus ring shows around the full card.
+- Give the trigger of the menu an `aria-label` with the name of the card.
+- Screen readers do not see the skeletons. That is why the grid needs `aria-busy`.
+
+## API reference
+
+`ResourceGrid` also accepts each attribute of the `<ul>` element. The two cards accept the attributes of their element.
+
+### ResourceGrid
+
+`resourceGridClassName` holds the classes of the grid. Use it for a list element that you do not render with `ResourceGrid`.
+
+<PropsTable of="ResourceGrid" />
+
+### ResourceCard
+
+The card renders its link with the link component of [Link Provider](/docs/utilities/link-provider).
+
+<PropsTable of="ResourceCard" />
+
+### ResourceCardSkeleton
+
+<PropsTable of="ResourceCardSkeleton" />

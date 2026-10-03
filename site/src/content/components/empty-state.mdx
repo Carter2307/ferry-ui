@@ -1,0 +1,107 @@
+---
+title: Empty State
+description: A placeholder for an area that has no content to show, and a box for a load that failed.
+group: Patterns
+source: src/components/patterns/empty-state.tsx
+---
+
+<Demo name="empty-state/hero" align="stretch" title="An empty list of invoices with a create button" />
+
+## Usage guidelines
+
+- **No content is a state.** Use `EmptyState` for an empty list, a first run and a search with no result. Say what goes there. Give the button that adds it.
+- **A first load with an error.** If the first load fails and there is no data to show, use `ErrorState` with `onRetry`.
+- **Old data stays.** If a refresh fails, keep the data on the page. Put `StaleDataCallout` above it. See [Callout](/docs/components/callout).
+- **A table has its own rows.** In a table body, use the rows of [Table States](/docs/components/table-states).
+- **A load is not empty.** While the data loads, show a [Skeleton](/docs/components/skeleton).
+
+## Anatomy
+
+Import the components. Each component has one part.
+
+```tsx title="Anatomy"
+import { Button, EmptyState, ErrorState } from 'libui'
+
+<EmptyState icon={<Icon />} title="" description="" actions={<Button />} />
+
+<ErrorState title="" error={error} onRetry={retry} />
+```
+
+## Examples
+
+### Variants
+
+The `variant` prop sets the frame.
+
+<Demo name="empty-state/variants" align="stretch" title="The variants of Empty State" />
+
+| Variant | Frame | Use |
+| --- | --- | --- |
+| `dashed` (default) | A dashed border. | An empty list, a drop zone. |
+| `bordered` | A card with a shadow. | A full page: not found, crashed, no access. |
+| `plain` | No frame. | In a card, a panel or a popover. |
+
+### Sizes
+
+The `size` prop sets the vertical padding.
+
+<Demo name="empty-state/sizes" align="stretch" title="The sizes of Empty State" />
+
+| Size | Padding | Use |
+| --- | --- | --- |
+| `sm` | 24px | Cards and side panels. |
+| `md` (default) | 40px | Sections of a page. |
+| `lg` | 64px | A full page, a first run. |
+
+### No search result
+
+If a search or a filter has no result, say what the search was. Give a button that clears it.
+
+<Demo name="empty-state/no-results" align="stretch" title="A search with no result and a clear button" />
+
+### In a card
+
+The card is the frame. Use the `plain` variant and the `sm` size.
+
+<Demo name="empty-state/in-card" title="An empty state in a card" />
+
+### Full page
+
+For a page that has no content at all, use the `bordered` variant and the `lg` size. Give a button that opens another page.
+
+<Demo name="empty-state/full-page" align="stretch" title="A page that is not found" />
+
+### More content
+
+The children show below the actions. Use them for a code sample or a help link.
+
+<Demo name="empty-state/children" align="stretch" title="An empty state with a command below the action" />
+
+### Load error
+
+`ErrorState` shows a title and the message of `error`. With `onRetry`, it also shows a Retry button. Set `retrying` while the new load is in progress.
+
+<Demo name="empty-state/error-state" align="stretch" title="An error state with a Retry button" />
+
+### Error with no retry
+
+If a retry cannot help, do not pass `onRetry`. The button does not show. Use `description` to replace the message of `error`.
+
+<Demo name="empty-state/error-description" align="stretch" title="An error state with a custom description and no button" />
+
+## Accessibility
+
+- `ErrorState` has the `alert` role. Screen readers read it when it shows.
+- The icon of `EmptyState` is decorative. Write the meaning in the title.
+
+## API reference
+
+The two components also accept each attribute of the `<div>` element.
+
+### EmptyState
+
+<PropsTable of="EmptyState" />
+
+### ErrorState
+
+<PropsTable of="ErrorState" />

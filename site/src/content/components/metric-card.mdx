@@ -1,0 +1,111 @@
+---
+title: Metric Card
+description: A card for one KPI number, with a trend, a usage bar or a chart.
+group: Patterns
+source: src/components/patterns/metric-card.tsx
+---
+
+<Demo name="metric-card/hero" align="stretch" title="Four metric cards of a dashboard" />
+
+## Usage guidelines
+
+- **Numbers that people compare.** Use it for a revenue, a count, a rate or a usage.
+- **Cards go in a grid.** Use `grid gap-4 sm:grid-cols-2 lg:grid-cols-4` for a row of four cards.
+- **Format the value first.** The card shows `value` as you give it.
+- **A fact is not a metric.** For an owner or the name of a plan, use [Info Tile](/docs/components/info-tile).
+- **Not a container.** For other content, use [Card](/docs/components/card).
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import { LegendDot, MetricCard, MetricTrend, UsageBar } from 'libui'
+
+<MetricCard label="" value="" trend={<MetricTrend />} aside={<LegendDot />}>
+  <UsageBar value={0} label="" />
+</MetricCard>
+```
+
+| Part | Role |
+| --- | --- |
+| `MetricCard` | The card: a label, a value and room for content below. |
+| `MetricTrend` | A change, with an arrow and a color. It goes in `trend`. |
+| `UsageBar` | A thin bar for a percentage from 0 to 100. |
+| `LegendDot` | A dot and the name of a chart series. It goes in `aside`. |
+
+## Examples
+
+### Trend
+
+`direction` sets the arrow of `MetricTrend`. `sentiment` sets the color. If an increase is bad, set `sentiment="negative"`.
+
+<Demo name="metric-card/trend" align="stretch" title="Three cards with a trend" />
+
+| Direction | Default sentiment |
+| --- | --- |
+| `up` (default) | `positive`, green |
+| `down` | `negative`, red |
+| `flat` | `neutral`, muted |
+
+### Usage bar
+
+Put a `UsageBar` in the children of the card to show a quota. With the default `auto` tone, the bar changes to `warning` at 75 and to `destructive` at 90. `warningAt` and `destructiveAt` change these limits.
+
+<Demo name="metric-card/usage" align="stretch" title="Three cards with a usage bar" />
+
+### Info tooltip
+
+`info` adds a button after the label. Its [Tooltip](/docs/components/tooltip) shows the text on hover and on keyboard focus. A touch screen cannot show it. Do not put necessary information there.
+
+The tooltip needs the `TooltipProvider` of the app. See [Quick start](/docs/overview/quick-start).
+
+<Demo name="metric-card/info" title="A card with an info button" />
+
+### Legend and chart
+
+`aside` shows content on the right of the label. Use `LegendDot` there to name a chart series. Put the chart in the children.
+
+<Demo name="metric-card/legend" title="A card with a legend and a bar chart" />
+
+### Loading
+
+Set `loading` while the value loads. The card shows a skeleton and hides `unit`, `trend` and `hint`. The children stay. Give them their own empty state.
+
+<Demo name="metric-card/loading" align="stretch" title="Two cards with a switch for the loading state" />
+
+### Compact
+
+`compact` changes the padding from 20px to 16px. Use it for a dense grid of small cards.
+
+<Demo name="metric-card/compact" align="stretch" title="Three compact cards" />
+
+## Accessibility
+
+- Write the sign in the text of `MetricTrend`, such as "+12.5%". The arrow is decorative, and the color alone does not give the meaning.
+- `UsageBar` has the `meter` role. Give it a `label`.
+- `infoLabel` names the info button. The default is "More info".
+
+## API reference
+
+`MetricCard` and `UsageBar` also accept each attribute of the `<div>` element. `MetricTrend` and `LegendDot` accept each attribute of the `<span>` element.
+
+### MetricCard
+
+<PropsTable of="MetricCard" />
+
+### MetricTrend
+
+<PropsTable of="MetricTrend" />
+
+### UsageBar
+
+`USAGE_BAR_TONES` is the list of the tones.
+
+<PropsTable of="UsageBar" />
+
+### LegendDot
+
+`LEGEND_DOT_TONES` is the list of the tones.
+
+<PropsTable of="LegendDot" />

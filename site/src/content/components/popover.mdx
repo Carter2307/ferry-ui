@@ -1,0 +1,129 @@
+---
+title: Popover
+description: A small panel that opens next to its trigger and holds a form or a picker.
+group: Primitives
+source: src/components/primitives/popover.tsx
+---
+
+<Demo name="popover/hero" title="A popover with a link to share" />
+
+## Usage guidelines
+
+- **A small form or a picker.** Use a popover for a quick edit, a filter or the share settings.
+- **A list of actions is a menu.** Use [Dropdown Menu](/docs/components/dropdown-menu).
+- **A hint is a tooltip.** For a short text on hover or focus, use [Tooltip](/docs/components/tooltip).
+- **Large content needs more room.** Use [Dialog](/docs/components/dialog) or [Sheet](/docs/components/sheet).
+
+## Anatomy
+
+Import the parts. Put them together in this order.
+
+```tsx title="Anatomy"
+import {
+  Popover,
+  PopoverAnchor,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from 'libui'
+
+<Popover>
+  <PopoverAnchor />
+  <PopoverTrigger />
+  <PopoverContent>
+    <PopoverHeader>
+      <PopoverTitle />
+      <PopoverDescription />
+    </PopoverHeader>
+  </PopoverContent>
+</Popover>
+```
+
+| Part | Role |
+| --- | --- |
+| `Popover` | Holds the open state. |
+| `PopoverTrigger` | Opens and closes the popover on a click. |
+| `PopoverContent` | The panel. |
+| `PopoverHeader` | Holds the title and the description. |
+| `PopoverTitle` | The visible title. |
+| `PopoverDescription` | A short text below the title. |
+| `PopoverAnchor` | An element that sets the position of the panel, in place of the trigger. |
+
+With `asChild`, `PopoverTrigger` gives its behavior to its child element. Use it with a [Button](/docs/components/button).
+
+## Examples
+
+### Side
+
+`PopoverContent` opens below the trigger by default. The `side` prop sets a different side. If the side has no room, the panel changes side.
+
+The `sideOffset` prop sets the gap between the trigger and the panel. The default is 6px.
+
+<Demo name="popover/side" title="A popover on each side of the trigger" />
+
+### Alignment
+
+The `align` prop aligns the panel to the start, the center or the end of the trigger. The default is `center`.
+
+<Demo name="popover/align" title="The three alignments of a popover" className="min-h-64" />
+
+### Open state
+
+A popover holds its open state by default. To control the state, pass `open` and `onOpenChange`. Use this to close the popover after a submit.
+
+<Demo name="popover/controlled" title="A popover with a form and a controlled open state" />
+
+### Width and padding
+
+The panel is 288px wide and has 16px of padding. Pass classes such as `w-80 p-0` to `PopoverContent` to change them.
+
+<Demo name="popover/custom-size" title="A wider popover with a list of notifications" />
+
+### Anchor
+
+By default the panel opens next to the trigger. Wrap a different element in `PopoverAnchor` to open the panel next to that element.
+
+<Demo name="popover/anchor" title="A popover that opens next to a field and its button" />
+
+## Accessibility
+
+- `PopoverTitle` is a plain `<div>`. It is not the accessible name of the panel.
+- Give `PopoverContent` an `aria-label` when the panel needs an accessible name.
+- The page stays interactive while the popover is open.
+- <Kbd>Esc</Kbd> closes the popover. A click outside the panel also closes it.
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### Popover
+
+<PropsTable of="Popover" />
+
+### PopoverTrigger
+
+<PropsTable of="PopoverTrigger" />
+
+### PopoverContent
+
+In libui, the default `align` is `center` and the default `sideOffset` is 6.
+
+<PropsTable of="PopoverContent" />
+
+### PopoverHeader
+
+<PropsTable of="PopoverHeader" />
+
+### PopoverTitle
+
+<PropsTable of="PopoverTitle" />
+
+### PopoverDescription
+
+<PropsTable of="PopoverDescription" />
+
+### PopoverAnchor
+
+<PropsTable of="PopoverAnchor" />

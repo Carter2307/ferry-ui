@@ -1,0 +1,124 @@
+---
+title: LinkProvider
+description: A provider that sends each link of libui through the link component of your router.
+source: src/lib/link.tsx
+---
+
+<Demo name="link-provider/hero" title="Breadcrumb links that go through a custom link component" />
+
+## Usage
+
+libui does not import a router. A component with a link takes an `href` string and renders an `<a>` element. `LinkProvider` replaces this element with the link of your router. Then a click does not load a full page.
+
+Write an adapter at module level. Mount the provider one time, near the root of the app.
+
+```tsx title="providers.tsx"
+import type { ReactNode } from 'react'
+import { Link } from 'react-router'
+import { LinkProvider, type LinkComponent } from 'libui'
+
+// Module level: the component keeps the same identity between renders.
+const RouterLink: LinkComponent = ({ href, ...props }) => <Link to={href} {...props} />
+
+export function Providers({ children }: { children: ReactNode }) {
+  return <LinkProvider component={RouterLink}>{children}</LinkProvider>
+}
+```
+
+- **Forward all the props.** The adapter gets `href` and the attributes of an anchor, for example `className`, `onClick` and `aria-current`. Give them all to the link.
+- **Keep the adapter stable.** Define it at module level, not in a component.
+- **Not for your own links.** For a link that you write, use the link of your router.
+- **Not necessary with no router.** With no provider, libui renders plain `<a>` elements.
+
+## Examples
+
+### Adapters
+
+The adapter gives `href` to the link of your router. libui gives a plain string. If your router has typed routes, cast `href` in the adapter.
+
+| Router | Adapter |
+| --- | --- |
+| React Router | `({ href, ...props }) => <Link to={href} {...props} />` |
+| Next.js | `({ href, ...props }) => <NextLink href={href} {...props} />` |
+| TanStack Router | `({ href, ...props }) => <Link to={href} {...props} />` |
+
+The [Routing](/docs/handbook/routing) page shows the full setup.
+
+### Components with a link
+
+These components render their links through the provider. Each one also has a `linkComponent` prop.
+
+| Page | Components |
+| --- | --- |
+| [Breadcrumb](/docs/components/breadcrumb) | `BreadcrumbLink` |
+| [Page](/docs/components/page) | `PageBackLink` |
+| [Resource Card](/docs/components/resource-card) | `ResourceCard` |
+| [Description List](/docs/components/description-list) | `DescriptionItem` |
+| [Top Bar](/docs/components/top-bar) | `TopBarLogo`, `TopBarSegment`, `TopBarIconButton` |
+| [Icon Rail](/docs/components/icon-rail) | `IconRail`, `IconRailItem` |
+| [Mobile Nav](/docs/components/mobile-nav) | `MobileNav` |
+| [Inner Menu](/docs/components/inner-menu) | `InnerMenu` |
+| [Command Menu](/docs/components/command-menu) | `CommandMenu` |
+| [Resource Switcher](/docs/components/resource-switcher) | `ResourceSwitcher` |
+
+A navigation item with `external` does not use the link component. It is a plain `<a>` element that opens a new tab.
+
+### Another link for one component
+
+The `linkComponent` prop of a component overrides the provider for this component.
+
+```tsx
+const PlainLink: LinkComponent = (props) => <a {...props} />
+
+<PageBackLink href="/customers" linkComponent={PlainLink}>
+  Customers
+</PageBackLink>
+```
+
+### A link in your component
+
+Does your component render a link? Call `useLinkComponent()` to get the link component. Give it the `linkComponent` prop of your component.
+
+```tsx title="docs-link.tsx"
+import type { ReactNode } from 'react'
+import { cn, useLinkComponent, type LinkComponent } from 'libui'
+
+interface DocsLinkProps {
+  href: string
+  children: ReactNode
+  className?: string
+  /** Overrides the `LinkProvider` of the app for this link. */
+  linkComponent?: LinkComponent
+}
+
+export function DocsLink({ href, children, className, linkComponent }: DocsLinkProps) {
+  const Link = useLinkComponent(linkComponent)
+  return (
+    <Link href={href} className={cn('text-primary underline-offset-4 hover:underline', className)}>
+      {children}
+    </Link>
+  )
+}
+```
+
+## API reference
+
+### LinkProvider
+
+<PropsTable of="LinkProvider" />
+
+### useLinkComponent
+
+`useLinkComponent(override)` returns a `LinkComponent`. If you give `override`, the hook returns it. If not, the hook returns the component of the nearest provider, or a plain `<a>`.
+
+| Parameter | Type | Role |
+| --- | --- | --- |
+| `override` | `LinkComponent`, optional | The `linkComponent` prop of your component. |
+
+### Types
+
+| Type | Definition |
+| --- | --- |
+| `LinkComponent` | `React.ComponentType<LinkComponentProps>` |
+| `LinkComponentProps` | The attributes of the `<a>` element, with a required `href` string. |
+| `LinkProviderProps` | The props of `LinkProvider`. |
