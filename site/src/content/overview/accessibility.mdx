@@ -1,0 +1,107 @@
+---
+title: Accessibility
+description: What libui does for accessibility, and what your code must do.
+order: 3
+---
+
+libui components have the roles, the focus management and the keyboard behavior. Some parts depend on your code.
+
+## What libui does
+
+| Subject | Behavior |
+| --- | --- |
+| Focus | Each control shows a focus ring when it gets the keyboard focus. |
+| Fields | `Field` and `FormRow` set `id`, `aria-describedby` and `aria-invalid` on the control. |
+| Icons | Components hide the icons of their `icon` props from assistive technology. |
+| Loading | The `loading` props set `aria-busy` on the region. |
+| Landmarks | [App Shell](/docs/components/app-shell) gives the `main` element and the skip link. Do not add a second `main` element. |
+| Navigation | [Top Bar](/docs/components/top-bar), [Icon Rail](/docs/components/icon-rail), [Mobile Nav](/docs/components/mobile-nav) and [Inner Menu](/docs/components/inner-menu) give `nav` elements with a label. |
+| Motion | The animations of overlays respect `prefers-reduced-motion`. |
+
+## Name each control
+
+A control with only an icon needs an `aria-label`. This rule applies to [Button](/docs/components/button), [Toggle](/docs/components/toggle), `ToggleGroupItem` and each menu trigger.
+
+A tooltip is not an accessible name. A button in a [Hint](/docs/components/tooltip) keeps its `aria-label`.
+
+<Demo name="accessibility/icon-button" title="Icon buttons with an accessible name and a hint" />
+
+If a screen repeats a control, name its target: `Actions for INV-2041`.
+
+## Label each field
+
+Use [Field](/docs/components/field), or [FormRow](/docs/components/form-card) with `htmlFor`. They connect the label, the hint and the error to the control. A [Label](/docs/components/label) with `htmlFor` also names a control. For a field with no visible text, set `aria-label`.
+
+Show each error as text. Type a full address in this field to remove the error.
+
+<Demo name="accessibility/field-error" title="A field with an error message" />
+
+A group has no single control. Give `aria-label` or `aria-labelledby` to [Radio Group](/docs/components/radio-group), [Toggle Group](/docs/components/toggle-group) and [Radio Card Group](/docs/components/radio-card-group).
+
+## Give each dialog a title
+
+`DialogTitle`, `AlertDialogTitle` and `SheetTitle` are required. If a [Dialog](/docs/components/dialog) or a [Sheet](/docs/components/sheet) has no description, pass `aria-describedby={undefined}` to its content.
+
+<Demo name="accessibility/dialog-title" title="A dialog with a title and no description" />
+
+## Do not use color alone
+
+A color must come with text. Give this text to the components of [Status](/docs/components/status), [Metric Card](/docs/components/metric-card) and [Icon Box](/docs/components/icon-box).
+
+<Demo name="accessibility/status" title="Status components with text" />
+
+| Component | Rule |
+| --- | --- |
+| `StatusBadge` | The `label` prop is required. |
+| `StatusDot` | Put text next to the dot, or set `label`. |
+| `MetricTrend` | Write the sign in the text: `+12.5%`. |
+| `UsageBar` | Set `label`. |
+| `IconBox` | If the icon has a meaning, set `label`. |
+
+## Tables
+
+These rules apply to [Table](/docs/components/table) and [Table States](/docs/components/table-states).
+
+- Name the table with `aria-label` or with `TableCaption`.
+- Put an `sr-only` label in a header cell that has only an icon.
+- Keep a real link in the first cell of a row that uses `rowLinkProps`.
+- Set `aria-busy` on `TableBody` while the skeleton rows show.
+
+## Loading states
+
+libui hides each [Skeleton](/docs/components/skeleton) from assistive technology. Set `aria-busy` on the region that loads.
+
+## Headings
+
+| Component | Element |
+| --- | --- |
+| `PageHeader` | `h1`. Use one for each page. |
+| `PageSection` | `h2` |
+| `FormCard`, `ResourceCard` | `h3`. The `titleAs` prop of `ResourceCard` changes it. |
+| `CardTitle` | `div`. Put a heading in it if the page outline needs one. |
+
+## Keyboard
+
+- <Kbd>Esc</Kbd> closes a dialog. In `SearchInput`, it clears the text.
+- <Kbd>⌘ K</Kbd> or <Kbd>Ctrl K</Kbd> calls `onCommandShortcut` of `AppShell`. Use it to open the [Command Menu](/docs/components/command-menu).
+- A tooltip also opens when its trigger gets the keyboard focus.
+
+A [Scroll Area](/docs/components/scroll-area) with only text has no element that takes the focus. Pass `tabIndex: 0`, `role: 'region'` and an `aria-label` in `viewportProps`. The keyboard can then scroll the area.
+
+## Focus
+
+Do not remove the focus rings. Give these classes to a custom interactive element.
+
+```tsx
+<a href="#billing" className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring">
+  Billing
+</a>
+```
+
+Do not put an interactive element in another interactive element. For example, do not put a button in a `RadioCard`, or a link in a `DescriptionItem` row that has `href`.
+
+## Motion and hover
+
+- Do not put essential information in a tooltip. Touch users cannot hover.
+- Use `pulse` and `spin` only while work is in progress.
+- Add `motion-safe:` or `motion-reduce:` to your own animations.

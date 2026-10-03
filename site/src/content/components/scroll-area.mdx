@@ -1,0 +1,72 @@
+---
+title: Scroll Area
+description: A container that scrolls its content and shows a thin scrollbar in the colors of the theme.
+group: Primitives
+source: src/components/primitives/scroll-area.tsx
+---
+
+<Demo name="scroll-area/hero" title="An activity log that scrolls" />
+
+## Usage guidelines
+
+- **A region with a fixed size.** Use a scroll area for a long menu, a side panel, a log or a list in a card.
+- **Give the area a limit.** Set a height, such as `h-72`. With no limit, the area grows with its content and does not scroll.
+- **The page needs no scroll area.** Keep the scrollbar of the browser for the main scroll of the page.
+- **A table has its own scroll.** A [Table](/docs/components/table) scrolls in its own container.
+
+## Anatomy
+
+Import the parts. `ScrollArea` already has a vertical scrollbar. Add a `ScrollBar` only for a horizontal scroll.
+
+```tsx title="Anatomy"
+import { ScrollArea, ScrollBar } from 'libui'
+
+<ScrollArea>
+  {/* the content */}
+  <ScrollBar orientation="horizontal" />
+</ScrollArea>
+```
+
+## Examples
+
+### Scrollbar always in view
+
+By default, the scrollbar shows while the pointer is on the area. Set `type="always"` to keep the scrollbar in view.
+
+<Demo name="scroll-area/always" title="A scroll area with a scrollbar that stays in view" />
+
+### Horizontal scroll
+
+Add a `ScrollBar` with `orientation="horizontal"` as the last child. The area then scrolls content that is wider than it.
+
+<Demo name="scroll-area/horizontal" title="A row of projects that scrolls from left to right" />
+
+### Height in a flex column
+
+In a flex column, give the area the `min-h-0 flex-1` classes. The area takes the height that the other elements leave.
+
+<Demo name="scroll-area/panel" title="A panel with a fixed header and a list that scrolls" />
+
+## Accessibility
+
+- Content with no link, button or field cannot take the focus. For such content, pass `tabIndex`, `role` and `aria-label` in `viewportProps`.
+- <Kbd>Tab</Kbd> then moves the focus to the area. The arrow keys scroll it.
+- If the content has links, buttons or fields, do not set `viewportProps`.
+
+```tsx
+<ScrollArea className="h-72" viewportProps={{ tabIndex: 0, role: 'region', 'aria-label': 'Activity log' }}>
+  {/* text or a list with no control */}
+</ScrollArea>
+```
+
+## API reference
+
+`ScrollArea` and `ScrollBar` also accept the props of their Radix UI primitive.
+
+### ScrollArea
+
+<PropsTable of="ScrollArea" />
+
+### ScrollBar
+
+<PropsTable of="ScrollBar" />

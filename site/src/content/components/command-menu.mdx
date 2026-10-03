@@ -1,0 +1,106 @@
+---
+title: Command Menu
+description: A dialog with a search field that opens a page or runs a command.
+group: Layout
+source: src/components/layout/command-menu.tsx
+---
+
+<Demo name="command-menu/hero" title="A command menu with pages and actions" />
+
+The search of this site is a command menu. Press <Kbd>⌘ K</Kbd> or <Kbd>Ctrl K</Kbd> to open it.
+
+## Usage guidelines
+
+- **One menu for each app.** Mount it one time, near the root of the app.
+- **Navigation first.** Put the pages in the first groups and the actions in the last groups. With an empty search field, <Kbd>Enter</Kbd> then opens a page.
+- **The same items as the rail.** A `NavGroup[]` is a valid value for `groups`. See [`NavItem`](/docs/components/icon-rail#navitem).
+- **Not a field of a form.** For a list with a search field in a form, use [Command](/docs/components/command) in a [Popover](/docs/components/popover).
+
+## Anatomy
+
+The menu has one part. Its `groups` prop gives the commands.
+
+```tsx title="Anatomy"
+import { CommandMenu } from 'libui'
+
+<CommandMenu open={open} onOpenChange={setOpen} groups={groups} />
+```
+
+## Examples
+
+### Links and actions
+
+An item with `href` opens a page through the link component of the app. An item with `onSelect` runs an action. The menu then closes.
+
+```tsx
+const groups: CommandMenuGroup[] = [
+  {
+    id: 'pages',
+    label: 'Go to',
+    items: [{ id: 'invoices', label: 'Invoices', icon: <Receipt />, href: '/invoices' }],
+  },
+  {
+    id: 'actions',
+    label: 'Actions',
+    items: [{ id: 'new-invoice', label: 'New invoice', icon: <Plus />, onSelect: openNewInvoice }],
+  },
+]
+```
+
+### Shortcut
+
+Set `shortcut`. The menu then opens and closes on <Kbd>⌘ K</Kbd> or <Kbd>Ctrl K</Kbd>, with no state in your code. A letter sets a different key: `shortcut="j"`.
+
+```tsx
+<CommandMenu groups={groups} shortcut />
+```
+
+<Callout tone="warning" title="Bind the shortcut in one place">
+  Use only one of `shortcut`, [`useCommandShortcut`](/docs/utilities/use-command-shortcut) and the `onCommandShortcut` prop of [App Shell](/docs/components/app-shell). With two of them, one key press opens the menu and closes it immediately.
+</Callout>
+
+### Item options
+
+An item accepts more fields than a `NavItem`. For example, `keepOpen` keeps the menu open after the command runs. The API reference lists these fields.
+
+<Demo name="command-menu/item-options" title="Items with a hint, a badge, a shortcut and a disabled state" />
+
+### Results from a server
+
+Set `shouldFilter` to `false`. The menu then shows each item that you pass. Get the results in `onSearchChange`. While the request is in progress, set `loading`.
+
+<Demo name="command-menu/remote" title="A command menu with results from a server" />
+
+### Custom rows
+
+The children show after the groups. Use `CommandGroup` and `CommandItem` for a row with your own content. A custom row does not close the menu. Close the menu in the `onSelect` of the row.
+
+<Demo name="command-menu/custom-rows" title="A command menu with custom rows" />
+
+## Accessibility
+
+- The focus moves to the search field when the menu opens. <Kbd>↑</Kbd> and <Kbd>↓</Kbd> move in the list. <Kbd>Enter</Kbd> runs the command. <Kbd>Esc</Kbd> closes the menu.
+- `title` and `description` name the dialog for screen readers. They do not show.
+- `closeLabel` and `externalLabel` set two more texts for screen readers. Use them to translate these texts.
+
+## API reference
+
+`CommandMenu` accepts only the props of this table.
+
+<PropsTable of="CommandMenu" />
+
+### CommandMenuItem
+
+A `CommandMenuItem` has the fields of a `NavItem` and these fields. The menu ignores `active`.
+
+| Field | Type | Role |
+| --- | --- | --- |
+| `hint` | `ReactNode` | Secondary text on the right. |
+| `shortcut` | `ReactNode` | A key hint on the right. The menu does not bind the key. |
+| `keywords` | `string[]` | More words that the search matches. |
+| `value` | `string` | The text that the search matches. The default is `label`. It must be unique. |
+| `keepOpen` | `boolean` | Keeps the menu open after the command runs. |
+
+### CommandMenuGroup
+
+A `CommandMenuGroup` is a `NavGroup` with `CommandMenuItem` items. The menu does not show a group with no item.

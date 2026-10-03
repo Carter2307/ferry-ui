@@ -1,0 +1,99 @@
+---
+title: Description List
+description: A list of read-only facts about one record, as labels and values.
+group: Patterns
+source: src/components/patterns/description-list.tsx
+---
+
+<Demo name="description-list/hero" align="stretch" title="The facts of an order in a grid" />
+
+## Usage guidelines
+
+- **Facts about one record.** Use it for the status, the dates and the amounts of one invoice, one order or one member.
+- **Many records are a table.** To compare records by column, use [Table](/docs/components/table).
+- **Read only.** For settings that the user can edit, use [Form Card](/docs/components/form-card).
+- **Not for a headline number.** For a KPI, use [Metric Card](/docs/components/metric-card). For facts with an icon, use [Info Tile](/docs/components/info-tile).
+
+## Anatomy
+
+Import the two parts. The list is a `<dl>` element. The children of an item are its value.
+
+```tsx title="Anatomy"
+import { DescriptionItem, DescriptionList } from 'libui'
+
+<DescriptionList>
+  <DescriptionItem label="" />
+  <DescriptionItem label="" />
+</DescriptionList>
+```
+
+The `variant` prop of the list sets the look. The items get the variant from the list.
+
+| Variant | Look | Use |
+| --- | --- | --- |
+| `grid` (default) | A card of cells. | The facts at the top of a detail page. |
+| `strip` | One row of cells. | Short values at the bottom of a card. |
+| `rows` | Rows with the value on the right. | A side panel or the body of a card. |
+| `inline` | Two compact columns with no frame. | A popover or a menu. |
+
+## Examples
+
+### Columns
+
+`columns` sets the number of columns of the `grid` and `strip` variants, from 1 to 4. The default is 4. The `grid` variant uses fewer columns on a small screen.
+
+<Demo name="description-list/columns" align="stretch" title="A grid of two columns and a grid of three columns" />
+
+### Long values
+
+A value stays on one line. `span` makes a cell of the grid wider. `wrap` lets the text continue on more lines. `mono` is for an ID, a URL or a key.
+
+<Demo name="description-list/long-values" align="stretch" title="A grid with a wide cell and a cell of many lines" />
+
+### Strip
+
+The `strip` variant goes at the bottom of a [Card](/docs/components/card). It always shows the number of columns that you set. Keep the values short.
+
+<Demo name="description-list/strip" title="A strip of three facts at the bottom of a card" />
+
+### Rows
+
+In the `rows` variant, an item can have an `icon`, a `hint` and an `href`. With `href`, the full row is a link. `divided={false}` removes the line above the first row.
+
+<Demo name="description-list/rows" title="Rows with icons, a hint and two links" />
+
+### Inline
+
+The `inline` variant has no frame. Use it in a [Popover](/docs/components/popover) or in a menu.
+
+<Demo name="description-list/inline" title="A popover with an inline list" />
+
+### Loading
+
+Set `loading` on an item while its value loads. The item shows a skeleton and sets `aria-busy`.
+
+<Demo name="description-list/loading" align="stretch" title="A grid with a switch for the loading state" />
+
+### Empty values
+
+An item with no value shows a dash. The number `0` is a value.
+
+<Demo name="description-list/empty-values" align="stretch" title="A grid with three empty values and a zero" />
+
+## Accessibility
+
+- The list cuts a long value. Put the full text in a `title` attribute.
+- In a row with `href`, the label is the text of the link. The value is its description.
+- Do not put a button or a second link in a row with `href`. The link covers the full row.
+
+## API reference
+
+`DescriptionList` also accepts each attribute of the `<dl>` element. `DescriptionItem` accepts each attribute of the `<div>` element.
+
+### DescriptionList
+
+<PropsTable of="DescriptionList" />
+
+### DescriptionItem
+
+<PropsTable of="DescriptionItem" />

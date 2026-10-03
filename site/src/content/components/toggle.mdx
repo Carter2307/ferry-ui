@@ -1,0 +1,91 @@
+---
+title: Toggle
+description: A button with two states that stays pressed until the next click.
+group: Primitives
+source: src/components/primitives/toggle.tsx
+---
+
+<Demo name="toggle/hero" title="Two toggles for the options of a list" />
+
+## Usage guidelines
+
+- **A state, not an action.** A toggle stays pressed. For an action that runs one time, use [Button](/docs/components/button).
+- **A view option, not a setting.** Use a toggle in a toolbar. For a setting that applies immediately, use [Switch](/docs/components/switch).
+- **One toggle, one option.** To pick one option of a set, use [Toggle Group](/docs/components/toggle-group) or [Tabs](/docs/components/tabs).
+
+## Anatomy
+
+Import the component. A toggle has one part.
+
+```tsx title="Anatomy"
+import { Toggle } from 'libui'
+
+<Toggle />
+```
+
+## Examples
+
+### Variants
+
+The `variant` prop sets the look. A pressed toggle changes its fill.
+
+<Demo name="toggle/variants" title="The variants of Toggle" />
+
+| Variant | Look | Use |
+| --- | --- | --- |
+| `default` | No border and no fill. | A toggle in a toolbar. |
+| `outline` | A border and a fill. | A toggle that stands alone near other controls. |
+
+### Sizes
+
+The `size` prop sets the height. A toggle has the same height as a `Button` of the same size.
+
+<Demo name="toggle/sizes" title="The sizes of Toggle" />
+
+| Size | Height |
+| --- | --- |
+| `tiny` | 26px |
+| `sm` | 30px (default) |
+| `md` | 34px |
+
+The sizes `default` and `lg` are deprecated names of `sm` and `md`. Do not use them.
+
+### Icon only
+
+A toggle with only an icon must have an `aria-label`. For a tooltip, wrap the toggle in [`Hint`](/docs/components/tooltip).
+
+<Demo name="toggle/icon-only" title="Icon-only toggles in a toolbar" />
+
+### Disabled state
+
+Set `disabled` to refuse clicks. The toggle keeps its state.
+
+<Demo name="toggle/disabled" title="Disabled toggles" />
+
+### Controlled state
+
+A toggle holds its state by default. Use `defaultPressed` to press it at the start.
+
+To control the state, pass `pressed` and `onPressedChange`. Use this when the state changes other content.
+
+<Demo name="toggle/controlled" title="A toggle that shows the archived projects" />
+
+## Accessibility
+
+- A toggle is a button with the `aria-pressed` attribute. A screen reader reads the pressed state.
+- A tooltip is not an accessible name. An icon-only toggle must have an `aria-label`.
+
+## API reference
+
+`Toggle` also accepts the props of its Radix UI primitive and each attribute of the `<button>` element.
+
+<PropsTable of="Toggle" />
+
+### toggleVariants
+
+`toggleVariants({ variant, size })` returns the classes of a toggle. Use it to give the toggle look to an element that is not a `Toggle`.
+
+| Option | Type | Role |
+| --- | --- | --- |
+| `variant` | `'default'` or `'outline'` | The look. The default is `default`. |
+| `size` | `'tiny'`, `'sm'` or `'md'` | The height. The default is `sm`. |

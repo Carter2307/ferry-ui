@@ -1,0 +1,155 @@
+---
+title: Top Bar
+description: The header of an application, with a logo, a trail of segments and a group of actions.
+group: Layout
+source: src/components/layout/top-bar.tsx
+---
+
+<Demo name="top-bar/hero" frame height={320} title="A top bar with a trail and actions" />
+
+Use the buttons above the preview to see the bar on a tablet and on a phone.
+
+## Usage guidelines
+
+- **One bar for each app.** Put `TopBar` in the `topBar` slot of [App Shell](/docs/components/app-shell).
+- **Not a page header.** For the title of a page, use [Page](/docs/components/page).
+- **The bar holds no state.** Your code opens the command menu and the phone drawer.
+- **Few actions.** Put the secondary actions in the user menu.
+
+## Anatomy
+
+The trail is the `children` of the bar. The logo and the actions are slots.
+
+```tsx title="Anatomy"
+import {
+  TopBar,
+  TopBarIconButton,
+  TopBarLogo,
+  TopBarSearch,
+  TopBarSegment,
+  TopBarSeparator,
+  TopBarUserMenu,
+} from 'libui'
+
+<TopBar
+  logo={<TopBarLogo />}
+  actions={
+    <>
+      <TopBarSearch />
+      <TopBarIconButton />
+      <TopBarUserMenu />
+    </>
+  }
+>
+  <TopBarSeparator />
+  <TopBarSegment />
+</TopBar>
+```
+
+| Part | Role |
+| --- | --- |
+| `TopBar` | The header. It is 48px high. |
+| `TopBarLogo` | The brand mark at the start of the trail. |
+| `TopBarSeparator` | The slash before each segment. |
+| `TopBarSegment` | One item of the trail: a button or a link. |
+| `TopBarSearch` | A button with the look of a search field. |
+| `TopBarIconButton` | A round button with one icon. |
+| `TopBarUserMenu` | The account menu. It comes last in the actions. |
+
+## Examples
+
+### Link segments
+
+Put a `TopBarSeparator` before each segment. A segment with `href` is a link. Set `current` on the segment of the current page.
+
+```tsx
+<TopBar logo={<TopBarLogo href="/" label="Acme home">{logo}</TopBarLogo>}>
+  <TopBarSeparator />
+  <TopBarSegment href="/projects">Projects</TopBarSegment>
+  <TopBarSeparator />
+  <TopBarSegment href="/projects/billing-portal" current>
+    Billing portal
+  </TopBarSegment>
+</TopBar>
+```
+
+### Segment with a menu
+
+A segment with no `href` is a button with a chevron. To open a [Dropdown Menu](/docs/components/dropdown-menu), put the segment in a `DropdownMenuTrigger` with `asChild`. `chevron={false}` hides the chevron.
+
+For a long list with a search field, use [Resource Switcher](/docs/components/resource-switcher).
+
+<Demo name="top-bar/segment-menu" frame height={280} title="A segment that opens a menu" />
+
+### Segment states
+
+`loading` shows a skeleton in place of the text. `badge` adds content after the text, but not on a phone. The segment cuts long text at 180px. `disabled` blocks the segment.
+
+<Demo name="top-bar/segment-states" frame height={160} title="The states of a segment" />
+
+### Search button
+
+`TopBarSearch` is a button, not a field. Open a [Command Menu](/docs/components/command-menu) from its `onClick`. `shortcut` sets the key hint, and `false` hides it. The component does not bind the key.
+
+On a phone, the button shows only its icon. `compactOnMobile={false}` keeps the full button.
+
+<Demo name="top-bar/search" title="Search buttons with different key hints" />
+
+### Icon buttons
+
+`TopBarIconButton` needs `icon` and `label`. The label is the accessible name and the text of the tooltip. With `href`, the button is a link.
+
+<Demo name="top-bar/icon-buttons" title="Round icon buttons" />
+
+### User menu
+
+The trigger shows the initials of `name`. The children are the items of the menu. Pass `header` to replace the name and the description. Pass `avatarSrc` to show a picture.
+
+<Demo name="top-bar/user-menu" title="Two user menus" />
+
+### Phone drawer
+
+Pass `onOpenMobileNav`. The bar then shows a menu button below 768px. Open a [Mobile Nav](/docs/components/mobile-nav) from this function.
+
+```tsx
+<TopBar onOpenMobileNav={() => setNavOpen(true)} />
+```
+
+## Accessibility
+
+- `TopBarLogo` needs a `label`. The label is the accessible name of the logo.
+- The trail is a `<nav>` element. `navLabel` sets its name. The default is "Breadcrumb".
+- `mobileNavLabel` sets the accessible name of the menu button. The default is "Open navigation".
+- `TopBarIconButton` needs a `TooltipProvider` above the bar. See [Tooltip](/docs/components/tooltip).
+
+## API reference
+
+Each part also accepts the attributes of its element. `TopBarUserMenu` does not.
+
+### TopBar
+
+<PropsTable of="TopBar" />
+
+### TopBarLogo
+
+<PropsTable of="TopBarLogo" />
+
+### TopBarSeparator
+
+<PropsTable of="TopBarSeparator" />
+
+### TopBarSegment
+
+<PropsTable of="TopBarSegment" />
+
+### TopBarSearch
+
+<PropsTable of="TopBarSearch" />
+
+### TopBarIconButton
+
+<PropsTable of="TopBarIconButton" />
+
+### TopBarUserMenu
+
+<PropsTable of="TopBarUserMenu" />

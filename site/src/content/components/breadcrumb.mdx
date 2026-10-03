@@ -1,0 +1,142 @@
+---
+title: Breadcrumb
+description: A row of links that shows the place of the page in a hierarchy.
+group: Primitives
+source: src/components/primitives/breadcrumb.tsx
+---
+
+<Demo name="breadcrumb/hero" title="A breadcrumb with two links and the current page" />
+
+## Usage guidelines
+
+- **More than one level.** A breadcrumb links to each parent of the page. For one parent, use `PageBackLink` from [Page](/docs/components/page).
+- **One current page.** The last item is a `BreadcrumbPage`. It is not a link.
+- **Above the title.** In a page, the breadcrumb goes in the header, above the title.
+- **Not for the steps of a task.** A breadcrumb shows a hierarchy. It does not show progress.
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from 'libui'
+
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink />
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbEllipsis />
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage />
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+| Part | Element | Role |
+| --- | --- | --- |
+| `Breadcrumb` | `nav` | The root. |
+| `BreadcrumbList` | `ol` | The list of items. It wraps on a small screen. |
+| `BreadcrumbItem` | `li` | One level. It holds a link, the current page or an ellipsis. |
+| `BreadcrumbLink` | `a` | A link to a parent page. |
+| `BreadcrumbPage` | `span` | The current page. |
+| `BreadcrumbSeparator` | `li` | The mark between two items. |
+| `BreadcrumbEllipsis` | `span` | The "…" mark for the levels that do not show. |
+
+## Examples
+
+### Router links
+
+`BreadcrumbLink` takes an `href` string. It renders the link through the link component of the app. Set this component one time with [Link Provider](/docs/utilities/link-provider).
+
+For one link with another component, pass `linkComponent`. To style a link that you render yourself, pass `asChild`.
+
+```tsx
+<BreadcrumbLink href="/projects">Projects</BreadcrumbLink>
+
+// `Link` is the link component of your router.
+<BreadcrumbLink asChild>
+  <Link to="/projects">Projects</Link>
+</BreadcrumbLink>
+```
+
+### Separator
+
+The separator shows a chevron by default. Pass children to `BreadcrumbSeparator` to show another mark.
+
+<Demo name="breadcrumb/separator" title="A breadcrumb with a slash between the items" />
+
+### Icon
+
+A link with only an icon must have a name. Add a text with the `sr-only` class.
+
+<Demo name="breadcrumb/icon" title="A breadcrumb that starts with a home icon" />
+
+### Collapsed levels
+
+In a deep hierarchy, replace the middle levels with `BreadcrumbEllipsis`. Put it in the trigger of a [Dropdown Menu](/docs/components/dropdown-menu) that lists these levels.
+
+<Demo name="breadcrumb/collapsed" title="A breadcrumb with a menu for the middle levels" className="min-h-64" />
+
+### Long names
+
+The list wraps when it is wider than its container. To limit the width of one item, add the classes `max-w-32 truncate`. Keep the full name in `title`.
+
+<Demo name="breadcrumb/long" title="A breadcrumb with long names" />
+
+### Page header
+
+Put the breadcrumb in the `eyebrow` prop of `PageHeader`. It shows above the title of the page.
+
+<Demo name="breadcrumb/page-header" align="stretch" title="A page header with a breadcrumb" />
+
+## Accessibility
+
+- `Breadcrumb` has the label "breadcrumb". Pass `aria-label` to change it.
+- `BreadcrumbPage` sets `aria-current="page"`.
+- Screen readers ignore the separators and the ellipsis. Give the trigger of the ellipsis an `aria-label`.
+
+## API reference
+
+Each part also accepts the attributes of its element.
+
+### Breadcrumb
+
+<PropsTable of="Breadcrumb" />
+
+### BreadcrumbList
+
+<PropsTable of="BreadcrumbList" />
+
+### BreadcrumbItem
+
+<PropsTable of="BreadcrumbItem" />
+
+### BreadcrumbLink
+
+<PropsTable of="BreadcrumbLink" />
+
+### BreadcrumbPage
+
+<PropsTable of="BreadcrumbPage" />
+
+### BreadcrumbSeparator
+
+<PropsTable of="BreadcrumbSeparator" />
+
+### BreadcrumbEllipsis
+
+<PropsTable of="BreadcrumbEllipsis" />

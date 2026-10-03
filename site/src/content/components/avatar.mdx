@@ -1,0 +1,132 @@
+---
+title: Avatar
+description: A round picture for a person, a team or an organization, with a fallback.
+group: Primitives
+source: src/components/primitives/avatar.tsx
+---
+
+<Demo name="avatar/hero" title="A member with an avatar and a presence dot" />
+
+## Usage guidelines
+
+- **People, teams and organizations.** Use an avatar for a person, a team or an organization.
+- **The kind of an entity is not an avatar.** For an icon that shows the kind of an entity, use [Icon Box](/docs/components/icon-box).
+- **Always add a fallback.** `AvatarImage` shows only after the picture loads. `AvatarFallback` fills the frame until then.
+- **Limit a group.** Show a few avatars in `AvatarGroup`. Put the number of the others in `AvatarGroupCount`.
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage } from 'libui'
+
+<AvatarGroup>
+  <Avatar>
+    <AvatarImage />
+    <AvatarFallback />
+    <AvatarBadge />
+  </Avatar>
+  <AvatarGroupCount />
+</AvatarGroup>
+```
+
+| Part | Role |
+| --- | --- |
+| `Avatar` | The round frame. It sets the size. |
+| `AvatarImage` | The picture. It shows after the picture loads. |
+| `AvatarFallback` | Initials or an icon. It shows when there is no picture. |
+| `AvatarBadge` | A small dot at the bottom right of the avatar. |
+| `AvatarGroup` | A row of avatars that overlap. |
+| `AvatarGroupCount` | The last item of a group, for example "+5". |
+
+## Examples
+
+### Picture and fallback
+
+Give the URL of the picture to `AvatarImage`. Put the initials of the person in `AvatarFallback`.
+
+```tsx
+<Avatar>
+  <AvatarImage src={member.photo} alt={member.name} />
+  <AvatarFallback>MC</AvatarFallback>
+</Avatar>
+```
+
+If the picture fails, the fallback stays in view. The fallback can be initials or an icon. In this demo, the first picture cannot load.
+
+<Demo name="avatar/fallback" title="Avatars that show their fallback" />
+
+To prevent a flash of the fallback on a fast network, set `delayMs` on `AvatarFallback`.
+
+### Sizes
+
+The `size` prop sets the diameter. The fallback text and the badge follow the size.
+
+<Demo name="avatar/sizes" title="The sizes of Avatar" />
+
+| Size | Diameter |
+| --- | --- |
+| `sm` | 24px |
+| `md` | 32px (default) |
+| `lg` | 40px |
+
+### Organization
+
+An avatar is round by default. For an organization, pass `className="rounded-md"`. The picture and the fallback get the same radius.
+
+<Demo name="avatar/organization" title="An avatar with rounded corners for an organization" />
+
+### Badge
+
+`AvatarBadge` adds a dot at the bottom right of the avatar. It has the primary color by default. Set another color with a token class, such as `bg-success`.
+
+The badge can hold an icon. The icon does not show at the `sm` size.
+
+<Demo name="avatar/badge" title="Avatars with a badge" />
+
+### Group
+
+`AvatarGroup` puts the avatars in a row where they overlap. Add `AvatarGroupCount` as the last child for the members that are not in view.
+
+<Demo name="avatar/group" title="A group of avatars with a count" />
+
+### Count with an icon
+
+`AvatarGroupCount` accepts text or an icon. With an icon, add hidden text for screen readers.
+
+<Demo name="avatar/group-icon" title="A group of avatars with an icon as the count" />
+
+## Accessibility
+
+- Give `AvatarImage` an `alt` text, usually the name of the person.
+- `AvatarBadge` is a plain `<span>`. If the state matters, add `role="img"` and an `aria-label`.
+- `AvatarGroupCount` is not interactive. To open the full list of members, put the group in a button or a link.
+
+## API reference
+
+`Avatar`, `AvatarImage` and `AvatarFallback` also accept the props of their Radix UI primitive. The other parts accept the attributes of their element.
+
+### Avatar
+
+<PropsTable of="Avatar" />
+
+### AvatarImage
+
+<PropsTable of="AvatarImage" />
+
+### AvatarFallback
+
+<PropsTable of="AvatarFallback" />
+
+### AvatarBadge
+
+<PropsTable of="AvatarBadge" />
+
+### AvatarGroup
+
+<PropsTable of="AvatarGroup" />
+
+### AvatarGroupCount
+
+<PropsTable of="AvatarGroupCount" />

@@ -1,0 +1,62 @@
+---
+title: Skeleton
+description: A placeholder block that takes the place of content while the content loads.
+group: Primitives
+source: src/components/primitives/skeleton.tsx
+---
+
+<Demo name="skeleton/hero" title="The skeleton of a profile" />
+
+## Usage guidelines
+
+- **For the first load.** Use a skeleton while a page, a list or a value loads for the first time.
+- **Same size as the content.** A skeleton has no size of its own. Give it the size of the content that it replaces.
+- **Use the built-in states first.** [Metric Card](/docs/components/metric-card), [Info Tile](/docs/components/info-tile) and the items of a [Description List](/docs/components/description-list) have a `loading` prop. [Table States](/docs/components/table-states) and [Resource Card](/docs/components/resource-card) have their own skeleton components.
+- **An action in progress is not a skeleton.** For an action, use the `loading` prop of [Button](/docs/components/button).
+
+## Anatomy
+
+Import the component. A skeleton has one part.
+
+```tsx title="Anatomy"
+import { Skeleton } from 'libui'
+
+<Skeleton className="h-4 w-32" />
+```
+
+## Examples
+
+### Shapes
+
+Set the size and the radius with `className`. This demo shows an avatar, a square picture, a badge, a field and a line of text.
+
+<Demo name="skeleton/shapes" title="Skeletons with different shapes" />
+
+### Text
+
+Use one skeleton for each line of text. Make the last line shorter.
+
+<Demo name="skeleton/text" title="The skeleton of a title and three lines of text" />
+
+### List
+
+Use one skeleton for each row of a list. Give each skeleton the height of a row.
+
+<Demo name="skeleton/list" title="The skeleton of a list with three rows" />
+
+### From skeleton to content
+
+Show the skeleton while the data loads. Then show the content in the same place. Because the sizes are the same, the layout does not move.
+
+<Demo name="skeleton/content" title="A profile that shows a skeleton while it loads" />
+
+## Accessibility
+
+- Assistive technology does not see a skeleton. Set `aria-busy` on the region that loads.
+- The skeleton pulses. The pulse stops when the user prefers reduced motion.
+
+## API reference
+
+`Skeleton` accepts each attribute of the `<div>` element.
+
+<PropsTable of="Skeleton" />

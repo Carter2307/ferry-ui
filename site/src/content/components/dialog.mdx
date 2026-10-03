@@ -1,0 +1,139 @@
+---
+title: Dialog
+description: A window on top of the page for one task or one form.
+group: Primitives
+source: src/components/primitives/dialog.tsx
+---
+
+<Demo name="dialog/hero" title="A dialog with a form" />
+
+## Usage guidelines
+
+- **One task for each dialog.** A dialog asks for one decision or shows one short form.
+- **A confirmation is not a dialog.** To confirm a destructive action, use [Confirm Dialog](/docs/components/confirm-dialog) or [Alert Dialog](/docs/components/alert-dialog).
+- **Keep the page in view with a sheet.** For a side panel, use [Sheet](/docs/components/sheet).
+- **Give each dialog a title.** `DialogTitle` is the accessible name of the dialog.
+
+## Anatomy
+
+Import the parts and put them together.
+
+```tsx title="Anatomy"
+import {
+  Dialog,
+  DialogBody,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from 'libui'
+
+<Dialog>
+  <DialogTrigger />
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle />
+      <DialogDescription />
+    </DialogHeader>
+    <DialogBody />
+    <DialogFooter>
+      <DialogClose />
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+| Part | Role |
+| --- | --- |
+| `Dialog` | Holds the open state. |
+| `DialogTrigger` | Opens the dialog on a click. |
+| `DialogContent` | The panel. It adds the overlay and the close button. |
+| `DialogHeader` | Holds the title and the description. |
+| `DialogBody` | The content. It is the only part that scrolls. |
+| `DialogFooter` | The actions. Cancel comes first, the primary action comes last. |
+| `DialogClose` | Closes the dialog on a click. |
+
+## Examples
+
+### Open state
+
+A dialog holds its open state by default. Use `defaultOpen` to open it at the start.
+
+To control the state, pass `open` and `onOpenChange`. Use this to close the dialog after a submit.
+
+<Demo name="dialog/controlled" title="A dialog with a controlled open state" />
+
+### Sizes
+
+The `size` prop of `DialogContent` sets the maximum width.
+
+<Demo name="dialog/sizes" title="The sizes of a dialog" />
+
+| Size | Width |
+| --- | --- |
+| `sm` | 384px |
+| `md` | 448px (default) |
+| `lg` | 512px |
+| `xl` | 672px |
+| `xxl` | 896px |
+
+### Long content
+
+Put long content in `DialogBody`. The body scrolls. The header and the footer stay in view.
+
+<Demo name="dialog/scroll" title="A dialog with a body that scrolls" />
+
+### No description
+
+A dialog with no `DialogDescription` must tell that to screen readers. Pass `aria-describedby={undefined}` to `DialogContent`.
+
+<Demo name="dialog/no-description" title="A dialog with no description" />
+
+## Accessibility
+
+- The focus moves into the dialog when it opens. It goes back to the trigger when the dialog closes.
+- <Kbd>Esc</Kbd> closes the dialog. A click outside the panel also closes it.
+- `closeLabel` sets the accessible name of the close button. The default is "Close".
+
+## API reference
+
+Each part also accepts the props of its Radix UI primitive and the attributes of its element.
+
+### Dialog
+
+<PropsTable of="Dialog" />
+
+### DialogTrigger
+
+<PropsTable of="DialogTrigger" />
+
+### DialogContent
+
+<PropsTable of="DialogContent" />
+
+### DialogHeader
+
+<PropsTable of="DialogHeader" />
+
+### DialogTitle
+
+<PropsTable of="DialogTitle" />
+
+### DialogDescription
+
+<PropsTable of="DialogDescription" />
+
+### DialogBody
+
+<PropsTable of="DialogBody" />
+
+### DialogFooter
+
+<PropsTable of="DialogFooter" />
+
+### DialogClose
+
+<PropsTable of="DialogClose" />
