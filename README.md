@@ -131,7 +131,7 @@ with a `prepare` script only; libui builds in `prepack`, which npm does not run 
 Until a `prepare` script is added, install from npm, or from a checkout:
 
 ```sh
-git clone https://github.com/Carter2307/libui.git libui
+git clone https://github.com/Carter2307/ferry-ui.git libui
 cd libui && npm ci && npm pack          # writes ferry-ui-<version>.tgz
 cd ../my-app && npm install ../libui/ferry-ui-0.1.0.tgz
 ```

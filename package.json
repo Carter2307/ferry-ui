@@ -5,13 +5,13 @@
   "type": "module",
   "license": "MIT",
   "author": "B.ROGER",
-  "homepage": "https://github.com/Carter2307/libui#readme",
+  "homepage": "https://github.com/Carter2307/ferry-ui#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Carter2307/libui.git"
+    "url": "git+https://github.com/Carter2307/ferry-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/Carter2307/libui/issues"
+    "url": "https://github.com/Carter2307/ferry-ui/issues"
   },
   "sideEffects": [
     "**/*.css"

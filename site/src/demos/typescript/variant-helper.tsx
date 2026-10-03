@@ -7,7 +7,7 @@ function RepositoryLink({ variant, size }: RepositoryLinkProps) {
   return (
     <a
       className={buttonVariants({ variant, size })}
-      href="https://github.com/Carter2307/libui"
+      href="https://github.com/Carter2307/ferry-ui"
       target="_blank"
       rel="noreferrer"
     >
